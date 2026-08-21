@@ -67,8 +67,10 @@ export default function Contact() {
       setPhone("");
       setSelectedServices([]);
       setMessage("");
-    } catch (cause) {
-      console.error("Quote submission failed", cause);
+    } catch {
+      // Deliberately does not log the backend error object, which carries
+      // schema and constraint detail.
+      console.error("Quote submission failed");
       setSubmitState("error");
     }
   };

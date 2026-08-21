@@ -37,7 +37,9 @@ function getClientIP(req: Request): string | null {
 }
 
 function isValidSessionId(id: string): boolean {
-  return typeof id === "string" && id.length >= 8 && id.length <= 100 && /^[a-zA-Z0-9_-]+$/.test(id);
+  // The widget issues crypto.randomUUID() values (36 chars). Require enough
+  // length that a caller cannot supply a short, guessable identifier.
+  return typeof id === "string" && id.length >= 32 && id.length <= 100 && /^[a-zA-Z0-9_-]+$/.test(id);
 }
 
 interface N8nResponse {
@@ -128,16 +130,28 @@ Deno.serve(async (req: Request) => {
             .eq("submitter_ip", clientIP)
         ).data?.map((r: { id: string }) => r.id) ?? []);
 
-      if (!countError && count !== null && count >= RATE_LIMIT_MAX_REQUESTS) {
+      // Fail CLOSED: if the throttle cannot be evaluated, refuse the request
+      // rather than letting it through unmetered.
+      if (countError || count === null) {
+        console.error("Rate limit check failed:", countError?.message ?? "null count");
+        return errorResponse("Too many messages. Please try again later.", 429);
+      }
+
+      if (count >= RATE_LIMIT_MAX_REQUESTS) {
         return errorResponse("Too many messages. Please try again later.", 429);
       }
     }
 
     // --- Load or create the conversation ---
-    let { data: conversation, error: convError } = await supabase
+    // The session identifier is caller-supplied and therefore not proof of
+    // identity, so a conversation is matched on session id AND originating
+    // address. The address comparison is performed by Postgres against the
+    // `inet` column so equivalent textual forms still match.
+    const { data: conversation, error: convError } = await supabase
       .from("chat_conversations")
-      .select("*")
+      .select("id")
       .eq("session_id", sessionId)
+      .eq("submitter_ip", clientIP)
       .maybeSingle();
 
     if (convError) {
@@ -145,14 +159,37 @@ Deno.serve(async (req: Request) => {
       return errorResponse("Service temporarily unavailable", 500);
     }
 
-    if (!conversation) {
+    let conversationId: string;
+
+    if (conversation) {
+      conversationId = conversation.id;
+    } else {
+      // No conversation for this session/address pair. If the session id
+      // already exists under a different address, a third party is trying to
+      // write into someone else's conversation.
+      const { data: foreign, error: foreignError } = await supabase
+        .from("chat_conversations")
+        .select("id")
+        .eq("session_id", sessionId)
+        .maybeSingle();
+
+      if (foreignError) {
+        console.error("Session ownership check error:", foreignError.message);
+        return errorResponse("Service temporarily unavailable", 500);
+      }
+
+      if (foreign) {
+        console.error("Session identifier used from a different origin");
+        return errorResponse("Invalid session identifier", 403);
+      }
+
       const { data: newConv, error: createErr } = await supabase
         .from("chat_conversations")
         .insert({
           session_id: sessionId,
-          submitter_ip: clientIP ?? null,
+          submitter_ip: clientIP,
         })
-        .select("*")
+        .select("id")
         .single();
 
       if (createErr || !newConv) {
@@ -160,10 +197,8 @@ Deno.serve(async (req: Request) => {
         return errorResponse("Service temporarily unavailable", 500);
       }
 
-      conversation = newConv;
+      conversationId = newConv.id;
     }
-
-    const conversationId = conversation.id;
 
     // --- Store the visitor's message ---
     const { error: msgInsertError } = await supabase
