@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
 import { ScrollToHash } from "@/components/ScrollToHash";
+import { ChatWidget } from "@/components/ChatWidget";
 
 import { Layout } from "@/components/Layout";
 
@@ -103,6 +104,7 @@ export default function App() {
             }
           />
         </Routes>
+        <ChatWidget />
       </BrowserRouter>
     </HelmetProvider>
   );
