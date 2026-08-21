@@ -8,7 +8,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
-import { ArrowRight, CheckCircle2, PhoneCall, MapPin } from "lucide-react";
+import { ArrowRight, CircleCheck as CheckCircle2, PhoneCall, MapPin } from "lucide-react";
 import {
   BUSINESS_NAME,
   BUSINESS_TAGLINE,
@@ -16,7 +16,7 @@ import {
   PRIMARY_PHONE,
   LICENSE,
 } from "@/lib/site";
-import { SERVICES, AREAS, CORE_SERVICES } from "@/lib/sns-data";
+import { SERVICES, AREAS, CORE_SERVICES, GALLERY_ITEMS } from "@/lib/sns-data";
 
 export default function Home() {
   return (
@@ -38,10 +38,13 @@ export default function Home() {
     >
       {/* Hero: split-screen */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.12),transparent_60%)]"
-          aria-hidden="true"
+        <img
+          src="/images/Hero_Photo.jpg"
+          alt="Landscaped backyard with a stone water fountain, lush lawn, and garden plantings by S&S Landscaping"
+          className="absolute inset-0 size-full object-cover"
+          loading="eager"
         />
+        <div className="absolute inset-0 bg-primary/70" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
             <Badge
@@ -103,8 +106,16 @@ export default function Home() {
             {SERVICES.map((service) => (
               <Card
                 key={service.slug}
-                className="transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md"
+                className="overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md"
               >
+                <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    loading="lazy"
+                    className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
                   <service.icon
                     className="mb-2 size-8 text-primary"
@@ -162,6 +173,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured work */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
+              Recent Projects
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              A selection of outdoor spaces we've designed and built.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3">
+            {GALLERY_ITEMS.slice(0, 3).map((project) => (
+              <div key={project.title} className="overflow-hidden rounded-xl">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link to="/gallery" className="inline-block">
+              <Button variant="outline">View Full Gallery</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Core services highlight */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -175,7 +217,15 @@ export default function Home() {
           </div>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {CORE_SERVICES.map((service) => (
-              <Card key={service.slug} className="h-full">
+              <Card key={service.slug} className="h-full overflow-hidden">
+                <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    loading="lazy"
+                    className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
                   <service.icon
                     className="mb-2 size-8 text-primary"

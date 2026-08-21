@@ -72,6 +72,13 @@ export default function AreaDetail() {
     >
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
+        <img
+          src="/images/Hero_Photo.jpg"
+          alt="Landscaped backyard with a stone water fountain and lush garden by S&S Landscaping"
+          loading="eager"
+          className="absolute inset-0 size-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/70" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24">
           <div className="flex flex-col gap-6">
             <MapPin className="size-10 text-primary-foreground" aria-hidden="true" />
@@ -109,7 +116,15 @@ export default function AreaDetail() {
           </div>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {CORE_SERVICES.map((service) => (
-              <Card key={service.slug} className="h-full">
+              <Card key={service.slug} className="h-full overflow-hidden">
+                <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    loading="lazy"
+                    className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
                   <service.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
                   <CardTitle>{service.name}</CardTitle>

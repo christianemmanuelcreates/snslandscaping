@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Layout } from "@/components/Layout";
 import {
   Card,
@@ -13,20 +14,19 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BUSINESS_NAME, CTA_LABEL } from "@/lib/site";
-
-const PROJECTS = [
-  { title: "Lush Lawn Installation", desc: "Fresh sod and seeded turf for a healthy, green yard.", gradient: "from-emerald-500 to-green-700" },
-  { title: "Custom Patio & Paver Walkway", desc: "Durable paver patios and walkways built to last.", gradient: "from-stone-400 to-stone-600" },
-  { title: "Retaining Wall & Grading", desc: "Structural retaining walls and site grading.", gradient: "from-stone-500 to-stone-700" },
-  { title: "Smart Irrigation System", desc: "Weather-aware irrigation that saves water.", gradient: "from-sky-500 to-blue-700" },
-  { title: "Garden Design & Planting", desc: "Trees, shrubs, and gardens designed for the Bay Area.", gradient: "from-lime-500 to-green-700" },
-  { title: "Outdoor Lighting & Water Features", desc: "Low-voltage lighting and water features that elevate.", gradient: "from-teal-500 to-cyan-700" },
-];
+import { GALLERY_ITEMS } from "@/lib/sns-data";
 
 export default function Gallery() {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
   return (
     <Layout
       seo={{
@@ -51,22 +51,32 @@ export default function Gallery() {
             </p>
           </div>
 
-          <Carousel className="mt-12 w-full">
+          {/* Featured carousel */}
+          <Carousel className="mt-12 w-full" opts={{ loop: true }}>
             <CarouselContent>
-              {PROJECTS.map((project) => (
+              {GALLERY_ITEMS.map((project, i) => (
                 <CarouselItem key={project.title} className="md:basis-1/2 lg:basis-1/3">
                   <Card className="flex h-full flex-col overflow-hidden">
-                    <AspectRatio ratio={4 / 3} className="bg-muted">
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`}
-                        aria-hidden="true"
-                      />
-                    </AspectRatio>
+                    <button
+                      type="button"
+                      onClick={() => setLightbox(i)}
+                      className="block w-full text-left"
+                      aria-label={`View larger image: ${project.title}`}
+                    >
+                      <AspectRatio ratio={4 / 3} className="bg-muted">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          loading="lazy"
+                          className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                        />
+                      </AspectRatio>
+                    </button>
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">{project.desc}</p>
+                      <p className="text-muted-foreground">{project.description}</p>
                     </CardContent>
                   </Card>
                 </CarouselItem>
@@ -75,6 +85,40 @@ export default function Gallery() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
+
+          {/* Full grid */}
+          <div className="mt-16">
+            <h2 className="mb-8 text-center text-2xl font-bold tracking-tight text-balance md:text-3xl">
+              Project Gallery
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {GALLERY_ITEMS.map((project, i) => (
+                <Card key={project.title} className="overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setLightbox(i)}
+                    className="block w-full text-left"
+                    aria-label={`View larger image: ${project.title}`}
+                  >
+                    <AspectRatio ratio={4 / 3} className="bg-muted">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        loading="lazy"
+                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                      />
+                    </AspectRatio>
+                  </button>
+                  <CardHeader>
+                    <CardTitle className="text-lg">{project.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{project.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
 
           <div className="mt-16 rounded-xl bg-muted p-8 text-center md:p-12">
             <h2 className="text-2xl font-bold tracking-tight text-balance md:text-3xl">
@@ -89,6 +133,32 @@ export default function Gallery() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      <Dialog open={lightbox !== null} onOpenChange={(open) => !open && setLightbox(null)}>
+        <DialogContent className="max-w-3xl bg-background p-0 sm:max-w-3xl">
+          {lightbox !== null && (
+            <>
+              <DialogTitle className="sr-only">
+                {GALLERY_ITEMS[lightbox].title}
+              </DialogTitle>
+              <img
+                src={GALLERY_ITEMS[lightbox].image}
+                alt={GALLERY_ITEMS[lightbox].title}
+                className="w-full rounded-xl object-contain"
+              />
+              <div className="px-4 pb-4">
+                <h3 className="font-heading text-lg font-semibold">
+                  {GALLERY_ITEMS[lightbox].title}
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {GALLERY_ITEMS[lightbox].description}
+                </p>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 }

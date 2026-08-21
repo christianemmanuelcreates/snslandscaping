@@ -7,7 +7,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CircleCheck as CheckCircle2 } from "lucide-react";
 import { BUSINESS_NAME, CTA_LABEL } from "@/lib/site";
 import { SERVICES } from "@/lib/sns-data";
 
@@ -38,7 +38,15 @@ export default function Services() {
 
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service) => (
-              <Card key={service.slug} className="h-full">
+              <Card key={service.slug} className="h-full overflow-hidden">
+                <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    loading="lazy"
+                    className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                  />
+                </div>
                 <CardHeader>
                   <service.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
                   <CardTitle>{service.name}</CardTitle>

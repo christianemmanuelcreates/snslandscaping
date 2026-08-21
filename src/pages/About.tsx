@@ -71,6 +71,16 @@ export default function About() {
             ))}
           </div>
 
+          {/* Project showcase */}
+          <div className="mt-16 overflow-hidden rounded-xl">
+            <img
+              src="/images/gallery/General_site_Photo_2.jpg"
+              alt="Residential garden design with trees and shrubs by S&S Landscaping"
+              loading="lazy"
+              className="aspect-[21/9] w-full object-cover"
+            />
+          </div>
+
           <Separator className="mt-16" />
 
           {/* Team */}

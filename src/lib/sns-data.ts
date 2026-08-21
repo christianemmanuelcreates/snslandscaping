@@ -18,9 +18,17 @@ export type Service = {
   tagline: string;
   description: string;
   icon: LucideIcon;
+  image: string;
+  imageAlt: string;
   features: string[];
   isCore: boolean;
   faqs: { question: string; answer: string }[];
+};
+
+export type GalleryItem = {
+  image: string;
+  title: string;
+  description: string;
 };
 
 export type Area = {
@@ -40,6 +48,8 @@ export const SERVICES: Service[] = [
     description:
       "Complete landscaping and planting services across the SF Metro Area. We install lawns, trees, shrubs, and turf, and design gardens that thrive in our climate.",
     icon: Sun,
+    image: "/images/gallery/General_site_photo_1.jpg",
+    imageAlt: "Landscaped garden with a water fountain and lush green lawn installed by S&S Landscaping",
     features: [
       "Lawn installation & turf",
       "Tree & shrub planting",
@@ -77,6 +87,8 @@ export const SERVICES: Service[] = [
     description:
       "Durable, beautiful hardscape construction including patios, paver walkways, retaining walls, and decorative masonry that extends your living space outdoors.",
     icon: Building,
+    image: "/images/services/Hardscaping_Service_Photo.jpg",
+    imageAlt: "Hardscaping project featuring a paver patio and walkway built by S&S Landscaping",
     features: [
       "Patio installation",
       "Paver walkways",
@@ -114,6 +126,8 @@ export const SERVICES: Service[] = [
     description:
       "Professional site prep including land grading, excavation, soil preparation, and erosion control to get your project ready.",
     icon: HardHat,
+    image: "/images/services/site_preparation_service_photo.jpg",
+    imageAlt: "Site preparation work including grading and excavation by S&S Landscaping",
     features: [
       "Land grading services",
       "Site excavation",
@@ -151,6 +165,8 @@ export const SERVICES: Service[] = [
     description:
       "Efficient irrigation and drainage systems, from sprinkler install and repair to smart irrigation and landscape drainage.",
     icon: RefreshCcw,
+    image: "/images/services/irrigation_drainage_service.jpg",
+    imageAlt: "Irrigation and drainage system installation by S&S Landscaping",
     features: [
       "Sprinkler system install & repair",
       "Smart irrigation",
@@ -188,6 +204,8 @@ export const SERVICES: Service[] = [
     description:
       "Outdoor amenities that elevate your space, including water features, low-voltage landscape lighting, and decorative treatments.",
     icon: Sparkles,
+    image: "/images/services/outdoor_amenities_service_photo.jpg",
+    imageAlt: "Outdoor amenities including a water feature and landscape lighting by S&S Landscaping",
     features: [
       "Water features",
       "Low-voltage landscape lighting",
@@ -272,6 +290,39 @@ export const AREAS: Area[] = [
 
 /** Core services (the 3 that get matrix pages per area). */
 export const CORE_SERVICES = SERVICES.filter((s) => s.isCore);
+
+export const GALLERY_ITEMS: GalleryItem[] = [
+  {
+    image: "/images/gallery/General_site_photo_1.jpg",
+    title: "Garden & Water Feature",
+    description: "A landscaped garden with a stone water fountain, healthy lawn, and layered plantings.",
+  },
+  {
+    image: "/images/gallery/General_site_Photo_2.jpg",
+    title: "Residential Garden Design",
+    description: "Trees, shrubs, and garden beds designed for year-round Bay Area beauty.",
+  },
+  {
+    image: "/images/gallery/General_site_photo_3.jpg",
+    title: "Outdoor Fountain Feature",
+    description: "A decorative fountain installed as a focal point in a residential landscape.",
+  },
+  {
+    image: "/images/gallery/General_site_photo_4.jpg",
+    title: "Mature Tree & Planting Design",
+    description: "Mature trees and curated plantings that frame the home and add curb appeal.",
+  },
+  {
+    image: "/images/gallery/General_site_photo_5.jpg",
+    title: "Paver Patio & Walkway",
+    description: "A paver patio and walkway extending the outdoor living space.",
+  },
+  {
+    image: "/images/gallery/General_site_photo_6.jpg",
+    title: "Completed Outdoor Space",
+    description: "A finished landscape combining planting, hardscape, and lighting.",
+  },
+];
 
 /** Matrix helper: 3 core services × 6 areas = 18 slug pairs. */
 export const MATRIX: { serviceSlug: string; areaSlug: string }[] =

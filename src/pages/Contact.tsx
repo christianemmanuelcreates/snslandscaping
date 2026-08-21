@@ -46,6 +46,16 @@ export default function Contact() {
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {/* Project photo */}
+            <div className="overflow-hidden rounded-xl">
+              <img
+                src="/images/gallery/General_site_photo_3.jpg"
+                alt="Outdoor fountain feature installed by S&S Landscaping"
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover lg:aspect-auto lg:h-full"
+              />
+            </div>
+
             {/* Contact form */}
             <Card>
               <CardHeader>
@@ -87,7 +97,7 @@ export default function Contact() {
             </Card>
 
             {/* Contact info */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 lg:col-span-2">
               {CONTACTS.map((contact) => (
                 <Card key={contact.name}>
                   <CardContent className="flex items-start gap-3 pt-6">
