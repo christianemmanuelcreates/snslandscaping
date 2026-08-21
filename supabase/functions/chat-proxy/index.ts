@@ -10,8 +10,10 @@ const N8N_WEBHOOK_URL =
   "https://n8n.blackkoimarketing.us/webhook/b835d7c5-3e1b-4b6a-a920-ad961685f890";
 
 const MAX_MESSAGE_LENGTH = 2000;
+const MAX_REPLY_LENGTH = 5000;
 const RATE_LIMIT_WINDOW_MINUTES = 15;
 const RATE_LIMIT_MAX_REQUESTS = 30;
+const N8N_TIMEOUT_MS = 30_000;
 
 function jsonResponse(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), {
@@ -105,13 +107,16 @@ Deno.serve(async (req: Request) => {
     }
 
     const clientIP = getClientIP(req);
+    if (!clientIP) {
+      return errorResponse("Unable to determine client origin", 400);
+    }
 
     // --- Rate limiting: count messages from this IP in the rolling window ---
     const windowStart = new Date(
       Date.now() - RATE_LIMIT_WINDOW_MINUTES * 60 * 1000,
     ).toISOString();
 
-    if (clientIP) {
+    {
       const { count, error: countError } = await supabase
         .from("chat_messages")
         .select("*", { count: "exact", head: true })
@@ -174,18 +179,35 @@ Deno.serve(async (req: Request) => {
       return errorResponse("Service temporarily unavailable", 500);
     }
 
-    // --- Forward to n8n with the auth header ---
-    const n8nResponse = await fetch(N8N_WEBHOOK_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-SNS-Auth-Key": n8nAuthKey,
-      },
-      body: JSON.stringify({
-        sessionId,
-        message: message.trim(),
-      }),
-    });
+    // --- Forward to n8n with the auth header (with timeout) ---
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), N8N_TIMEOUT_MS);
+
+    let n8nResponse: Response;
+    try {
+      n8nResponse = await fetch(N8N_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-SNS-Auth-Key": n8nAuthKey,
+        },
+        body: JSON.stringify({
+          sessionId,
+          message: message.trim(),
+        }),
+        signal: controller.signal,
+      });
+    } catch (fetchErr) {
+      clearTimeout(timeoutId);
+      if (fetchErr instanceof DOMException && fetchErr.name === "AbortError") {
+        console.error("n8n webhook timed out");
+        return errorResponse("Service temporarily unavailable", 504);
+      }
+      console.error("n8n webhook fetch error:", fetchErr);
+      return errorResponse("Service temporarily unavailable", 502);
+    } finally {
+      clearTimeout(timeoutId);
+    }
 
     if (!n8nResponse.ok) {
       console.error(`n8n webhook returned status ${n8nResponse.status}`);
@@ -210,13 +232,17 @@ Deno.serve(async (req: Request) => {
       return errorResponse("Service temporarily unavailable", 502);
     }
 
-    // --- Store the assistant's reply ---
+    // --- Store the assistant's reply (truncated to DB column max) ---
+    const replyToStore = replyText.length > MAX_REPLY_LENGTH
+      ? replyText.slice(0, MAX_REPLY_LENGTH)
+      : replyText;
+
     const { error: replyInsertError } = await supabase
       .from("chat_messages")
       .insert({
         conversation_id: conversationId,
         role: "assistant",
-        content: replyText,
+        content: replyToStore,
       });
 
     if (replyInsertError) {
