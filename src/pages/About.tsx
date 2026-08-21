@@ -98,7 +98,7 @@ export default function About() {
                     <p className="text-muted-foreground">
                       A hands-on landscaping professional dedicated to quality outdoor living across Silicon Valley & the Bay Area.
                     </p>
-                    <a href={contact.phoneHref} className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-foreground">
+                    <a href={contact.phoneHref} className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline">
                       <PhoneCall className="size-4" aria-hidden="true" />
                       {contact.phone}
                     </a>

@@ -105,7 +105,7 @@ export default function AreaDetail() {
                 <Button size="lg">{CTA_LABEL}</Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/25">
+                <Button size="lg" variant="outline" className="border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>
@@ -147,7 +147,7 @@ export default function AreaDetail() {
                   <p className="text-muted-foreground">{service.tagline}</p>
                   <Link
                     to={`/services/${service.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-foreground"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                   >
                     View service
                     <ArrowRight className="size-4" aria-hidden="true" />
@@ -200,7 +200,7 @@ export default function AreaDetail() {
                   <p className="text-muted-foreground">{other.county} County</p>
                   <Link
                     to={`/areas/${other.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-foreground"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                   >
                     View services
                     <ArrowRight className="size-4" aria-hidden="true" />

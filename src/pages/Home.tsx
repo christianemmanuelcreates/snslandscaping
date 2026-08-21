@@ -81,7 +81,7 @@ export default function Home() {
                 <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
               </Link>
               <Link to="/services">
-                <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/25 sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground sm:w-auto">
                   Our Services
                 </Button>
               </Link>
@@ -146,7 +146,7 @@ export default function Home() {
                   <p className="text-muted-foreground">{service.tagline}</p>
                   <Link
                     to={`/services/${service.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-foreground"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                   >
                     Learn more
                     <ArrowRight className="size-4" aria-hidden="true" />
@@ -180,7 +180,7 @@ export default function Home() {
                   <p className="text-muted-foreground">{area.county} County</p>
                   <Link
                     to={`/areas/${area.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-foreground"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                   >
                     View services
                     <ArrowRight className="size-4" aria-hidden="true" />
@@ -235,12 +235,12 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:text-primary">
                   {CTA_LABEL}
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary/30 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                <Button size="lg" variant="outline" className="border-primary/30 bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:text-primary">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>

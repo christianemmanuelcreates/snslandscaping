@@ -65,7 +65,7 @@ export default function Services() {
                   </ul>
                   <Link
                     to={`/services/${service.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-foreground"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                   >
                     View details
                     <ArrowRight className="size-4" aria-hidden="true" />
