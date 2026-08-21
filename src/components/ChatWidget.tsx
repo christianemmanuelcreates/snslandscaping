@@ -8,7 +8,7 @@ const STORAGE_KEY = "sns_chat_session_id";
 const MAX_MESSAGE_LENGTH = 2000;
 
 const WELCOME_MESSAGE =
-  `Hi! I'm the ${BUSINESS_NAME} assistant. I can help you find the right landscaping service, answer questions about our service areas, and get you a free quote. What's your name?`;
+  `Hi! I'm the ${BUSINESS_NAME} assistant. I can answer questions about our services and service areas. To get started, please share your name, email, phone number, the service you're interested in, and the city you're in. Once we have those details, our team will follow up with you — I can't provide quotes directly in this chat.`;
 
 type ChatMessage = {
   role: "visitor" | "assistant";
