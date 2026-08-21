@@ -8,7 +8,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
-import { ArrowRight, CircleCheck as CheckCircle2, PhoneCall, MapPin } from "lucide-react";
+import { ArrowRight, PhoneCall, MapPin } from "lucide-react";
 import {
   BUSINESS_NAME,
   BUSINESS_TAGLINE,
@@ -16,7 +16,7 @@ import {
   PRIMARY_PHONE,
   LICENSE,
 } from "@/lib/site";
-import { SERVICES, AREAS, CORE_SERVICES, GALLERY_ITEMS } from "@/lib/sns-data";
+import { SERVICES, AREAS, GALLERY_ITEMS } from "@/lib/sns-data";
 
 export default function Home() {
   return (
@@ -44,7 +44,10 @@ export default function Home() {
           className="absolute inset-0 size-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-primary/70" aria-hidden="true" />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40"
+          aria-hidden="true"
+        />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
             <Badge
@@ -108,13 +111,15 @@ export default function Home() {
                 key={service.slug}
                 className="overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md"
               >
-                <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                  <img
-                    src={service.image}
-                    alt={service.imageAlt}
-                    loading="lazy"
-                    className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                  />
+                <div className="p-3">
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                    <img
+                      src={service.image}
+                      alt={service.imageAlt}
+                      loading="lazy"
+                      className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                    />
+                  </div>
                 </div>
                 <CardHeader>
                   <service.icon
@@ -204,51 +209,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Core services highlight */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Core Services
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              The three services we deliver in every area we serve.
-            </p>
-          </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {CORE_SERVICES.map((service) => (
-              <Card key={service.slug} className="h-full overflow-hidden">
-                <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                  <img
-                    src={service.image}
-                    alt={service.imageAlt}
-                    loading="lazy"
-                    className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                  />
-                </div>
-                <CardHeader>
-                  <service.icon
-                    className="mb-2 size-8 text-primary"
-                    aria-hidden="true"
-                  />
-                  <CardTitle>{service.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="flex flex-col gap-2">
-                    {service.features.slice(0, 3).map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="size-4 text-primary" aria-hidden="true" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="bg-primary py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -259,14 +219,14 @@ export default function Home() {
             <p className="mt-4 text-primary-foreground/80">
               Get a free quote from {BUSINESS_NAME} today.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact">
                 <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   {CTA_LABEL}
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
+                <Button size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/15">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>

@@ -78,7 +78,10 @@ export default function AreaDetail() {
           loading="eager"
           className="absolute inset-0 size-full object-cover"
         />
-        <div className="absolute inset-0 bg-primary/70" aria-hidden="true" />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40"
+          aria-hidden="true"
+        />
         <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24">
           <div className="flex flex-col gap-6">
             <MapPin className="size-10 text-primary-foreground" aria-hidden="true" />
@@ -117,13 +120,15 @@ export default function AreaDetail() {
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {CORE_SERVICES.map((service) => (
               <Card key={service.slug} className="h-full overflow-hidden">
-                <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                  <img
-                    src={service.image}
-                    alt={service.imageAlt}
-                    loading="lazy"
-                    className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                  />
+                <div className="p-3">
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                    <img
+                      src={service.image}
+                      alt={service.imageAlt}
+                      loading="lazy"
+                      className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                    />
+                  </div>
                 </div>
                 <CardHeader>
                   <service.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
@@ -186,14 +191,14 @@ export default function AreaDetail() {
             <p className="mt-4 text-primary-foreground/80">
               Get a free quote for your {area.name} project today.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact">
                 <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   {CTA_LABEL}
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
+                <Button size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/15">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>

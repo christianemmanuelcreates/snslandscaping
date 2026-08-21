@@ -13,7 +13,6 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import {
   Dialog,
   DialogContent,
@@ -60,17 +59,17 @@ export default function Gallery() {
                     <button
                       type="button"
                       onClick={() => setLightbox(i)}
-                      className="block w-full text-left"
+                      className="block w-full p-3 text-left"
                       aria-label={`View larger image: ${project.title}`}
                     >
-                      <AspectRatio ratio={4 / 3} className="bg-muted">
+                      <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
                         <img
                           src={project.image}
                           alt={project.title}
                           loading="lazy"
                           className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
                         />
-                      </AspectRatio>
+                      </div>
                     </button>
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
@@ -97,17 +96,17 @@ export default function Gallery() {
                   <button
                     type="button"
                     onClick={() => setLightbox(i)}
-                    className="block w-full text-left"
+                    className="block w-full p-3 text-left"
                     aria-label={`View larger image: ${project.title}`}
                   >
-                    <AspectRatio ratio={4 / 3} className="bg-muted">
+                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
                       <img
                         src={project.image}
                         alt={project.title}
                         loading="lazy"
                         className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
                       />
-                    </AspectRatio>
+                    </div>
                   </button>
                   <CardHeader>
                     <CardTitle className="text-lg">{project.title}</CardTitle>
