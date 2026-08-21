@@ -61,8 +61,8 @@ export function Navbar() {
               <NavigationMenuTrigger className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
                 Service Areas
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="w-64">
-                <div className="max-h-[calc(100vh-6rem)] overflow-y-auto p-2">
+              <NavigationMenuContent className="max-h-[calc(100vh-6rem)] w-64 overflow-y-auto overscroll-contain">
+                <div className="p-2">
                   <ul className="flex flex-col gap-0.5">
                     <li>
                       <NavigationMenuLink
