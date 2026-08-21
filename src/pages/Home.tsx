@@ -62,11 +62,11 @@ export default function Home() {
           className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40"
           aria-hidden="true"
         />
-        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24 lg:grid-cols-2 lg:gap-12">
-          <div className="flex flex-col gap-6">
+        <div className="relative mx-auto grid min-w-0 max-w-7xl gap-8 px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24 lg:grid-cols-2 lg:gap-12">
+          <div className="flex min-w-0 flex-col gap-6">
             <Badge
               variant="secondary"
-              className="w-fit bg-primary-foreground/15 text-primary-foreground hover:bg-primary-foreground/25"
+              className="h-auto min-h-5 max-w-full whitespace-normal break-words bg-primary-foreground/15 py-1 text-left text-primary-foreground hover:bg-primary-foreground/25"
             >
               {BUSINESS_TAGLINE}
             </Badge>
@@ -77,10 +77,10 @@ export default function Home() {
               From lawns and gardens to patios and irrigation, we design and build landscapes that thrive in the Bay Area.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Link to="/contact#quote-form">
+              <Link to="/contact#quote-form" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
               </Link>
-              <Link to="/services">
+              <Link to="/services" className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground sm:w-auto">
                   Our Services
                 </Button>

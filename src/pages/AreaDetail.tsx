@@ -91,8 +91,8 @@ export default function AreaDetail() {
           className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40"
           aria-hidden="true"
         />
-        <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24">
-          <div className="flex flex-col gap-6">
+        <div className="relative mx-auto min-w-0 max-w-7xl px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24">
+          <div className="flex min-w-0 flex-col gap-6">
             <MapPin className="size-10 text-primary-foreground" aria-hidden="true" />
             <h1 className="text-4xl font-bold tracking-tighter text-balance sm:text-5xl md:text-6xl">
               Landscaping in {area.name}, CA
@@ -100,12 +100,12 @@ export default function AreaDetail() {
             <p className="max-w-xl text-lg text-primary-foreground/90">
               {area.name} is in {area.county} County, in the heart of {area.metro}. We bring premium landscaping and outdoor living to your community.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/contact#quote-form">
-                <Button size="lg">{CTA_LABEL}</Button>
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <Link to="/contact#quote-form" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
               </Link>
-              <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground">
+              <a href={PRIMARY_PHONE.phoneHref} className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>
