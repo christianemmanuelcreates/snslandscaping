@@ -1,13 +1,14 @@
 # S&S Landscaping
 
-> Premier landscaping & outdoor living in the San Francisco Metro Area
+> Premier landscaping & outdoor living in Silicon Valley & the Bay Area
 
 ## About
-S&S Landscaping provides premium landscaping and outdoor living services across the San Francisco Metro Area, including landscaping and planting, hardscaping, site preparation, irrigation and drainage, and outdoor amenities. Licensed and insured (LIC 100-7487). Contact Samuel Delgado (209-979-6677) or Santos Gomez (408-391-1591) at services@snslandscaping.org.
+S&S Landscaping provides premium landscaping and outdoor living services across Silicon Valley and the San Francisco Bay Area, including landscaping and planting, hardscaping, site preparation, irrigation and drainage, and outdoor amenities. Licensed and insured (LIC 100-7487). Contact Samuel Delgado (209-979-6677) or Santos Gomez (408-391-1591) at services@snslandscaping.org.
 
 ## Pages
 - [Home](https://snslandscaping.org/)
 - [Services](https://snslandscaping.org/services)
+- [Service Areas](https://snslandscaping.org/areas)
 - [About](https://snslandscaping.org/about)
 - [Gallery](https://snslandscaping.org/gallery)
 - [Reviews](https://snslandscaping.org/reviews)
@@ -17,32 +18,22 @@ S&S Landscaping provides premium landscaping and outdoor living services across 
 - [Site Preparation](https://snslandscaping.org/services/site-preparation)
 - [Irrigation & Drainage](https://snslandscaping.org/services/irrigation-drainage)
 - [Outdoor Amenities](https://snslandscaping.org/services/outdoor-amenities)
-- [Saratoga](https://snslandscaping.org/areas/saratoga)
+- [Los Gatos](https://snslandscaping.org/areas/los-gatos)
+- [Monte Sereno](https://snslandscaping.org/areas/monte-sereno)
+- [Atherton](https://snslandscaping.org/areas/atherton)
+- [Los Altos](https://snslandscaping.org/areas/los-altos)
 - [Palo Alto](https://snslandscaping.org/areas/palo-alto)
 - [Los Altos Hills](https://snslandscaping.org/areas/los-altos-hills)
-- [Atherton](https://snslandscaping.org/areas/atherton)
-- [Hillsborough](https://snslandscaping.org/areas/hillsborough)
-- [Belvedere](https://snslandscaping.org/areas/belvedere)
-
-### Service Area Pages
-- [Landscaping & Planting in Saratoga](https://snslandscaping.org/services/landscaping-planting/saratoga)
-- [Landscaping & Planting in Palo Alto](https://snslandscaping.org/services/landscaping-planting/palo-alto)
-- [Landscaping & Planting in Los Altos Hills](https://snslandscaping.org/services/landscaping-planting/los-altos-hills)
-- [Landscaping & Planting in Atherton](https://snslandscaping.org/services/landscaping-planting/atherton)
-- [Landscaping & Planting in Hillsborough](https://snslandscaping.org/services/landscaping-planting/hillsborough)
-- [Landscaping & Planting in Belvedere](https://snslandscaping.org/services/landscaping-planting/belvedere)
-- [Hardscaping in Saratoga](https://snslandscaping.org/services/hardscaping/saratoga)
-- [Hardscaping in Palo Alto](https://snslandscaping.org/services/hardscaping/palo-alto)
-- [Hardscaping in Los Altos Hills](https://snslandscaping.org/services/hardscaping/los-altos-hills)
-- [Hardscaping in Atherton](https://snslandscaping.org/services/hardscaping/atherton)
-- [Hardscaping in Hillsborough](https://snslandscaping.org/services/hardscaping/hillsborough)
-- [Hardscaping in Belvedere](https://snslandscaping.org/services/hardscaping/belvedere)
-- [Irrigation & Drainage in Saratoga](https://snslandscaping.org/services/irrigation-drainage/saratoga)
-- [Irrigation & Drainage in Palo Alto](https://snslandscaping.org/services/irrigation-drainage/palo-alto)
-- [Irrigation & Drainage in Los Altos Hills](https://snslandscaping.org/services/irrigation-drainage/los-altos-hills)
-- [Irrigation & Drainage in Atherton](https://snslandscaping.org/services/irrigation-drainage/atherton)
-- [Irrigation & Drainage in Hillsborough](https://snslandscaping.org/services/irrigation-drainage/hillsborough)
-- [Irrigation & Drainage in Belvedere](https://snslandscaping.org/services/irrigation-drainage/belvedere)
+- [Saratoga](https://snslandscaping.org/areas/saratoga)
+- [Mountain View](https://snslandscaping.org/areas/mountain-view)
+- [Cupertino](https://snslandscaping.org/areas/cupertino)
+- [San Jose](https://snslandscaping.org/areas/san-jose)
+- [Santa Clara](https://snslandscaping.org/areas/santa-clara)
+- [Campbell](https://snslandscaping.org/areas/campbell)
+- [Milpitas](https://snslandscaping.org/areas/milpitas)
+- [Alum Rock](https://snslandscaping.org/areas/alum-rock)
+- [Emerald Hills](https://snslandscaping.org/areas/emerald-hills)
+- [Redwood City](https://snslandscaping.org/areas/redwood-city)
 
 ## Related
 - [Sitemap](https://snslandscaping.org/sitemap.xml)

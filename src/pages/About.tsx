@@ -27,7 +27,7 @@ const VALUES = [
   {
     icon: Award,
     title: "Local Expertise",
-    desc: "Deep knowledge of Bay Area soils, climates, and outdoor living.",
+    desc: "Deep knowledge of Silicon Valley soils, climates, and outdoor living.",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function About() {
       seo={{
         title: `About ${BUSINESS_NAME} | Local Landscaping Experts`,
         description:
-          "Meet S&S Landscaping, a licensed and insured landscaping company serving the SF Metro Area with premium outdoor living.",
+          "Meet S&S Landscaping, a licensed and insured landscaping company serving Silicon Valley & the Bay Area with premium outdoor living.",
         canonical: "https://snslandscaping.org/about",
       }}
       business={{
@@ -96,7 +96,7 @@ export default function About() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      A hands-on landscaping professional dedicated to quality outdoor living across the SF Metro Area.
+                      A hands-on landscaping professional dedicated to quality outdoor living across Silicon Valley & the Bay Area.
                     </p>
                     <a href={contact.phoneHref} className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-foreground">
                       <PhoneCall className="size-4" aria-hidden="true" />

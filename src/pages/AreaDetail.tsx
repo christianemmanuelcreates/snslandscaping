@@ -7,9 +7,15 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { ArrowRight, PhoneCall, MapPin } from "lucide-react";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
-import { getArea, CORE_SERVICES, AREAS } from "@/lib/sns-data";
+import { getArea, SERVICES, AREAS } from "@/lib/sns-data";
 
 export default function AreaDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -41,11 +47,13 @@ export default function AreaDetail() {
 
   const otherAreas = AREAS.filter((a) => a.slug !== area.slug);
 
+  const allFaqs = SERVICES.flatMap((s) => s.faqs).slice(0, 8);
+
   return (
     <Layout
       seo={{
         title: `Landscaping in ${area.name}, CA | ${BUSINESS_NAME}`,
-        description: `Landscaping, hardscaping, and outdoor living in ${area.name}, ${area.county} County. Get a free quote from ${BUSINESS_NAME}.`,
+        description: `Professional landscaping, hardscaping, irrigation, and outdoor living services in ${area.name}, ${area.county} County. Serving ${area.metro} and the Bay Area. Get a free quote from ${BUSINESS_NAME}.`,
         canonical: `https://snslandscaping.org/areas/${area.slug}`,
         schemaTypes: ["LocalBusiness"],
       }}
@@ -69,6 +77,7 @@ export default function AreaDetail() {
         },
         areaServed: [{ name: area.name }],
       }}
+      faqs={allFaqs}
     >
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
@@ -89,7 +98,7 @@ export default function AreaDetail() {
               Landscaping in {area.name}, CA
             </h1>
             <p className="max-w-xl text-lg text-primary-foreground/90">
-              {area.name} is in {area.county} County. We bring premium landscaping and outdoor living to your community.
+              {area.name} is in {area.county} County, in the heart of {area.metro}. We bring premium landscaping and outdoor living to your community.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact#quote-form">
@@ -114,11 +123,11 @@ export default function AreaDetail() {
               Services in {area.name}
             </h2>
             <p className="mt-4 text-muted-foreground">
-              The core services we deliver in {area.name}.
+              The full range of landscaping and outdoor living services we deliver in {area.name}.
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {CORE_SERVICES.map((service) => (
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((service) => (
               <Card key={service.slug} className="h-full overflow-hidden">
                 <div className="p-3">
                   <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
@@ -137,10 +146,10 @@ export default function AreaDetail() {
                 <CardContent>
                   <p className="text-muted-foreground">{service.tagline}</p>
                   <Link
-                    to={`/services/${service.slug}/${area.slug}`}
+                    to={`/services/${service.slug}`}
                     className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-foreground"
                   >
-                    View in {area.name}
+                    View service
                     <ArrowRight className="size-4" aria-hidden="true" />
                   </Link>
                 </CardContent>
@@ -150,15 +159,37 @@ export default function AreaDetail() {
         </div>
       </section>
 
-      {/* Other areas */}
+      {/* FAQ */}
       <section className="bg-muted py-16 md:py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
+              Landscaping FAQ for {area.name}
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Common questions about our landscaping services in {area.name}.
+            </p>
+          </div>
+          <Accordion className="mt-12 w-full">
+            {allFaqs.map((faq, i) => (
+              <AccordionItem key={i} value={`item-${i}`}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Other areas */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Other Areas We Serve
             </h2>
           </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {otherAreas.map((other) => (
               <Card key={other.slug} className="h-full">
                 <CardHeader>

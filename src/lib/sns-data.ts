@@ -35,7 +35,7 @@ export type Area = {
   slug: string;
   name: string;
   county: string;
-  region: string;
+  metro: string;
   lat: number;
   lng: number;
 };
@@ -46,7 +46,7 @@ export const SERVICES: Service[] = [
     name: "Landscaping & Planting",
     tagline: "Lawns, trees, shrubs, and garden design",
     description:
-      "Complete landscaping and planting services across the SF Metro Area. We install lawns, trees, shrubs, and turf, and design gardens that thrive in our climate.",
+      "Complete landscaping and planting services across Silicon Valley and the Bay Area. We install lawns, trees, shrubs, and turf, and design gardens that thrive in our climate.",
     icon: Sun,
     image: "/images/gallery/General_site_photo_1.jpg",
     imageAlt: "Landscaped garden with a water fountain and lush green lawn installed by S&S Landscaping",
@@ -238,58 +238,24 @@ export const SERVICES: Service[] = [
 ];
 
 export const AREAS: Area[] = [
-  {
-    slug: "saratoga",
-    name: "Saratoga",
-    county: "Santa Clara",
-    region: "South Bay",
-    lat: 37.2639,
-    lng: -121.9822,
-  },
-  {
-    slug: "palo-alto",
-    name: "Palo Alto",
-    county: "Santa Clara",
-    region: "Peninsula",
-    lat: 37.4419,
-    lng: -122.143,
-  },
-  {
-    slug: "los-altos-hills",
-    name: "Los Altos Hills",
-    county: "Santa Clara",
-    region: "Peninsula",
-    lat: 37.3797,
-    lng: -122.1175,
-  },
-  {
-    slug: "atherton",
-    name: "Atherton",
-    county: "San Mateo",
-    region: "Peninsula",
-    lat: 37.4613,
-    lng: -122.1977,
-  },
-  {
-    slug: "hillsborough",
-    name: "Hillsborough",
-    county: "San Mateo",
-    region: "Peninsula",
-    lat: 37.5741,
-    lng: -122.3794,
-  },
-  {
-    slug: "belvedere",
-    name: "Belvedere",
-    county: "Marin",
-    region: "Marin",
-    lat: 37.8727,
-    lng: -122.4644,
-  },
+  { slug: "los-gatos", name: "Los Gatos", county: "Santa Clara", metro: "Silicon Valley", lat: 37.2266, lng: -121.9617 },
+  { slug: "monte-sereno", name: "Monte Sereno", county: "Santa Clara", metro: "Silicon Valley", lat: 37.2363, lng: -121.9886 },
+  { slug: "atherton", name: "Atherton", county: "San Mateo", metro: "Silicon Valley", lat: 37.4613, lng: -122.1977 },
+  { slug: "los-altos", name: "Los Altos", county: "Santa Clara", metro: "Silicon Valley", lat: 37.3855, lng: -122.1142 },
+  { slug: "palo-alto", name: "Palo Alto", county: "Santa Clara", metro: "Silicon Valley", lat: 37.4419, lng: -122.143 },
+  { slug: "los-altos-hills", name: "Los Altos Hills", county: "Santa Clara", metro: "Silicon Valley", lat: 37.3797, lng: -122.1175 },
+  { slug: "saratoga", name: "Saratoga", county: "Santa Clara", metro: "Silicon Valley", lat: 37.2639, lng: -121.9822 },
+  { slug: "mountain-view", name: "Mountain View", county: "Santa Clara", metro: "Silicon Valley", lat: 37.3861, lng: -122.0839 },
+  { slug: "cupertino", name: "Cupertino", county: "Santa Clara", metro: "Silicon Valley", lat: 37.323, lng: -122.0322 },
+  { slug: "san-jose", name: "San Jose", county: "Santa Clara", metro: "Silicon Valley", lat: 37.3382, lng: -121.8863 },
+  { slug: "santa-clara", name: "Santa Clara", county: "Santa Clara", metro: "Silicon Valley", lat: 37.3541, lng: -121.9552 },
+  { slug: "campbell", name: "Campbell", county: "Santa Clara", metro: "Silicon Valley", lat: 37.2872, lng: -121.9499 },
+  { slug: "milpitas", name: "Milpitas", county: "Santa Clara", metro: "Silicon Valley", lat: 37.4323, lng: -121.8916 },
+  { slug: "alum-rock", name: "Alum Rock", county: "Santa Clara", metro: "Silicon Valley", lat: 37.3697, lng: -121.8236 },
+  { slug: "emerald-hills", name: "Emerald Hills", county: "San Mateo", metro: "Silicon Valley", lat: 37.4651, lng: -122.2675 },
+  { slug: "redwood-city", name: "Redwood City", county: "San Mateo", metro: "Silicon Valley", lat: 37.4852, lng: -122.2364 },
 ];
 
-/** Core services (the 3 that get matrix pages per area). */
-export const CORE_SERVICES = SERVICES.filter((s) => s.isCore);
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
@@ -324,12 +290,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
 ];
 
-/** Matrix helper: 3 core services × 6 areas = 18 slug pairs. */
-export const MATRIX: { serviceSlug: string; areaSlug: string }[] =
-  CORE_SERVICES.flatMap((service) =>
-    AREAS.map((area) => ({ serviceSlug: service.slug, areaSlug: area.slug })),
-  );
-
 /** Lookup helpers. */
 export function getService(slug: string): Service | undefined {
   return SERVICES.find((s) => s.slug === slug);
@@ -337,14 +297,4 @@ export function getService(slug: string): Service | undefined {
 
 export function getArea(slug: string): Area | undefined {
   return AREAS.find((a) => a.slug === slug);
-}
-
-/** Matrix page title helper, e.g. "Hardscaping in Saratoga, CA". */
-export function matrixTitle(service: Service, area: Area): string {
-  return `${service.name} in ${area.name}, CA`;
-}
-
-/** Matrix page meta description (50-160 chars), local-anchored for SEO. */
-export function matrixDescription(service: Service, area: Area): string {
-  return `${service.name} in ${area.name}, ${area.county} County. ${service.tagline}. Free quote from S&S Landscaping.`;
 }

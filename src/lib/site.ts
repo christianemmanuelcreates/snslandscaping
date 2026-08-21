@@ -8,7 +8,7 @@ export const SITE_URL = "https://snslandscaping.org/";
 export const BUSINESS_NAME = "S&S Landscaping";
 
 export const BUSINESS_TAGLINE =
-  "Premier landscaping & outdoor living in the San Francisco Metro Area";
+  "Premier landscaping & outdoor living in Silicon Valley & the Bay Area";
 
 export const EMAIL = "services@snslandscaping.org";
 
@@ -34,10 +34,20 @@ export const PRIMARY_PHONE = CONTACTS[0];
 export const CTA_LABEL = "Get a Free Quote";
 
 export const SERVICE_AREAS = [
-  "Saratoga",
+  "Los Gatos",
+  "Monte Sereno",
+  "Atherton",
+  "Los Altos",
   "Palo Alto",
   "Los Altos Hills",
-  "Atherton",
-  "Hillsborough",
-  "Belvedere",
+  "Saratoga",
+  "Mountain View",
+  "Cupertino",
+  "San Jose",
+  "Santa Clara",
+  "Campbell",
+  "Milpitas",
+  "Alum Rock",
+  "Emerald Hills",
+  "Redwood City",
 ] as const;

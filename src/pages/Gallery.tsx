@@ -31,7 +31,7 @@ export default function Gallery() {
       seo={{
         title: `Gallery | ${BUSINESS_NAME} Projects`,
         description:
-          "Browse landscaping, hardscaping, and outdoor living projects by S&S Landscaping across the SF Metro Area.",
+          "Browse landscaping, hardscaping, and outdoor living projects by S&S Landscaping across Silicon Valley & the Bay Area.",
         canonical: "https://snslandscaping.org/gallery",
       }}
       business={{
@@ -46,7 +46,7 @@ export default function Gallery() {
               Our Work
             </h1>
             <p className="mt-4 text-muted-foreground">
-              A look at the outdoor spaces we design and build across the SF Metro Area.
+              A look at the outdoor spaces we design and build across Silicon Valley & the Bay Area.
             </p>
           </div>
 

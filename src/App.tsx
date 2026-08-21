@@ -9,8 +9,8 @@ import { Layout } from "@/components/Layout";
 const Home = lazy(() => import("./pages/Home"));
 const Services = lazy(() => import("./pages/Services"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
+const ServiceAreas = lazy(() => import("./pages/ServiceAreas"));
 const AreaDetail = lazy(() => import("./pages/AreaDetail"));
-const MatrixDetail = lazy(() => import("./pages/MatrixDetail"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Reviews = lazy(() => import("./pages/Reviews"));
@@ -47,18 +47,18 @@ export default function App() {
             }
           />
           <Route
-            path="/services/:serviceSlug/:areaSlug"
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <MatrixDetail />
-              </Suspense>
-            }
-          />
-          <Route
             path="/services/:slug"
             element={
               <Suspense fallback={<PageLoader />}>
                 <ServiceDetail />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/areas"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <ServiceAreas />
               </Suspense>
             }
           />

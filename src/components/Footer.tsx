@@ -6,7 +6,6 @@ import {
   EMAIL,
   LICENSE,
   CONTACTS,
-  SERVICE_AREAS,
 } from "@/lib/site";
 import { AREAS, SERVICES } from "@/lib/sns-data";
 
@@ -46,14 +45,22 @@ export function Footer() {
           {/* Service areas */}
           <div className="flex flex-col gap-3">
             <h3 className="text-sm font-semibold text-foreground">Service Areas</h3>
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col gap-1.5">
+              <li>
+                <Link
+                  to="/areas"
+                  className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  View All Areas
+                </Link>
+              </li>
               {AREAS.map((area) => (
                 <li key={area.slug}>
                   <Link
                     to={`/areas/${area.slug}`}
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    {area.name}, {area.county} County
+                    {area.name}
                   </Link>
                 </li>
               ))}
@@ -78,7 +85,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="size-4 text-primary" aria-hidden="true" />
-                <span>Serving {SERVICE_AREAS.length} SF Metro areas</span>
+                <span>Serving {AREAS.length} Silicon Valley areas</span>
               </li>
             </ul>
           </div>

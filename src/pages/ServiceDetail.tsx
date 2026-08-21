@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import { CircleCheck as CheckCircle2, PhoneCall, ArrowRight } from "lucide-react";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
-import { getService, AREAS, CORE_SERVICES } from "@/lib/sns-data";
+import { getService, SERVICES, AREAS } from "@/lib/sns-data";
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -45,13 +45,13 @@ export default function ServiceDetail() {
     );
   }
 
-  const siblings = CORE_SERVICES.filter((s) => s.slug !== service.slug);
+  const siblings = SERVICES.filter((s) => s.slug !== service.slug);
 
   return (
     <Layout
       seo={{
         title: `${service.name} | ${BUSINESS_NAME}`,
-        description: `${service.description} Get a free quote from ${BUSINESS_NAME} in the SF Metro Area.`,
+        description: `${service.description} Get a free quote from ${BUSINESS_NAME} in Silicon Valley & the Bay Area.`,
         canonical: `https://snslandscaping.org/services/${service.slug}`,
         schemaTypes: ["Service"],
       }}

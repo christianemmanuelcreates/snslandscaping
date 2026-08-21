@@ -17,7 +17,7 @@ export default function Services() {
       seo={{
         title: `Landscaping Services | ${BUSINESS_NAME}`,
         description:
-          "Landscaping, hardscaping, site prep, irrigation, and outdoor amenities across the SF Metro Area. Get a free quote today.",
+          "Landscaping, hardscaping, site prep, irrigation, and outdoor amenities across Silicon Valley & the Bay Area. Get a free quote today.",
         canonical: "https://snslandscaping.org/services",
       }}
       business={{

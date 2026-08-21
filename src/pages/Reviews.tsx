@@ -11,7 +11,7 @@ export default function Reviews() {
       seo={{
         title: `Reviews | ${BUSINESS_NAME}`,
         description:
-          "Reviews for S&S Landscaping are coming soon. Get a free quote for landscaping and outdoor living in the SF Metro Area.",
+          "Reviews for S&S Landscaping are coming soon. Get a free quote for landscaping and outdoor living in Silicon Valley & the Bay Area.",
         canonical: "https://snslandscaping.org/reviews",
       }}
       business={{
@@ -26,7 +26,7 @@ export default function Reviews() {
               Reviews Coming Soon
             </h1>
             <p className="mt-4 text-muted-foreground">
-              We are a new company and are just getting started. Check back soon for reviews from our clients across the SF Metro Area.
+              We are a new company and are just getting started. Check back soon for reviews from our clients across Silicon Valley & the Bay Area.
             </p>
           </div>
 

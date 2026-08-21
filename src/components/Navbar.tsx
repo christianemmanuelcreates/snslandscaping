@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sparkles, Menu, MapPin, ChevronDown } from "lucide-react";
+import { Sparkles, Menu, MapPin, ChevronDown, LayoutGrid } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -61,24 +61,36 @@ export function Navbar() {
               <NavigationMenuTrigger className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
                 Service Areas
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="w-64">
-                <ul className="flex flex-col gap-1 p-2">
-                  {AREAS.map((area) => (
-                    <li key={area.slug}>
+              <NavigationMenuContent className="w-72">
+                <div className="max-h-[28rem] overflow-y-auto p-2">
+                  <ul className="flex flex-col gap-1">
+                    <li>
                       <NavigationMenuLink
                         render={
-                          <Link to={`/areas/${area.slug}`}>
-                            <MapPin className="size-4 text-primary" aria-hidden="true" />
-                            <span className="flex flex-col">
-                              <span className="font-medium text-foreground">{area.name}</span>
-                              <span className="text-xs text-muted-foreground">{area.county} County</span>
-                            </span>
+                          <Link to="/areas">
+                            <LayoutGrid className="size-4 text-primary" aria-hidden="true" />
+                            <span className="font-medium text-foreground">View All Areas</span>
                           </Link>
                         }
                       />
                     </li>
-                  ))}
-                </ul>
+                    {AREAS.map((area) => (
+                      <li key={area.slug}>
+                        <NavigationMenuLink
+                          render={
+                            <Link to={`/areas/${area.slug}`}>
+                              <MapPin className="size-4 text-primary" aria-hidden="true" />
+                              <span className="flex flex-col">
+                                <span className="font-medium text-foreground">{area.name}</span>
+                                <span className="text-xs text-muted-foreground">{area.county} County</span>
+                              </span>
+                            </Link>
+                          }
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
 
@@ -107,7 +119,7 @@ export function Navbar() {
             >
               <Menu className="size-5" aria-hidden="true" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-72">
+            <SheetContent side="right" className="w-72 overflow-y-auto">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <nav className="flex flex-col gap-1 pt-6">
                 {NAV_ITEMS.filter((item) => item.label !== "Service Areas").map((item) => (
@@ -126,14 +138,21 @@ export function Navbar() {
                     Service Areas
                     <ChevronDown className="size-4 transition-transform group-data-open:rotate-180" aria-hidden="true" />
                   </CollapsibleTrigger>
-                  <CollapsibleContent className="flex flex-col gap-1 pl-4 pt-1">
+                  <CollapsibleContent className="flex flex-col gap-0.5 pl-4 pt-1">
+                    <Link
+                      to="/areas"
+                      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <LayoutGrid className="size-4 text-primary" aria-hidden="true" />
+                      View All Areas
+                    </Link>
                     {AREAS.map((area) => (
                       <Link
                         key={area.slug}
                         to={`/areas/${area.slug}`}
-                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                        className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                       >
-                        <MapPin className="size-4 text-primary" aria-hidden="true" />
+                        <MapPin className="size-3.5 text-primary" aria-hidden="true" />
                         {area.name}
                       </Link>
                     ))}

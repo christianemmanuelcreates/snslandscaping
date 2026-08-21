@@ -22,9 +22,9 @@ export default function Home() {
   return (
     <Layout
       seo={{
-        title: `${BUSINESS_NAME} | Landscaping & Outdoor Living in the SF Metro`,
+        title: `${BUSINESS_NAME} | Landscaping & Outdoor Living in Silicon Valley`,
         description:
-          "Premium landscaping, hardscaping, irrigation, and outdoor living across the San Francisco Metro Area. Licensed & insured. Get a free quote today.",
+          "Premium landscaping, hardscaping, irrigation, and outdoor living across Silicon Valley and the Bay Area. Licensed & insured. Get a free quote today.",
         canonical: "https://snslandscaping.org/",
         ogType: "website",
         schemaTypes: ["WebSite", "LocalBusiness"],
@@ -32,9 +32,9 @@ export default function Home() {
       hasLocalBusiness
       geo={{
         region: "US-CA",
-        placename: "San Francisco Bay Area",
-        latitude: 37.4419,
-        longitude: -122.143,
+        placename: "Silicon Valley",
+        latitude: 37.3861,
+        longitude: -122.0839,
       }}
       business={{
         name: BUSINESS_NAME,
@@ -42,7 +42,7 @@ export default function Home() {
         phone: PRIMARY_PHONE.phone,
         address: {
           streetAddress: "",
-          addressLocality: "San Francisco Bay Area",
+          addressLocality: "Silicon Valley",
           addressRegion: "CA",
           postalCode: "",
           addressCountry: "US",
@@ -93,7 +93,7 @@ export default function Home() {
                 Licensed & Insured
               </h2>
               <p className="mt-3 text-primary-foreground/95">
-                {LICENSE}. Serving {AREAS.length} communities across the SF Metro Area.
+                {LICENSE}. Serving {AREAS.length} communities across Silicon Valley & the Bay Area.
               </p>
             </div>
             <div className="rounded-2xl border border-white/20 bg-white/15 p-8 shadow-lg backdrop-blur-md">
@@ -166,7 +166,7 @@ export default function Home() {
               Where We Work
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Local expertise across the SF Metro Area.
+              Local expertise across Silicon Valley & the Bay Area.
             </p>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

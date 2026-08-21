@@ -62,7 +62,7 @@ export function SEOHead({
               "@type": "ContactPoint",
               telephone: business.phone,
               contactType: "customer service",
-              areaServed: business.areaServed ?? [{ name: "San Francisco Bay Area" }],
+              areaServed: business.areaServed ?? [{ name: "Silicon Valley & the San Francisco Bay Area" }],
             },
           }
         : {}),

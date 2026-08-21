@@ -78,7 +78,7 @@ export default function Contact() {
       seo={{
         title: `Contact ${BUSINESS_NAME} | Get a Free Quote`,
         description:
-          "Contact S&S Landscaping for a free quote on landscaping, hardscaping, irrigation, and outdoor living in the SF Metro Area.",
+          "Contact S&S Landscaping for a free quote on landscaping, hardscaping, irrigation, and outdoor living in Silicon Valley & the Bay Area.",
         canonical: "https://snslandscaping.org/contact",
       }}
       business={{
