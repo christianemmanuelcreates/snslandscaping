@@ -134,6 +134,7 @@ export default function Contact() {
                         id="name"
                         placeholder="Your name"
                         required
+                        maxLength={120}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                       />
@@ -145,6 +146,7 @@ export default function Contact() {
                         type="email"
                         placeholder="you@example.com"
                         required
+                        maxLength={254}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
@@ -156,6 +158,7 @@ export default function Contact() {
                         type="tel"
                         placeholder="(555) 555-0000"
                         required
+                        maxLength={40}
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                       />
@@ -187,6 +190,7 @@ export default function Contact() {
                         id="message"
                         placeholder="Tell us about your project"
                         rows={4}
+                        maxLength={5000}
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                       />
