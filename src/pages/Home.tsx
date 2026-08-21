@@ -227,20 +227,20 @@ export default function Home() {
       <section className="bg-primary py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance text-primary-foreground md:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-balance text-white md:text-4xl dark:text-slate-950">
               Ready to Transform Your Outdoor Space?
             </h2>
-            <p className="mt-4 text-primary-foreground/80">
+            <p className="mt-4 text-white/90 dark:text-slate-950/85">
               Get a free quote from {BUSINESS_NAME} today.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:text-primary">
+                <Button size="lg" className="bg-white text-primary hover:bg-stone-100 hover:text-primary dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
                   {CTA_LABEL}
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary/30 bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:text-primary">
+                <Button size="lg" variant="outline" className="border-white/70 bg-white text-primary hover:bg-stone-100 hover:text-primary dark:border-white/70 dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>

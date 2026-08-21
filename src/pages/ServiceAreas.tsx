@@ -124,12 +124,12 @@ export default function ServiceAreas() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:text-primary">
+                <Button size="lg" className="bg-white text-primary hover:bg-stone-100 hover:text-primary dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
                   {CTA_LABEL}
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary/30 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                <Button size="lg" variant="outline" className="border-white/70 bg-white text-primary hover:bg-stone-100 hover:text-primary dark:border-white/70 dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>
