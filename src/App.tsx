@@ -1,30 +1,107 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
-import Home from "./pages/Home";
-import Services from "./pages/Services";
-import ServiceDetail from "./pages/ServiceDetail";
-import AreaDetail from "./pages/AreaDetail";
-import MatrixDetail from "./pages/MatrixDetail";
-import About from "./pages/About";
-import Gallery from "./pages/Gallery";
-import Reviews from "./pages/Reviews";
-import Contact from "./pages/Contact";
+import { ScrollToHash } from "@/components/ScrollToHash";
+
+import { Layout } from "@/components/Layout";
+
+const Home = lazy(() => import("./pages/Home"));
+const Services = lazy(() => import("./pages/Services"));
+const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
+const AreaDetail = lazy(() => import("./pages/AreaDetail"));
+const MatrixDetail = lazy(() => import("./pages/MatrixDetail"));
+const About = lazy(() => import("./pages/About"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Reviews = lazy(() => import("./pages/Reviews"));
+const Contact = lazy(() => import("./pages/Contact"));
+
+function PageLoader() {
+  return (
+    <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="size-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+    </div>
+  );
+}
 
 export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <ScrollToHash />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:serviceSlug/:areaSlug" element={<MatrixDetail />} />
-          <Route path="/services/:slug" element={<ServiceDetail />} />
-          <Route path="/areas/:slug" element={<AreaDetail />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Services />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services/:serviceSlug/:areaSlug"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <MatrixDetail />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services/:slug"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <ServiceDetail />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/areas/:slug"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <AreaDetail />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <About />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/gallery"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Gallery />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/reviews"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Reviews />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Contact />
+              </Suspense>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

@@ -126,7 +126,7 @@ export default function Gallery() {
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
               Get a free quote for your own landscaping project.
             </p>
-            <Link to="/contact" className="mt-6 inline-block">
+            <Link to="/contact#quote-form" className="mt-6 inline-block">
               <Button size="lg">{CTA_LABEL}</Button>
             </Link>
           </div>

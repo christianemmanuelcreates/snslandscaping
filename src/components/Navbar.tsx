@@ -25,7 +25,6 @@ import { BUSINESS_NAME, CTA_LABEL } from "@/lib/site";
 import { AREAS } from "@/lib/sns-data";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
@@ -97,7 +96,7 @@ export function Navbar() {
         {/* Right actions */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link to="/contact" className="hidden md:inline-flex">
+          <Link to="/contact#quote-form" className="hidden md:inline-flex">
             <Button size="sm">{CTA_LABEL}</Button>
           </Link>
           {/* Mobile menu trigger */}
@@ -141,7 +140,7 @@ export function Navbar() {
                   </CollapsibleContent>
                 </Collapsible>
 
-                <Link to="/contact" className="mt-4">
+                <Link to="/contact#quote-form" className="mt-4">
                   <Button className="w-full">{CTA_LABEL}</Button>
                 </Link>
               </nav>

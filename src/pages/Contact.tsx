@@ -87,7 +87,7 @@ export default function Contact() {
         phone: PRIMARY_PHONE.phone,
       }}
     >
-      <section className="py-16 md:py-24">
+      <section id="quote-form" className="py-16 md:py-24 scroll-mt-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tighter text-balance md:text-5xl">

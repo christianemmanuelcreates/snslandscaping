@@ -77,7 +77,7 @@ export default function Home() {
               From lawns and gardens to patios and irrigation, we design and build landscapes that thrive in the Bay Area.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Link to="/contact">
+              <Link to="/contact#quote-form">
                 <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
               </Link>
               <Link to="/services">
@@ -234,7 +234,7 @@ export default function Home() {
               Get a free quote from {BUSINESS_NAME} today.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link to="/contact">
+              <Link to="/contact#quote-form">
                 <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   {CTA_LABEL}
                 </Button>

@@ -13,4 +13,20 @@ export default defineConfig({
       "@": resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("react-router-dom") || id.includes("/react/") || id.includes("/react-dom/")) {
+              return "react-vendor";
+            }
+            if (id.includes("@base-ui/react") || id.includes("lucide-react") || id.includes("class-variance-authority") || id.includes("clsx") || id.includes("tailwind-merge")) {
+              return "ui-vendor";
+            }
+          }
+        },
+      },
+    },
+  },
 })

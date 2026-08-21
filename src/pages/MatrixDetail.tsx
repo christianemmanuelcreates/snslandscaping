@@ -99,7 +99,7 @@ export default function MatrixDetail() {
               {service.tagline} in {area.name}, {area.county} County.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <Link to="/contact#quote-form">
                 <Button size="lg">{CTA_LABEL}</Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
@@ -246,7 +246,7 @@ export default function MatrixDetail() {
               Get a free quote for your {area.name} project today.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link to="/contact">
+              <Link to="/contact#quote-form">
                 <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   {CTA_LABEL}
                 </Button>

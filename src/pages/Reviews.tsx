@@ -41,7 +41,7 @@ export default function Reviews() {
                 <p className="text-muted-foreground">
                   No reviews yet. We look forward to earning yours.
                 </p>
-                <Link to="/contact">
+                <Link to="/contact#quote-form">
                   <Button size="lg">{CTA_LABEL}</Button>
                 </Link>
               </CardContent>
