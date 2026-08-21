@@ -24,15 +24,29 @@ export default function Home() {
       seo={{
         title: `${BUSINESS_NAME} | Landscaping & Outdoor Living in the SF Metro`,
         description:
-          "Premium landscaping, hardscaping, irrigation, and outdoor living across the San Francisco Metro Area. Get a free quote today.",
+          "Premium landscaping, hardscaping, irrigation, and outdoor living across the San Francisco Metro Area. Licensed & insured. Get a free quote today.",
         canonical: "https://snslandscaping.org/",
         ogType: "website",
-        schemaTypes: ["WebSite"],
+        schemaTypes: ["WebSite", "LocalBusiness"],
+      }}
+      hasLocalBusiness
+      geo={{
+        region: "US-CA",
+        placename: "San Francisco Bay Area",
+        latitude: 37.4419,
+        longitude: -122.143,
       }}
       business={{
         name: BUSINESS_NAME,
         url: "https://snslandscaping.org/",
         phone: PRIMARY_PHONE.phone,
+        address: {
+          streetAddress: "",
+          addressLocality: "San Francisco Bay Area",
+          addressRegion: "CA",
+          postalCode: "",
+          addressCountry: "US",
+        },
         areaServed: AREAS.map((a) => ({ name: a.name })),
       }}
     >
@@ -48,45 +62,45 @@ export default function Home() {
           className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40"
           aria-hidden="true"
         />
-        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24 lg:grid-cols-2">
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col gap-6">
             <Badge
               variant="secondary"
-              className="bg-primary-foreground/15 text-primary-foreground hover:bg-primary-foreground/25"
+              className="w-fit bg-primary-foreground/15 text-primary-foreground hover:bg-primary-foreground/25"
             >
               {BUSINESS_TAGLINE}
             </Badge>
             <h1 className="text-4xl font-bold tracking-tighter text-balance sm:text-5xl md:text-6xl">
               Outdoor Living, Built to Last
             </h1>
-            <p className="max-w-xl text-lg text-primary-foreground/90">
+            <p className="max-w-xl text-base text-primary-foreground/90 sm:text-lg">
               From lawns and gardens to patios and irrigation, we design and build landscapes that thrive in the Bay Area.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Link to="/contact">
-                <Button size="lg">{CTA_LABEL}</Button>
+                <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
               </Link>
               <Link to="/services">
-                <Button size="lg" variant="outline" className="bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20">
+                <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/25 sm:w-auto">
                   Our Services
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="flex flex-col gap-6">
-            <div className="rounded-2xl bg-primary-foreground/10 p-8">
+          <div className="flex flex-col gap-6 lg:justify-center">
+            <div className="rounded-2xl border border-white/20 bg-white/15 p-8 shadow-lg backdrop-blur-md">
               <h2 className="text-2xl font-semibold text-primary-foreground">
                 Licensed & Insured
               </h2>
-              <p className="mt-3 text-primary-foreground/80">
+              <p className="mt-3 text-primary-foreground/95">
                 {LICENSE}. Serving {AREAS.length} communities across the SF Metro Area.
               </p>
             </div>
-            <div className="rounded-2xl bg-primary-foreground/10 p-8">
+            <div className="rounded-2xl border border-white/20 bg-white/15 p-8 shadow-lg backdrop-blur-md">
               <h2 className="text-2xl font-semibold text-primary-foreground">
                 Two Local Experts
               </h2>
-              <p className="mt-3 text-primary-foreground/80">
+              <p className="mt-3 text-primary-foreground/95">
                 Samuel Delgado and Santos Gomez bring years of hands-on landscaping experience to every project.
               </p>
             </div>
@@ -226,7 +240,7 @@ export default function Home() {
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/15">
+                <Button size="lg" variant="outline" className="border-primary/30 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>

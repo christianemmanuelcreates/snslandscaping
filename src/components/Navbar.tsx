@@ -1,10 +1,28 @@
 import { Link } from "react-router-dom";
-import { Sparkles, Menu } from "lucide-react";
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu";
-import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { Sparkles, Menu, MapPin, ChevronDown } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { BUSINESS_NAME, CTA_LABEL } from "@/lib/site";
+import { AREAS } from "@/lib/sns-data";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -28,7 +46,7 @@ export function Navbar() {
         {/* Desktop nav */}
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList className="flex items-center gap-1">
-            {NAV_ITEMS.map((item) => (
+            {NAV_ITEMS.filter((item) => item.label !== "Contact").map((item) => (
               <NavigationMenuItem key={item.href}>
                 <Link
                   to={item.href}
@@ -38,6 +56,41 @@ export function Navbar() {
                 </Link>
               </NavigationMenuItem>
             ))}
+
+            {/* Service Areas dropdown */}
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
+                Service Areas
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="w-64">
+                <ul className="flex flex-col gap-1 p-2">
+                  {AREAS.map((area) => (
+                    <li key={area.slug}>
+                      <NavigationMenuLink
+                        render={
+                          <Link to={`/areas/${area.slug}`}>
+                            <MapPin className="size-4 text-primary" aria-hidden="true" />
+                            <span className="flex flex-col">
+                              <span className="font-medium text-foreground">{area.name}</span>
+                              <span className="text-xs text-muted-foreground">{area.county} County</span>
+                            </span>
+                          </Link>
+                        }
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <Link
+                to="/contact"
+                className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+              >
+                Contact
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -58,7 +111,7 @@ export function Navbar() {
             <SheetContent side="right" className="w-72">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <nav className="flex flex-col gap-1 pt-6">
-                {NAV_ITEMS.map((item) => (
+                {NAV_ITEMS.filter((item) => item.label !== "Service Areas").map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
@@ -67,6 +120,27 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
+
+                {/* Mobile Service Areas collapsible */}
+                <Collapsible className="flex flex-col">
+                  <CollapsibleTrigger className="flex items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
+                    Service Areas
+                    <ChevronDown className="size-4 transition-transform group-data-open:rotate-180" aria-hidden="true" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="flex flex-col gap-1 pl-4 pt-1">
+                    {AREAS.map((area) => (
+                      <Link
+                        key={area.slug}
+                        to={`/areas/${area.slug}`}
+                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                      >
+                        <MapPin className="size-4 text-primary" aria-hidden="true" />
+                        {area.name}
+                      </Link>
+                    ))}
+                  </CollapsibleContent>
+                </Collapsible>
+
                 <Link to="/contact" className="mt-4">
                   <Button className="w-full">{CTA_LABEL}</Button>
                 </Link>

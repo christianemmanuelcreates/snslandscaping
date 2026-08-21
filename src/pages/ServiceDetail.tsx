@@ -66,6 +66,7 @@ export default function ServiceDetail() {
         description: service.description,
         areaServed: AREAS.map((a) => ({ name: a.name })),
       }}
+      faqs={service.faqs}
     >
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
@@ -93,7 +94,7 @@ export default function ServiceDetail() {
                 <Button size="lg">{CTA_LABEL}</Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/15">
+                <Button size="lg" variant="outline" className="border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/25">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>
@@ -211,7 +212,7 @@ export default function ServiceDetail() {
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/15">
+                <Button size="lg" variant="outline" className="border-primary/30 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>

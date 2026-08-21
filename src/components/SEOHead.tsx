@@ -29,6 +29,7 @@ interface SEOHeadProps {
     description?: string;
     areaServed?: { name: string }[];
   };
+  faqs?: { question: string; answer: string }[];
 }
 
 export function SEOHead({
@@ -41,9 +42,11 @@ export function SEOHead({
   geo,
   business,
   service,
+  faqs,
 }: SEOHeadProps) {
   const orgName = business?.name || BUSINESS_NAME;
   const orgUrl = business?.url || canonical;
+  const ogImage = "https://snslandscaping.org/images/Hero_Photo.jpg";
 
   const graph: Record<string, unknown>[] = [
     {
@@ -51,6 +54,7 @@ export function SEOHead({
       "@id": `${orgUrl}#organization`,
       name: orgName,
       url: orgUrl,
+      logo: `${orgUrl}images/Hero_Photo.jpg`,
       ...(business?.sameAs?.length ? { sameAs: business.sameAs } : {}),
       ...(business?.phone
         ? {
@@ -58,6 +62,7 @@ export function SEOHead({
               "@type": "ContactPoint",
               telephone: business.phone,
               contactType: "customer service",
+              areaServed: business.areaServed ?? [{ name: "San Francisco Bay Area" }],
             },
           }
         : {}),
@@ -89,6 +94,8 @@ export function SEOHead({
       name: orgName,
       url: orgUrl,
       telephone: business.phone,
+      image: ogImage,
+      priceRange: "$$",
       address: {
         "@type": "PostalAddress",
         ...(business.address.streetAddress
@@ -145,6 +152,21 @@ export function SEOHead({
     });
   }
 
+  if (faqs?.length) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -156,9 +178,11 @@ export function SEOHead({
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={orgName} />
       <meta property="og:locale" content="en_US" />
+      <meta property="og:image" content={ogImage} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
       <html lang="en" />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       {hasLocalBusiness && geo && (
