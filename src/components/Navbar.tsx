@@ -61,9 +61,9 @@ export function Navbar() {
               <NavigationMenuTrigger className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
                 Service Areas
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="w-72">
-                <div className="max-h-[28rem] overflow-y-auto p-2">
-                  <ul className="flex flex-col gap-1">
+              <NavigationMenuContent className="w-64">
+                <div className="max-h-[calc(100vh-6rem)] overflow-y-auto p-2">
+                  <ul className="flex flex-col gap-0.5">
                     <li>
                       <NavigationMenuLink
                         render={
@@ -80,10 +80,7 @@ export function Navbar() {
                           render={
                             <Link to={`/areas/${area.slug}`}>
                               <MapPin className="size-4 text-primary" aria-hidden="true" />
-                              <span className="flex flex-col">
-                                <span className="font-medium text-foreground">{area.name}</span>
-                                <span className="text-xs text-muted-foreground">{area.county} County</span>
-                              </span>
+                              <span className="font-medium text-foreground">{area.name}</span>
                             </Link>
                           }
                         />
