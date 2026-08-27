@@ -82,7 +82,7 @@ export default function AreaDetail() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
         <img
-          src="/images/Hero_Photo.jpg"
+          src="/images/gallery/backyard_concept.jpg"
           alt="Landscaped backyard with a stone water fountain and lush garden by S&S Landscaping"
           loading="eager"
           className="absolute inset-0 size-full object-cover"

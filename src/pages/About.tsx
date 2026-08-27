@@ -74,8 +74,8 @@ export default function About() {
           {/* Project showcase */}
           <div className="mt-16 overflow-hidden rounded-xl">
             <img
-              src="/images/gallery/General_site_Photo_2.jpg"
-              alt="Residential garden design with trees and shrubs by S&S Landscaping"
+              src="/images/gallery/tori_bench.jpg"
+              alt="Pergola with swing seating, gravel paths, and planted garden beds"
               loading="lazy"
               className="aspect-[21/9] w-full object-cover"
             />

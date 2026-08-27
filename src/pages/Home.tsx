@@ -53,7 +53,7 @@ export default function Home() {
       {/* Hero: split-screen */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
         <img
-          src="/images/Hero_Photo.jpg"
+          src="/images/gallery/backyard_concept.jpg"
           alt="Landscaped backyard with a stone water fountain, lush lawn, and garden plantings by S&S Landscaping"
           className="absolute inset-0 size-full object-cover"
           loading="eager"

@@ -222,8 +222,8 @@ export default function Contact() {
           <div className="mx-auto mt-8 max-w-2xl">
             <div className="overflow-hidden rounded-xl">
               <img
-                src="/images/gallery/General_site_photo_3.jpg"
-                alt="Outdoor fountain feature installed by S&S Landscaping"
+                src="/images/gallery/stone_fountain.jpg"
+                alt="Stone fountain feature surrounded by ornamental grasses and river rock"
                 loading="lazy"
                 className="aspect-[21/9] w-full object-cover"
               />

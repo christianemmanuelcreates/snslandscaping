@@ -48,8 +48,8 @@ export const SERVICES: Service[] = [
     description:
       "Complete landscaping and planting services across Silicon Valley and the Bay Area. We install lawns, trees, shrubs, and turf, and design gardens that thrive in our climate.",
     icon: Sun,
-    image: "/images/gallery/General_site_photo_1.jpg",
-    imageAlt: "Landscaped garden with a water fountain and lush green lawn installed by S&S Landscaping",
+    image: "/images/gallery/front_yard_2.jpg",
+    imageAlt: "Completed lawn and paver border in a residential yard",
     features: [
       "Lawn installation & turf",
       "Tree & shrub planting",
@@ -87,8 +87,8 @@ export const SERVICES: Service[] = [
     description:
       "Durable, beautiful hardscape construction including patios, paver walkways, retaining walls, and decorative masonry that extends your living space outdoors.",
     icon: Building,
-    image: "/images/services/Hardscaping_Service_Photo.jpg",
-    imageAlt: "Hardscaping project featuring a paver patio and walkway built by S&S Landscaping",
+    image: "/images/gallery/stone_feature_2.jpg",
+    imageAlt: "Stone seating wall and fire pit surrounded by a finished patio",
     features: [
       "Patio installation",
       "Paver walkways",
@@ -126,8 +126,8 @@ export const SERVICES: Service[] = [
     description:
       "Professional site prep including land grading, excavation, soil preparation, and erosion control to get your project ready.",
     icon: HardHat,
-    image: "/images/services/site_preparation_service_photo.jpg",
-    imageAlt: "Site preparation work including grading and excavation by S&S Landscaping",
+    image: "/images/gallery/gravel_side_path.jpg",
+    imageAlt: "Gravel side path with large concrete stepping stones beside a home",
     features: [
       "Land grading services",
       "Site excavation",
@@ -165,8 +165,8 @@ export const SERVICES: Service[] = [
     description:
       "Efficient irrigation and drainage systems, from sprinkler install and repair to smart irrigation and landscape drainage.",
     icon: RefreshCcw,
-    image: "/images/services/irrigation_drainage_service.jpg",
-    imageAlt: "Irrigation and drainage system installation by S&S Landscaping",
+    image: "/images/gallery/front_yard.jpg",
+    imageAlt: "Completed artificial turf lawn with concrete walkways in a residential yard",
     features: [
       "Sprinkler system install & repair",
       "Smart irrigation",
@@ -204,8 +204,8 @@ export const SERVICES: Service[] = [
     description:
       "Outdoor amenities that elevate your space, including water features, low-voltage landscape lighting, and decorative treatments.",
     icon: Sparkles,
-    image: "/images/services/outdoor_amenities_service_photo.jpg",
-    imageAlt: "Outdoor amenities including a water feature and landscape lighting by S&S Landscaping",
+    image: "/images/gallery/tori_bench.jpg",
+    imageAlt: "Wood pergola with swing seating, gravel path, and planted garden beds",
     features: [
       "Water features",
       "Low-voltage landscape lighting",
@@ -259,34 +259,74 @@ export const AREAS: Area[] = [
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    image: "/images/gallery/General_site_photo_1.jpg",
-    title: "Garden & Water Feature",
-    description: "A landscaped garden with a stone water fountain, healthy lawn, and layered plantings.",
+    image: "/images/gallery/backyard_concept.jpg",
+    title: "Backyard Turf & Putting Green",
+    description: "A finished backyard with artificial turf, a putting green, concrete walks, and a fire pit.",
   },
   {
-    image: "/images/gallery/General_site_Photo_2.jpg",
-    title: "Residential Garden Design",
-    description: "Trees, shrubs, and garden beds designed for year-round Bay Area beauty.",
+    image: "/images/gallery/front_yard.jpg",
+    title: "Artificial Turf Backyard",
+    description: "An artificial turf lawn with a block retaining wall and concrete side walkway.",
   },
   {
-    image: "/images/gallery/General_site_photo_3.jpg",
-    title: "Outdoor Fountain Feature",
-    description: "A decorative fountain installed as a focal point in a residential landscape.",
+    image: "/images/gallery/front_yard_2.jpg",
+    title: "Lawn & Paver Border",
+    description: "A finished lawn framed by a paved walkway and clean stone edging.",
   },
   {
-    image: "/images/gallery/General_site_photo_4.jpg",
-    title: "Mature Tree & Planting Design",
-    description: "Mature trees and curated plantings that frame the home and add curb appeal.",
+    image: "/images/gallery/front_yard_3.jpg",
+    title: "Front Yard Turf Installation",
+    description: "A completed artificial turf front yard with decorative stone and planting beds.",
   },
   {
-    image: "/images/gallery/General_site_photo_5.jpg",
-    title: "Paver Patio & Walkway",
-    description: "A paver patio and walkway extending the outdoor living space.",
+    image: "/images/gallery/gravel_side_path.jpg",
+    title: "Gravel Side Path",
+    description: "A gravel side yard with large concrete stepping stones and defined planting beds.",
   },
   {
-    image: "/images/gallery/General_site_photo_6.jpg",
-    title: "Completed Outdoor Space",
-    description: "A finished landscape combining planting, hardscape, and lighting.",
+    image: "/images/gallery/stone_feature.jpg",
+    title: "Stone Garden Feature",
+    description: "A stone feature wall surrounded by river rock, ornamental grasses, and planted beds.",
+  },
+  {
+    image: "/images/gallery/second_illuminated_walk_way.jpg",
+    title: "Illuminated Paver Walkway",
+    description: "A paver walkway with built-in lighting along the steps and retaining walls.",
+  },
+  {
+    image: "/images/gallery/other_view_illuminated_walk_way.jpeg",
+    title: "Landscape-Lit Walkway",
+    description: "A finished walkway and steps with low-voltage lighting set into the surrounding walls.",
+  },
+  {
+    image: "/images/gallery/marble_steps.jpg",
+    title: "Marble Stepping-Stone Path",
+    description: "Large marble stepping stones set through a gravel side yard beside a home.",
+  },
+  {
+    image: "/images/gallery/illuminated_steps.jpg",
+    title: "Illuminated Entry Steps",
+    description: "A paver entry walkway with step lighting and structured brick retaining walls.",
+  },
+  {
+    image: "/images/gallery/stone_feature_2.jpg",
+    title: "Patio & Fire Pit",
+    description: "A finished patio with a curved stone seating wall and central fire pit.",
+  },
+  {
+    image: "/images/gallery/stone_fountain.jpg",
+    title: "Stone Fountain Garden",
+    description: "A stone fountain feature surrounded by ornamental grasses, river rock, and mulch.",
+  },
+  {
+    image: "/images/gallery/tori_bench.jpg",
+    title: "Pergola & Garden Seating",
+    description: "A wood pergola with swing seating, gravel paths, raised walls, and planted beds.",
+  },
+  {
+    image: "/images/gallery/yard_work.jpg",
+    title: "Turf & Paver Yard",
+    description: "A completed artificial turf yard with large pavers and a clean perimeter walkway.",
   },
 ];
 

@@ -46,7 +46,7 @@ export function SEOHead({
 }: SEOHeadProps) {
   const orgName = business?.name || BUSINESS_NAME;
   const orgUrl = business?.url || canonical;
-  const ogImage = "https://snslandscaping.org/images/Hero_Photo.jpg";
+  const ogImage = "https://snslandscaping.org/images/gallery/backyard_concept.jpg";
 
   const graph: Record<string, unknown>[] = [
     {
@@ -54,7 +54,7 @@ export function SEOHead({
       "@id": `${orgUrl}#organization`,
       name: orgName,
       url: orgUrl,
-      logo: `${orgUrl}images/Hero_Photo.jpg`,
+      logo: `${orgUrl}images/gallery/backyard_concept.jpg`,
       ...(business?.sameAs?.length ? { sameAs: business.sameAs } : {}),
       ...(business?.phone
         ? {
