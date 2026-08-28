@@ -35,20 +35,20 @@ const NAV_ITEMS = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto grid h-20 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center" aria-label={`${BUSINESS_NAME} home`}>
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-sm ring-1 ring-border/60">
+        <Link to="/" className="flex h-14 w-14 shrink-0 items-center justify-center" aria-label={`${BUSINESS_NAME} home`}>
+          <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-full bg-white p-1 shadow-sm ring-1 ring-border/60">
             <img
               src="/images/Gemini_Generated_Image_7uah5u7uah5u7uah-removebg-preview%20copy.png"
               alt={`${BUSINESS_NAME} logo`}
-              className="block h-full w-full object-contain"
+              className="absolute inset-0 block h-full w-full max-h-full max-w-full object-contain p-1"
             />
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <NavigationMenu className="hidden md:flex">
+        <NavigationMenu className="hidden min-w-0 justify-self-center md:flex">
           <NavigationMenuList className="flex items-center gap-1">
             {NAV_ITEMS.filter((item) => item.label !== "Contact").map((item) => (
               <NavigationMenuItem key={item.href}>
