@@ -35,23 +35,23 @@ const NAV_ITEMS = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-24 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8 md:h-28">
+      <div className="navbar-shell mx-auto flex min-h-24 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="flex size-20 shrink-0 items-center justify-center overflow-hidden md:size-24"
+          className="navbar-logo flex shrink-0 items-center justify-center overflow-hidden"
           aria-label={`${BUSINESS_NAME} home`}
         >
           <img
             src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
             alt={`${BUSINESS_NAME} logo`}
-            width={96}
-            height={96}
-            className="block size-full object-contain"
+            width={200}
+            height={200}
+            className="block object-contain"
           />
         </Link>
 
         {/* Desktop nav */}
-        <NavigationMenu className="hidden min-w-0 flex-1 justify-center md:flex">
+        <NavigationMenu className="hidden min-w-0 flex-1 justify-center xl:flex">
           <NavigationMenuList className="flex items-center gap-1">
             {NAV_ITEMS.filter((item) => item.label !== "Contact").map((item) => (
               <NavigationMenuItem key={item.href}>
@@ -113,13 +113,13 @@ export function Navbar() {
         {/* Right actions */}
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <ThemeToggle />
-          <Link to="/contact#quote-form" className="hidden md:inline-flex">
+          <Link to="/contact#quote-form" className="hidden xl:inline-flex">
             <Button size="sm">{CTA_LABEL}</Button>
           </Link>
           {/* Mobile menu trigger */}
           <Sheet>
             <SheetTrigger
-              className="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+              className="xl:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
               aria-label="Open menu"
             >
               <Menu className="size-5" aria-hidden="true" />
