@@ -51,13 +51,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <NavigationMenu className="hidden min-w-0 flex-1 justify-center xl:flex">
-          <NavigationMenuList className="flex items-center gap-1">
+        <NavigationMenu className="hidden min-w-0 flex-1 justify-center md:flex">
+          <NavigationMenuList className="flex items-center gap-0.5">
             {NAV_ITEMS.filter((item) => item.label !== "Contact").map((item) => (
               <NavigationMenuItem key={item.href}>
                 <Link
                   to={item.href}
-                  className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+                  className="inline-flex items-center rounded-md px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
                 >
                   {item.label}
                 </Link>
@@ -66,7 +66,7 @@ export function Navbar() {
 
             {/* Service Areas dropdown */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
+              <NavigationMenuTrigger className="px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
                 Service Areas
               </NavigationMenuTrigger>
               <NavigationMenuContent className="max-h-[calc(100vh-6rem)] w-64 overflow-y-auto overscroll-contain">
@@ -102,7 +102,7 @@ export function Navbar() {
             <NavigationMenuItem>
               <Link
                 to="/contact"
-                className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+                className="inline-flex items-center rounded-md px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
               >
                 Contact
               </Link>
@@ -113,13 +113,13 @@ export function Navbar() {
         {/* Right actions */}
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <ThemeToggle />
-          <Link to="/contact#quote-form" className="hidden xl:inline-flex">
+          <Link to="/contact#quote-form" className="hidden md:inline-flex">
             <Button size="sm">{CTA_LABEL}</Button>
           </Link>
           {/* Mobile menu trigger */}
           <Sheet>
             <SheetTrigger
-              className="xl:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+              className="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
               aria-label="Open menu"
             >
               <Menu className="size-5" aria-hidden="true" />
