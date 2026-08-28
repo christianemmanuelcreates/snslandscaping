@@ -17,7 +17,7 @@ export function Footer() {
           {/* Brand */}
           <div className="flex min-w-0 flex-col gap-4">
             <Link to="/" className="flex flex-col items-start gap-3 font-semibold text-foreground">
-              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-sm ring-1 ring-border/60">
+              <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-white p-1.5 shadow-sm ring-1 ring-border/60">
                 <img
                   src="/images/Gemini_Generated_Image_7uah5u7uah5u7uah-removebg-preview%20copy.png"
                   alt={`${BUSINESS_NAME} logo`}

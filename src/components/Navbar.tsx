@@ -35,17 +35,16 @@ const NAV_ITEMS = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 font-semibold text-foreground">
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white p-0.5 shadow-sm ring-1 ring-border/60">
+        <Link to="/" className="flex items-center" aria-label={`${BUSINESS_NAME} home`}>
+          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-sm ring-1 ring-border/60">
             <img
               src="/images/Gemini_Generated_Image_7uah5u7uah5u7uah-removebg-preview%20copy.png"
               alt={`${BUSINESS_NAME} logo`}
-              className="size-full object-contain"
+              className="block h-full w-full object-contain"
             />
           </span>
-          <span>{BUSINESS_NAME}</span>
         </Link>
 
         {/* Desktop nav */}
