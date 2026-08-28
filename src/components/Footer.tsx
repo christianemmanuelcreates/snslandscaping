@@ -15,13 +15,13 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           {/* Brand */}
-          <div className="flex flex-col gap-4">
-            <Link to="/" className="flex items-center gap-3 font-semibold text-foreground">
-              <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-sm ring-1 ring-border/60">
+          <div className="flex min-w-0 flex-col gap-4">
+            <Link to="/" className="flex flex-col items-start gap-3 font-semibold text-foreground">
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-sm ring-1 ring-border/60">
                 <img
                   src="/images/Gemini_Generated_Image_7uah5u7uah5u7uah-removebg-preview%20copy.png"
                   alt={`${BUSINESS_NAME} logo`}
-                  className="size-full object-contain"
+                  className="block h-full w-full object-contain"
                 />
               </span>
               <span>{BUSINESS_NAME}</span>
