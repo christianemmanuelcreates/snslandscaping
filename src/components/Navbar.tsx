@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sparkles, Menu, MapPin, ChevronDown, LayoutGrid } from "lucide-react";
+import { Menu, MapPin, ChevronDown, LayoutGrid } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -38,7 +38,13 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 font-semibold text-foreground">
-          <Sparkles className="size-5 text-primary" aria-hidden="true" />
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white p-0.5 shadow-sm ring-1 ring-border/60">
+            <img
+              src="/images/Gemini_Generated_Image_7uah5u7uah5u7uah-removebg-preview%20copy.png"
+              alt={`${BUSINESS_NAME} logo`}
+              className="size-full object-contain"
+            />
+          </span>
           <span>{BUSINESS_NAME}</span>
         </Link>
 

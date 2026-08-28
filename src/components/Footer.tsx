@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sparkles, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import {
   BUSINESS_NAME,
   BUSINESS_TAGLINE,
@@ -15,9 +15,15 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           {/* Brand */}
-          <div className="flex flex-col gap-3">
-            <Link to="/" className="flex items-center gap-2 font-semibold text-foreground">
-              <Sparkles className="size-5 text-primary" aria-hidden="true" />
+          <div className="flex flex-col gap-4">
+            <Link to="/" className="flex items-center gap-3 font-semibold text-foreground">
+              <span className="flex size-20 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-sm ring-1 ring-border/60">
+                <img
+                  src="/images/Gemini_Generated_Image_7uah5u7uah5u7uah-removebg-preview%20copy.png"
+                  alt={`${BUSINESS_NAME} logo`}
+                  className="size-full object-contain"
+                />
+              </span>
               <span>{BUSINESS_NAME}</span>
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground">
