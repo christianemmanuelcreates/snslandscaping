@@ -35,23 +35,23 @@ const NAV_ITEMS = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto grid h-20 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+      <div className="mx-auto flex h-20 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden justify-self-start sm:h-14 sm:w-14 md:h-16 md:w-16"
+          className="flex size-10 shrink-0 items-center justify-center overflow-hidden md:size-12"
           aria-label={`${BUSINESS_NAME} home`}
         >
           <img
             src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
             alt={`${BUSINESS_NAME} logo`}
-            className="block h-full w-full max-h-full max-w-full object-contain"
-            style={{ width: "100%", height: "100%" }}
+            width={48}
+            height={48}
+            className="block size-full object-contain"
           />
         </Link>
 
         {/* Desktop nav */}
-        <NavigationMenu className="hidden min-w-0 justify-self-center md:flex">
+        <NavigationMenu className="hidden min-w-0 flex-1 justify-center md:flex">
           <NavigationMenuList className="flex items-center gap-1">
             {NAV_ITEMS.filter((item) => item.label !== "Contact").map((item) => (
               <NavigationMenuItem key={item.href}>
@@ -111,7 +111,7 @@ export function Navbar() {
         </NavigationMenu>
 
         {/* Right actions */}
-        <div className="flex items-center justify-self-end gap-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2">
           <ThemeToggle />
           <Link to="/contact#quote-form" className="hidden md:inline-flex">
             <Button size="sm">{CTA_LABEL}</Button>
