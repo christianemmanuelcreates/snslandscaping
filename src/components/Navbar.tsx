@@ -39,13 +39,14 @@ export function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className="flex h-12 w-12 shrink-0 items-center justify-center sm:h-14 sm:w-14 md:h-16 md:w-16"
+          className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden justify-self-start sm:h-14 sm:w-14 md:h-16 md:w-16"
           aria-label={`${BUSINESS_NAME} home`}
         >
           <img
             src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
             alt={`${BUSINESS_NAME} logo`}
-            className="block h-full w-full object-contain"
+            className="block h-full w-full max-h-full max-w-full object-contain"
+            style={{ width: "100%", height: "100%" }}
           />
         </Link>
 
@@ -110,7 +111,7 @@ export function Navbar() {
         </NavigationMenu>
 
         {/* Right actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-self-end gap-2">
           <ThemeToggle />
           <Link to="/contact#quote-form" className="hidden md:inline-flex">
             <Button size="sm">{CTA_LABEL}</Button>
