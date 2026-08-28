@@ -37,14 +37,16 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto grid h-20 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/" className="flex h-14 w-14 shrink-0 items-center justify-center" aria-label={`${BUSINESS_NAME} home`}>
-          <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-full bg-white p-1 shadow-sm ring-1 ring-border/60">
-            <img
-              src="/images/Gemini_Generated_Image_7uah5u7uah5u7uah-removebg-preview%20copy.png"
-              alt={`${BUSINESS_NAME} logo`}
-              className="absolute inset-0 block h-full w-full max-h-full max-w-full object-contain p-1"
-            />
-          </span>
+        <Link
+          to="/"
+          className="flex h-12 w-12 shrink-0 items-center justify-center sm:h-14 sm:w-14 md:h-16 md:w-16"
+          aria-label={`${BUSINESS_NAME} home`}
+        >
+          <img
+            src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
+            alt={`${BUSINESS_NAME} logo`}
+            className="block h-full w-full object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}

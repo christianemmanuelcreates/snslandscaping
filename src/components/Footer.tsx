@@ -17,13 +17,11 @@ export function Footer() {
           {/* Brand */}
           <div className="flex min-w-0 flex-col gap-4">
             <Link to="/" className="flex flex-col items-start gap-3 font-semibold text-foreground">
-              <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-white p-1.5 shadow-sm ring-1 ring-border/60">
-                <img
-                  src="/images/Gemini_Generated_Image_7uah5u7uah5u7uah-removebg-preview%20copy.png"
-                  alt={`${BUSINESS_NAME} logo`}
-                  className="block h-full w-full object-contain"
-                />
-              </span>
+              <img
+                src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
+                alt={`${BUSINESS_NAME} logo`}
+                className="block h-24 w-24 shrink-0 object-contain sm:h-28 sm:w-28 md:h-32 md:w-32"
+              />
               <span>{BUSINESS_NAME}</span>
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground">
