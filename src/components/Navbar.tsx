@@ -35,17 +35,17 @@ const NAV_ITEMS = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-24 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8 md:h-28">
         <Link
           to="/"
-          className="flex size-14 shrink-0 items-center justify-center overflow-hidden md:size-[4.2rem]"
+          className="flex size-20 shrink-0 items-center justify-center overflow-hidden md:size-24"
           aria-label={`${BUSINESS_NAME} home`}
         >
           <img
             src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
             alt={`${BUSINESS_NAME} logo`}
-            width={48}
-            height={48}
+            width={96}
+            height={96}
             className="block size-full object-contain"
           />
         </Link>
