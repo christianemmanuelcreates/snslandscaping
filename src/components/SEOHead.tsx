@@ -30,6 +30,15 @@ interface SEOHeadProps {
     areaServed?: { name: string }[];
   };
   faqs?: { question: string; answer: string }[];
+  article?: {
+    headline: string;
+    datePublished: string;
+    dateModified: string;
+    authorName: string;
+    authorUrl?: string;
+    image: string;
+    section?: string;
+  };
 }
 
 export function SEOHead({
@@ -43,6 +52,7 @@ export function SEOHead({
   business,
   service,
   faqs,
+  article,
 }: SEOHeadProps) {
   const orgName = business?.name || BUSINESS_NAME;
   const orgUrl = business?.url || canonical;
@@ -152,6 +162,31 @@ export function SEOHead({
     });
   }
 
+  if (schemaTypes.includes("Article") && article) {
+    graph.push({
+      "@type": "BlogPosting",
+      "@id": `${canonical}#article`,
+      headline: article.headline,
+      description,
+      image: article.image.startsWith("http")
+        ? article.image
+        : `${orgUrl.replace(/\/$/, "")}${article.image}`,
+      datePublished: article.datePublished,
+      dateModified: article.dateModified,
+      author: {
+        "@type": "Person",
+        name: article.authorName,
+        ...(article.authorUrl ? { url: article.authorUrl } : {}),
+      },
+      publisher: { "@id": `${orgUrl}#organization` },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonical,
+      },
+      ...(article.section ? { articleSection: article.section } : {}),
+    });
+  }
+
   if (faqs?.length) {
     graph.push({
       "@type": "FAQPage",
@@ -183,6 +218,16 @@ export function SEOHead({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
+      {article && (
+        <>
+          <meta property="article:published_time" content={article.datePublished} />
+          <meta property="article:modified_time" content={article.dateModified} />
+          <meta property="article:author" content={article.authorName} />
+          {article.section && (
+            <meta property="article:section" content={article.section} />
+          )}
+        </>
+      )}
       <html lang="en" />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       {hasLocalBusiness && geo && (

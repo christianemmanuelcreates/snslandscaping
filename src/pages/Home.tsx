@@ -17,6 +17,8 @@ import {
   LICENSE,
 } from "@/lib/site";
 import { SERVICES, AREAS, GALLERY_ITEMS } from "@/lib/sns-data";
+import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog-data";
+import { format } from "date-fns";
 
 export default function Home() {
   return (
@@ -218,6 +220,62 @@ export default function Home() {
           <div className="mt-8 text-center">
             <Link to="/gallery" className="inline-block">
               <Button variant="outline">View Full Gallery</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest articles */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
+              Latest Articles
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Tips, guides, and ideas for your outdoor space.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {getAllPosts().slice(0, 3).map((post) => (
+              <Card key={post.slug} className="flex h-full flex-col overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                <div className="p-3">
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                    <img
+                      src={post.image}
+                      alt={post.imageAlt}
+                      loading="lazy"
+                      className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                    />
+                  </div>
+                </div>
+                <CardHeader>
+                  <div className="mb-2 flex items-center gap-2">
+                    <Badge variant="secondary" className="text-xs">
+                      {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
+                    </Badge>
+                    <span className="text-xs text-muted-foreground">
+                      {format(new Date(post.publishedAt), "MMM d, yyyy")}
+                    </span>
+                  </div>
+                  <CardTitle className="text-lg leading-snug">{post.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-1 flex-col">
+                  <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                  >
+                    Read article
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link to="/blog" className="inline-block">
+              <Button variant="outline">View All Articles</Button>
             </Link>
           </div>
         </div>

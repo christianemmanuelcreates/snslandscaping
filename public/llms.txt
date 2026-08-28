@@ -12,6 +12,7 @@ S&S Landscaping provides premium landscaping and outdoor living services across 
 - [About](https://snslandscaping.org/about)
 - [Gallery](https://snslandscaping.org/gallery)
 - [Reviews](https://snslandscaping.org/reviews)
+- [Blog](https://snslandscaping.org/blog)
 - [Contact](https://snslandscaping.org/contact)
 - [Landscaping & Planting](https://snslandscaping.org/services/landscaping-planting)
 - [Hardscaping](https://snslandscaping.org/services/hardscaping)
@@ -34,6 +35,19 @@ S&S Landscaping provides premium landscaping and outdoor living services across 
 - [Alum Rock](https://snslandscaping.org/areas/alum-rock)
 - [Emerald Hills](https://snslandscaping.org/areas/emerald-hills)
 - [Redwood City](https://snslandscaping.org/areas/redwood-city)
+
+## Blog Articles
+- [Drought-Tolerant Landscaping Ideas for Bay Area Yards](https://snslandscaping.org/blog/drought-tolerant-landscaping-ideas-bay-area)
+- [Paver Patio Design Guide: Materials, Layouts, and Costs](https://snslandscaping.org/blog/paver-patio-design-guide)
+- [Low-Voltage Landscape Lighting: Benefits and Design Tips](https://snslandscaping.org/blog/low-voltage-landscape-lighting-benefits)
+
+## Blog Categories
+- [Landscaping](https://snslandscaping.org/blog/category/landscaping)
+- [Hardscaping](https://snslandscaping.org/blog/category/hardscaping)
+- [Irrigation & Drainage](https://snslandscaping.org/blog/category/irrigation-drainage)
+- [Outdoor Amenities](https://snslandscaping.org/blog/category/outdoor-amenities)
+- [Design Ideas](https://snslandscaping.org/blog/category/design-ideas)
+- [Maintenance](https://snslandscaping.org/blog/category/maintenance)
 
 ## Related
 - [Sitemap](https://snslandscaping.org/sitemap.xml)

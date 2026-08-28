@@ -11,6 +11,15 @@ interface LayoutProps {
     canonical: string;
     ogType?: string;
     schemaTypes?: string[];
+    article?: {
+      headline: string;
+      datePublished: string;
+      dateModified: string;
+      authorName: string;
+      authorUrl?: string;
+      image: string;
+      section?: string;
+    };
   };
   hasLocalBusiness?: boolean;
   geo?: { region: string; placename: string; latitude: number; longitude: number };
@@ -46,6 +55,7 @@ export function Layout({ children, seo, hasLocalBusiness, geo, business, service
         canonical={seo.canonical}
         ogType={seo.ogType}
         schemaTypes={seo.schemaTypes}
+        article={seo.article}
         hasLocalBusiness={hasLocalBusiness}
         geo={geo}
         business={business}

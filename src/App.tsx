@@ -15,6 +15,9 @@ const AreaDetail = lazy(() => import("./pages/AreaDetail"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Reviews = lazy(() => import("./pages/Reviews"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogCategory = lazy(() => import("./pages/BlogCategory"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Contact = lazy(() => import("./pages/Contact"));
 
 function PageLoader() {
@@ -92,6 +95,30 @@ export default function App() {
             element={
               <Suspense fallback={<PageLoader />}>
                 <Reviews />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <Blog />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blog/category/:category"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <BlogCategory />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blog/:slug"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <BlogPost />
               </Suspense>
             }
           />

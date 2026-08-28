@@ -29,6 +29,7 @@ const NAV_ITEMS = [
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
   { label: "Reviews", href: "/reviews" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -52,12 +53,12 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <NavigationMenu className="hidden min-w-0 flex-1 justify-center md:flex">
-          <NavigationMenuList className="flex items-center gap-0.5">
+          <NavigationMenuList className="flex items-center gap-1">
             {NAV_ITEMS.filter((item) => item.label !== "Contact").map((item) => (
               <NavigationMenuItem key={item.href}>
                 <Link
                   to={item.href}
-                  className="inline-flex items-center rounded-md px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+                  className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
                 >
                   {item.label}
                 </Link>
@@ -66,7 +67,7 @@ export function Navbar() {
 
             {/* Service Areas dropdown */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
+              <NavigationMenuTrigger className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
                 Service Areas
               </NavigationMenuTrigger>
               <NavigationMenuContent className="max-h-[calc(100vh-6rem)] w-64 overflow-y-auto overscroll-contain">
@@ -102,7 +103,7 @@ export function Navbar() {
             <NavigationMenuItem>
               <Link
                 to="/contact"
-                className="inline-flex items-center rounded-md px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+                className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
               >
                 Contact
               </Link>
