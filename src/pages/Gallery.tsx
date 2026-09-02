@@ -55,9 +55,9 @@ export default function Gallery() {
           {/* Featured carousel */}
           <Reveal delay={100} className="mt-12 w-full">
             <Carousel className="w-full" opts={{ loop: true }}>
-              <CarouselContent>
+              <CarouselContent className="pb-1">
                 {GALLERY_ITEMS.map((project, i) => (
-                  <CarouselItem key={project.title} className="md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={project.title} className="pl-4 md:basis-1/2 lg:basis-1/3">
                     <Card className="flex h-full flex-col overflow-hidden">
                       <button
                         type="button"
@@ -84,8 +84,8 @@ export default function Gallery() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="-left-2 size-9 bg-background/80 shadow-md backdrop-blur-sm md:-left-3 md:size-10" />
+              <CarouselNext className="-right-2 size-9 bg-background/80 shadow-md backdrop-blur-sm md:-right-3 md:size-10" />
             </Carousel>
           </Reveal>
 
