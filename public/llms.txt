@@ -3,7 +3,26 @@
 > Premier landscaping & outdoor living in Silicon Valley & the Bay Area
 
 ## About
-S&S Landscaping provides premium landscaping and outdoor living services across Silicon Valley and the San Francisco Bay Area, including landscaping and planting, hardscaping, site preparation, irrigation and drainage, and outdoor amenities. Licensed and insured (LIC 100-7487). Contact Samuel Delgado (209-979-6677) or Santos Gomez (408-391-1591) at services@snslandscaping.org.
+S&S Landscaping is a licensed and insured landscaping company serving 16 communities across Silicon Valley and the San Francisco Bay Area. We are locally owned and operated by Samuel Delgado and Santos Gomez, who bring years of hands-on experience in Bay Area soils, climates, and outdoor living design. We serve both residential and commercial properties.
+
+**License:** LIC 100-7487
+**Phone:** Samuel Delgado 209-979-6677 | Santos Gomez 408-391-1591
+**Email:** services@snslandscaping.org
+**Service Area:** Los Gatos, Monte Sereno, Atherton, Los Altos, Palo Alto, Los Altos Hills, Saratoga, Mountain View, Cupertino, San Jose, Santa Clara, Campbell, Milpitas, Alum Rock, Emerald Hills, Redwood City
+
+## Services
+- **Landscaping & Planting** — Lawn installation, sod and seed, tree and shrub planting, garden design, seasonal planting, and maintenance plans tailored to Bay Area climates.
+- **Hardscaping** — Patio installation (paver, flagstone, concrete), paver walkways, retaining wall construction, and decorative masonry that extends living space outdoors.
+- **Site Preparation** — Land grading, site excavation, soil preparation and amendment, and erosion control to prepare sites for construction or landscaping.
+- **Irrigation & Drainage** — Sprinkler system installation and repair, smart weather-aware irrigation controllers, drip irrigation for beds and planters, and landscape drainage solutions.
+- **Outdoor Amenities** — Water features (fountains, ponds), low-voltage landscape lighting for paths and architecture, and decorative treatments including stone, mulch, and accents.
+
+## Why Choose Us
+- Licensed (LIC 100-7487) and insured for every project
+- Locally owned — no subcontractors, no call centers
+- Deep knowledge of Silicon Valley soils, climates, and plant varieties
+- Residential and commercial projects of every scale
+- Free quotes for all landscaping and hardscaping projects
 
 ## Pages
 - [Home](https://snslandscaping.org/)
@@ -14,11 +33,15 @@ S&S Landscaping provides premium landscaping and outdoor living services across 
 - [Reviews](https://snslandscaping.org/reviews)
 - [Blog](https://snslandscaping.org/blog)
 - [Contact](https://snslandscaping.org/contact)
+
+## Service Pages
 - [Landscaping & Planting](https://snslandscaping.org/services/landscaping-planting)
 - [Hardscaping](https://snslandscaping.org/services/hardscaping)
 - [Site Preparation](https://snslandscaping.org/services/site-preparation)
 - [Irrigation & Drainage](https://snslandscaping.org/services/irrigation-drainage)
 - [Outdoor Amenities](https://snslandscaping.org/services/outdoor-amenities)
+
+## Service Area Pages
 - [Los Gatos](https://snslandscaping.org/areas/los-gatos)
 - [Monte Sereno](https://snslandscaping.org/areas/monte-sereno)
 - [Atherton](https://snslandscaping.org/areas/atherton)

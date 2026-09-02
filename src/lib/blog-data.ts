@@ -114,12 +114,12 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Use Efficient Irrigation" },
       {
         type: "paragraph",
-        text: "Drip irrigation delivers water directly to root zones, reducing evaporation and runoff. Pair it with a smart controller that adjusts watering based on weather and soil moisture, and your landscape stays healthy with a fraction of the water.",
+        text: "Drip irrigation delivers water directly to root zones, reducing evaporation and runoff. Pair it with a smart controller that adjusts watering based on weather and soil moisture, and your landscape stays healthy with a fraction of the water. Learn more about our [irrigation and drainage](/services/irrigation-drainage) services.",
       },
       { type: "heading", text: "Incorporate Hardscape Elements" },
       {
         type: "paragraph",
-        text: "Patios, walkways, gravel paths, and decorative stone reduce the planted area that needs water while adding structure and usability to your yard. A well-planned hardscape also creates visual interest that looks great in every season.",
+        text: "Patios, walkways, gravel paths, and decorative stone reduce the planted area that needs water while adding structure and usability to your yard. A well-planned hardscape also creates visual interest that looks great in every season. Explore our [hardscaping](/services/hardscaping) services for patios, walkways, and retaining walls.",
       },
       { type: "heading", text: "Mulch Everything" },
       {
@@ -134,7 +134,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Ready to Go Drought-Tolerant?" },
       {
         type: "paragraph",
-        text: "Whether you want a full redesign or just want to swap out a thirsty lawn for something more sustainable, we can help. Contact S&S Landscaping for a free consultation and quote.",
+        text: "Whether you want a full redesign or just want to swap out a thirsty lawn for something more sustainable, we can help. Contact S&S Landscaping for a [free consultation and quote](/contact#quote-form).",
       },
     ],
     faqs: [
@@ -195,12 +195,12 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Don't Forget Drainage" },
       {
         type: "paragraph",
-        text: "Proper base preparation and slope are critical. A patio should slope about 1 inch per 8 feet away from your home to prevent water pooling and foundation issues. We handle grading and drainage as part of every patio install.",
+        text: "Proper base preparation and slope are critical. A patio should slope about 1 inch per 8 feet away from your home to prevent water pooling and foundation issues. We handle grading and drainage as part of every patio install. Learn more about our [hardscaping](/services/hardscaping) and [site preparation](/services/site-preparation) services.",
       },
       { type: "heading", text: "Budgeting Your Patio" },
       {
         type: "paragraph",
-        text: "Cost depends on material choice, patio size, site prep requirements, and any additional features like seating walls, fire pits, or lighting. We provide free quotes with transparent pricing so you know exactly what to expect.",
+        text: "Cost depends on material choice, patio size, site prep requirements, and any additional features like seating walls, fire pits, or lighting. We provide free quotes with transparent pricing so you know exactly what to expect. [Request a free quote](/contact#quote-form) for your patio project.",
       },
       {
         type: "quote",
@@ -243,7 +243,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: [
       {
         type: "paragraph",
-        text: "Landscape lighting is one of the highest-impact upgrades you can make to your outdoor space. It extends usability into the evening, highlights architectural and landscape features, and improves safety along paths and steps.",
+        text: "Landscape lighting is one of the highest-impact upgrades you can make to your outdoor space. It extends usability into the evening, highlights architectural and landscape features, and improves safety along paths and steps. Explore our [outdoor amenities](/services/outdoor-amenities) services for professional installation.",
       },
       { type: "heading", text: "Why Low-Voltage?" },
       {

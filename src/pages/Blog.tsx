@@ -23,6 +23,7 @@ export default function Blog() {
         description:
           "Expert tips on drought-tolerant landscaping, paver patio design, landscape lighting, garden maintenance, and outdoor living ideas for Bay Area homeowners from S&S Landscaping.",
         canonical: "https://snslandscaping.org/blog",
+        ogImage: "https://snslandscaping.org/images/gallery/illuminated_steps.jpg",
       }}
       business={{ name: BUSINESS_NAME, url: "https://snslandscaping.org/" }}
     >

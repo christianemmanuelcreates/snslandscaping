@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import { ArrowRight, PhoneCall, MapPin } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
+import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE, BUSINESS_ADDRESS, SAME_AS } from "@/lib/site";
 import { getArea, SERVICES, AREAS } from "@/lib/sns-data";
 
 export default function AreaDetail() {
@@ -72,6 +72,7 @@ export default function AreaDetail() {
         title: `Landscaping in ${area.name}, CA | ${BUSINESS_NAME}`,
         description: `Professional landscaping, hardscaping, irrigation, and outdoor living services in ${area.name}, ${area.county} County. Serving ${area.metro} and the Bay Area. Get a free quote from ${BUSINESS_NAME}.`,
         canonical: `https://snslandscaping.org/areas/${area.slug}`,
+        ogImage: "https://snslandscaping.org/images/gallery/backyard_concept.jpg",
         schemaTypes: ["LocalBusiness"],
       }}
       hasLocalBusiness
@@ -85,12 +86,13 @@ export default function AreaDetail() {
         name: BUSINESS_NAME,
         url: "https://snslandscaping.org/",
         phone: PRIMARY_PHONE.phone,
+        sameAs: SAME_AS,
         address: {
-          streetAddress: "",
-          addressLocality: area.name,
-          addressRegion: "CA",
-          postalCode: "",
-          addressCountry: "US",
+          streetAddress: BUSINESS_ADDRESS.streetAddress,
+          addressLocality: BUSINESS_ADDRESS.addressLocality,
+          addressRegion: BUSINESS_ADDRESS.addressRegion,
+          postalCode: BUSINESS_ADDRESS.postalCode,
+          addressCountry: BUSINESS_ADDRESS.addressCountry,
         },
         areaServed: [{ name: area.name }],
       }}
@@ -137,10 +139,10 @@ export default function AreaDetail() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Services in {area.name}
+              Landscaping Services in {area.name}
             </h2>
             <p className="mt-4 text-muted-foreground">
-              The full range of landscaping and outdoor living services we deliver in {area.name}.
+              S&S Landscaping provides the full range of landscaping and outdoor living services in {area.name}, {area.county} County. From lawn installation and garden design to hardscaping, irrigation, and landscape lighting, we handle every aspect of your outdoor project with the same attention to detail.
             </p>
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -167,7 +169,7 @@ export default function AreaDetail() {
                       to={`/services/${service.slug}`}
                       className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                     >
-                      View service
+                      {service.name} in {area.name}
                       <ArrowRight className="size-4" aria-hidden="true" />
                     </Link>
                   </CardContent>
@@ -224,7 +226,7 @@ export default function AreaDetail() {
                       to={`/areas/${other.slug}`}
                       className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                     >
-                      View services
+                      Landscaping in {other.name}
                       <ArrowRight className="size-4" aria-hidden="true" />
                     </Link>
                   </CardContent>

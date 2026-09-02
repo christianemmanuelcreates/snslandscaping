@@ -14,6 +14,7 @@ export default function Reviews() {
         description:
           "See what Bay Area homeowners say about S&S Landscaping's landscaping, hardscaping, and outdoor living work. Be our next reviewed project — get a free quote today.",
         canonical: "https://snslandscaping.org/reviews",
+        noindex: true,
       }}
       business={{
         name: BUSINESS_NAME,

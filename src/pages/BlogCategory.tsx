@@ -52,6 +52,7 @@ export default function BlogCategory() {
         title: `${cat.name} Articles | ${BUSINESS_NAME}`,
         description: cat.description,
         canonical: `https://snslandscaping.org/blog/category/${cat.slug}`,
+        ogImage: "https://snslandscaping.org/images/gallery/stone_feature.jpg",
       }}
       business={{ name: BUSINESS_NAME, url: "https://snslandscaping.org/" }}
     >

@@ -16,11 +16,42 @@ import {
   CTA_LABEL,
   PRIMARY_PHONE,
   LICENSE,
+  BUSINESS_ADDRESS,
+  SAME_AS,
 } from "@/lib/site";
 import { SERVICES, AREAS, GALLERY_ITEMS } from "@/lib/sns-data";
 import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog-data";
 import { format } from "date-fns";
 import { Reveal } from "@/components/Reveal";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+
+const HOME_FAQS = [
+  {
+    question: "What areas do you serve?",
+    answer: `S&S Landscaping serves 16 communities across Silicon Valley and the San Francisco Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, Saratoga, and more. We serve both residential and commercial properties throughout Santa Clara and San Mateo counties.`,
+  },
+  {
+    question: "Are you licensed and insured?",
+    answer: `Yes. S&S Landscaping is fully licensed (LIC 100-7487) and insured for every project we take on, from small front yard refreshes to full backyard transformations and commercial landscaping.`,
+  },
+  {
+    question: "Do you offer free quotes?",
+    answer: `Yes, we provide free quotes for all landscaping and hardscaping projects. Call us directly or fill out our online quote form and we will respond as soon as possible.`,
+  },
+  {
+    question: "Do you work on commercial properties?",
+    answer: `Yes. We handle both residential and commercial landscaping projects of every scale, from backyard gardens to commercial property landscapes, with the same commitment to quality and attention to detail.`,
+  },
+  {
+    question: "What services do you offer?",
+    answer: `We offer landscaping and planting, hardscaping (patios, walkways, retaining walls), site preparation and grading, irrigation and drainage systems, and outdoor amenities including water features and low-voltage landscape lighting.`,
+  },
+];
 
 function HScroll({ children }: { children: React.ReactNode }) {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -85,12 +116,13 @@ export default function Home() {
         name: BUSINESS_NAME,
         url: "https://snslandscaping.org/",
         phone: PRIMARY_PHONE.phone,
+        sameAs: SAME_AS,
         address: {
-          streetAddress: "",
-          addressLocality: "Silicon Valley",
-          addressRegion: "CA",
-          postalCode: "",
-          addressCountry: "US",
+          streetAddress: BUSINESS_ADDRESS.streetAddress,
+          addressLocality: BUSINESS_ADDRESS.addressLocality,
+          addressRegion: BUSINESS_ADDRESS.addressRegion,
+          postalCode: BUSINESS_ADDRESS.postalCode,
+          addressCountry: BUSINESS_ADDRESS.addressCountry,
         },
         areaServed: AREAS.map((a) => ({ name: a.name })),
         openingHours: [
@@ -98,6 +130,7 @@ export default function Home() {
           { dayOfWeek: ["Saturday"], opens: "08:00", closes: "16:00" },
         ],
       }}
+      faqs={HOME_FAQS}
     >
       {/* Hero: split-screen */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
@@ -120,10 +153,13 @@ export default function Home() {
               {BUSINESS_TAGLINE}
             </Badge>
             <h1 className="text-4xl font-bold tracking-tighter text-balance sm:text-5xl md:text-6xl">
-              Professional Landscaping & Outdoor Services
+              Professional Landscaping & Outdoor Services in the Bay Area
             </h1>
             <p className="max-w-xl text-base text-primary-foreground/90 sm:text-lg">
               Reliable landscaping maintenance, & outdoor property services for residential & commercial properties throughout the Bay Area.
+            </p>
+            <p className="sr-only">
+              S&S Landscaping is a licensed and insured landscaping company serving 16 communities across Silicon Valley and the San Francisco Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, and Saratoga. We offer landscaping and planting, hardscaping, site preparation, irrigation and drainage, and outdoor amenities for residential and commercial properties.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Link to="/contact#quote-form" className="w-full sm:w-auto">
@@ -360,6 +396,30 @@ export default function Home() {
             <Link to="/blog" className="inline-block">
               <Button variant="outline">View All Articles</Button>
             </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-muted py-16 md:py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Common questions about our landscaping services in Silicon Valley &amp; the Bay Area.
+            </p>
+          </Reveal>
+          <Reveal delay={100}>
+            <Accordion className="mt-12 w-full">
+              {HOME_FAQS.map((faq, i) => (
+                <AccordionItem key={i} value={`item-${i}`}>
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </Reveal>
         </div>
       </section>

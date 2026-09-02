@@ -51,9 +51,10 @@ export default function ServiceDetail() {
   return (
     <Layout
       seo={{
-        title: `${service.name} | ${BUSINESS_NAME}`,
+        title: `${service.name} in Silicon Valley | ${BUSINESS_NAME}`,
         description: `${service.description} Get a free quote from ${BUSINESS_NAME} in Silicon Valley & the Bay Area.`,
         canonical: `https://snslandscaping.org/services/${service.slug}`,
+        ogImage: `https://snslandscaping.org${service.image}`,
         schemaTypes: ["Service"],
       }}
       business={{

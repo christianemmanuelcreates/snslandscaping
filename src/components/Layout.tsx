@@ -10,6 +10,8 @@ interface LayoutProps {
     description: string;
     canonical: string;
     ogType?: string;
+    ogImage?: string;
+    noindex?: boolean;
     schemaTypes?: string[];
     article?: {
       headline: string;
@@ -60,6 +62,8 @@ export function Layout({ children, seo, hasLocalBusiness, geo, business, service
         description={seo.description}
         canonical={seo.canonical}
         ogType={seo.ogType}
+        ogImage={seo.ogImage}
+        noindex={seo.noindex}
         schemaTypes={seo.schemaTypes}
         article={seo.article}
         hasLocalBusiness={hasLocalBusiness}

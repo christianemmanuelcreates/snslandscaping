@@ -1,11 +1,13 @@
 import { Helmet } from "react-helmet-async";
-import { BUSINESS_NAME } from "@/lib/site";
+import { BUSINESS_NAME, SAME_AS, SERVICE_AREAS } from "@/lib/site";
 
 interface SEOHeadProps {
   title: string;
   description: string;
   canonical: string;
   ogType?: string;
+  ogImage?: string;
+  noindex?: boolean;
   schemaTypes?: string[];
   hasLocalBusiness?: boolean;
   geo?: { region: string; placename: string; latitude: number; longitude: number };
@@ -52,6 +54,8 @@ export function SEOHead({
   description,
   canonical,
   ogType = "website",
+  ogImage = "https://snslandscaping.org/images/gallery/backyard_concept.jpg",
+  noindex = false,
   schemaTypes = [],
   hasLocalBusiness = false,
   geo,
@@ -63,7 +67,8 @@ export function SEOHead({
 }: SEOHeadProps) {
   const orgName = business?.name || BUSINESS_NAME;
   const orgUrl = business?.url || canonical;
-  const ogImage = "https://snslandscaping.org/images/gallery/backyard_concept.jpg";
+  const defaultAreaServed = SERVICE_AREAS.map((name) => ({ name }));
+  const orgSameAs = business?.sameAs?.length ? business.sameAs : SAME_AS;
 
   const graph: Record<string, unknown>[] = [
     {
@@ -72,14 +77,15 @@ export function SEOHead({
       name: orgName,
       url: orgUrl,
       logo: `${orgUrl}images/gallery/backyard_concept.jpg`,
-      ...(business?.sameAs?.length ? { sameAs: business.sameAs } : {}),
+      sameAs: orgSameAs,
+      areaServed: business?.areaServed?.length ? business.areaServed : defaultAreaServed,
       ...(business?.phone
         ? {
             contactPoint: {
               "@type": "ContactPoint",
               telephone: business.phone,
               contactType: "customer service",
-              areaServed: business.areaServed ?? [{ name: "Silicon Valley & the San Francisco Bay Area" }],
+              areaServed: business.areaServed ?? defaultAreaServed,
             },
           }
         : {}),
@@ -235,6 +241,8 @@ export function SEOHead({
       <meta property="og:site_name" content={orgName} />
       <meta property="og:locale" content="en_US" />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
@@ -250,7 +258,7 @@ export function SEOHead({
         </>
       )}
       <html lang="en" />
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
       {hasLocalBusiness && geo && (
         <>
           <meta name="geo.region" content={geo.region} />

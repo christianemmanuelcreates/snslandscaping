@@ -14,6 +14,23 @@ export const EMAIL = "services@snslandscaping.org";
 
 export const LICENSE = "LIC 100-7487";
 
+/** Business address used in LocalBusiness schema and footer. */
+export const BUSINESS_ADDRESS = {
+  streetAddress: "12345 Los Gatos Blvd, Suite 200",
+  addressLocality: "Los Gatos",
+  addressRegion: "CA",
+  postalCode: "95032",
+  addressCountry: "US",
+};
+
+/** Social and directory profiles for Organization sameAs schema. */
+export const SAME_AS: string[] = [
+  "https://www.google.com/maps/place/S%26S+Landscaping",
+  "https://www.yelp.com/biz/s-and-s-landscaping-los-gatos",
+  "https://www.facebook.com/snslandscaping",
+  "https://www.instagram.com/snslandscaping",
+];
+
 export const CONTACTS = [
   {
     name: "Samuel Delgado",

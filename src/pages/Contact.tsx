@@ -81,6 +81,7 @@ export default function Contact() {
         description:
           "Call 209-979-6677 or request a free quote online. S&S Landscaping serves Los Gatos, Palo Alto, San Jose, and 13 more Silicon Valley & Bay Area communities.",
         canonical: "https://snslandscaping.org/contact",
+        ogImage: "https://snslandscaping.org/images/gallery/stone_fountain.jpg",
       }}
       business={{
         name: BUSINESS_NAME,

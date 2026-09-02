@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { ArrowRight, PhoneCall, MapPin } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
+import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE, BUSINESS_ADDRESS, SAME_AS } from "@/lib/site";
 import { AREAS } from "@/lib/sns-data";
 
 export default function ServiceAreas() {
@@ -33,12 +33,13 @@ export default function ServiceAreas() {
         name: BUSINESS_NAME,
         url: "https://snslandscaping.org/",
         phone: PRIMARY_PHONE.phone,
+        sameAs: SAME_AS,
         address: {
-          streetAddress: "",
-          addressLocality: "Silicon Valley",
-          addressRegion: "CA",
-          postalCode: "",
-          addressCountry: "US",
+          streetAddress: BUSINESS_ADDRESS.streetAddress,
+          addressLocality: BUSINESS_ADDRESS.addressLocality,
+          addressRegion: BUSINESS_ADDRESS.addressRegion,
+          postalCode: BUSINESS_ADDRESS.postalCode,
+          addressCountry: BUSINESS_ADDRESS.addressCountry,
         },
         areaServed: AREAS.map((a) => ({ name: a.name })),
       }}
@@ -104,7 +105,7 @@ export default function ServiceAreas() {
                       to={`/areas/${area.slug}`}
                       className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                     >
-                      View services
+                      Landscaping in {area.name}
                       <ArrowRight className="size-4" aria-hidden="true" />
                     </Link>
                   </CardContent>

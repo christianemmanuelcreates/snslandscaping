@@ -11,6 +11,27 @@ import { ArrowRight, CircleCheck as CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { BUSINESS_NAME, CTA_LABEL } from "@/lib/site";
 import { SERVICES } from "@/lib/sns-data";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+
+const SERVICES_PAGE_FAQS = [
+  {
+    question: "What landscaping services do you offer in the Bay Area?",
+    answer: `S&S Landscaping offers landscaping and planting, hardscaping (patios, walkways, retaining walls), site preparation and grading, irrigation and drainage systems, and outdoor amenities including water features and low-voltage landscape lighting across Silicon Valley and the Bay Area.`,
+  },
+  {
+    question: "Do you serve both residential and commercial properties?",
+    answer: `Yes. We handle projects of every scale, from backyard garden refreshes to full commercial property landscapes, with the same commitment to quality and attention to detail.`,
+  },
+  {
+    question: "How do I get a quote for a landscaping project?",
+    answer: `You can call us directly or fill out our online quote form on the Contact page. We provide free quotes for all landscaping and hardscaping projects throughout our 16-city service area.`,
+  },
+];
 
 export default function Services() {
   return (
@@ -20,7 +41,9 @@ export default function Services() {
         description:
           "Landscaping & planting, hardscaping, site preparation, irrigation & drainage, and outdoor amenities across Silicon Valley & the Bay Area. Licensed & insured. Free quotes.",
         canonical: "https://snslandscaping.org/services",
+        ogImage: "https://snslandscaping.org/images/gallery/front_yard_2.jpg",
       }}
+      faqs={SERVICES_PAGE_FAQS}
       business={{
         name: BUSINESS_NAME,
         url: "https://snslandscaping.org/",
@@ -89,6 +112,25 @@ export default function Services() {
               <Button size="lg" variant="cta">{CTA_LABEL}</Button>
             </Link>
           </Reveal>
+
+          {/* FAQ */}
+          <div className="mt-16">
+            <Reveal className="mx-auto max-w-2xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
+                Frequently Asked Questions
+              </h2>
+            </Reveal>
+            <Reveal delay={100} className="mt-12">
+              <Accordion className="mx-auto max-w-3xl w-full">
+                {SERVICES_PAGE_FAQS.map((faq, i) => (
+                  <AccordionItem key={i} value={`item-${i}`}>
+                    <AccordionTrigger>{faq.question}</AccordionTrigger>
+                    <AccordionContent>{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </Reveal>
+          </div>
         </div>
       </section>
     </Layout>

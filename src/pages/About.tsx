@@ -45,6 +45,7 @@ export default function About() {
         description:
           "Meet Samuel Delgado and Santos Gomez of S&S Landscaping — licensed (LIC 100-7487), insured, and serving Silicon Valley & the Bay Area with premium outdoor living. Get a free quote today.",
         canonical: "https://snslandscaping.org/about",
+        ogImage: "https://snslandscaping.org/images/gallery/tori_bench.jpg",
       }}
       business={{
         name: BUSINESS_NAME,

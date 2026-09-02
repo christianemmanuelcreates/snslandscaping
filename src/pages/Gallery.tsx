@@ -34,6 +34,7 @@ export default function Gallery() {
         description:
           "Browse patios, retaining walls, paver walkways, landscape lighting, water features, and turf installations by S&S Landscaping across Silicon Valley & the Bay Area.",
         canonical: "https://snslandscaping.org/gallery",
+        ogImage: "https://snslandscaping.org/images/gallery/stone_feature_2.jpg",
       }}
       business={{
         name: BUSINESS_NAME,

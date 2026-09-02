@@ -144,6 +144,7 @@ export default function BlogPost() {
         description: post.description,
         canonical: `https://snslandscaping.org/blog/${post.slug}`,
         ogType: "article",
+        ogImage: post.image.startsWith("http") ? post.image : `https://snslandscaping.org${post.image}`,
         schemaTypes: ["Article"],
         article: {
           headline: post.title,

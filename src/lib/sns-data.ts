@@ -46,7 +46,7 @@ export const SERVICES: Service[] = [
     name: "Landscaping & Planting",
     tagline: "Lawns, trees, shrubs, and garden design",
     description:
-      "Complete landscaping and planting services across Silicon Valley and the Bay Area. We install lawns, trees, shrubs, and turf, and design gardens that thrive in our climate.",
+      "Complete landscaping and planting services across Silicon Valley and the Bay Area. We install sod and seeded lawns, plant trees and shrubs, design climate-appropriate gardens, and provide seasonal planting and maintenance plans. Every project starts with proper soil preparation so new plantings establish strong, healthy roots that thrive in our Bay Area climate.",
     icon: Sun,
     image: "/images/gallery/front_yard_2.jpg",
     imageAlt: "Completed lawn and paver border in a residential yard",
@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
     name: "Hardscaping",
     tagline: "Patios, walkways, retaining walls & masonry",
     description:
-      "Durable, beautiful hardscape construction including patios, paver walkways, retaining walls, and decorative masonry that extends your living space outdoors.",
+      "Durable, beautiful hardscape construction including paver patios, flagstone and concrete patios, paver walkways, retaining walls for grading and drainage, and decorative masonry. We handle base preparation, grading, and slope so every hardscape sheds water correctly and stays level for decades. Serving residential and commercial properties across Silicon Valley.",
     icon: Building,
     image: "/images/gallery/stone_feature_2.jpg",
     imageAlt: "Stone seating wall and fire pit surrounded by a finished patio",
@@ -124,7 +124,7 @@ export const SERVICES: Service[] = [
     name: "Site Preparation",
     tagline: "Grading, excavation & soil preparation",
     description:
-      "Professional site prep including land grading, excavation, soil preparation, and erosion control to get your project ready.",
+      "Professional site preparation including land grading, excavation, soil preparation and amendment, and erosion control. We level and shape sites for construction or landscaping, prepare soil for healthy planting, and install erosion control measures to protect your property and surrounding areas throughout Silicon Valley and the Bay Area.",
     icon: HardHat,
     image: "/images/gallery/gravel_side_path.jpg",
     imageAlt: "Gravel side path with large concrete stepping stones beside a home",
@@ -163,7 +163,7 @@ export const SERVICES: Service[] = [
     name: "Irrigation & Drainage",
     tagline: "Sprinklers, smart irrigation & drainage",
     description:
-      "Efficient irrigation and drainage systems, from sprinkler install and repair to smart irrigation and landscape drainage.",
+      "Efficient irrigation and drainage systems for Bay Area landscapes. We install and repair sprinkler systems, design smart weather-aware irrigation controllers, install drip irrigation for beds and planters, and build landscape drainage solutions that move water away from structures and plantings. Our systems reduce water waste while keeping your landscape healthy.",
     icon: RefreshCcw,
     image: "/images/gallery/front_yard.jpg",
     imageAlt: "Completed artificial turf lawn with concrete walkways in a residential yard",
@@ -202,7 +202,7 @@ export const SERVICES: Service[] = [
     name: "Outdoor Amenities",
     tagline: "Water features & landscape lighting",
     description:
-      "Outdoor amenities that elevate your space, including water features, low-voltage landscape lighting, and decorative treatments.",
+      "Outdoor amenities that elevate your space, including fountains, ponds, and water features, low-voltage landscape lighting for paths and architecture, and decorative treatments like stone, mulch, and accents. We design and install finishing touches that make your yard more beautiful, usable, and safe after dark.",
     icon: Sparkles,
     image: "/images/gallery/tori_bench.jpg",
     imageAlt: "Wood pergola with swing seating, gravel path, and planted garden beds",
