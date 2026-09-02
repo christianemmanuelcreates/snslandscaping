@@ -14,6 +14,14 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/components/ui/table";
 import { ArrowRight, PhoneCall, CalendarDays, User } from "lucide-react";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
 import {
@@ -25,11 +33,12 @@ import {
   type BlogBlock,
 } from "@/lib/blog-data";
 import { format } from "date-fns";
+import { renderRichText } from "@/lib/blog-text";
 
 function BlogBlockRenderer({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "paragraph":
-      return <p className="text-muted-foreground leading-relaxed">{block.text}</p>;
+      return <p className="text-muted-foreground leading-relaxed">{renderRichText(block.text)}</p>;
     case "heading":
       return <h2 className="text-2xl font-bold tracking-tight text-balance pt-4">{block.text}</h2>;
     case "list":
@@ -38,10 +47,46 @@ function BlogBlockRenderer({ block }: { block: BlogBlock }) {
           {block.items.map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-muted-foreground">
               <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              <span className="leading-relaxed">{item}</span>
+              <span className="leading-relaxed">{renderRichText(item)}</span>
             </li>
           ))}
         </ul>
+      );
+    case "ordered-list":
+      return (
+        <ol className="flex flex-col gap-2 pl-1">
+          {block.items.map((item, i) => (
+            <li key={i} className="flex items-start gap-3 text-muted-foreground">
+              <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary" aria-hidden="true">
+                {i + 1}
+              </span>
+              <span className="leading-relaxed">{renderRichText(item)}</span>
+            </li>
+          ))}
+        </ol>
+      );
+    case "table":
+      return (
+        <div className="my-2 overflow-x-auto rounded-lg border">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-muted/50 hover:bg-muted/50">
+                {block.headers.map((header, i) => (
+                  <TableHead key={i} className="px-4 py-3 text-sm font-semibold">{header}</TableHead>
+                ))}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {block.rows.map((row, ri) => (
+                <TableRow key={ri}>
+                  {row.map((cell, ci) => (
+                    <TableCell key={ci} className="px-4 py-3 text-sm text-muted-foreground">{renderRichText(cell)}</TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       );
     case "quote":
       return (

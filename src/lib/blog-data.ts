@@ -13,7 +13,9 @@ export type BlogBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string }
   | { type: "list"; items: string[] }
-  | { type: "quote"; text: string; attribution?: string };
+  | { type: "ordered-list"; items: string[] }
+  | { type: "quote"; text: string; attribution?: string }
+  | { type: "table"; headers: string[]; rows: string[][] };
 
 export type BlogPost = {
   slug: string;
@@ -280,6 +282,137 @@ export const BLOG_POSTS: BlogPost[] = [
         question: "Can I add lighting to an existing landscape?",
         answer:
           "Yes. We can retrofit lighting into existing landscapes with minimal disruption, though it's easiest to plan lighting during a full landscape or hardscape install.",
+      },
+    ],
+  },
+  {
+    slug: "los-gatos-landscape-design-services-guide",
+    title: "Los Gatos Landscape Design Services Guide",
+    description:
+      "Plan a durable Los Gatos landscape with drought-wise plants, turf, lighting, drainage, hardscape, and expert design-build guidance.",
+    category: "landscaping",
+    tags: ["los gatos", "landscape design", "drought-tolerant", "hardscaping", "outdoor lighting"],
+    publishedAt: "2026-09-02",
+    updatedAt: "2026-09-02",
+    image: "/images/gallery/front_yard_2.jpg",
+    imageAlt:
+      "Finished Los Gatos landscape with lawn, paver border, and layered planting by S&S Landscaping",
+    excerpt:
+      "Los Gatos landscape design services turn outdoor space into a site-specific plan for planting, irrigation, drainage, lighting, hardscape, and daily living.",
+    body: [
+      {
+        type: "paragraph",
+        text: "Los Gatos landscape design services turn outdoor space into a site-specific plan for planting, irrigation, drainage, lighting, hardscape, and daily living. The right design responds to local sun, soil, slopes, water limits, and architecture, giving homeowners a cohesive landscape that performs over years—not an attractive installation that quickly becomes difficult to maintain.",
+      },
+      {
+        type: "paragraph",
+        text: "Successful Los Gatos projects begin with site analysis, clear priorities, and a buildable plan. Although Bay Area landscape conditions vary by neighborhood, Los Gatos properties often combine dry summers, mature trees, elevation changes, deer pressure, and distinct sun exposures. Plant choices that thrive on one side of town may fail on another lot.",
+      },
+      {
+        type: "paragraph",
+        text: "That is why local knowledge matters. The outcome homeowners want is simple: a team that knows exactly which plants work well here and completes a great job without forcing them to coordinate separate designers, irrigation crews, and masons. If you are looking for a trusted partner in the area, explore our [landscaping services in Los Gatos](/areas/los-gatos) or learn about our full [landscaping and planting](/services/landscaping-planting) capabilities.",
+      },
+      {
+        type: "paragraph",
+        text: "A dependable landscape design and construction sequence includes:",
+      },
+      {
+        type: "ordered-list",
+        items: [
+          "Measuring the property and recording grades, drainage paths, utilities, soil conditions, shade, and existing plants.",
+          "Defining how the household will use the space, from dining and play to gardening and privacy.",
+          "Creating a scaled concept showing circulation, activity zones, planting masses, and focal points.",
+          "Selecting materials, plants, irrigation, lighting, and construction details.",
+          "Pricing the approved scope before landscape construction begins.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "This unified landscape design construction approach reduces field improvisation, protects the budget, and keeps design construction decisions tied to one plan.",
+      },
+      { type: "heading", text: "Drought-Tolerant Landscaping" },
+      {
+        type: "paragraph",
+        text: "Drought-tolerant landscaping reduces irrigation demand without turning a garden into bare gravel. EPA WaterSense reports that outdoor use accounts for about 30% of household water consumption nationwide, and as much as half of outdoor water can be lost through inefficient watering methods and systems.",
+      },
+      {
+        type: "paragraph",
+        text: "A strong Los Gatos plan groups plants by water need, improves soil where appropriate, applies mulch, and uses drip irrigation with separate hydrozones. California's Model Water Efficient Landscape Ordinance establishes water-efficiency requirements for qualifying projects, including new construction landscapes of 500 square feet or more and certain rehabilitated landscapes of 2,500 square feet or more that require permits.",
+      },
+      {
+        type: "paragraph",
+        text: "The best Bay Area landscape is climate-adapted rather than plant-deprived. Layered California natives and Mediterranean species can provide seasonal color, habitat, privacy, and a cooler outdoor setting while cutting waste. For more ideas, see our guide to [drought-tolerant landscaping for Bay Area yards](/blog/drought-tolerant-landscaping-ideas-bay-area). We highly recommend choosing plants by mature size and exposure—not by how they look in nursery containers.",
+      },
+      { type: "heading", text: "Sod and Artificial Grass" },
+      {
+        type: "paragraph",
+        text: "Sod and artificial grass solve different problems, so the correct choice depends on use, heat, drainage, maintenance, and water goals.",
+      },
+      {
+        type: "table",
+        headers: ["Surface", "Best application", "Main benefit", "Key consideration"],
+        rows: [
+          ["Natural sod", "Play areas and cool walking surfaces", "Living, cooler ground cover", "Requires irrigation, mowing, and feeding"],
+          ["Artificial grass", "High-use zones where mowing is unwanted", "Consistent appearance and no routine watering", "Needs sound drainage and can become hot in direct sun"],
+          ["Low-water ground cover", "Decorative or lightly used areas", "Plant texture with less water than lawn", "Cannot tolerate the same traffic as turf"],
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "A professional backyard remodel may combine all three. Limiting turf to a functional rectangle, rather than treating it as leftover ground cover, lowers maintenance and leaves room for shade trees, pollinator planting, and permeable paths.",
+      },
+      { type: "heading", text: "Nightscapes" },
+      {
+        type: "paragraph",
+        text: "A well-designed nightscape improves safe movement, extends outdoor use, and reveals the landscape after sunset. Low-voltage fixtures should illuminate steps, grade changes, entrances, gathering areas, and selected trees without flooding windows or neighboring properties with glare.",
+      },
+      {
+        type: "paragraph",
+        text: "Effective plans use restrained layers: shielded path lights for circulation, downlights for natural moonlighting, and carefully aimed accents for depth. The design features should be specified during planning so sleeves, transformers, cable routes, and controls are installed before paving and planting are complete. This prevents visible wiring and expensive disruption later. Learn more about our [outdoor amenities and landscape lighting](/services/outdoor-amenities) services, or read our guide to [low-voltage landscape lighting](/blog/low-voltage-landscape-lighting-benefits).",
+      },
+      { type: "heading", text: "Planting" },
+      {
+        type: "paragraph",
+        text: "Planting succeeds when every species matches the property's microclimate and available maintenance. Los Gatos landscape design services should evaluate afternoon heat, reflected light, frost pockets, canopy roots, deer exposure, drainage, and the size each plant will reach.",
+      },
+      {
+        type: "paragraph",
+        text: "The rule of three in landscaping means repeating plants, colors, forms, or materials in groups of three or at least three locations. Odd-numbered groups feel natural, while repetition connects separate beds into one visual composition. It is a design principle, not a rule requiring every plant to appear exactly three times.",
+      },
+      {
+        type: "paragraph",
+        text: "Use repetition selectively. Three multi-trunk trees can establish rhythm, while repeated grasses can guide the eye through the garden. Fewer species planted in confident masses often produce a calmer area landscape design than a collection of unrelated specimens.",
+      },
+      { type: "heading", text: "Choosing the Right Landscape Professional" },
+      {
+        type: "paragraph",
+        text: "The right professional depends on whether a project needs site design, regulated technical work, or broad land-use planning. Before hiring, review the contractor's project portfolio, licensing, insurance, references, material allowances, exclusions, payment schedule, and change-order terms. Ask to see the proposed plant palette and irrigation zones—not just attractive renderings. Explore the available [services](/) we offer, then [contact us](/contact) to confirm scope and scheduling.",
+      },
+      {
+        type: "paragraph",
+        text: "**Schedule Your Los Gatos Landscape Design Consultation** and get a site-specific plan for a durable, water-conscious outdoor space.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How much does a landscape architect charge per hour?",
+        answer:
+          "Current consumer cost guides commonly place hourly fees around $50–$150, with senior specialists and complex Bay Area work potentially costing more. Request a written scope showing meetings, revisions, drawings, and permit coordination.",
+      },
+      {
+        question: "Can ChatGPT do landscape design?",
+        answer:
+          "ChatGPT can organize requirements, suggest style directions, and create planning checklists. It cannot verify grades, locate utilities, test soil, inspect drainage, produce dependable site measurements, or assume professional responsibility for construction documents.",
+      },
+      {
+        question: "Landscape architect or landscape planner?",
+        answer:
+          "A landscape architect designs specific sites and may prepare technical documents for grading, drainage, planting, and built elements. A landscape planner works at a broader scale on land use, environmental systems, parks, communities, and regional policy.",
+      },
+      {
+        question: "When is a design-build contractor valuable?",
+        answer:
+          "Choose one when the same accountable team must connect plans with demolition, irrigation, planting, paving, walls, lighting, modern louvered pergolas, and field execution.",
       },
     ],
   },
