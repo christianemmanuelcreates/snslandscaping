@@ -120,10 +120,10 @@ export default function Home() {
               {BUSINESS_TAGLINE}
             </Badge>
             <h1 className="text-4xl font-bold tracking-tighter text-balance sm:text-5xl md:text-6xl">
-              Outdoor Living, Built to Last
+              Professional Landscaping & Outdoor Services
             </h1>
             <p className="max-w-xl text-base text-primary-foreground/90 sm:text-lg">
-              From lawns and gardens to patios and irrigation, we design and build landscapes that thrive in the Bay Area.
+              Reliable landscaping maintenance, & outdoor property services for residential & commercial properties throughout the Bay Area.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Link to="/contact#quote-form" className="w-full sm:w-auto">

@@ -35,7 +35,7 @@ const NAV_ITEMS = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="navbar-shell mx-auto flex min-h-24 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="navbar-shell relative mx-auto flex min-h-24 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
           className="navbar-logo flex shrink-0 items-center justify-center overflow-hidden"
@@ -102,6 +102,15 @@ export function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
 
+        <a
+          href={PRIMARY_PHONE.phoneHref}
+          aria-label={`Call ${PRIMARY_PHONE.phone}`}
+          className="absolute left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-cta/30 bg-cta/10 px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-cta/20 lg:hidden"
+        >
+          <Phone className="size-4 text-cta" aria-hidden="true" />
+          Call
+        </a>
+
         {/* Right actions */}
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <ThemeToggle />
@@ -125,7 +134,7 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-72 overflow-y-auto">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>
-              <nav className="flex flex-col gap-1 pt-6">
+              <nav className="flex flex-col gap-1 px-4 pt-6">
                 {NAV_ITEMS.filter((item) => item.label !== "Service Areas").map((item) => (
                   <Link
                     key={item.href}
