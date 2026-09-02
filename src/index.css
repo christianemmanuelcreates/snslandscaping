@@ -143,6 +143,18 @@
   object-fit: contain;
 }
 
+@media (min-width: 1024px) {
+  .navbar-shell {
+    min-height: 128px;
+  }
+
+  .navbar-logo {
+    width: 120px;
+    height: 120px;
+    flex-basis: 120px;
+  }
+}
+
 @media (min-width: 1280px) {
   .navbar-shell {
     min-height: 200px;

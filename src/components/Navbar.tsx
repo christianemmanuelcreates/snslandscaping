@@ -30,7 +30,6 @@ const NAV_ITEMS = [
   { label: "Gallery", href: "/gallery" },
   { label: "Reviews", href: "/reviews" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -52,9 +51,9 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <NavigationMenu className="hidden min-w-0 flex-1 justify-center md:flex">
+        <NavigationMenu className="hidden min-w-0 flex-1 justify-center lg:flex">
           <NavigationMenuList className="flex items-center gap-1">
-            {NAV_ITEMS.filter((item) => item.label !== "Contact").map((item) => (
+            {NAV_ITEMS.map((item) => (
               <NavigationMenuItem key={item.href}>
                 <Link
                   to={item.href}
@@ -100,14 +99,6 @@ export function Navbar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            <NavigationMenuItem>
-              <Link
-                to="/contact"
-                className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
-              >
-                Contact
-              </Link>
-            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -116,18 +107,18 @@ export function Navbar() {
           <ThemeToggle />
           <a
             href={PRIMARY_PHONE.phoneHref}
-            className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-cta"
+            className="hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-cta"
           >
             <Phone className="size-4 text-cta" aria-hidden="true" />
             {PRIMARY_PHONE.phone}
           </a>
-          <Link to="/contact#quote-form" className="hidden md:inline-flex">
+          <Link to="/contact#quote-form" className="hidden lg:inline-flex">
             <Button size="sm" variant="cta">{CTA_LABEL}</Button>
           </Link>
           {/* Mobile menu trigger */}
           <Sheet>
             <SheetTrigger
-              className="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+              className="lg:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
               aria-label="Open menu"
             >
               <Menu className="size-5" aria-hidden="true" />
