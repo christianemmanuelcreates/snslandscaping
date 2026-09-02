@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -8,7 +9,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
-import { ArrowRight, PhoneCall, MapPin } from "lucide-react";
+import { ArrowRight, PhoneCall, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   BUSINESS_NAME,
   BUSINESS_TAGLINE,
@@ -19,6 +20,48 @@ import {
 import { SERVICES, AREAS, GALLERY_ITEMS } from "@/lib/sns-data";
 import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog-data";
 import { format } from "date-fns";
+import { Reveal } from "@/components/Reveal";
+
+function HScroll({ children }: { children: React.ReactNode }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const el = wrapRef.current?.querySelector(".h-scroll") as HTMLElement | null;
+    if (!el) return;
+    const onScroll = () => setScrolled(el.scrollLeft > 10);
+    el.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollBy = (dir: number) => {
+    const el = wrapRef.current?.querySelector(".h-scroll") as HTMLElement | null;
+    if (el) el.scrollBy({ left: dir * 340, behavior: "smooth" });
+  };
+
+  return (
+    <div ref={wrapRef} className={`h-scroll-wrap ${scrolled ? "is-scrolled" : ""}`}>
+      <div className="relative">
+        {children}
+        <button
+          onClick={() => scrollBy(-1)}
+          className="absolute -left-3 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 shadow-md transition-all hover:bg-muted md:flex"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft className="size-5" aria-hidden="true" />
+        </button>
+        <button
+          onClick={() => scrollBy(1)}
+          className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 shadow-md transition-all hover:bg-muted md:flex"
+          aria-label="Scroll right"
+        >
+          <ChevronRight className="size-5" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -50,6 +93,10 @@ export default function Home() {
           addressCountry: "US",
         },
         areaServed: AREAS.map((a) => ({ name: a.name })),
+        openingHours: [
+          { dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "07:00", closes: "18:00" },
+          { dayOfWeek: ["Saturday"], opens: "08:00", closes: "16:00" },
+        ],
       }}
     >
       {/* Hero: split-screen */}
@@ -80,7 +127,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Link to="/contact#quote-form" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
+                <Button size="lg" variant="cta" className="w-full sm:w-auto cta-pulse">{CTA_LABEL}</Button>
               </Link>
               <Link to="/services" className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground sm:w-auto">
@@ -110,181 +157,217 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services */}
+      {/* Services — horizontal scroll */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Our Services
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Complete outdoor living, from the ground up.
+              Complete outdoor living, from the ground up. Scroll to explore.
             </p>
-          </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((service) => (
-              <Card
-                key={service.slug}
-                className="overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="p-3">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src={service.image}
-                      alt={service.imageAlt}
-                      loading="lazy"
-                      className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                    />
+          </Reveal>
+          <Reveal delay={100} className="mt-12">
+            <HScroll>
+              <div className="h-scroll">
+                {SERVICES.map((service) => (
+                  <div key={service.slug} className="h-scroll-item">
+                    <Card className="h-full overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                      <div className="p-3">
+                        <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                          <img
+                            src={service.image}
+                            alt={service.imageAlt}
+                            loading="lazy"
+                            className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                          />
+                        </div>
+                      </div>
+                      <CardHeader>
+                        <service.icon
+                          className="mb-2 size-8 text-primary"
+                          aria-hidden="true"
+                        />
+                        <CardTitle>{service.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm font-medium text-foreground">{service.tagline}</p>
+                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                        <Link
+                          to={`/services/${service.slug}`}
+                          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                        >
+                          Learn more
+                          <ArrowRight className="size-4" aria-hidden="true" />
+                        </Link>
+                      </CardContent>
+                    </Card>
                   </div>
-                </div>
-                <CardHeader>
-                  <service.icon
-                    className="mb-2 size-8 text-primary"
-                    aria-hidden="true"
-                  />
-                  <CardTitle>{service.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{service.tagline}</p>
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    Learn more
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                ))}
+              </div>
+            </HScroll>
+          </Reveal>
         </div>
       </section>
 
-      {/* Featured areas */}
+      {/* Featured areas — horizontal scroll */}
       <section className="bg-muted py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Where We Work
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Local expertise across Silicon Valley & the Bay Area.
+              Local expertise across Silicon Valley & the Bay Area. Scroll to explore.
             </p>
-          </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {AREAS.map((area) => (
-              <Card key={area.slug} className="h-full">
-                <CardHeader>
-                  <MapPin className="mb-2 size-8 text-primary" aria-hidden="true" />
-                  <CardTitle>{area.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{area.county} County</p>
-                  <Link
-                    to={`/areas/${area.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    View services
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          </Reveal>
+          <Reveal delay={100} className="mt-12">
+            <HScroll>
+              <div className="h-scroll">
+                {AREAS.map((area) => (
+                  <div key={area.slug} className="h-scroll-item">
+                    <Card className="h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                      <CardHeader>
+                        <MapPin className="mb-2 size-8 text-primary" aria-hidden="true" />
+                        <CardTitle>{area.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">{area.county} County</p>
+                        <p className="mt-2 text-sm text-muted-foreground">{area.metro} area</p>
+                        <Link
+                          to={`/areas/${area.slug}`}
+                          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                        >
+                          View services
+                          <ArrowRight className="size-4" aria-hidden="true" />
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </HScroll>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
+              Why Choose Us
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              At {BUSINESS_NAME}, we believe dependable service and clear communication should
+              come standard. We're licensed and experienced, with years of hands-on knowledge
+              you can rely on. We take pride in the quality and appearance of every project,
+              focusing on the small details that make a big difference. And whether your
+              property is residential or commercial, we bring the same commitment to
+              excellence to every job.
+            </p>
+            <Link to="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline">
+              Learn more about us
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
       {/* Featured work */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Recent Projects
             </h2>
             <p className="mt-4 text-muted-foreground">
               A selection of outdoor spaces we've designed and built.
             </p>
-          </div>
+          </Reveal>
           <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3">
-            {GALLERY_ITEMS.slice(0, 3).map((project) => (
-              <div key={project.title} className="overflow-hidden rounded-xl">
+            {GALLERY_ITEMS.slice(0, 3).map((project, i) => (
+              <Reveal key={project.title} delay={i * 80} className="overflow-hidden rounded-xl">
                 <img
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
                   className="aspect-[4/3] w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
                 />
-              </div>
+              </Reveal>
             ))}
           </div>
-          <div className="mt-8 text-center">
+          <Reveal delay={200} className="mt-8 text-center">
             <Link to="/gallery" className="inline-block">
               <Button variant="outline">View Full Gallery</Button>
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Latest articles */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Latest Articles
             </h2>
             <p className="mt-4 text-muted-foreground">
               Tips, guides, and ideas for your outdoor space.
             </p>
-          </div>
+          </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {getAllPosts().slice(0, 3).map((post) => (
-              <Card key={post.slug} className="flex h-full flex-col overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                <div className="p-3">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src={post.image}
-                      alt={post.imageAlt}
-                      loading="lazy"
-                      className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                    />
+            {getAllPosts().slice(0, 3).map((post, i) => (
+              <Reveal key={post.slug} delay={i * 80}>
+                <Card className="flex h-full flex-col overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                  <div className="p-3">
+                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                      <img
+                        src={post.image}
+                        alt={post.imageAlt}
+                        loading="lazy"
+                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                      />
+                    </div>
                   </div>
-                </div>
-                <CardHeader>
-                  <div className="mb-2 flex items-center gap-2">
-                    <Badge variant="secondary" className="text-xs">
-                      {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
-                    </Badge>
-                    <span className="text-xs text-muted-foreground">
-                      {format(new Date(post.publishedAt), "MMM d, yyyy")}
-                    </span>
-                  </div>
-                  <CardTitle className="text-lg leading-snug">{post.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-1 flex-col">
-                  <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    Read article
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                </CardContent>
-              </Card>
+                  <CardHeader>
+                    <div className="mb-2 flex items-center gap-2">
+                      <Badge variant="secondary" className="text-xs">
+                        {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">
+                        {format(new Date(post.publishedAt), "MMM d, yyyy")}
+                      </span>
+                    </div>
+                    <CardTitle className="text-lg leading-snug">{post.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex flex-1 flex-col">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      Read article
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
-          <div className="mt-8 text-center">
+          <Reveal delay={200} className="mt-8 text-center">
             <Link to="/blog" className="inline-block">
               <Button variant="outline">View All Articles</Button>
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
       <section className="bg-primary py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance text-white md:text-4xl dark:text-slate-950">
               Ready to Transform Your Outdoor Space?
             </h2>
@@ -293,7 +376,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" className="bg-white text-primary hover:bg-stone-100 hover:text-primary dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
+                <Button size="lg" variant="cta">
                   {CTA_LABEL}
                 </Button>
               </Link>
@@ -304,7 +387,7 @@ export default function Home() {
                 </Button>
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </Layout>

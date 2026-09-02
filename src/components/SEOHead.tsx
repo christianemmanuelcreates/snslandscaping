@@ -39,6 +39,12 @@ interface SEOHeadProps {
     image: string;
     section?: string;
   };
+  persons?: {
+    name: string;
+    jobTitle?: string;
+    url?: string;
+    telephone?: string;
+  }[];
 }
 
 export function SEOHead({
@@ -53,6 +59,7 @@ export function SEOHead({
   service,
   faqs,
   article,
+  persons,
 }: SEOHeadProps) {
   const orgName = business?.name || BUSINESS_NAME;
   const orgUrl = business?.url || canonical;
@@ -200,6 +207,20 @@ export function SEOHead({
         },
       })),
     });
+  }
+
+  if (persons?.length) {
+    for (const person of persons) {
+      graph.push({
+        "@type": "Person",
+        "@id": `${orgUrl}#person-${person.name.toLowerCase().replace(/\s+/g, "-")}`,
+        name: person.name,
+        ...(person.jobTitle ? { jobTitle: person.jobTitle } : {}),
+        ...(person.url ? { url: person.url } : {}),
+        ...(person.telephone ? { telephone: person.telephone } : {}),
+        worksFor: { "@id": `${orgUrl}#organization` },
+      });
+    }
   }
 
   return (

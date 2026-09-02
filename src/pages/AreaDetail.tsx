@@ -14,6 +14,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { ArrowRight, PhoneCall, MapPin } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
 import { getArea, SERVICES, AREAS } from "@/lib/sns-data";
 
@@ -47,7 +48,23 @@ export default function AreaDetail() {
 
   const otherAreas = AREAS.filter((a) => a.slug !== area.slug);
 
-  const allFaqs = SERVICES.flatMap((s) => s.faqs).slice(0, 8);
+  const areaSpecificFaqs = [
+    {
+      question: `What landscaping services do you offer in ${area.name}?`,
+      answer: `We offer the full range of S&S Landscaping services in ${area.name}, including landscaping and planting, hardscaping (patios, walkways, retaining walls), site preparation and grading, irrigation and drainage, and outdoor amenities like water features and landscape lighting.`,
+    },
+    {
+      question: `How long has S&S Landscaping been serving ${area.name}?`,
+      answer: `We serve ${area.name} and all ${area.county} County communities as part of our 16-city service area across Silicon Valley and the Bay Area. We're locally owned, licensed (LIC 100-7487), and insured.`,
+    },
+    {
+      question: `Do you offer free quotes in ${area.name}?`,
+      answer: `Yes, we provide free quotes for all landscaping and hardscaping projects in ${area.name} and the surrounding ${area.metro} area. Call us directly or fill out our online quote form.`,
+    },
+  ];
+
+  const serviceFaqs = SERVICES.flatMap((s) => s.faqs).slice(0, 5);
+  const allFaqs = [...areaSpecificFaqs, ...serviceFaqs];
 
   return (
     <Layout
@@ -102,7 +119,7 @@ export default function AreaDetail() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Link to="/contact#quote-form" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
+                <Button size="lg" variant="cta" className="w-full sm:w-auto">{CTA_LABEL}</Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref} className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground">
@@ -118,42 +135,44 @@ export default function AreaDetail() {
       {/* Services in this area */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Services in {area.name}
             </h2>
             <p className="mt-4 text-muted-foreground">
               The full range of landscaping and outdoor living services we deliver in {area.name}.
             </p>
-          </div>
+          </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((service) => (
-              <Card key={service.slug} className="h-full overflow-hidden">
-                <div className="p-3">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src={service.image}
-                      alt={service.imageAlt}
-                      loading="lazy"
-                      className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                    />
+            {SERVICES.map((service, i) => (
+              <Reveal key={service.slug} delay={(i % 3) * 60}>
+                <Card className="h-full overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                  <div className="p-3">
+                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                      <img
+                        src={service.image}
+                        alt={service.imageAlt}
+                        loading="lazy"
+                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                      />
+                    </div>
                   </div>
-                </div>
-                <CardHeader>
-                  <service.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
-                  <CardTitle>{service.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{service.tagline}</p>
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    View service
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                </CardContent>
-              </Card>
+                  <CardHeader>
+                    <service.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
+                    <CardTitle>{service.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{service.tagline}</p>
+                    <Link
+                      to={`/services/${service.slug}`}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      View service
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -162,51 +181,55 @@ export default function AreaDetail() {
       {/* FAQ */}
       <section className="bg-muted py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Landscaping FAQ for {area.name}
             </h2>
             <p className="mt-4 text-muted-foreground">
               Common questions about our landscaping services in {area.name}.
             </p>
-          </div>
-          <Accordion className="mt-12 w-full">
-            {allFaqs.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          </Reveal>
+          <Reveal delay={100}>
+            <Accordion className="mt-12 w-full">
+              {allFaqs.map((faq, i) => (
+                <AccordionItem key={i} value={`item-${i}`}>
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Reveal>
         </div>
       </section>
 
       {/* Other areas */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Other Areas We Serve
             </h2>
-          </div>
+          </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {otherAreas.map((other) => (
-              <Card key={other.slug} className="h-full">
-                <CardHeader>
-                  <MapPin className="mb-2 size-8 text-primary" aria-hidden="true" />
-                  <CardTitle>{other.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{other.county} County</p>
-                  <Link
-                    to={`/areas/${other.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    View services
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                </CardContent>
-              </Card>
+            {otherAreas.map((other, i) => (
+              <Reveal key={other.slug} delay={(i % 4) * 50}>
+                <Card className="h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                  <CardHeader>
+                    <MapPin className="mb-2 size-8 text-primary" aria-hidden="true" />
+                    <CardTitle>{other.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{other.county} County</p>
+                    <Link
+                      to={`/areas/${other.slug}`}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      View services
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -215,7 +238,7 @@ export default function AreaDetail() {
       {/* CTA */}
       <section className="bg-primary py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance text-primary-foreground md:text-4xl">
               Landscaping in {area.name}
             </h2>
@@ -224,7 +247,7 @@ export default function AreaDetail() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" className="bg-white text-primary hover:bg-stone-100 hover:text-primary dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
+                <Button size="lg" variant="cta">
                   {CTA_LABEL}
                 </Button>
               </Link>
@@ -235,7 +258,7 @@ export default function AreaDetail() {
                 </Button>
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </Layout>

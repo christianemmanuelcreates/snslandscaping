@@ -14,6 +14,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { CircleCheck as CheckCircle2, PhoneCall, ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
 import { getService, SERVICES, AREAS } from "@/lib/sns-data";
 
@@ -91,7 +92,7 @@ export default function ServiceDetail() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Link to="/contact#quote-form" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
+                <Button size="lg" variant="cta" className="w-full sm:w-auto">{CTA_LABEL}</Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref} className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground">
@@ -108,29 +109,33 @@ export default function ServiceDetail() {
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <div className="flex flex-col gap-6">
-              <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-                About {service.name}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-            <Card>
-              <CardHeader>
-                <CardTitle>What's Included</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="flex flex-col gap-3">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3">
-                      <CheckCircle2 className="size-5 text-primary" aria-hidden="true" />
-                      <span className="text-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <Reveal>
+              <div className="flex flex-col gap-6">
+                <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
+                  About {service.name}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <Card>
+                <CardHeader>
+                  <CardTitle>What's Included</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="flex flex-col gap-3">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3">
+                        <CheckCircle2 className="size-5 text-primary" aria-hidden="true" />
+                        <span className="text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -138,58 +143,62 @@ export default function ServiceDetail() {
       {/* FAQ */}
       <section className="bg-muted py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Frequently Asked Questions
             </h2>
-          </div>
-          <Accordion className="mt-12 w-full">
-            {service.faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          </Reveal>
+          <Reveal delay={100}>
+            <Accordion className="mt-12 w-full">
+              {service.faqs.map((faq, i) => (
+                <AccordionItem key={i} value={`item-${i}`}>
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Reveal>
         </div>
       </section>
 
       {/* Related services */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Related Services
             </h2>
-          </div>
+          </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {siblings.map((sibling) => (
-              <Card key={sibling.slug} className="h-full overflow-hidden">
-                <div className="p-3">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src={sibling.image}
-                      alt={sibling.imageAlt}
-                      loading="lazy"
-                      className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                    />
+            {siblings.map((sibling, i) => (
+              <Reveal key={sibling.slug} delay={(i % 2) * 80}>
+                <Card className="h-full overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                  <div className="p-3">
+                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                      <img
+                        src={sibling.image}
+                        alt={sibling.imageAlt}
+                        loading="lazy"
+                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                      />
+                    </div>
                   </div>
-                </div>
-                <CardHeader>
-                  <sibling.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
-                  <CardTitle>{sibling.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{sibling.tagline}</p>
-                  <Link
-                    to={`/services/${sibling.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    View service
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                </CardContent>
-              </Card>
+                  <CardHeader>
+                    <sibling.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
+                    <CardTitle>{sibling.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{sibling.tagline}</p>
+                    <Link
+                      to={`/services/${sibling.slug}`}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      View service
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -198,7 +207,7 @@ export default function ServiceDetail() {
       {/* CTA */}
       <section className="bg-primary py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance text-primary-foreground md:text-4xl">
               Ready to Get Started?
             </h2>
@@ -207,7 +216,7 @@ export default function ServiceDetail() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" className="bg-white text-primary hover:bg-stone-100 hover:text-primary dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
+                <Button size="lg" variant="cta">
                   {CTA_LABEL}
                 </Button>
               </Link>
@@ -218,7 +227,7 @@ export default function ServiceDetail() {
                 </Button>
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </Layout>

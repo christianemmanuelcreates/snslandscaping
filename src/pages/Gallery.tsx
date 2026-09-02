@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/Reveal";
 import { BUSINESS_NAME, CTA_LABEL } from "@/lib/site";
 import { GALLERY_ITEMS } from "@/lib/sns-data";
 
@@ -31,7 +32,7 @@ export default function Gallery() {
       seo={{
         title: `Gallery | ${BUSINESS_NAME} Projects`,
         description:
-          "Browse landscaping, hardscaping, and outdoor living projects by S&S Landscaping across Silicon Valley & the Bay Area.",
+          "Browse patios, retaining walls, paver walkways, landscape lighting, water features, and turf installations by S&S Landscaping across Silicon Valley & the Bay Area.",
         canonical: "https://snslandscaping.org/gallery",
       }}
       business={{
@@ -41,21 +42,61 @@ export default function Gallery() {
     >
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tighter text-balance md:text-5xl">
               Our Work
             </h1>
             <p className="mt-4 text-muted-foreground">
               A look at the outdoor spaces we design and build across Silicon Valley & the Bay Area.
             </p>
-          </div>
+          </Reveal>
 
           {/* Featured carousel */}
-          <Carousel className="mt-12 w-full" opts={{ loop: true }}>
-            <CarouselContent>
+          <Reveal delay={100} className="mt-12 w-full">
+            <Carousel className="w-full" opts={{ loop: true }}>
+              <CarouselContent>
+                {GALLERY_ITEMS.map((project, i) => (
+                  <CarouselItem key={project.title} className="md:basis-1/2 lg:basis-1/3">
+                    <Card className="flex h-full flex-col overflow-hidden">
+                      <button
+                        type="button"
+                        onClick={() => setLightbox(i)}
+                        className="block w-full p-3 text-left"
+                        aria-label={`View larger image: ${project.title}`}
+                      >
+                        <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            loading="lazy"
+                            className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                          />
+                        </div>
+                      </button>
+                      <CardHeader>
+                        <CardTitle>{project.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">{project.description}</p>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </Reveal>
+
+          {/* Full grid */}
+          <div className="mt-16">
+            <h2 className="mb-8 text-center text-2xl font-bold tracking-tight text-balance md:text-3xl">
+              Project Gallery
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {GALLERY_ITEMS.map((project, i) => (
-                <CarouselItem key={project.title} className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="flex h-full flex-col overflow-hidden">
+                <Reveal key={project.title} delay={(i % 3) * 80}>
+                  <Card className="overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
                     <button
                       type="button"
                       onClick={() => setLightbox(i)}
@@ -72,54 +113,18 @@ export default function Gallery() {
                       </div>
                     </button>
                     <CardHeader>
-                      <CardTitle>{project.title}</CardTitle>
+                      <CardTitle className="text-lg">{project.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">{project.description}</p>
+                      <p className="text-sm text-muted-foreground">{project.description}</p>
                     </CardContent>
                   </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-
-          {/* Full grid */}
-          <div className="mt-16">
-            <h2 className="mb-8 text-center text-2xl font-bold tracking-tight text-balance md:text-3xl">
-              Project Gallery
-            </h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {GALLERY_ITEMS.map((project, i) => (
-                <Card key={project.title} className="overflow-hidden">
-                  <button
-                    type="button"
-                    onClick={() => setLightbox(i)}
-                    className="block w-full p-3 text-left"
-                    aria-label={`View larger image: ${project.title}`}
-                  >
-                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        loading="lazy"
-                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                      />
-                    </div>
-                  </button>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{project.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{project.description}</p>
-                  </CardContent>
-                </Card>
+                </Reveal>
               ))}
             </div>
           </div>
 
-          <div className="mt-16 rounded-xl bg-muted p-8 text-center md:p-12">
+          <Reveal delay={200} className="mt-16 rounded-xl bg-muted p-8 text-center md:p-12">
             <h2 className="text-2xl font-bold tracking-tight text-balance md:text-3xl">
               Want a Space Like These?
             </h2>
@@ -127,9 +132,9 @@ export default function Gallery() {
               Get a free quote for your own landscaping project.
             </p>
             <Link to="/contact#quote-form" className="mt-6 inline-block">
-              <Button size="lg">{CTA_LABEL}</Button>
+              <Button size="lg" variant="cta">{CTA_LABEL}</Button>
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 

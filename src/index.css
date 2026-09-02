@@ -16,6 +16,9 @@
     --color-sidebar-primary: var(--sidebar-primary);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar: var(--sidebar);
+    --color-cta-foreground: var(--cta-foreground);
+    --color-cta-hover: var(--cta-hover);
+    --color-cta: var(--cta);
     --color-chart-5: var(--chart-5);
     --color-chart-4: var(--chart-4);
     --color-chart-3: var(--chart-3);
@@ -64,6 +67,9 @@
     --accent: oklch(0.96 0.01 150);
     --accent-foreground: oklch(0.3 0.06 150);
     --destructive: oklch(0.577 0.245 27.325);
+    --cta: oklch(0.646 0.179 40);
+    --cta-foreground: oklch(0.99 0.005 95);
+    --cta-hover: oklch(0.586 0.191 38);
     --border: oklch(0.92 0.01 150);
     --input: oklch(0.92 0.01 150);
     --ring: oklch(0.5 0.15 150);
@@ -99,6 +105,9 @@
     --accent: oklch(0.28 0.03 150);
     --accent-foreground: oklch(0.96 0.01 150);
     --destructive: oklch(0.704 0.191 22.216);
+    --cta: oklch(0.686 0.175 42);
+    --cta-foreground: oklch(0.16 0.02 150);
+    --cta-hover: oklch(0.636 0.185 40);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.62 0.14 150);
@@ -218,4 +227,151 @@
 
 .chat-typing-dot {
   animation: chat-typing-dot 1.2s ease-in-out infinite;
+}
+
+/* ===== Scroll reveal & page transition animations ===== */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.646 0.179 40 / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px oklch(0.646 0.179 40 / 0);
+  }
+}
+
+@keyframes scroll-hint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+.reveal-up {
+  opacity: 0;
+  animation: reveal-up 0.5s ease-out forwards;
+}
+
+.reveal-fade {
+  opacity: 0;
+  animation: reveal-fade 0.4s ease-out forwards;
+}
+
+.page-enter {
+  animation: page-enter 0.35s ease-out;
+}
+
+.cta-pulse {
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+
+.scroll-hint {
+  animation: scroll-hint 1.8s ease-in-out infinite;
+}
+
+/* Horizontal scroll container */
+.h-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 0.5rem;
+}
+
+.h-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.h-scroll::-webkit-scrollbar-track {
+  background: oklch(0.96 0.01 150);
+  border-radius: 3px;
+}
+
+.h-scroll::-webkit-scrollbar-thumb {
+  background: oklch(0.7 0.05 150);
+  border-radius: 3px;
+}
+
+.h-scroll-item {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .h-scroll-item {
+    flex: 0 0 340px;
+  }
+}
+
+/* Edge fade for horizontal scroll */
+.h-scroll-wrap {
+  position: relative;
+}
+
+.h-scroll-wrap::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 8px;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--background));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.h-scroll-wrap::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 8px;
+  width: 40px;
+  background: linear-gradient(to left, transparent, var(--background));
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.h-scroll-wrap.is-scrolled::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-fade,
+  .page-enter,
+  .cta-pulse,
+  .scroll-hint {
+    animation: none;
+    opacity: 1;
+  }
 }

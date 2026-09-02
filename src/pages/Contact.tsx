@@ -13,6 +13,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Phone, Mail, MapPin, CircleCheck } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import {
   BUSINESS_NAME,
   PRIMARY_PHONE,
@@ -68,8 +69,6 @@ export default function Contact() {
       setSelectedServices([]);
       setMessage("");
     } catch {
-      // Deliberately does not log the backend error object, which carries
-      // schema and constraint detail.
       console.error("Quote submission failed");
       setSubmitState("error");
     }
@@ -80,7 +79,7 @@ export default function Contact() {
       seo={{
         title: `Contact ${BUSINESS_NAME} | Get a Free Quote`,
         description:
-          "Contact S&S Landscaping for a free quote on landscaping, hardscaping, irrigation, and outdoor living in Silicon Valley & the Bay Area.",
+          "Call 209-979-6677 or request a free quote online. S&S Landscaping serves Los Gatos, Palo Alto, San Jose, and 13 more Silicon Valley & Bay Area communities.",
         canonical: "https://snslandscaping.org/contact",
       }}
       business={{
@@ -91,16 +90,16 @@ export default function Contact() {
     >
       <section id="quote-form" className="py-16 md:py-24 scroll-mt-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tighter text-balance md:text-5xl">
               Get in Touch
             </h1>
             <p className="mt-4 text-muted-foreground">
               Reach out today for a free quote on your landscaping project.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mx-auto mt-12 max-w-2xl">
+          <Reveal delay={100} className="mx-auto mt-12 max-w-2xl">
             {/* Quote form */}
             <Card>
               <CardHeader>
@@ -207,6 +206,7 @@ export default function Contact() {
                     <Button
                       type="submit"
                       size="lg"
+                      variant="cta"
                       className="mt-2"
                       disabled={submitState === "submitting"}
                     >
@@ -216,7 +216,7 @@ export default function Contact() {
                 )}
               </CardContent>
             </Card>
-          </div>
+          </Reveal>
 
           {/* Smaller project photo */}
           <div className="mx-auto mt-8 max-w-2xl">
@@ -232,41 +232,47 @@ export default function Contact() {
 
           {/* Contact info */}
           <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
-            {CONTACTS.map((contact) => (
-              <Card key={contact.name}>
+            {CONTACTS.map((contact, i) => (
+              <Reveal key={contact.name} delay={i * 60}>
+                <Card>
+                  <CardContent className="flex items-start gap-3 pt-6">
+                    <Phone className="size-5 text-primary" aria-hidden="true" />
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm font-medium text-foreground">{contact.name}</span>
+                      <a href={contact.phoneHref} className="text-sm text-muted-foreground hover:text-foreground">
+                        {contact.phone}
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            ))}
+            <Reveal delay={120}>
+              <Card>
                 <CardContent className="flex items-start gap-3 pt-6">
-                  <Phone className="size-5 text-primary" aria-hidden="true" />
+                  <Mail className="size-5 text-primary" aria-hidden="true" />
                   <div className="flex flex-col gap-1">
-                    <span className="text-sm font-medium text-foreground">{contact.name}</span>
-                    <a href={contact.phoneHref} className="text-sm text-muted-foreground hover:text-foreground">
-                      {contact.phone}
+                    <span className="text-sm font-medium text-foreground">Email</span>
+                    <a href={`mailto:${EMAIL}`} className="text-sm text-muted-foreground hover:text-foreground">
+                      {EMAIL}
                     </a>
                   </div>
                 </CardContent>
               </Card>
-            ))}
-            <Card>
-              <CardContent className="flex items-start gap-3 pt-6">
-                <Mail className="size-5 text-primary" aria-hidden="true" />
-                <div className="flex flex-col gap-1">
-                  <span className="text-sm font-medium text-foreground">Email</span>
-                  <a href={`mailto:${EMAIL}`} className="text-sm text-muted-foreground hover:text-foreground">
-                    {EMAIL}
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="flex items-start gap-3 pt-6">
-                <MapPin className="size-5 text-primary" aria-hidden="true" />
-                <div className="flex flex-col gap-1">
-                  <span className="text-sm font-medium text-foreground">Service Area</span>
-                  <span className="text-sm text-muted-foreground">
-                    {SERVICE_AREAS.join(", ")}
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
+            </Reveal>
+            <Reveal delay={180}>
+              <Card>
+                <CardContent className="flex items-start gap-3 pt-6">
+                  <MapPin className="size-5 text-primary" aria-hidden="true" />
+                  <div className="flex flex-col gap-1">
+                    <span className="text-sm font-medium text-foreground">Service Area</span>
+                    <span className="text-sm text-muted-foreground">
+                      {SERVICE_AREAS.join(", ")}
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Reveal>
           </div>
         </div>
       </section>

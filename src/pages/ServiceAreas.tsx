@@ -8,6 +8,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { ArrowRight, PhoneCall, MapPin } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
 import { AREAS } from "@/lib/sns-data";
 
@@ -17,7 +18,7 @@ export default function ServiceAreas() {
       seo={{
         title: `Service Areas in Silicon Valley | ${BUSINESS_NAME}`,
         description:
-          "S&S Landscaping serves 16 communities across Silicon Valley and the Bay Area, including Los Gatos, Palo Alto, San Jose, and Mountain View. Get a free quote today.",
+          "S&S Landscaping serves 16 communities across Silicon Valley and the Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, and Saratoga. Get a free quote today.",
         canonical: "https://snslandscaping.org/areas",
         schemaTypes: ["LocalBusiness"],
       }}
@@ -65,7 +66,7 @@ export default function ServiceAreas() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Link to="/contact#quote-form" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto">{CTA_LABEL}</Button>
+                <Button size="lg" variant="cta" className="w-full sm:w-auto">{CTA_LABEL}</Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref} className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground">
@@ -81,32 +82,34 @@ export default function ServiceAreas() {
       {/* Areas grid */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
               Communities We Serve
             </h2>
             <p className="mt-4 text-muted-foreground">
               Select your city to see the landscaping services we provide in your area.
             </p>
-          </div>
+          </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {AREAS.map((area) => (
-              <Card key={area.slug} className="h-full">
-                <CardHeader>
-                  <MapPin className="mb-2 size-8 text-primary" aria-hidden="true" />
-                  <CardTitle>{area.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{area.county} County</p>
-                  <Link
-                    to={`/areas/${area.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    View services
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                </CardContent>
-              </Card>
+            {AREAS.map((area, i) => (
+              <Reveal key={area.slug} delay={(i % 4) * 50}>
+                <Card className="h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                  <CardHeader>
+                    <MapPin className="mb-2 size-8 text-primary" aria-hidden="true" />
+                    <CardTitle>{area.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{area.county} County</p>
+                    <Link
+                      to={`/areas/${area.slug}`}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      View services
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -115,7 +118,7 @@ export default function ServiceAreas() {
       {/* CTA */}
       <section className="bg-primary py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-balance text-primary-foreground md:text-4xl">
               Ready to Transform Your Outdoor Space?
             </h2>
@@ -124,7 +127,7 @@ export default function ServiceAreas() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" className="bg-white text-primary hover:bg-stone-100 hover:text-primary dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
+                <Button size="lg" variant="cta">
                   {CTA_LABEL}
                 </Button>
               </Link>
@@ -135,7 +138,7 @@ export default function ServiceAreas() {
                 </Button>
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </Layout>

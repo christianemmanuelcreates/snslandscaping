@@ -8,6 +8,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { ArrowRight, Newspaper } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import { BUSINESS_NAME } from "@/lib/site";
 import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog-data";
 import { format } from "date-fns";
@@ -20,7 +21,7 @@ export default function Blog() {
       seo={{
         title: `Landscaping Blog | ${BUSINESS_NAME}`,
         description:
-          "Expert landscaping tips, hardscaping guides, and outdoor living ideas from S&S Landscaping. Learn how to design, build, and maintain a beautiful Bay Area landscape.",
+          "Expert tips on drought-tolerant landscaping, paver patio design, landscape lighting, garden maintenance, and outdoor living ideas for Bay Area homeowners from S&S Landscaping.",
         canonical: "https://snslandscaping.org/blog",
       }}
       business={{ name: BUSINESS_NAME, url: "https://snslandscaping.org/" }}
@@ -68,40 +69,42 @@ export default function Blog() {
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <Card key={post.slug} className="flex h-full flex-col overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                <div className="p-3">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                    <img
-                      src={post.image}
-                      alt={post.imageAlt}
-                      loading="lazy"
-                      className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                    />
+            {posts.map((post, i) => (
+              <Reveal key={post.slug} delay={(i % 3) * 80}>
+                <Card className="flex h-full flex-col overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+                  <div className="p-3">
+                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+                      <img
+                        src={post.image}
+                        alt={post.imageAlt}
+                        loading="lazy"
+                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                      />
+                    </div>
                   </div>
-                </div>
-                <CardHeader>
-                  <div className="mb-2 flex items-center gap-2">
-                    <Badge variant="secondary" className="text-xs">
-                      {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
-                    </Badge>
-                    <span className="text-xs text-muted-foreground">
-                      {format(new Date(post.publishedAt), "MMM d, yyyy")}
-                    </span>
-                  </div>
-                  <CardTitle className="text-lg leading-snug">{post.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-1 flex-col">
-                  <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    Read article
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </Link>
-                </CardContent>
-              </Card>
+                  <CardHeader>
+                    <div className="mb-2 flex items-center gap-2">
+                      <Badge variant="secondary" className="text-xs">
+                        {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">
+                        {format(new Date(post.publishedAt), "MMM d, yyyy")}
+                      </span>
+                    </div>
+                    <CardTitle className="text-lg leading-snug">{post.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex flex-1 flex-col">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      Read article
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>

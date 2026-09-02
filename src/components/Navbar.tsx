@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Menu, MapPin, ChevronDown, LayoutGrid } from "lucide-react";
+import { Menu, MapPin, ChevronDown, LayoutGrid, Phone } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { BUSINESS_NAME, CTA_LABEL } from "@/lib/site";
+import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
 import { AREAS } from "@/lib/sns-data";
 
 const NAV_ITEMS = [
@@ -114,8 +114,15 @@ export function Navbar() {
         {/* Right actions */}
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <ThemeToggle />
+          <a
+            href={PRIMARY_PHONE.phoneHref}
+            className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-cta"
+          >
+            <Phone className="size-4 text-cta" aria-hidden="true" />
+            {PRIMARY_PHONE.phone}
+          </a>
           <Link to="/contact#quote-form" className="hidden md:inline-flex">
-            <Button size="sm">{CTA_LABEL}</Button>
+            <Button size="sm" variant="cta">{CTA_LABEL}</Button>
           </Link>
           {/* Mobile menu trigger */}
           <Sheet>
@@ -166,8 +173,12 @@ export function Navbar() {
                 </Collapsible>
 
                 <Link to="/contact#quote-form" className="mt-4">
-                  <Button className="w-full">{CTA_LABEL}</Button>
+                  <Button variant="cta" className="w-full">{CTA_LABEL}</Button>
                 </Link>
+                <a href={PRIMARY_PHONE.phoneHref} className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-border py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted">
+                  <Phone className="size-4 text-cta" aria-hidden="true" />
+                  Call {PRIMARY_PHONE.phone}
+                </a>
               </nav>
             </SheetContent>
           </Sheet>

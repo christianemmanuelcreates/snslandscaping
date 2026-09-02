@@ -44,9 +44,15 @@ interface LayoutProps {
     areaServed?: { name: string }[];
   };
   faqs?: { question: string; answer: string }[];
+  persons?: {
+    name: string;
+    jobTitle?: string;
+    url?: string;
+    telephone?: string;
+  }[];
 }
 
-export function Layout({ children, seo, hasLocalBusiness, geo, business, service, faqs }: LayoutProps) {
+export function Layout({ children, seo, hasLocalBusiness, geo, business, service, faqs, persons }: LayoutProps) {
   return (
     <>
       <SEOHead
@@ -61,6 +67,7 @@ export function Layout({ children, seo, hasLocalBusiness, geo, business, service
         business={business}
         service={service}
         faqs={faqs}
+        persons={persons}
       />
       <Navbar />
       <main className="flex flex-col min-h-screen">{children}</main>
