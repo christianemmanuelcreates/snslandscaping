@@ -114,12 +114,12 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Use Efficient Irrigation" },
       {
         type: "paragraph",
-        text: "Drip irrigation delivers water directly to root zones, reducing evaporation and runoff. Pair it with a smart controller that adjusts watering based on weather and soil moisture, and your landscape stays healthy with a fraction of the water. Learn more about our [irrigation and drainage](/services/irrigation-drainage) services.",
+        text: "Drip irrigation delivers water directly to root zones, reducing evaporation and runoff. Pair it with a smart controller that adjusts watering based on weather and soil moisture, and your landscape stays healthy with a fraction of the water. Learn more about our [irrigation and drainage](/services/irrigation-drainage) services, or read our [Palo Alto irrigation installation guide](/blog/palo-alto-irrigation-installation-guide) for cost benchmarks and smart controller details.",
       },
       { type: "heading", text: "Incorporate Hardscape Elements" },
       {
         type: "paragraph",
-        text: "Patios, walkways, gravel paths, and decorative stone reduce the planted area that needs water while adding structure and usability to your yard. A well-planned hardscape also creates visual interest that looks great in every season. Explore our [hardscaping](/services/hardscaping) services for patios, walkways, and retaining walls.",
+        text: "Patios, walkways, gravel paths, and decorative stone reduce the planted area that needs water while adding structure and usability to your yard. A well-planned hardscape also creates visual interest that looks great in every season. Explore our [hardscaping](/services/hardscaping) services for patios, walkways, and retaining walls, or read our [paver patio design guide](/blog/paver-patio-design-guide) for material and layout ideas.",
       },
       { type: "heading", text: "Mulch Everything" },
       {
@@ -195,7 +195,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Don't Forget Drainage" },
       {
         type: "paragraph",
-        text: "Proper base preparation and slope are critical. A patio should slope about 1 inch per 8 feet away from your home to prevent water pooling and foundation issues. We handle grading and drainage as part of every patio install. Learn more about our [hardscaping](/services/hardscaping) and [site preparation](/services/site-preparation) services.",
+        text: "Proper base preparation and slope are critical. A patio should slope about 1 inch per 8 feet away from your home to prevent water pooling and foundation issues. We handle grading and drainage as part of every patio install. Learn more about our [hardscaping](/services/hardscaping) and [site preparation](/services/site-preparation) services. If you're planning lighting alongside your patio, see our guide to [low-voltage landscape lighting](/blog/low-voltage-landscape-lighting-benefits) for placement tips.",
       },
       { type: "heading", text: "Budgeting Your Patio" },
       {
@@ -243,7 +243,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: [
       {
         type: "paragraph",
-        text: "Landscape lighting is one of the highest-impact upgrades you can make to your outdoor space. It extends usability into the evening, highlights architectural and landscape features, and improves safety along paths and steps. Explore our [outdoor amenities](/services/outdoor-amenities) services for professional installation.",
+        text: "Landscape lighting is one of the highest-impact upgrades you can make to your outdoor space. It extends usability into the evening, highlights architectural and landscape features, and improves safety along paths and steps. Explore our [outdoor amenities](/services/outdoor-amenities) services for professional installation. If you're planning a new patio or walkway, read our [paver patio design guide](/blog/paver-patio-design-guide) to coordinate lighting and hardscape in one project.",
       },
       { type: "heading", text: "Why Low-Voltage?" },
       {
@@ -298,11 +298,11 @@ export const BLOG_POSTS: BlogPost[] = [
     imageAlt:
       "Finished Los Gatos landscape with lawn, paver border, and layered planting by S&S Landscaping",
     excerpt:
-      "Los Gatos landscape design services turn outdoor space into a site-specific plan for planting, irrigation, drainage, lighting, hardscape, and daily living.",
+      "A site-specific plan for planting, irrigation, drainage, lighting, and hardscape turns outdoor space into a landscape that performs for years in Los Gatos.",
     body: [
       {
         type: "paragraph",
-        text: "Los Gatos landscape design services turn outdoor space into a site-specific plan for planting, irrigation, drainage, lighting, hardscape, and daily living. The right design responds to local sun, soil, slopes, water limits, and architecture, giving homeowners a cohesive landscape that performs over years—not an attractive installation that quickly becomes difficult to maintain.",
+        text: "A well-designed landscape responds to local sun, soil, slopes, water limits, and architecture, giving homeowners a cohesive outdoor space that performs over years—not an attractive installation that quickly becomes difficult to maintain.",
       },
       {
         type: "paragraph",
@@ -328,7 +328,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "This unified landscape design construction approach reduces field improvisation, protects the budget, and keeps design construction decisions tied to one plan.",
+        text: "This unified design and construction approach reduces field improvisation, protects the budget, and keeps every decision tied to one plan.",
       },
       { type: "heading", text: "Drought-Tolerant Landscaping" },
       {
@@ -381,12 +381,12 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Use repetition selectively. Three multi-trunk trees can establish rhythm, while repeated grasses can guide the eye through the garden. Fewer species planted in confident masses often produce a calmer area landscape design than a collection of unrelated specimens.",
+        text: "Use repetition selectively. Three multi-trunk trees can establish rhythm, while repeated grasses can guide the eye through the garden. Fewer species planted in confident masses often produce a calmer, more cohesive landscape than a collection of unrelated specimens.",
       },
       { type: "heading", text: "Choosing the Right Landscape Professional" },
       {
         type: "paragraph",
-        text: "The right professional depends on whether a project needs site design, regulated technical work, or broad land-use planning. Before hiring, review the contractor's project portfolio, licensing, insurance, references, material allowances, exclusions, payment schedule, and change-order terms. Ask to see the proposed plant palette and irrigation zones—not just attractive renderings. Explore the available [services](/) we offer, then [contact us](/contact) to confirm scope and scheduling.",
+        text: "The right professional depends on whether a project needs site design, regulated technical work, or broad land-use planning. Before hiring, review the contractor's project portfolio, licensing, insurance, references, material allowances, exclusions, payment schedule, and change-order terms. Ask to see the proposed plant palette and irrigation zones—not just attractive renderings. Explore the [services](/services) we offer, then [contact us](/contact) to confirm scope and scheduling.",
       },
       {
         type: "paragraph",
@@ -412,7 +412,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         question: "When is a design-build contractor valuable?",
         answer:
-          "Choose one when the same accountable team must connect plans with demolition, irrigation, planting, paving, walls, lighting, modern louvered pergolas, and field execution.",
+          "Choose one when the same accountable team must connect plans with demolition, irrigation, planting, paving, walls, lighting, and field execution.",
       },
     ],
   },
@@ -429,19 +429,19 @@ export const BLOG_POSTS: BlogPost[] = [
     imageAlt:
       "Maintained Saratoga yard with clean lawn edges, pruned shrubs, and tidy planting beds by S&S Landscaping",
     excerpt:
-      "Saratoga garden maintenance services protect lawns, shrubs, planting beds, and irrigation systems through scheduled mowing, pruning, weeding, feeding, cleanup, and water management.",
+      "Scheduled mowing, pruning, weeding, feeding, cleanup, and water management keep Saratoga lawns, shrubs, and planting beds healthy through every season.",
     body: [
       {
         type: "paragraph",
-        text: "Saratoga garden maintenance services protect lawns, shrubs, planting beds, and irrigation systems through scheduled mowing, pruning, weeding, feeding, cleanup, and water management. The right maintenance plan responds to each property's soil, sunlight, plants, and seasonal growth, giving owners a healthier landscape without losing weekends to recurring outdoor work.",
+        text: "A good maintenance plan responds to each property's soil, sunlight, plants, and seasonal growth, giving owners a healthier landscape without losing weekends to recurring outdoor work. Scheduled mowing, pruning, weeding, feeding, cleanup, and water management work together to protect the investment you've made in your yard.",
       },
       {
         type: "paragraph",
-        text: "Saratoga owners need dependable local care rather than mismatched regional coverage. Reliable [Saratoga mowing](/) means consistent cutting heights, clean edging, cleared hard surfaces, and early reporting of irrigation leaks, weeds, pests, or declining plants. If you are looking for a trusted partner in the area, explore our [landscaping services in Saratoga](/areas/saratoga).",
+        text: "Saratoga owners need dependable local care rather than mismatched regional coverage. Reliable [lawn mowing](/services/landscaping-planting) means consistent cutting heights, clean edging, cleared hard surfaces, and early reporting of irrigation leaks, weeds, pests, or declining plants. If you are looking for a trusted partner in the area, explore our [landscaping services in Saratoga](/areas/saratoga).",
       },
       {
         type: "paragraph",
-        text: "S&S Landscaping is a landscape contractor focused on premium landscaping, hardscaping, irrigation, drainage, and outdoor living across the San Francisco Metro Area. Garden maintenance protects that investment by correcting small issues before they become dead turf, overgrown shrubs, or water-damaged surfaces.",
+        text: "S&S Landscaping handles landscaping, hardscaping, irrigation, drainage, and outdoor living projects across the San Francisco Bay Area. Garden maintenance protects that investment by correcting small issues before they become dead turf, overgrown shrubs, or water-damaged surfaces.",
       },
       {
         type: "paragraph",
@@ -455,7 +455,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Sprinkler Installation and Repair" },
       {
         type: "paragraph",
-        text: "Precise [sprinkler installation and repair](/services/irrigation-drainage) stops overspray, dry zones, runoff, and hidden waste. EPA WaterSense reports that replacing a standard clock controller with a WaterSense-labeled weather-based controller can save an average home up to 15,000 gallons annually. Regular inspection of heads, nozzles, and lines catches problems before they damage plants or waste water.",
+        text: "Precise [sprinkler installation and repair](/services/irrigation-drainage) stops overspray, dry zones, runoff, and hidden waste. EPA WaterSense reports that replacing a standard clock controller with a WaterSense-labeled weather-based controller can save an average home up to 15,000 gallons annually. Regular inspection of heads, nozzles, and lines catches problems before they damage plants or waste water. For a deeper look at irrigation costs and smart controller options, see our [Palo Alto irrigation installation guide](/blog/palo-alto-irrigation-installation-guide).",
       },
       { type: "heading", text: "Seasonal Cleanup Services" },
       {
@@ -522,13 +522,13 @@ export const BLOG_POSTS: BlogPost[] = [
     imageAlt:
       "Professionally installed irrigation system with sprinkler heads and drip lines in a Palo Alto front yard",
     excerpt:
-      "Palo Alto irrigation installation is the professional planning, zoning, and placement of sprinklers, drip lines, valves, backflow protection, and smart controls for local soil, plants, and water rules.",
+      "A well-designed irrigation system delivers measured water to roots, prevents runoff, protects hardscape, and lowers avoidable water and repair costs for Palo Alto homeowners.",
     body: [
       {
         type: "paragraph",
-        text: "Palo Alto irrigation installation is the professional planning, zoning, and placement of sprinklers, drip lines, valves, backflow protection, and smart controls for local soil, plants, and water rules. A correctly designed system delivers measured water to roots, prevents runoff, protects hardscape, and lowers avoidable water and repair costs.",
+        text: "Irrigation installation is the professional planning, zoning, and placement of sprinklers, drip lines, valves, backflow protection, and smart controls tailored to your property's soil, plants, and local water rules. A correctly designed system delivers measured water to roots, prevents runoff, protects hardscape, and lowers avoidable water and repair costs.",
       },
-      { type: "heading", text: "Our Services" },
+      { type: "heading", text: "Why Professional Irrigation Design Matters" },
       {
         type: "paragraph",
         text: "Our services connect irrigation performance with practical landscape care. Every recommendation starts with water pressure, flow, planting needs, sun exposure, slope, soil, and existing utilities—not a one-size-fits-all equipment package. Learn more about our [irrigation system design and installation](/services/irrigation-drainage) capabilities.",
@@ -552,7 +552,7 @@ export const BLOG_POSTS: BlogPost[] = [
         type: "paragraph",
         text: "A leaking irrigation mainline can lose water even when every watering zone is off. Wet soil near valves, unexplained meter movement, falling pressure, or recurring pavement moisture can signal failure. Isolation testing identifies the affected section, while correctly rated pipe, fittings, burial depth, and thrust control reduce repeat leaks and property damage.",
       },
-      { type: "heading", text: "Technicians Dedicated to Exceptional Service" },
+      { type: "heading", text: "What a Professional Installation Includes" },
       {
         type: "paragraph",
         text: "Skilled technicians turn a system design into predictable coverage. Before digging, they confirm flow, static and dynamic pressure, valve locations, controller capacity, utility conflicts, and future planting plans. After installation, each zone is flushed, pressure-tested, adjusted, and programmed.",
@@ -561,10 +561,10 @@ export const BLOG_POSTS: BlogPost[] = [
         type: "paragraph",
         text: "Owners should receive a controller walkthrough and a clear zone map. That documentation shortens future service repair visits and prevents guesswork when planting changes. It also connects [landscape management](/services/landscaping-planting), [turf care](/services/landscaping-planting), and irrigation scheduling around one measurable plan.",
       },
-      { type: "heading", text: "What Our Clients Say" },
+      { type: "heading", text: "Evaluating an Irrigation Contractor" },
       {
         type: "paragraph",
-        text: "Useful client feedback focuses on outcomes: even coverage, cleaner installation, fewer leaks, responsive communication, and plants that receive the right amount of water. When evaluating Palo Alto irrigation installation, ask for relevant project examples and confirm the proposed scope in writing. Readers researching past projects can also review our [gallery](/gallery) and [client reviews](/reviews) before scheduling.",
+        text: "When evaluating an irrigation contractor, ask for relevant project examples and confirm the proposed scope in writing. Useful client feedback focuses on outcomes: even coverage, cleaner installation, fewer leaks, responsive communication, and plants that receive the right amount of water. Readers researching past projects can also review our [gallery](/gallery) and [client reviews](/reviews) before scheduling.",
       },
       { type: "heading", text: "Frequently Asked Questions" },
       {
@@ -611,10 +611,10 @@ export const BLOG_POSTS: BlogPost[] = [
         type: "paragraph",
         text: "Schedule before yellow turf, stressed plants, or a rising water bill turns a manageable defect into landscape replacement. A site assessment establishes pressure, flow, coverage, controller condition, and repair priorities. You receive a clearer scope and can compare installation, targeted repair, or phased replacement based on actual field conditions. [Schedule your Palo Alto irrigation assessment](/contact#quote-form) today.",
       },
-      { type: "heading", text: "Efficient Irrigation to Save Money and the Earth" },
+      { type: "heading", text: "Designing for Water Efficiency" },
       {
         type: "paragraph",
-        text: "Water savings begin with distribution uniformity, not shorter run times alone. Poor coverage forces owners to overwater an entire zone just to reach one dry area. [Efficient irrigation systems](/services/irrigation-drainage) use matched components, regulated pressure, drip delivery, rain or weather data, and plant-based hydrozones to place water where roots can absorb it.",
+        text: "Efficient irrigation starts with distribution uniformity. When coverage is uneven, owners overwater an entire zone just to keep one dry spot green. [Efficient irrigation systems](/services/irrigation-drainage) solve this with matched components, regulated pressure, drip delivery, rain or weather data, and plant-based hydrozones that place water where roots can actually absorb it.",
       },
       {
         type: "paragraph",
@@ -637,7 +637,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "This system design installation method supports long-term Peninsula irrigation performance instead of short-term coverage.",
+        text: "This structured design and installation method supports long-term performance across the Peninsula instead of short-term coverage that fades by the next season.",
       },
       { type: "heading", text: "Service Areas" },
       {
