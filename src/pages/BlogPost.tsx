@@ -214,6 +214,8 @@ export default function BlogPost() {
             <img
               src={post.image}
               alt={post.imageAlt}
+              width={1600}
+              height={900}
               className="size-full object-cover"
             />
           </div>

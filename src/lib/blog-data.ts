@@ -509,6 +509,174 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "palo-alto-irrigation-installation-guide",
+    title: "Palo Alto Irrigation Installation Guide",
+    description:
+      "Plan a water-efficient Palo Alto irrigation system with clear cost benchmarks, smart controls, drip zones, expert installation, and repair guidance.",
+    category: "irrigation-drainage",
+    tags: ["palo alto", "irrigation", "sprinkler installation", "drip irrigation", "smart controller"],
+    publishedAt: "2026-09-03",
+    updatedAt: "2026-09-03",
+    image: "/images/gallery/front_yard.jpg",
+    imageAlt:
+      "Professionally installed irrigation system with sprinkler heads and drip lines in a Palo Alto front yard",
+    excerpt:
+      "Palo Alto irrigation installation is the professional planning, zoning, and placement of sprinklers, drip lines, valves, backflow protection, and smart controls for local soil, plants, and water rules.",
+    body: [
+      {
+        type: "paragraph",
+        text: "Palo Alto irrigation installation is the professional planning, zoning, and placement of sprinklers, drip lines, valves, backflow protection, and smart controls for local soil, plants, and water rules. A correctly designed system delivers measured water to roots, prevents runoff, protects hardscape, and lowers avoidable water and repair costs.",
+      },
+      { type: "heading", text: "Our Services" },
+      {
+        type: "paragraph",
+        text: "Our services connect irrigation performance with practical landscape care. Every recommendation starts with water pressure, flow, planting needs, sun exposure, slope, soil, and existing utilities—not a one-size-fits-all equipment package. Learn more about our [irrigation system design and installation](/services/irrigation-drainage) capabilities.",
+      },
+      { type: "heading", text: "Irrigation System Installation & Repair" },
+      {
+        type: "paragraph",
+        text: "Professional [irrigation system design and installation](/services/irrigation-drainage) creates separate hydrozones for lawn, shrubs, trees, and low-water plants. Spray heads should never share operating requirements with drip emitters. Correct pipe sizing, matched precipitation rates, pressure regulation, check valves, filtration, and controller programming prevent dry patches, overspray, pooling, and premature component failure.",
+      },
+      {
+        type: "paragraph",
+        text: "For an existing irrigation system, service repair begins with a complete operational test. Technicians locate broken lateral lines, clogged emitters, leaking valves, sunken heads, damaged wiring, and pressure problems before replacing parts. This diagnostic approach fixes the cause instead of masking the symptom.",
+      },
+      { type: "heading", text: "Landscape Lighting Installation & Design" },
+      {
+        type: "paragraph",
+        text: "Landscape lighting should be planned beside irrigation, not installed as an afterthought. Coordinated trench routes protect wiring and water lines from accidental cuts while reducing repeated excavation. Thoughtful fixture placement improves evening visibility, highlights planting, and keeps valve boxes and service points accessible without sacrificing appearance. Explore our [outdoor amenities and landscape lighting](/services/outdoor-amenities) services for coordinated installation.",
+      },
+      { type: "heading", text: "Water Mainline Repair & Replacement" },
+      {
+        type: "paragraph",
+        text: "A leaking irrigation mainline can lose water even when every watering zone is off. Wet soil near valves, unexplained meter movement, falling pressure, or recurring pavement moisture can signal failure. Isolation testing identifies the affected section, while correctly rated pipe, fittings, burial depth, and thrust control reduce repeat leaks and property damage.",
+      },
+      { type: "heading", text: "Technicians Dedicated to Exceptional Service" },
+      {
+        type: "paragraph",
+        text: "Skilled technicians turn a system design into predictable coverage. Before digging, they confirm flow, static and dynamic pressure, valve locations, controller capacity, utility conflicts, and future planting plans. After installation, each zone is flushed, pressure-tested, adjusted, and programmed.",
+      },
+      {
+        type: "paragraph",
+        text: "Owners should receive a controller walkthrough and a clear zone map. That documentation shortens future service repair visits and prevents guesswork when planting changes. It also connects [landscape management](/services/landscaping-planting), [turf care](/services/landscaping-planting), and irrigation scheduling around one measurable plan.",
+      },
+      { type: "heading", text: "What Our Clients Say" },
+      {
+        type: "paragraph",
+        text: "Useful client feedback focuses on outcomes: even coverage, cleaner installation, fewer leaks, responsive communication, and plants that receive the right amount of water. When evaluating Palo Alto irrigation installation, ask for relevant project examples and confirm the proposed scope in writing. Readers researching past projects can also review our [gallery](/gallery) and [client reviews](/reviews) before scheduling.",
+      },
+      { type: "heading", text: "Frequently Asked Questions" },
+      {
+        type: "paragraph",
+        text: "These planning benchmarks answer the four cost and timing questions property owners ask most often. Final pricing requires an on-site assessment because access, trenching, pressure, permitting, controller needs, plant density, and hardscape crossings can change labor and material requirements.",
+      },
+      {
+        type: "table",
+        headers: ["Question", "Direct answer", "Main cost or timing factors"],
+        rows: [
+          [
+            "How much does professional installation cost?",
+            "Current national cost guides place many residential sprinkler installations between **$1,679 and $3,541**, with an average near **$2,540**. Bay Area labor, permits, site access, and premium controls can increase the total.",
+            "Number of zones, lot size, trench access, pressure correction, backflow requirements, and controller type",
+          ],
+          [
+            "What does drip irrigation cost?",
+            "National residential benchmarks place many drip installations around **$310 to $815**. Large gardens, filtration, pressure regulators, and dense emitter layouts raise the price.",
+            "Bed area, emitter spacing, tubing length, filtration, valves, and plant groups",
+          ],
+          [
+            "When is the best installation season?",
+            "**Fall and early spring** provide favorable conditions because demand is lower, soil is workable, and the system can be tested before peak summer watering.",
+            "Rain, saturated soil, planting schedules, landscape construction, and local watering rules",
+          ],
+          [
+            "How much does it cost to irrigate one acre?",
+            "A professionally installed one-acre system often requires roughly **$6,000 to $10,000 or more**. A site plan is essential because crop rows, turf, slopes, pumps, and water-source distance create different designs.",
+            "Water source, pump capacity, topography, zoning, pipe diameter, and irrigation method",
+          ],
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "A WaterSense-labeled weather-based controller can save an average home up to **15,000 gallons of water annually** compared with a standard clock-based controller. Savings still depend on sound scheduling, leak correction, and a system matched to the landscape.",
+      },
+      {
+        type: "quote",
+        text: "Water savings begin with distribution uniformity, not shorter run times. Poor coverage forces owners to overwater an entire zone just to reach one dry area.",
+        attribution: "Samuel Delgado, S&S Landscaping",
+      },
+      { type: "heading", text: "Ready to Schedule?" },
+      {
+        type: "paragraph",
+        text: "Schedule before yellow turf, stressed plants, or a rising water bill turns a manageable defect into landscape replacement. A site assessment establishes pressure, flow, coverage, controller condition, and repair priorities. You receive a clearer scope and can compare installation, targeted repair, or phased replacement based on actual field conditions. [Schedule your Palo Alto irrigation assessment](/contact#quote-form) today.",
+      },
+      { type: "heading", text: "Efficient Irrigation to Save Money and the Earth" },
+      {
+        type: "paragraph",
+        text: "Water savings begin with distribution uniformity, not shorter run times alone. Poor coverage forces owners to overwater an entire zone just to reach one dry area. [Efficient irrigation systems](/services/irrigation-drainage) use matched components, regulated pressure, drip delivery, rain or weather data, and plant-based hydrozones to place water where roots can absorb it.",
+      },
+      {
+        type: "paragraph",
+        text: "Pairing [water and irrigation management](/services/irrigation-drainage) with seasonal inspections catches leaks and blocked emitters before plants decline. Coordinating [tree and flower planting services](/services/landscaping-planting) also prevents thirsty annuals, established trees, and drought-tolerant shrubs from receiving one unsuitable schedule. For water-smart planting ideas, see our guide to [drought-tolerant landscaping for Bay Area yards](/blog/drought-tolerant-landscaping-ideas-bay-area).",
+      },
+      { type: "heading", text: "Systematic Irrigation System Design and Installation" },
+      {
+        type: "paragraph",
+        text: "A dependable design installation process follows five controlled stages:",
+      },
+      {
+        type: "ordered-list",
+        items: [
+          "**Survey the property.** Record planting, soil, slope, exposure, water source, pressure, flow, utilities, and hardscape.",
+          "**Engineer the zones.** Separate plant groups and calculate pipe, valve, sprinkler, and emitter requirements.",
+          "**Install cleanly.** Protect roots and paving while setting correct depths, spacing, filtration, regulation, and backflow components.",
+          "**Test every zone.** Flush lines, inspect joints, measure pressure, adjust coverage, and verify controller communication.",
+          "**Program and document.** Set seasonal schedules, label valves, map zones, and explain routine maintenance.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "This system design installation method supports long-term Peninsula irrigation performance instead of short-term coverage.",
+      },
+      { type: "heading", text: "Service Areas" },
+      {
+        type: "paragraph",
+        text: "Service is available across Palo Alto and surrounding Bay Area communities, including San Jose, Redwood City, the San Francisco Peninsula, and nearby markets. This San Francisco Peninsula service area includes varied microclimates, soils, slopes, and municipal requirements, making site-specific design essential. Explore our [landscaping services in Palo Alto](/areas/palo-alto) for area-specific details.",
+      },
+      {
+        type: "paragraph",
+        text: "Protect your plants, hardscape, and water budget with a measured plan. [Schedule your Palo Alto irrigation assessment](/contact#quote-form) and receive professional direction for installation, upgrades, or repair.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How much does professional irrigation installation cost?",
+        answer:
+          "Current national cost guides place many residential sprinkler installations between $1,679 and $3,541, with an average near $2,540. Bay Area labor, permits, site access, and premium controls can increase the total. Request an on-site assessment for a property-specific quote.",
+      },
+      {
+        question: "What does drip irrigation cost?",
+        answer:
+          "National residential benchmarks place many drip installations around $310 to $815. Large gardens, filtration, pressure regulators, and dense emitter layouts raise the price. Bed area, emitter spacing, and tubing length are the main cost factors.",
+      },
+      {
+        question: "When is the best season for irrigation installation?",
+        answer:
+          "Fall and early spring provide favorable conditions because demand is lower, soil is workable, and the system can be tested before peak summer watering. Rain, saturated soil, and local watering rules can affect scheduling.",
+      },
+      {
+        question: "How much does it cost to irrigate one acre?",
+        answer:
+          "A professionally installed one-acre system often requires roughly $6,000 to $10,000 or more. A site plan is essential because crop rows, turf, slopes, pumps, and water-source distance create different designs.",
+      },
+      {
+        question: "How much water can a smart controller save?",
+        answer:
+          "A WaterSense-labeled weather-based controller can save an average home up to 15,000 gallons annually compared with a standard clock-based controller. Savings depend on sound scheduling, leak correction, and a system matched to the landscape.",
+      },
+    ],
+  },
 ];
 
 /** Lookup helpers. */
