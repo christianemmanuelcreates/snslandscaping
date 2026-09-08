@@ -5,4 +5,5 @@
 /services/sprinklers    /services/irrigation-drainage    301
 /services/drainage    /services/irrigation-drainage    301
 /areas/paloalto    /areas/palo-alto    301
+/*/    /:splat    301
 /*    /index.html    200

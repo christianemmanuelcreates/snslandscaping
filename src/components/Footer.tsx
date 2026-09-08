@@ -8,14 +8,14 @@ import {
   CONTACTS,
 } from "@/lib/site";
 import { AREAS, SERVICES } from "@/lib/sns-data";
-import { BLOG_CATEGORIES } from "@/lib/blog-data";
+
+const linkClassName = "text-sm text-muted-foreground transition-colors hover:text-foreground";
 
 export function Footer() {
   return (
     <footer className="border-t bg-background py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
-          {/* Brand */}
           <div className="flex min-w-0 flex-col gap-4">
             <Link to="/" className="flex flex-col items-start gap-3 font-semibold text-foreground">
               <img
@@ -30,16 +30,12 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Services */}
           <div className="flex flex-col gap-3">
             <h3 className="text-sm font-semibold text-foreground">Services</h3>
             <ul className="flex flex-col gap-2">
               {SERVICES.map((service) => (
                 <li key={service.slug}>
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link to={`/services/${service.slug}`} className={linkClassName}>
                     {service.name}
                   </Link>
                 </li>
@@ -47,49 +43,17 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Blog */}
-          <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-semibold text-foreground">Blog</h3>
-            <ul className="flex flex-col gap-2">
-              <li>
-                <Link
-                  to="/blog"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  All Articles
-                </Link>
-              </li>
-              {BLOG_CATEGORIES.slice(0, 4).map((cat) => (
-                <li key={cat.slug}>
-                  <Link
-                    to={`/blog/category/${cat.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {cat.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Service areas */}
           <div className="flex flex-col gap-3">
             <h3 className="text-sm font-semibold text-foreground">Service Areas</h3>
             <ul className="flex flex-col gap-1.5">
               <li>
-                <Link
-                  to="/areas"
-                  className="text-sm font-medium text-foreground transition-colors hover:text-primary"
-                >
+                <Link to="/areas" className="text-sm font-medium text-foreground transition-colors hover:text-primary">
                   View All Areas
                 </Link>
               </li>
               {AREAS.map((area) => (
                 <li key={area.slug}>
-                  <Link
-                    to={`/areas/${area.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link to={`/areas/${area.slug}`} className={linkClassName}>
                     {area.name}
                   </Link>
                 </li>
@@ -97,7 +61,22 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-sm font-semibold text-foreground">Company</h3>
+            <ul className="flex flex-col gap-2">
+              {[
+                ["About", "/about"],
+                ["Reviews", "/reviews"],
+                ["Gallery", "/gallery"],
+                ["Blog", "/blog"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link to={href} className={linkClassName}>{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="flex flex-col gap-3">
             <h3 className="text-sm font-semibold text-foreground">Contact</h3>
             <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
@@ -121,7 +100,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-12 border-t pt-8">
           <p className="text-center text-sm text-muted-foreground">
             © {new Date().getFullYear()} {BUSINESS_NAME}. All rights reserved.

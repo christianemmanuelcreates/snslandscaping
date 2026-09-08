@@ -8,6 +8,7 @@ interface SEOHeadProps {
   ogType?: string;
   ogImage?: string;
   noindex?: boolean;
+  noindexFollow?: boolean;
   schemaTypes?: string[];
   hasLocalBusiness?: boolean;
   geo?: { region: string; placename: string; latitude: number; longitude: number };
@@ -56,6 +57,7 @@ export function SEOHead({
   ogType = "website",
   ogImage = "https://snslandscaping.org/images/gallery/backyard_concept.jpg",
   noindex = false,
+  noindexFollow = false,
   schemaTypes = [],
   hasLocalBusiness = false,
   geo,
@@ -258,7 +260,7 @@ export function SEOHead({
         </>
       )}
       <html lang="en" />
-      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+      <meta name="robots" content={noindex ? (noindexFollow ? "noindex, follow" : "noindex, nofollow") : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
       {hasLocalBusiness && geo && (
         <>
           <meta name="geo.region" content={geo.region} />
