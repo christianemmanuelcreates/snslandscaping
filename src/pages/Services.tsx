@@ -169,7 +169,7 @@ export default function Services() {
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <Link to="/contact#quote-form">
-                    <Button size="lg" variant="cta" className="group/button rounded-full px-6 py-3.5 text-base font-semibold">
+                    <Button size="lg" variant="cta" className="group/button btn-lg-pad-end rounded-full py-3.5 text-base font-semibold">
                       {CTA_LABEL}
                       <span className="btn-icon-circle btn-icon-circle-light ml-2">
                         <ArrowRight className="size-4" aria-hidden="true" />
@@ -177,12 +177,13 @@ export default function Services() {
                     </Button>
                   </Link>
                   <a href={PRIMARY_PHONE.phoneHref}>
-                    <Button size="lg" variant="outline" className="rounded-full px-6 py-3.5 text-base font-semibold">
+                    <Button size="lg" variant="outline" className="btn-lg-pad rounded-full py-3.5 text-base font-semibold">
                       <PhoneCall data-icon="inline-start" />
                       {PRIMARY_PHONE.phone}
                     </Button>
                   </a>
                 </div>
+                <p className="text-sm text-muted-foreground">We respond within 24 hours — no obligation.</p>
               </div>
             </div>
           </Reveal>

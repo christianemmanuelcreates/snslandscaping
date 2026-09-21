@@ -541,6 +541,7 @@ export default function Home() {
                 </Button>
               </a>
             </div>
+            <p className="mt-4 text-sm text-white/50">We respond within 24 hours — no obligation.</p>
           </Reveal>
         </div>
       </section>

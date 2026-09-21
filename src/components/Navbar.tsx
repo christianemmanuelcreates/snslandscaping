@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { MapPin, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
 import { AREAS } from "@/lib/sns-data";
 
@@ -79,7 +78,6 @@ export function Navbar() {
           </div>
 
           <div className="ml-auto flex shrink-0 items-center gap-2">
-            <ThemeToggle />
             <a
               href={PRIMARY_PHONE.phoneHref}
               aria-label={`Call ${PRIMARY_PHONE.phone}`}
@@ -164,6 +162,7 @@ export function Navbar() {
               <Link to="/contact#quote-form">
                 <Button variant="cta" className="w-full rounded-full py-3 text-base font-semibold">
                   {CTA_LABEL}
+                  <ArrowRight className="size-4" aria-hidden="true" />
                 </Button>
               </Link>
               <a

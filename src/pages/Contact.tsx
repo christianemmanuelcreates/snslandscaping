@@ -224,7 +224,7 @@ export default function Contact() {
                           type="submit"
                           size="lg"
                           variant="cta"
-                          className="group/button mt-2 w-full rounded-full py-3.5 text-base font-semibold"
+                          className="group/button btn-lg-pad-end mt-2 w-full rounded-full py-3.5 text-base font-semibold sm:w-auto sm:self-start"
                           disabled={submitState === "submitting"}
                         >
                           {submitState === "submitting" ? "Submitting..." : "Submit Request"}

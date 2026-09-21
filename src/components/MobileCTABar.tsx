@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
 
 export function MobileCTABar() {
@@ -18,6 +18,7 @@ export function MobileCTABar() {
         className="flex flex-[1.5] items-center justify-center gap-2 rounded-full bg-cta py-3 text-sm font-semibold text-cta-foreground transition-fluid active:scale-[0.98]"
       >
         {CTA_LABEL}
+        <ArrowRight className="size-4" aria-hidden="true" />
       </Link>
     </div>
   );

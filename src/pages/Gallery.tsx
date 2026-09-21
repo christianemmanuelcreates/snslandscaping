@@ -73,7 +73,7 @@ export default function Gallery() {
           loading="eager"
           className="absolute inset-0 size-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-espresso/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/50 to-espresso/20" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
           <div className="mx-auto max-w-7xl">
             <Reveal>
@@ -155,7 +155,7 @@ export default function Gallery() {
                   Get a free quote for your own landscaping project. We respond within 24 hours.
                 </p>
                 <Link to="/contact#quote-form">
-                  <Button size="lg" variant="cta" className="group/button rounded-full px-6 py-3.5 text-base font-semibold">
+                  <Button size="lg" variant="cta" className="group/button btn-lg-pad-end rounded-full py-3.5 text-base font-semibold">
                     {CTA_LABEL}
                     <span className="btn-icon-circle btn-icon-circle-light ml-2">
                       <ArrowRight className="size-4" aria-hidden="true" />

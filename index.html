@@ -17,20 +17,7 @@
     <meta property="og:image" content="https://snslandscaping.org/images/Hero_Photo.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://snslandscaping.org/images/Hero_Photo.jpg" />
-    <script>
-      // Theme init: set the class on <html> before first paint to avoid FOUC.
-      // Respects a stored theme, then prefers-color-scheme, then defaults to light.
-      (function () {
-        try {
-          var stored = localStorage.getItem("theme");
-          var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-          var theme = stored || (prefersDark ? "dark" : "light");
-          if (theme === "dark") document.documentElement.classList.add("dark");
-        } catch (e) {
-          // fall through to default (light)
-        }
-      })();
-    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZTYN5Q2S6"></script>
     <script>

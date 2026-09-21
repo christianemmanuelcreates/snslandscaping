@@ -208,7 +208,7 @@ export default function About() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" variant="cta" className="group/button rounded-full px-6 py-3.5 text-base font-semibold">
+                <Button size="lg" variant="cta" className="group/button btn-lg-pad-end rounded-full py-3.5 text-base font-semibold">
                   {CTA_LABEL}
                   <span className="btn-icon-circle btn-icon-circle-light ml-2">
                     <ArrowRight className="size-4" aria-hidden="true" />
@@ -216,12 +216,13 @@ export default function About() {
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="rounded-full border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white">
+                <Button size="lg" variant="outline" className="btn-lg-pad rounded-full border-white/20 bg-white/10 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>
               </a>
             </div>
+            <p className="mt-4 text-sm text-white/50">We respond within 24 hours — no obligation.</p>
           </Reveal>
         </div>
       </section>
