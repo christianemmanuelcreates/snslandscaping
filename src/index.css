@@ -151,7 +151,12 @@
   }
   body {
     @apply bg-background text-foreground overflow-x-clip;
+    background-image: radial-gradient(ellipse 80% 50% at 50% 0%, oklch(0.68 0.06 55 / 4%), transparent 60%);
+    background-attachment: fixed;
     }
+  .dark body {
+    background-image: radial-gradient(ellipse 80% 50% at 50% 0%, oklch(0.55 0.05 55 / 6%), transparent 60%);
+  }
   h1, h2, h3 {
     @apply font-heading;
     font-feature-settings: "ss01" on, "ss02" on;
@@ -206,30 +211,35 @@
   height: 100%;
 }
 
-/* ===== Eyebrow tag ===== */
+/* ===== Eyebrow label ===== */
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  padding: 0.375rem 0.875rem;
-  border-radius: 9999px;
-  font-size: 10px;
+  gap: 0.625rem;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  background: oklch(0.45 0.12 150 / 8%);
+  letter-spacing: 0.22em;
   color: oklch(0.45 0.12 150);
-  border: 1px solid oklch(0.45 0.12 150 / 12%);
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1.5px;
+  background: oklch(0.45 0.12 150 / 40%);
+  border-radius: 9999px;
 }
 .dark .eyebrow {
-  background: oklch(0.6 0.13 150 / 12%);
   color: oklch(0.7 0.1 150);
-  border-color: oklch(0.6 0.13 150 / 20%);
+}
+.dark .eyebrow::before {
+  background: oklch(0.7 0.1 150 / 40%);
 }
 .eyebrow-light {
-  background: oklch(1 0 0 / 12%);
-  color: oklch(1 0 0 / 90%);
-  border-color: oklch(1 0 0 / 20%);
+  color: oklch(1 0 0 / 85%);
+}
+.eyebrow-light::before {
+  background: oklch(1 0 0 / 35%);
 }
 
 /* ===== Ambient shadow ===== */
@@ -263,22 +273,28 @@
 /* ===== Section background tones ===== */
 .bg-sand {
   background-color: oklch(0.93 0.015 75);
+  background-image: radial-gradient(ellipse 70% 50% at 100% 0%, oklch(0.68 0.06 55 / 6%), transparent);
 }
 .dark .bg-sand {
   background-color: oklch(0.26 0.015 40);
+  background-image: radial-gradient(ellipse 70% 50% at 100% 0%, oklch(0.55 0.05 55 / 8%), transparent);
 }
 .bg-sage-tint {
   background-color: oklch(0.93 0.02 140);
+  background-image: radial-gradient(ellipse 60% 50% at 0% 100%, oklch(0.45 0.12 150 / 6%), transparent);
 }
 .dark .bg-sage-tint {
   background-color: oklch(0.24 0.02 140);
+  background-image: radial-gradient(ellipse 60% 50% at 0% 100%, oklch(0.6 0.13 150 / 8%), transparent);
 }
 .bg-espresso {
   background-color: oklch(0.25 0.02 40);
   color: oklch(0.94 0.008 80);
+  background-image: radial-gradient(ellipse 50% 40% at 20% 0%, oklch(0.686 0.175 42 / 8%), transparent);
 }
 .dark .bg-espresso {
   background-color: oklch(0.2 0.015 40);
+  background-image: radial-gradient(ellipse 50% 40% at 20% 0%, oklch(0.686 0.175 42 / 10%), transparent);
 }
 
 /* ===== Navbar ===== */
@@ -376,6 +392,16 @@
 }
 .btn-icon-circle-light {
   background: oklch(1 0 0 / 15%);
+}
+
+/* ===== Button padding helpers for large site buttons ===== */
+.btn-lg-pad {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+.btn-lg-pad-end {
+  padding-left: 1.75rem;
+  padding-right: 1rem;
 }
 
 /* ===== Sticky mobile CTA bar ===== */

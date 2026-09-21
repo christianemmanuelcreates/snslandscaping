@@ -126,6 +126,7 @@ export default function Home() {
         ],
       }}
       faqs={HOME_FAQS}
+      immersiveHero
     >
       {/* ===== Cinematic Hero ===== */}
       <section className="relative min-h-[100dvh] overflow-hidden">
@@ -136,7 +137,7 @@ export default function Home() {
           loading="eager"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-br from-espresso/80 via-espresso/50 to-transparent"
+          className="absolute inset-0 bg-gradient-to-b from-espresso/85 via-espresso/45 to-espresso/20"
           aria-hidden="true"
         />
         <div className="absolute inset-0 mesh-bg-dark opacity-40" aria-hidden="true" />
@@ -162,7 +163,7 @@ export default function Home() {
                   <Button
                     size="lg"
                     variant="cta"
-                    className="group/button w-full rounded-full px-6 py-3.5 text-base font-semibold cta-pulse sm:w-auto"
+                    className="group/button btn-lg-pad-end w-full rounded-full py-3.5 text-base font-semibold cta-pulse sm:w-auto"
                   >
                     {CTA_LABEL}
                     <span className="btn-icon-circle btn-icon-circle-light ml-2">
@@ -174,7 +175,7 @@ export default function Home() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full rounded-full border-white/30 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-fluid hover:bg-white/20 hover:text-white sm:w-auto"
+                    className="btn-lg-pad w-full rounded-full border-white/30 bg-white/10 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-fluid hover:bg-white/20 hover:text-white sm:w-auto"
                   >
                     <PhoneCall data-icon="inline-start" />
                     {PRIMARY_PHONE.phone}
@@ -313,7 +314,7 @@ export default function Home() {
       </section>
 
       {/* ===== Why Choose Us — Editorial Split ===== */}
-      <section className="py-24 md:py-32">
+      <section className="mesh-bg py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal className="flex flex-col gap-6 lg:justify-center">
@@ -483,7 +484,7 @@ export default function Home() {
       </section>
 
       {/* ===== FAQ ===== */}
-      <section className="py-24 md:py-32">
+      <section className="mesh-bg py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
@@ -521,7 +522,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="cta"
-                  className="group/button rounded-full px-6 py-3.5 text-base font-semibold"
+                  className="group/button btn-lg-pad-end rounded-full py-3.5 text-base font-semibold"
                 >
                   {CTA_LABEL}
                   <span className="btn-icon-circle btn-icon-circle-light ml-2">
@@ -533,7 +534,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white"
+                  className="btn-lg-pad rounded-full border-white/20 bg-white/10 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white"
                 >
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}

@@ -15,9 +15,9 @@ export function Footer() {
     <footer className="bg-espresso pb-20 pt-20 md:pb-24 md:pt-24 lg:pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main footer grid */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           {/* Brand */}
-          <div className="flex min-w-0 flex-col gap-4">
+          <div className="flex min-w-0 flex-col gap-4 md:col-span-3">
             <Link to="/" className="flex items-center gap-3">
               <img
                 src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
@@ -71,7 +71,7 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 md:col-span-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40">Services</h3>
             <ul className="flex flex-col gap-2">
               {SERVICES.map((service) => (
@@ -85,7 +85,7 @@ export function Footer() {
           </div>
 
           {/* Service Areas */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 md:col-span-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40">Service Areas</h3>
             <ul className="flex flex-col gap-1.5">
               <li>
@@ -104,7 +104,7 @@ export function Footer() {
           </div>
 
           {/* Company */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 md:col-span-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40">Company</h3>
             <ul className="flex flex-col gap-2">
               {[
@@ -120,7 +120,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="flex flex-col gap-3">
+          <div className="flex min-w-0 flex-col gap-3 md:col-span-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40">Contact</h3>
             <ul className="flex flex-col gap-3 text-sm">
               {CONTACTS.map((contact) => (
@@ -131,9 +131,9 @@ export function Footer() {
                   </a>
                 </li>
               ))}
-              <li className="flex items-center gap-2.5">
-                <Mail className="size-4 shrink-0 text-clay" aria-hidden="true" />
-                <a href={`mailto:${EMAIL}`} className="min-w-0 break-all text-white/60 transition-fluid hover:text-white">{EMAIL}</a>
+              <li className="flex items-start gap-2.5">
+                <Mail className="mt-0.5 size-4 shrink-0 text-clay" aria-hidden="true" />
+                <a href={`mailto:${EMAIL}`} className="min-w-0 break-all text-sm text-white/60 transition-fluid hover:text-white">{EMAIL}</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin className="size-4 shrink-0 text-clay" aria-hidden="true" />

@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MobileCTABar } from "@/components/MobileCTABar";
 import { SEOHead } from "@/components/SEOHead";
+import { cn } from "@/lib/utils";
 
 interface LayoutProps {
   children: ReactNode;
@@ -56,9 +57,10 @@ interface LayoutProps {
     url?: string;
     telephone?: string;
   }[];
+  immersiveHero?: boolean;
 }
 
-export function Layout({ children, seo, hasLocalBusiness, geo, business, service, faqs, persons }: LayoutProps) {
+export function Layout({ children, seo, hasLocalBusiness, geo, business, service, faqs, persons, immersiveHero = false }: LayoutProps) {
   const { pathname } = useLocation();
   const [animKey, setAnimKey] = useState(0);
 
@@ -87,7 +89,7 @@ export function Layout({ children, seo, hasLocalBusiness, geo, business, service
       />
       <div className="grain-overlay" aria-hidden="true" />
       <Navbar />
-      <main className="flex min-h-screen flex-col pt-20 pb-16 lg:pt-24 lg:pb-0">
+      <main className={cn("flex min-h-screen flex-col pb-16 lg:pb-0", immersiveHero ? "pt-0" : "pt-20 lg:pt-24")}>
         <div key={animKey} className="page-enter">
           {children}
         </div>
