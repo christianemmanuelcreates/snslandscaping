@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { MobileCTABar } from "@/components/MobileCTABar";
 import { SEOHead } from "@/components/SEOHead";
 
 interface LayoutProps {
@@ -75,9 +76,11 @@ export function Layout({ children, seo, hasLocalBusiness, geo, business, service
         faqs={faqs}
         persons={persons}
       />
+      <div className="grain-overlay" aria-hidden="true" />
       <Navbar />
-      <main className="flex flex-col min-h-screen">{children}</main>
+      <main className="flex min-h-screen flex-col pt-20 pb-16 lg:pt-24 lg:pb-0">{children}</main>
       <Footer />
+      <MobileCTABar />
     </>
   );
 }

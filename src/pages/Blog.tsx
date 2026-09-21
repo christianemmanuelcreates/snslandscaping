@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
-import { ArrowRight, Newspaper } from "lucide-react";
+import { Eyebrow } from "@/components/Eyebrow";
+import { SectionHeading } from "@/components/SectionHeading";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { BUSINESS_NAME } from "@/lib/site";
 import { getAllPosts, BLOG_CATEGORIES } from "@/lib/blog-data";
@@ -27,39 +22,33 @@ export default function Blog() {
       }}
       business={{ name: BUSINESS_NAME, url: "https://snslandscaping.org/" }}
     >
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto min-w-0 max-w-7xl px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24">
-          <div className="flex min-w-0 flex-col gap-6">
-            <Newspaper className="size-10 text-primary-foreground" aria-hidden="true" />
-            <h1 className="text-4xl font-bold tracking-tighter text-balance sm:text-5xl md:text-6xl">
-              Landscaping Tips &amp; Project Guides
-            </h1>
-            <p className="max-w-xl text-lg text-primary-foreground/90">
-              Expert advice on landscaping, hardscaping, irrigation, and outdoor living from the team at S&amp;S Landscaping.
-            </p>
-          </div>
+      {/* Page header */}
+      <section className="bg-sand py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Tips & Ideas"
+              title="Landscaping Tips & Project Guides"
+              description="Expert advice on landscaping, hardscaping, irrigation, and outdoor living from the team at S&S Landscaping."
+            />
+          </Reveal>
         </div>
       </section>
 
       {/* Category filter bar */}
-      <section className="border-b bg-muted/50 py-6">
+      <section className="border-b border-border bg-background py-6">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-2">
             <Link to="/blog">
-              <Badge variant="default" className="cursor-pointer px-3 py-1.5 text-sm">
+              <span className="cursor-pointer rounded-full bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground">
                 All Articles
-              </Badge>
+              </span>
             </Link>
             {BLOG_CATEGORIES.map((cat) => (
               <Link key={cat.slug} to={`/blog/category/${cat.slug}`}>
-                <Badge variant="outline" className="cursor-pointer px-3 py-1.5 text-sm transition-colors hover:bg-accent">
+                <span className="cursor-pointer rounded-full border border-border px-3 py-1.5 text-sm font-medium text-muted-foreground transition-fluid hover:bg-muted hover:text-foreground">
                   {cat.name}
-                </Badge>
+                </span>
               </Link>
             ))}
           </div>
@@ -67,44 +56,43 @@ export default function Blog() {
       </section>
 
       {/* Posts grid */}
-      <section className="py-16 md:py-24">
+      <section className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post, i) => (
               <Reveal key={post.slug} delay={(i % 3) * 80}>
-                <Card className="flex h-full flex-col overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                  <div className="p-3">
-                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                      <img
-                        src={post.image}
-                        alt={post.imageAlt}
-                        loading="lazy"
-                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                      />
+                <Link to={`/blog/${post.slug}`} className="group block h-full">
+                  <div className="bezel h-full">
+                    <div className="bezel-inner flex h-full flex-col">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden">
+                        <img
+                          src={post.image}
+                          alt={post.imageAlt}
+                          loading="lazy"
+                          className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="flex flex-1 flex-col gap-3 p-5">
+                        <div className="flex items-center gap-2">
+                          <span className="rounded-full bg-primary/8 px-2.5 py-0.5 text-xs font-medium text-primary">
+                            {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            {format(new Date(post.publishedAt), "MMM d, yyyy")}
+                          </span>
+                        </div>
+                        <h3 className="font-heading text-lg font-medium leading-snug text-foreground">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                        <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
+                          Read article
+                          <ArrowRight className="size-4" aria-hidden="true" />
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <CardHeader>
-                    <div className="mb-2 flex items-center gap-2">
-                      <Badge variant="secondary" className="text-xs">
-                        {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground">
-                        {format(new Date(post.publishedAt), "MMM d, yyyy")}
-                      </span>
-                    </div>
-                    <CardTitle className="text-lg leading-snug">{post.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-1 flex-col">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
-                    <Link
-                      to={`/blog/${post.slug}`}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    >
-                      Read article
-                      <ArrowRight className="size-4" aria-hidden="true" />
-                    </Link>
-                  </CardContent>
-                </Card>
+                </Link>
               </Reveal>
             ))}
           </div>

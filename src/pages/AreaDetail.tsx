@@ -1,12 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
+import { Eyebrow } from "@/components/Eyebrow";
 import {
   Accordion,
   AccordionItem,
@@ -32,13 +27,13 @@ export default function AreaDetail() {
         }}
         business={{ name: BUSINESS_NAME, url: "https://snslandscaping.org/" }}
       >
-        <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tighter text-balance md:text-5xl">
+        <section className="py-24 md:py-32">
+          <div className="mx-auto max-w-2xl px-4 text-center">
+            <h1 className="font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl">
               Area Not Found
             </h1>
             <Link to="/" className="mt-6 inline-block">
-              <Button size="lg">Back Home</Button>
+              <Button size="lg" className="rounded-full">Back Home</Button>
             </Link>
           </div>
         </section>
@@ -99,81 +94,98 @@ export default function AreaDetail() {
       faqs={allFaqs}
     >
       {/* Hero */}
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
+      <section className="relative min-h-[70vh] overflow-hidden">
         <img
           src="/images/gallery/backyard_concept.jpg"
           alt="Landscaped backyard with a stone water fountain and lush garden by S&S Landscaping"
           loading="eager"
           className="absolute inset-0 size-full object-cover"
         />
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto min-w-0 max-w-7xl px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24">
-          <div className="flex min-w-0 flex-col gap-6">
-            <MapPin className="size-10 text-primary-foreground" aria-hidden="true" />
-            <h1 className="text-4xl font-bold tracking-tighter text-balance sm:text-5xl md:text-6xl">
-              Landscaping in {area.name}, CA
-            </h1>
-            <p className="max-w-xl text-lg text-primary-foreground/90">
-              {area.name} is in {area.county} County, in the heart of {area.metro}. We bring premium landscaping and outdoor living to your community.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Link to="/contact#quote-form" className="w-full sm:w-auto">
-                <Button size="lg" variant="cta" className="w-full sm:w-auto">{CTA_LABEL}</Button>
-              </Link>
-              <a href={PRIMARY_PHONE.phoneHref} className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground">
-                  <PhoneCall data-icon="inline-start" />
-                  {PRIMARY_PHONE.phone}
-                </Button>
-              </a>
-            </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-espresso/80 via-espresso/50 to-transparent" />
+        <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center px-4 pt-24 pb-16 sm:px-6 lg:px-8">
+          <div className="flex max-w-2xl flex-col gap-6">
+            <Reveal variant="fade">
+              <div className="flex size-14 items-center justify-center rounded-full bg-white/15 backdrop-blur-md ring-1 ring-white/20">
+                <MapPin className="size-7 text-white" aria-hidden="true" />
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h1 className="font-heading text-4xl font-medium tracking-tight text-white text-balance sm:text-5xl md:text-6xl">
+                Landscaping in {area.name}, CA
+              </h1>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="max-w-xl text-lg text-white/80 md:text-xl">
+                {area.name} is in {area.county} County, in the heart of {area.metro}. We bring premium landscaping and outdoor living to your community.
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <Link to="/contact#quote-form" className="w-full sm:w-auto">
+                  <Button size="lg" variant="cta" className="group/button w-full rounded-full px-6 py-3.5 text-base font-semibold sm:w-auto">
+                    {CTA_LABEL}
+                    <span className="btn-icon-circle btn-icon-circle-light ml-2">
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </span>
+                  </Button>
+                </Link>
+                <a href={PRIMARY_PHONE.phoneHref} className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="w-full rounded-full border-white/30 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-fluid hover:bg-white/20 hover:text-white sm:w-auto">
+                    <PhoneCall data-icon="inline-start" />
+                    {PRIMARY_PHONE.phone}
+                  </Button>
+                </a>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* Services in this area */}
-      <section className="py-16 md:py-24">
+      <section className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Landscaping Services in {area.name}
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              S&S Landscaping provides the full range of landscaping and outdoor living services in {area.name}, {area.county} County. From lawn installation and garden design to hardscaping, irrigation, and landscape lighting, we handle every aspect of your outdoor project with the same attention to detail.
-            </p>
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <Eyebrow>{area.name}</Eyebrow>
+              <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
+                Landscaping Services in {area.name}
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                From lawn installation and garden design to hardscaping, irrigation, and landscape lighting, we handle every aspect of your outdoor project with the same attention to detail.
+              </p>
+            </div>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service, i) => (
               <Reveal key={service.slug} delay={(i % 3) * 60}>
-                <Card className="h-full overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                  <div className="p-3">
-                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                      <img
-                        src={service.image}
-                        alt={service.imageAlt}
-                        loading="lazy"
-                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                      />
+                <Link to={`/services/${service.slug}`} className="group block h-full">
+                  <div className="bezel h-full">
+                    <div className="bezel-inner relative flex h-full flex-col">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden">
+                        <img
+                          src={service.image}
+                          alt={service.imageAlt}
+                          loading="lazy"
+                          className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 to-transparent" />
+                        <div className="absolute left-4 top-4">
+                          <div className="flex size-10 items-center justify-center rounded-full bg-white/15 backdrop-blur-md ring-1 ring-white/20">
+                            <service.icon className="size-5 text-white" aria-hidden="true" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-2 p-5">
+                        <h3 className="font-heading text-xl font-medium text-foreground">{service.name}</h3>
+                        <p className="text-sm text-muted-foreground">{service.tagline}</p>
+                        <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
+                          {service.name} in {area.name}
+                          <ArrowRight className="size-4" aria-hidden="true" />
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <CardHeader>
-                    <service.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
-                    <CardTitle>{service.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{service.tagline}</p>
-                    <Link
-                      to={`/services/${service.slug}`}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    >
-                      {service.name} in {area.name}
-                      <ArrowRight className="size-4" aria-hidden="true" />
-                    </Link>
-                  </CardContent>
-                </Card>
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -181,18 +193,21 @@ export default function AreaDetail() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-muted py-16 md:py-24">
+      <section className="bg-sand py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Landscaping FAQ for {area.name}
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Common questions about our landscaping services in {area.name}.
-            </p>
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <Eyebrow>Questions</Eyebrow>
+              <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
+                Landscaping FAQ for {area.name}
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Common questions about our landscaping services in {area.name}.
+              </p>
+            </div>
           </Reveal>
           <Reveal delay={100}>
-            <Accordion className="mt-12 w-full">
+            <Accordion className="mt-16 w-full">
               {allFaqs.map((faq, i) => (
                 <AccordionItem key={i} value={`item-${i}`}>
                   <AccordionTrigger>{faq.question}</AccordionTrigger>
@@ -205,32 +220,34 @@ export default function AreaDetail() {
       </section>
 
       {/* Other areas */}
-      <section className="py-16 md:py-24">
+      <section className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Other Areas We Serve
-            </h2>
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <Eyebrow>Explore</Eyebrow>
+              <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
+                Other Areas We Serve
+              </h2>
+            </div>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {otherAreas.map((other, i) => (
               <Reveal key={other.slug} delay={(i % 4) * 50}>
-                <Card className="h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                  <CardHeader>
-                    <MapPin className="mb-2 size-8 text-primary" aria-hidden="true" />
-                    <CardTitle>{other.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{other.county} County</p>
-                    <Link
-                      to={`/areas/${other.slug}`}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    >
-                      Landscaping in {other.name}
-                      <ArrowRight className="size-4" aria-hidden="true" />
-                    </Link>
-                  </CardContent>
-                </Card>
+                <Link to={`/areas/${other.slug}`} className="group block h-full">
+                  <div className="bezel h-full">
+                    <div className="bezel-inner flex h-full flex-col gap-3 p-6">
+                      <div className="flex size-12 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/15">
+                        <MapPin className="size-5 text-primary" aria-hidden="true" />
+                      </div>
+                      <h3 className="font-heading text-xl font-medium text-foreground">{other.name}</h3>
+                      <p className="text-sm text-muted-foreground">{other.county} County</p>
+                      <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
+                        Landscaping in {other.name}
+                        <ArrowRight className="size-4" aria-hidden="true" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -238,23 +255,27 @@ export default function AreaDetail() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-16 md:py-24">
+      <section className="bg-espresso py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance text-primary-foreground md:text-4xl">
+            <Eyebrow light>Get Started</Eyebrow>
+            <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-white text-balance md:text-4xl lg:text-5xl">
               Landscaping in {area.name}
             </h2>
-            <p className="mt-4 text-primary-foreground/80">
+            <p className="mt-4 text-lg text-white/70">
               Get a free quote for your {area.name} project today.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" variant="cta">
+                <Button size="lg" variant="cta" className="group/button rounded-full px-6 py-3.5 text-base font-semibold">
                   {CTA_LABEL}
+                  <span className="btn-icon-circle btn-icon-circle-light ml-2">
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </span>
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-white/70 bg-white text-primary hover:bg-stone-100 hover:text-primary dark:border-white/70 dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
+                <Button size="lg" variant="outline" className="rounded-full border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>

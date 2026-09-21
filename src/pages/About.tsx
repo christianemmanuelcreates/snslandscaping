@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { ShieldCheck, Award, PhoneCall, Eye, Users, Clock } from "lucide-react";
+import { Eyebrow } from "@/components/Eyebrow";
+import { SectionHeading } from "@/components/SectionHeading";
+import { ShieldCheck, Award, Eye, Users, PhoneCall, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import {
   BUSINESS_NAME,
@@ -57,147 +57,170 @@ export default function About() {
         { name: "Santos Gomez", jobTitle: "Co-Founder & Landscaper", telephone: CONTACTS[1].phone, url: "https://snslandscaping.org/about" },
       ]}
     >
-      <section className="py-16 md:py-24">
+      {/* Editorial split intro */}
+      <section className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Founder's intro */}
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tighter text-balance md:text-5xl">
-              About {BUSINESS_NAME}
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              {BUSINESS_TAGLINE}.
-            </p>
-          </Reveal>
-
-          <Reveal delay={100} className="mt-10 mx-auto max-w-3xl">
-            <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
-              <p>
-                I'm Samuel Delgado, and I started S&S Landscaping with one goal: to bring
-                honest, dependable, and beautiful outdoor living to homeowners and businesses
-                across Silicon Valley and the Bay Area. My partner Santos Gomez and I have
-                spent years working with our hands in this exact soil — we know what thrives
-                here, what drains properly, and what holds up over time.
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+            <Reveal className="flex flex-col gap-6 lg:justify-center">
+              <Eyebrow>Our Story</Eyebrow>
+              <h1 className="font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl lg:text-6xl">
+                About {BUSINESS_NAME}
+              </h1>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                {BUSINESS_TAGLINE}.
               </p>
-              <p>
-                We're a locally owned company, fully licensed ({LICENSE}) and insured, and we
-                take pride in every project whether it's a small front yard refresh or a full
-                backyard transformation. When you call us, you talk to us directly — no
-                subcontractors, no call centers, no surprises.
+              <p className="text-base leading-relaxed text-muted-foreground">
+                I'm Samuel Delgado, and I started S&S Landscaping with one goal: to bring honest, dependable, and beautiful outdoor living to homeowners and businesses across Silicon Valley and the Bay Area. My partner Santos Gomez and I have spent years working with our hands in this exact soil — we know what thrives here, what drains properly, and what holds up over time.
               </p>
-            </div>
-          </Reveal>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                We're a locally owned company, fully licensed ({LICENSE}) and insured, and we take pride in every project whether it's a small front yard refresh or a full backyard transformation. When you call us, you talk to us directly — no subcontractors, no call centers, no surprises.
+              </p>
+            </Reveal>
+            <Reveal delay={150} className="relative">
+              <div className="bezel">
+                <div className="bezel-inner overflow-hidden">
+                  <img
+                    src="/images/gallery/tori_bench.jpg"
+                    alt="Pergola with swing seating, gravel paths, and planted garden beds"
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
-          {/* Values grid */}
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {/* Values grid with depth */}
+      <section className="bg-sage-tint py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="What Drives Us"
+              title="Values That Shape Every Project"
+            />
+          </Reveal>
+          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {VALUES.map((value, i) => (
               <Reveal key={value.title} delay={i * 80}>
-                <Card className="h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                  <CardHeader>
-                    <value.icon className="mb-2 size-8 text-primary" aria-hidden="true" />
-                    <CardTitle>{value.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{value.desc}</p>
-                  </CardContent>
-                </Card>
+                <div className="bezel h-full">
+                  <div className="bezel-inner flex h-full flex-col gap-4 p-6 md:p-8">
+                    <div className="flex size-12 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/15">
+                      <value.icon className="size-6 text-primary" aria-hidden="true" />
+                    </div>
+                    <h3 className="font-heading text-xl font-medium text-foreground md:text-2xl">
+                      {value.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">{value.desc}</p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Project showcase */}
-          <Reveal className="mt-16 overflow-hidden rounded-xl">
-            <img
-              src="/images/gallery/tori_bench.jpg"
-              alt="Pergola with swing seating, gravel paths, and planted garden beds"
-              loading="lazy"
-              className="aspect-[21/9] w-full object-cover"
-            />
-          </Reveal>
-
-          <Separator className="mt-16" />
-
-          {/* Founder's story */}
-          <Reveal className="mt-12">
-            <h2 className="text-center text-2xl font-bold tracking-tight text-balance md:text-3xl">
-              Our Story
+      {/* Founder's story — full-bleed image band */}
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <img
+          src="/images/gallery/illuminated_steps.jpg"
+          alt="Illuminated entry steps with paver walkway and retaining walls"
+          loading="lazy"
+          className="absolute inset-0 size-full object-cover"
+        />
+        <div className="absolute inset-0 bg-espresso/80" />
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <Eyebrow light>Our Journey</Eyebrow>
+            <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-white text-balance md:text-4xl">
+              From the Ground Up
             </h2>
-            <div className="mt-8 mx-auto max-w-3xl space-y-4 text-base leading-relaxed text-muted-foreground">
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-white/70 md:text-lg">
               <p>
-                I grew up watching landscapes come together — the grading, the stonework, the
-                planting — and I learned early that the difference between an average yard and
-                an exceptional one comes down to the details most people never notice. The
-                slope of a patio that sheds water the right way. The compacted base under a
-                walkway that keeps it level for decades. The irrigation zone that waters each
-                plant type correctly.
+                I grew up watching landscapes come together — the grading, the stonework, the planting — and I learned early that the difference between an average yard and an exceptional one comes down to the details most people never notice. The slope of a patio that sheds water the right way. The compacted base under a walkway that keeps it level for decades. The irrigation zone that waters each plant type correctly.
               </p>
               <p>
-                Santos and I founded S&S Landscaping because we wanted to do things the right
-                way — no shortcuts, no cutting corners, just quality workmanship from the ground
-                up. We serve 16 communities across Silicon Valley and the Bay Area, from Los
-                Gatos to Palo Alto to San Jose, and we treat every property like it's our own.
+                Santos and I founded S&S Landscaping because we wanted to do things the right way — no shortcuts, no cutting corners, just quality workmanship from the ground up. We serve 16 communities across Silicon Valley and the Bay Area, from Los Gatos to Palo Alto to San Jose, and we treat every property like it's our own.
               </p>
               <p>
-                Whether you need a new patio, a retaining wall, irrigation repair, a full
-                landscape design, or just a reliable team to transform your outdoor space, we're
-                here to help. Call us directly and we'll get you a free quote.
+                Whether you need a new patio, a retaining wall, irrigation repair, a full landscape design, or just a reliable team to transform your outdoor space, we're here to help. Call us directly and we'll get you a free quote.
               </p>
             </div>
           </Reveal>
+        </div>
+      </section>
 
-          <Separator className="mt-16" />
-
-          {/* Team */}
-          <Reveal className="mt-12">
-            <h2 className="text-center text-2xl font-bold tracking-tight text-balance md:text-3xl">
-              Meet the Team
-            </h2>
+      {/* Team */}
+      <section className="py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="The People"
+              title="Meet the Team"
+            />
           </Reveal>
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2">
             {CONTACTS.map((contact, i) => (
-              <Reveal key={contact.name} delay={i * 80}>
-                <Card className="h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                  <CardHeader>
-                    <CardTitle>{contact.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      {i === 0
-                        ? "Co-founder and lead landscaper. Samuel handles project design, client consultations, and oversees every job site to ensure quality from start to finish."
-                        : "Co-founder and landscaper. Santos brings years of hands-on experience in hardscaping, irrigation, and site preparation to every project."}
-                    </p>
-                    <a href={contact.phoneHref} className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline">
+              <Reveal key={contact.name} delay={i * 100}>
+                <div className="bezel h-full">
+                  <div className="bezel-inner flex h-full flex-col gap-4 p-6 md:p-8">
+                    <div className="flex size-16 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/15">
+                      <span className="font-heading text-2xl font-medium text-primary">
+                        {contact.name.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-xl font-medium text-foreground md:text-2xl">
+                        {contact.name}
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {i === 0
+                          ? "Co-founder and lead landscaper. Samuel handles project design, client consultations, and oversees every job site to ensure quality from start to finish."
+                          : "Co-founder and landscaper. Santos brings years of hands-on experience in hardscaping, irrigation, and site preparation to every project."}
+                      </p>
+                    </div>
+                    <a
+                      href={contact.phoneHref}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-fluid hover:gap-3"
+                    >
                       <PhoneCall className="size-4" aria-hidden="true" />
                       {contact.phone}
                     </a>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
 
-          <Separator className="mt-16" />
-
-          {/* CTA */}
-          <Reveal className="mt-12">
-            <div className="rounded-xl bg-muted p-8 text-center md:p-12">
-              <h2 className="text-2xl font-bold tracking-tight text-balance md:text-3xl">
-                Ready to Work With Us?
-              </h2>
-              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-                Get a free quote for your next landscaping project. Call us directly or fill out
-                our quote form and we'll respond as soon as possible.
-              </p>
-              <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <Link to="/contact#quote-form" className="inline-block">
-                  <Button size="lg" variant="cta">{CTA_LABEL}</Button>
-                </Link>
-                <a href={PRIMARY_PHONE.phoneHref} className="inline-block">
-                  <Button size="lg" variant="outline">
-                    <PhoneCall data-icon="inline-start" />
-                    {PRIMARY_PHONE.phone}
-                  </Button>
-                </a>
-              </div>
+      {/* CTA */}
+      <section className="bg-espresso py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <Eyebrow light>Get Started</Eyebrow>
+            <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-white text-balance md:text-4xl lg:text-5xl">
+              Ready to Work With Us?
+            </h2>
+            <p className="mt-4 text-lg text-white/70">
+              Get a free quote for your next landscaping project. Call us directly or fill out our quote form.
+            </p>
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <Link to="/contact#quote-form">
+                <Button size="lg" variant="cta" className="group/button rounded-full px-6 py-3.5 text-base font-semibold">
+                  {CTA_LABEL}
+                  <span className="btn-icon-circle btn-icon-circle-light ml-2">
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </span>
+                </Button>
+              </Link>
+              <a href={PRIMARY_PHONE.phoneHref}>
+                <Button size="lg" variant="outline" className="rounded-full border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white">
+                  <PhoneCall data-icon="inline-start" />
+                  {PRIMARY_PHONE.phone}
+                </Button>
+              </a>
             </div>
           </Reveal>
         </div>

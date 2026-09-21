@@ -2,14 +2,16 @@ import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Eyebrow } from "@/components/Eyebrow";
+import { SectionHeading } from "@/components/SectionHeading";
+import { TrustBar } from "@/components/TrustBar";
 import {
   Card,
   CardHeader,
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
-import { ArrowRight, PhoneCall, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, PhoneCall, MapPin, ChevronLeft, ChevronRight, Star, ShieldCheck, Sparkles } from "lucide-react";
 import {
   BUSINESS_NAME,
   BUSINESS_TAGLINE,
@@ -77,14 +79,14 @@ function HScroll({ children }: { children: React.ReactNode }) {
         {children}
         <button
           onClick={() => scrollBy(-1)}
-          className="absolute -left-3 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 shadow-md transition-all hover:bg-muted md:flex"
+          className="absolute -left-3 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 shadow-ambient transition-fluid hover:bg-muted md:flex"
           aria-label="Scroll left"
         >
           <ChevronLeft className="size-5" aria-hidden="true" />
         </button>
         <button
           onClick={() => scrollBy(1)}
-          className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 shadow-md transition-all hover:bg-muted md:flex"
+          className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 shadow-ambient transition-fluid hover:bg-muted md:flex"
           aria-label="Scroll right"
         >
           <ChevronRight className="size-5" aria-hidden="true" />
@@ -132,8 +134,8 @@ export default function Home() {
       }}
       faqs={HOME_FAQS}
     >
-      {/* Hero: split-screen */}
-      <section className="relative overflow-hidden bg-primary text-primary-foreground">
+      {/* ===== Cinematic Hero ===== */}
+      <section className="relative min-h-[100dvh] overflow-hidden">
         <img
           src="/images/gallery/backyard_concept.jpg"
           alt="Landscaped backyard with a stone water fountain, lush lawn, and garden plantings by S&S Landscaping"
@@ -141,145 +143,174 @@ export default function Home() {
           loading="eager"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40"
+          className="absolute inset-0 bg-gradient-to-br from-espresso/80 via-espresso/50 to-transparent"
           aria-hidden="true"
         />
-        <div className="relative mx-auto grid min-w-0 max-w-7xl gap-8 px-4 pt-20 pb-16 sm:px-6 lg:px-8 md:pt-24 lg:grid-cols-2 lg:gap-12">
-          <div className="flex min-w-0 flex-col gap-6">
-            <Badge
-              variant="secondary"
-              className="h-auto min-h-5 max-w-full whitespace-normal break-words bg-primary-foreground/15 py-1 text-left text-primary-foreground hover:bg-primary-foreground/25"
-            >
-              {BUSINESS_TAGLINE}
-            </Badge>
-            <h1 className="text-4xl font-bold tracking-tighter text-balance sm:text-5xl md:text-6xl">
-              Professional Landscaping & Outdoor Services in the Bay Area
-            </h1>
-            <p className="max-w-xl text-base text-primary-foreground/90 sm:text-lg">
-              Reliable landscaping maintenance, & outdoor property services for residential & commercial properties throughout the Bay Area.
-            </p>
-            <p className="sr-only">
-              S&S Landscaping is a licensed and insured landscaping company serving 16 communities across Silicon Valley and the San Francisco Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, and Saratoga. We offer landscaping and planting, hardscaping, site preparation, irrigation and drainage, and outdoor amenities for residential and commercial properties.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Link to="/contact#quote-form" className="w-full sm:w-auto">
-                <Button size="lg" variant="cta" className="w-full sm:w-auto cta-pulse">{CTA_LABEL}</Button>
-              </Link>
-              <Link to="/services" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-primary-foreground/15 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/30 hover:text-primary-foreground sm:w-auto">
-                  Our Services
-                </Button>
-              </Link>
-            </div>
+        <div className="absolute inset-0 mesh-bg-dark opacity-40" aria-hidden="true" />
+
+        <div className="relative mx-auto flex min-h-[100dvh] max-w-7xl flex-col justify-center px-4 pt-24 pb-32 sm:px-6 lg:px-8">
+          <div className="flex max-w-2xl flex-col gap-6">
+            <Reveal variant="fade">
+              <Eyebrow light>Silicon Valley &amp; Bay Area</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h1 className="font-heading text-5xl font-medium leading-[1.05] tracking-tight text-white text-balance sm:text-6xl md:text-7xl">
+                Premium Landscaping &amp; Outdoor Living
+              </h1>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="max-w-xl text-lg text-white/80 md:text-xl">
+                Reliable landscaping, hardscaping, and outdoor property services for residential &amp; commercial properties throughout the Bay Area.
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <Link to="/contact#quote-form" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="cta"
+                    className="group/button w-full rounded-full px-6 py-3.5 text-base font-semibold cta-pulse sm:w-auto"
+                  >
+                    {CTA_LABEL}
+                    <span className="btn-icon-circle btn-icon-circle-light ml-2">
+                      <ArrowRight className="size-4" aria-hidden="true" />
+                    </span>
+                  </Button>
+                </Link>
+                <a href={PRIMARY_PHONE.phoneHref} className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full rounded-full border-white/30 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-fluid hover:bg-white/20 hover:text-white sm:w-auto"
+                  >
+                    <PhoneCall data-icon="inline-start" />
+                    {PRIMARY_PHONE.phone}
+                  </Button>
+                </a>
+              </div>
+            </Reveal>
+            <Reveal delay={400}>
+              <div className="mt-4 flex flex-wrap items-center gap-6 text-sm text-white/70">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="size-4 text-clay" aria-hidden="true" />
+                  {LICENSE}
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="size-3.5 fill-clay text-clay" aria-hidden="true" />
+                    ))}
+                  </div>
+                  Licensed &amp; Insured
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="size-4 text-clay" aria-hidden="true" />
+                  {AREAS.length} Bay Area Communities
+                </div>
+              </div>
+            </Reveal>
           </div>
-          <div className="flex flex-col gap-6 lg:justify-center">
-            <div className="rounded-2xl border border-white/20 bg-white/15 p-8 shadow-lg backdrop-blur-md">
-              <h2 className="text-2xl font-semibold text-primary-foreground">
-                Licensed & Insured
-              </h2>
-              <p className="mt-3 text-primary-foreground/95">
-                {LICENSE}. Serving {AREAS.length} communities across Silicon Valley & the Bay Area.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/20 bg-white/15 p-8 shadow-lg backdrop-blur-md">
-              <h2 className="text-2xl font-semibold text-primary-foreground">
-                Two Local Experts
-              </h2>
-              <p className="mt-3 text-primary-foreground/95">
-                Samuel Delgado and Santos Gomez bring years of hands-on landscaping experience to every project.
-              </p>
+        </div>
+
+        {/* Scroll hint */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 lg:bottom-8">
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-xs uppercase tracking-[0.2em] text-white/40">Scroll</span>
+            <div className="flex h-8 w-5 items-start justify-center rounded-full border border-white/20 p-1">
+              <div className="scroll-hint h-1.5 w-1 rounded-full bg-white/50" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services — horizontal scroll */}
-      <section className="py-16 md:py-24">
+      {/* ===== Trust Bar ===== */}
+      <TrustBar />
+
+      {/* ===== Services — Bento Grid ===== */}
+      <section className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Our Services
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Complete outdoor living, from the ground up. Scroll to explore.
-            </p>
+          <Reveal>
+            <SectionHeading
+              eyebrow="What We Do"
+              title="Complete Outdoor Living, From the Ground Up"
+              description="From lawns and gardens to patios, retaining walls, irrigation, and landscape lighting — we handle every aspect of your outdoor project."
+            />
           </Reveal>
-          <Reveal delay={100} className="mt-12">
-            <HScroll>
-              <div className="h-scroll">
-                {SERVICES.map((service) => (
-                  <div key={service.slug} className="h-scroll-item">
-                    <Card className="h-full overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                      <div className="p-3">
-                        <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
+
+          {/* Bento grid */}
+          <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-5">
+            {SERVICES.map((service, i) => {
+              const span = i === 0 ? "md:col-span-3 md:row-span-2" : i === 1 ? "md:col-span-3" : i === 2 ? "md:col-span-2" : i === 3 ? "md:col-span-2" : "md:col-span-2";
+              return (
+                <Reveal key={service.slug} delay={i * 80} className={span}>
+                  <Link to={`/services/${service.slug}`} className="group block h-full">
+                    <div className="bezel h-full">
+                      <div className="bezel-inner relative flex h-full flex-col">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-auto md:flex-1">
                           <img
                             src={service.image}
                             alt={service.imageAlt}
                             loading="lazy"
-                            className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
+                            className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
                           />
+                          <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 to-transparent" />
+                          <div className="absolute left-4 top-4">
+                            <div className="flex size-10 items-center justify-center rounded-full bg-white/15 backdrop-blur-md ring-1 ring-white/20">
+                              <service.icon className="size-5 text-white" aria-hidden="true" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-2 p-5 md:p-6">
+                          <h3 className="font-heading text-xl font-medium text-foreground md:text-2xl">
+                            {service.name}
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{service.tagline}</p>
+                          <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
+                            Learn more
+                            <ArrowRight className="size-4" aria-hidden="true" />
+                          </span>
                         </div>
                       </div>
-                      <CardHeader>
-                        <service.icon
-                          className="mb-2 size-8 text-primary"
-                          aria-hidden="true"
-                        />
-                        <CardTitle>{service.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm font-medium text-foreground">{service.tagline}</p>
-                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                        <Link
-                          to={`/services/${service.slug}`}
-                          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                        >
-                          Learn more
-                          <ArrowRight className="size-4" aria-hidden="true" />
-                        </Link>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            </HScroll>
-          </Reveal>
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Featured areas — horizontal scroll */}
-      <section className="bg-muted py-16 md:py-24">
+      {/* ===== Featured Areas — horizontal scroll ===== */}
+      <section className="bg-sage-tint py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Where We Work
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Local expertise across Silicon Valley & the Bay Area. Scroll to explore.
-            </p>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Where We Work"
+              title="Local Expertise Across Silicon Valley"
+              description="We know the soils, climates, and permitting requirements of every community we serve."
+            />
           </Reveal>
-          <Reveal delay={100} className="mt-12">
+          <Reveal delay={100} className="mt-16">
             <HScroll>
               <div className="h-scroll">
                 {AREAS.map((area) => (
                   <div key={area.slug} className="h-scroll-item">
-                    <Card className="h-full transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                      <CardHeader>
-                        <MapPin className="mb-2 size-8 text-primary" aria-hidden="true" />
-                        <CardTitle>{area.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground">{area.county} County</p>
-                        <p className="mt-2 text-sm text-muted-foreground">{area.metro} area</p>
-                        <Link
-                          to={`/areas/${area.slug}`}
-                          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                        >
-                          View services
-                          <ArrowRight className="size-4" aria-hidden="true" />
-                        </Link>
-                      </CardContent>
-                    </Card>
+                    <Link to={`/areas/${area.slug}`} className="group block h-full">
+                      <div className="bezel h-full">
+                        <div className="bezel-inner flex h-full flex-col p-6">
+                          <div className="flex size-12 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/15">
+                            <MapPin className="size-5 text-primary" aria-hidden="true" />
+                          </div>
+                          <h3 className="mt-4 font-heading text-xl font-medium text-foreground">{area.name}</h3>
+                          <p className="mt-1 text-sm text-muted-foreground">{area.county} County</p>
+                          <p className="mt-1 text-xs text-muted-foreground/70">{area.metro} area</p>
+                          <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
+                            View services
+                            <ArrowRight className="size-4" aria-hidden="true" />
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -288,131 +319,188 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-16 md:py-24">
+      {/* ===== Why Choose Us — Editorial Split ===== */}
+      <section className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Why Choose Us
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              At {BUSINESS_NAME}, we believe dependable service and clear communication should
-              come standard. We're licensed and experienced, with years of hands-on knowledge
-              you can rely on. We take pride in the quality and appearance of every project,
-              focusing on the small details that make a big difference. And whether your
-              property is residential or commercial, we bring the same commitment to
-              excellence to every job.
-            </p>
-            <Link to="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline">
-              Learn more about us
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Featured work */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Recent Projects
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              A selection of outdoor spaces we've designed and built.
-            </p>
-          </Reveal>
-          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3">
-            {GALLERY_ITEMS.slice(0, 3).map((project, i) => (
-              <Reveal key={project.title} delay={i * 80} className="overflow-hidden rounded-xl">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                />
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={200} className="mt-8 text-center">
-            <Link to="/gallery" className="inline-block">
-              <Button variant="outline">View Full Gallery</Button>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Latest articles */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Latest Articles
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Tips, guides, and ideas for your outdoor space.
-            </p>
-          </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {getAllPosts().slice(0, 3).map((post, i) => (
-              <Reveal key={post.slug} delay={i * 80}>
-                <Card className="flex h-full flex-col overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                  <div className="p-3">
-                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                      <img
-                        src={post.image}
-                        alt={post.imageAlt}
-                        loading="lazy"
-                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                      />
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+            <Reveal className="flex flex-col gap-6 lg:justify-center">
+              <Eyebrow>Why S&amp;S</Eyebrow>
+              <h2 className="font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl lg:text-5xl">
+                Dependable service. Clear communication. Quality that shows.
+              </h2>
+              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                At {BUSINESS_NAME}, we believe dependable service and clear communication should come standard. We're licensed and experienced, with years of hands-on knowledge you can rely on. We take pride in the quality and appearance of every project, focusing on the small details that make a big difference.
+              </p>
+              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                Whether your property is residential or commercial, we bring the same commitment to excellence to every job — no subcontractors, no call centers, no surprises.
+              </p>
+              <Link to="/about" className="mt-2">
+                <Button variant="outline" className="group/button rounded-full">
+                  Learn more about us
+                  <span className="btn-icon-circle ml-1.5">
+                    <ArrowRight className="size-3.5" aria-hidden="true" />
+                  </span>
+                </Button>
+              </Link>
+            </Reveal>
+            <Reveal delay={150} className="relative">
+              <div className="bezel">
+                <div className="bezel-inner overflow-hidden">
+                  <img
+                    src="/images/gallery/stone_feature_2.jpg"
+                    alt="Finished patio with stone seating wall and fire pit"
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                </div>
+              </div>
+              {/* Floating accent card */}
+              <div className="absolute -bottom-6 -left-4 hidden md:block">
+                <div className="bezel float-subtle">
+                  <div className="bezel-inner flex items-center gap-3 p-4">
+                    <div className="flex size-10 items-center justify-center rounded-full bg-cta/10">
+                      <Sparkles className="size-5 text-cta" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="font-heading text-sm font-medium text-foreground">Attention to Detail</p>
+                      <p className="text-xs text-muted-foreground">Edge lines, grade slopes, joint spacing</p>
                     </div>
                   </div>
-                  <CardHeader>
-                    <div className="mb-2 flex items-center gap-2">
-                      <Badge variant="secondary" className="text-xs">
-                        {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground">
-                        {format(new Date(post.publishedAt), "MMM d, yyyy")}
-                      </span>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Featured Work — Full-bleed banner ===== */}
+      <section className="py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Recent Projects"
+              title="Outdoor Spaces We've Designed & Built"
+            />
+          </Reveal>
+          <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+            {GALLERY_ITEMS.slice(0, 6).map((project, i) => (
+              <Reveal
+                key={project.title}
+                delay={i * 60}
+                className={i === 0 ? "col-span-2 md:col-span-2 md:row-span-2" : ""}
+              >
+                <Link to="/gallery" className="group block">
+                  <div className="bezel">
+                    <div className="bezel-inner relative overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        loading="lazy"
+                        className={`w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105 ${
+                          i === 0 ? "aspect-[4/3] md:aspect-[16/10]" : "aspect-[4/3]"
+                        }`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                        <h3 className={`font-heading font-medium text-white ${i === 0 ? "text-xl md:text-2xl" : "text-base"}`}>
+                          {project.title}
+                        </h3>
+                        <p className={`mt-1 text-white/70 ${i === 0 ? "text-sm" : "text-xs line-clamp-1"}`}>
+                          {project.description}
+                        </p>
+                      </div>
                     </div>
-                    <CardTitle className="text-lg leading-snug">{post.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-1 flex-col">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
-                    <Link
-                      to={`/blog/${post.slug}`}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    >
-                      Read article
-                      <ArrowRight className="size-4" aria-hidden="true" />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  </div>
+                </Link>
               </Reveal>
             ))}
           </div>
-          <Reveal delay={200} className="mt-8 text-center">
-            <Link to="/blog" className="inline-block">
-              <Button variant="outline">View All Articles</Button>
+          <Reveal delay={200} className="mt-10 text-center">
+            <Link to="/gallery">
+              <Button variant="outline" className="group/button rounded-full">
+                View Full Gallery
+                <span className="btn-icon-circle ml-1.5">
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </span>
+              </Button>
             </Link>
           </Reveal>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-muted py-16 md:py-24">
+      {/* ===== Latest Articles ===== */}
+      <section className="bg-sand py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Tips & Ideas"
+              title="Latest Articles"
+              description="Tips, guides, and ideas for your outdoor space."
+            />
+          </Reveal>
+          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {getAllPosts().slice(0, 3).map((post, i) => (
+              <Reveal key={post.slug} delay={i * 80}>
+                <Link to={`/blog/${post.slug}`} className="group block h-full">
+                  <div className="bezel h-full">
+                    <div className="bezel-inner flex h-full flex-col">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden">
+                        <img
+                          src={post.image}
+                          alt={post.imageAlt}
+                          loading="lazy"
+                          className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="flex flex-1 flex-col gap-3 p-5">
+                        <div className="flex items-center gap-2">
+                          <span className="rounded-full bg-primary/8 px-2.5 py-0.5 text-xs font-medium text-primary">
+                            {BLOG_CATEGORIES.find((c) => c.slug === post.category)?.name ?? post.category}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            {format(new Date(post.publishedAt), "MMM d, yyyy")}
+                          </span>
+                        </div>
+                        <h3 className="font-heading text-lg font-medium leading-snug text-foreground">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                        <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
+                          Read article
+                          <ArrowRight className="size-4" aria-hidden="true" />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={200} className="mt-10 text-center">
+            <Link to="/blog">
+              <Button variant="outline" className="group/button rounded-full">
+                View All Articles
+                <span className="btn-icon-circle ml-1.5">
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </span>
+              </Button>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== FAQ ===== */}
+      <section className="py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-              Frequently Asked Questions
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Common questions about our landscaping services in Silicon Valley &amp; the Bay Area.
-            </p>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Questions"
+              title="Frequently Asked Questions"
+              description="Common questions about our landscaping services in Silicon Valley & the Bay Area."
+            />
           </Reveal>
           <Reveal delay={100}>
-            <Accordion className="mt-12 w-full">
+            <Accordion className="mt-16 w-full">
               {HOME_FAQS.map((faq, i) => (
                 <AccordionItem key={i} value={`item-${i}`}>
                   <AccordionTrigger>{faq.question}</AccordionTrigger>
@@ -424,24 +512,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-primary py-16 md:py-24">
+      {/* ===== CTA — Espresso band ===== */}
+      <section className="bg-espresso py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance text-white md:text-4xl dark:text-slate-950">
+            <Eyebrow light>Get Started</Eyebrow>
+            <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-white text-balance md:text-4xl lg:text-5xl">
               Ready to Transform Your Outdoor Space?
             </h2>
-            <p className="mt-4 text-white/90 dark:text-slate-950/85">
-              Get a free quote from {BUSINESS_NAME} today.
+            <p className="mt-4 text-lg text-white/70">
+              Get a free quote from {BUSINESS_NAME} today. We respond within 24 hours.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" variant="cta">
+                <Button
+                  size="lg"
+                  variant="cta"
+                  className="group/button rounded-full px-6 py-3.5 text-base font-semibold"
+                >
                   {CTA_LABEL}
+                  <span className="btn-icon-circle btn-icon-circle-light ml-2">
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </span>
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-white/70 bg-white text-primary hover:bg-stone-100 hover:text-primary dark:border-white/70 dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white"
+                >
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>

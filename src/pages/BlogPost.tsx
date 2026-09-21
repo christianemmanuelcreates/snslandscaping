@@ -1,13 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/Layout";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
+import { Eyebrow } from "@/components/Eyebrow";
 import {
   Accordion,
   AccordionItem,
@@ -34,13 +28,14 @@ import {
 } from "@/lib/blog-data";
 import { format } from "date-fns";
 import { renderRichText } from "@/lib/blog-text";
+import { Reveal } from "@/components/Reveal";
 
 function BlogBlockRenderer({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "paragraph":
       return <p className="text-muted-foreground leading-relaxed">{renderRichText(block.text)}</p>;
     case "heading":
-      return <h2 className="text-2xl font-bold tracking-tight text-balance pt-4">{block.text}</h2>;
+      return <h2 className="font-heading text-2xl font-medium tracking-tight text-balance pt-4">{block.text}</h2>;
     case "list":
       return (
         <ul className="flex flex-col gap-2 pl-1">
@@ -67,7 +62,7 @@ function BlogBlockRenderer({ block }: { block: BlogBlock }) {
       );
     case "table":
       return (
-        <div className="my-2 overflow-x-auto rounded-lg border">
+        <div className="my-2 overflow-x-auto rounded-xl border border-border">
           <Table>
             <TableHeader>
               <TableRow className="bg-muted/50 hover:bg-muted/50">
@@ -91,7 +86,7 @@ function BlogBlockRenderer({ block }: { block: BlogBlock }) {
     case "quote":
       return (
         <blockquote className="border-l-4 border-primary pl-6 py-2">
-          <p className="text-lg font-medium text-foreground italic leading-relaxed">
+          <p className="font-heading text-lg font-medium text-foreground italic leading-relaxed">
             &ldquo;{block.text}&rdquo;
           </p>
           {block.attribution && (
@@ -120,13 +115,13 @@ export default function BlogPost() {
         }}
         business={{ name: BUSINESS_NAME, url: "https://snslandscaping.org/" }}
       >
-        <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tighter text-balance md:text-5xl">
+        <section className="py-24 md:py-32">
+          <div className="mx-auto max-w-2xl px-4 text-center">
+            <h1 className="font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl">
               Article Not Found
             </h1>
             <Link to="/blog" className="mt-6 inline-block">
-              <Button size="lg">View All Articles</Button>
+              <Button size="lg" className="rounded-full">View All Articles</Button>
             </Link>
           </div>
         </section>
@@ -160,16 +155,12 @@ export default function BlogPost() {
       faqs={post.faqs}
     >
       {/* Breadcrumb */}
-      <section className="border-b bg-muted/50">
+      <section className="border-b border-border bg-sand">
         <div className="mx-auto max-w-3xl px-4 py-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-foreground underline-offset-4 hover:underline">
-              Home
-            </Link>
+            <Link to="/" className="transition-fluid hover:text-foreground">Home</Link>
             <span>/</span>
-            <Link to="/blog" className="hover:text-foreground underline-offset-4 hover:underline">
-              Blog
-            </Link>
+            <Link to="/blog" className="transition-fluid hover:text-foreground">Blog</Link>
             <span>/</span>
             <span className="truncate text-foreground">{post.title}</span>
           </nav>
@@ -177,15 +168,15 @@ export default function BlogPost() {
       </section>
 
       {/* Article header */}
-      <section className="py-12 md:py-16">
+      <section className="py-12 md:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-4">
+          <Reveal className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               {category && (
                 <Link to={`/blog/category/${category.slug}`}>
-                  <Badge variant="secondary" className="cursor-pointer text-xs">
+                  <span className="cursor-pointer rounded-full bg-primary/8 px-2.5 py-0.5 text-xs font-medium text-primary">
                     {category.name}
-                  </Badge>
+                  </span>
                 </Link>
               )}
               <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -193,7 +184,7 @@ export default function BlogPost() {
                 {format(new Date(post.publishedAt), "MMMM d, yyyy")}
               </span>
             </div>
-            <h1 className="text-3xl font-bold tracking-tighter text-balance sm:text-4xl md:text-5xl">
+            <h1 className="font-heading text-3xl font-medium tracking-tight text-balance sm:text-4xl md:text-5xl">
               {post.title}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -203,27 +194,29 @@ export default function BlogPost() {
               <User className="size-4 text-primary" aria-hidden="true" />
               <span>By {BLOG_AUTHOR.name}</span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Hero image */}
       <section className="pb-8">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="aspect-[16/9] w-full overflow-hidden rounded-xl bg-muted">
-            <img
-              src={post.image}
-              alt={post.imageAlt}
-              width={1600}
-              height={900}
-              className="size-full object-cover"
-            />
+          <div className="bezel">
+            <div className="bezel-inner overflow-hidden">
+              <img
+                src={post.image}
+                alt={post.imageAlt}
+                width={1600}
+                height={900}
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Article body */}
-      <section className="pb-16">
+      <section className="pb-16 md:pb-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <article className="flex flex-col gap-5">
             {post.body.map((block, i) => (
@@ -235,96 +228,109 @@ export default function BlogPost() {
 
       {/* FAQ */}
       {post.faqs && post.faqs.length > 0 && (
-        <section className="bg-muted py-16 md:py-24">
+        <section className="bg-sand py-24 md:py-32">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-                Frequently Asked Questions
-              </h2>
-            </div>
-            <Accordion className="mt-12 w-full">
-              {post.faqs.map((faq, i) => (
-                <AccordionItem key={i} value={`item-${i}`}>
-                  <AccordionTrigger>{faq.question}</AccordionTrigger>
-                  <AccordionContent>{faq.answer}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <Reveal>
+              <div className="mx-auto max-w-2xl text-center">
+                <Eyebrow>Questions</Eyebrow>
+                <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
+                  Frequently Asked Questions
+                </h2>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <Accordion className="mt-16 w-full">
+                {post.faqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`item-${i}`}>
+                    <AccordionTrigger>{faq.question}</AccordionTrigger>
+                    <AccordionContent>{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </Reveal>
           </div>
         </section>
       )}
 
       {/* CTA */}
-      <section className="bg-primary py-16 md:py-24">
+      <section className="bg-espresso py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-balance text-primary-foreground md:text-4xl">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <Eyebrow light>Get Started</Eyebrow>
+            <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-white text-balance md:text-4xl">
               Ready to Get Started?
             </h2>
-            <p className="mt-4 text-primary-foreground/80">
+            <p className="mt-4 text-lg text-white/70">
               Get a free quote from {BUSINESS_NAME} today.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link to="/contact#quote-form">
-                <Button size="lg" className="bg-white text-primary hover:bg-stone-100 hover:text-primary dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
+                <Button size="lg" variant="cta" className="group/button rounded-full px-6 py-3.5 text-base font-semibold">
                   {CTA_LABEL}
+                  <span className="btn-icon-circle btn-icon-circle-light ml-2">
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </span>
                 </Button>
               </Link>
               <a href={PRIMARY_PHONE.phoneHref}>
-                <Button size="lg" variant="outline" className="border-white/70 bg-white text-primary hover:bg-stone-100 hover:text-primary dark:border-white/70 dark:bg-white dark:text-primary dark:hover:bg-stone-100 dark:hover:text-primary">
+                <Button size="lg" variant="outline" className="rounded-full border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white">
                   <PhoneCall data-icon="inline-start" />
                   {PRIMARY_PHONE.phone}
                 </Button>
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Related articles */}
       {relatedPosts.length > 0 && (
-        <section className="py-16 md:py-24">
+        <section className="py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
-                Related Articles
-              </h2>
-            </div>
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedPosts.map((related) => (
-                <Card key={related.slug} className="flex h-full flex-col overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
-                  <div className="p-3">
-                    <div className="aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                      <img
-                        src={related.image}
-                        alt={related.imageAlt}
-                        loading="lazy"
-                        className="size-full object-cover transition-transform duration-300 ease-out hover:scale-105"
-                      />
+            <Reveal>
+              <div className="mx-auto max-w-2xl text-center">
+                <Eyebrow>Keep Reading</Eyebrow>
+                <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
+                  Related Articles
+                </h2>
+              </div>
+            </Reveal>
+            <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedPosts.map((related, i) => (
+                <Reveal key={related.slug} delay={i * 80}>
+                  <Link to={`/blog/${related.slug}`} className="group block h-full">
+                    <div className="bezel h-full">
+                      <div className="bezel-inner flex h-full flex-col">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden">
+                          <img
+                            src={related.image}
+                            alt={related.imageAlt}
+                            loading="lazy"
+                            className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="flex flex-1 flex-col gap-3 p-5">
+                          <div className="flex items-center gap-2">
+                            <span className="rounded-full bg-primary/8 px-2.5 py-0.5 text-xs font-medium text-primary">
+                              {BLOG_CATEGORIES.find((c) => c.slug === related.category)?.name ?? related.category}
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              {format(new Date(related.publishedAt), "MMM d, yyyy")}
+                            </span>
+                          </div>
+                          <h3 className="font-heading text-lg font-medium leading-snug text-foreground">
+                            {related.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{related.excerpt}</p>
+                          <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
+                            Read article
+                            <ArrowRight className="size-4" aria-hidden="true" />
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <CardHeader>
-                    <div className="mb-2 flex items-center gap-2">
-                      <Badge variant="secondary" className="text-xs">
-                        {BLOG_CATEGORIES.find((c) => c.slug === related.category)?.name ?? related.category}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground">
-                        {format(new Date(related.publishedAt), "MMM d, yyyy")}
-                      </span>
-                    </div>
-                    <CardTitle className="text-lg leading-snug">{related.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-1 flex-col">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{related.excerpt}</p>
-                    <Link
-                      to={`/blog/${related.slug}`}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    >
-                      Read article
-                      <ArrowRight className="size-4" aria-hidden="true" />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  </Link>
+                </Reveal>
               ))}
             </div>
           </div>

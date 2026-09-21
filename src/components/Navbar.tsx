@@ -1,24 +1,6 @@
-import { Link } from "react-router-dom";
-import { Menu, MapPin, ChevronDown, LayoutGrid, Phone } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuLink,
-} from "@/components/ui/navigation-menu";
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetTitle,
-} from "@/components/ui/sheet";
-import {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-} from "@/components/ui/collapsible";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { MapPin, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE } from "@/lib/site";
@@ -33,157 +15,169 @@ const NAV_ITEMS = [
 ];
 
 export function Navbar() {
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="navbar-shell relative mx-auto flex min-h-24 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
-        <Link
-          to="/"
-          className="navbar-logo flex shrink-0 items-center justify-center overflow-hidden"
-          aria-label={`${BUSINESS_NAME} home`}
-        >
-          <img
-            src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
-            alt={`${BUSINESS_NAME} logo`}
-            width={200}
-            height={200}
-            className="block object-contain"
-          />
-        </Link>
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-        {/* Desktop nav */}
-        <NavigationMenu className="hidden min-w-0 flex-1 justify-center lg:flex">
-          <NavigationMenuList className="flex items-center gap-1">
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 lg:pt-6">
+        <nav
+          className={`navbar-pill navbar-shell flex items-center gap-2 rounded-full px-3 py-2 transition-fluid lg:gap-4 lg:px-5 ${
+            scrolled ? "w-full max-w-5xl" : "w-full max-w-6xl"
+          }`}
+        >
+          <Link
+            to="/"
+            className="navbar-logo flex shrink-0 items-center justify-center"
+            aria-label={`${BUSINESS_NAME} home`}
+          >
+            <img
+              src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
+              alt={`${BUSINESS_NAME} logo`}
+              width={56}
+              height={56}
+              className="block object-contain"
+            />
+          </Link>
+
+          <div className="hidden flex-1 items-center justify-center gap-1 lg:flex">
             {NAV_ITEMS.map((item) => (
-              <NavigationMenuItem key={item.href}>
+              <Link
+                key={item.href}
+                to={item.href}
+                className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-fluid hover:bg-accent hover:text-accent-foreground"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              to="/areas"
+              className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-fluid hover:bg-accent hover:text-accent-foreground"
+            >
+              Service Areas
+            </Link>
+          </div>
+
+          <div className="ml-auto flex shrink-0 items-center gap-2">
+            <ThemeToggle />
+            <a
+              href={PRIMARY_PHONE.phoneHref}
+              aria-label={`Call ${PRIMARY_PHONE.phone}`}
+              className="hidden items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold text-foreground transition-fluid hover:text-cta lg:inline-flex"
+            >
+              <Phone className="size-4 text-cta" aria-hidden="true" />
+              {PRIMARY_PHONE.phone}
+            </a>
+            <Link to="/contact#quote-form" className="hidden lg:inline-flex">
+              <Button
+                size="sm"
+                variant="cta"
+                className="group/button rounded-full px-5 py-2.5 text-sm font-semibold"
+              >
+                {CTA_LABEL}
+                <span className="btn-icon-circle ml-1.5">
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </span>
+              </Button>
+            </Link>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition-fluid hover:bg-accent lg:hidden ${
+                menuOpen ? "hamburger-open" : ""
+              }`}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+              type="button"
+            >
+              <div className="flex flex-col items-center gap-[5px]">
+                <span className="hamburger-line" />
+                <span className="hamburger-line" />
+                <span className="hamburger-line" />
+              </div>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <div className="mobile-menu-overlay fixed inset-0 z-40 flex flex-col lg:hidden">
+          <div className="flex-1 overflow-y-auto px-6 pt-28 pb-12">
+            <nav className="flex flex-col gap-2">
+              {NAV_ITEMS.map((item, i) => (
                 <Link
+                  key={item.href}
                   to={item.href}
-                  className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
+                  className="reveal-up flex items-center justify-between border-b border-border/50 py-4 text-2xl font-heading font-medium text-foreground transition-fluid hover:text-primary"
+                  style={{ animationDelay: `${i * 60}ms` }}
                 >
                   {item.label}
+                  <ArrowRight className="size-5 text-muted-foreground" aria-hidden="true" />
                 </Link>
-              </NavigationMenuItem>
-            ))}
-
-            {/* Service Areas dropdown */}
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
+              ))}
+              <Link
+                to="/areas"
+                className="reveal-up flex items-center justify-between border-b border-border/50 py-4 text-2xl font-heading font-medium text-foreground transition-fluid hover:text-primary"
+                style={{ animationDelay: `${NAV_ITEMS.length * 60}ms` }}
+              >
                 Service Areas
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="max-h-[calc(100vh-6rem)] w-64 overflow-y-auto overscroll-contain">
-                <div className="p-2">
-                  <ul className="flex flex-col gap-0.5">
-                    <li>
-                      <NavigationMenuLink
-                        render={
-                          <Link to="/areas">
-                            <LayoutGrid className="size-4 text-primary" aria-hidden="true" />
-                            <span className="font-medium text-foreground">View All Areas</span>
-                          </Link>
-                        }
-                      />
-                    </li>
-                    {AREAS.map((area) => (
-                      <li key={area.slug}>
-                        <NavigationMenuLink
-                          render={
-                            <Link to={`/areas/${area.slug}`}>
-                              <MapPin className="size-4 text-primary" aria-hidden="true" />
-                              <span className="font-medium text-foreground">{area.name}</span>
-                            </Link>
-                          }
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+                <ArrowRight className="size-5 text-muted-foreground" aria-hidden="true" />
+              </Link>
+            </nav>
 
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <a
-          href={PRIMARY_PHONE.phoneHref}
-          aria-label={`Call ${PRIMARY_PHONE.phone}`}
-          className="absolute left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-cta/30 bg-cta/10 px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-cta/20 lg:hidden"
-        >
-          <Phone className="size-4 text-cta" aria-hidden="true" />
-          Call
-        </a>
-
-        {/* Right actions */}
-        <div className="ml-auto flex shrink-0 items-center gap-2">
-          <ThemeToggle />
-          <a
-            href={PRIMARY_PHONE.phoneHref}
-            className="hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-cta"
-          >
-            <Phone className="size-4 text-cta" aria-hidden="true" />
-            {PRIMARY_PHONE.phone}
-          </a>
-          <Link to="/contact#quote-form" className="hidden lg:inline-flex">
-            <Button size="sm" variant="cta">{CTA_LABEL}</Button>
-          </Link>
-          {/* Mobile menu trigger */}
-          <Sheet>
-            <SheetTrigger
-              className="lg:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 outline-none"
-              aria-label="Open menu"
-            >
-              <Menu className="size-5" aria-hidden="true" />
-            </SheetTrigger>
-            <SheetContent side="right" className="w-72 overflow-y-auto">
-              <SheetTitle className="sr-only">Navigation menu</SheetTitle>
-              <nav className="flex flex-col gap-1 px-4 pt-6">
-                {NAV_ITEMS.filter((item) => item.label !== "Service Areas").map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-
-                {/* Mobile Service Areas collapsible */}
-                <Collapsible className="flex flex-col">
-                  <CollapsibleTrigger className="flex items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
-                    Service Areas
-                    <ChevronDown className="size-4 transition-transform group-data-open:rotate-180" aria-hidden="true" />
-                  </CollapsibleTrigger>
-                  <CollapsibleContent className="flex flex-col gap-0.5 pl-4 pt-1">
-                    <Link
-                      to="/areas"
-                      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                    >
-                      <LayoutGrid className="size-4 text-primary" aria-hidden="true" />
-                      View All Areas
-                    </Link>
-                    {AREAS.map((area) => (
-                      <Link
-                        key={area.slug}
-                        to={`/areas/${area.slug}`}
-                        className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                      >
-                        <MapPin className="size-3.5 text-primary" aria-hidden="true" />
-                        {area.name}
-                      </Link>
-                    ))}
-                  </CollapsibleContent>
-                </Collapsible>
-
-                <Link to="/contact#quote-form" className="mt-4">
-                  <Button variant="cta" className="w-full">{CTA_LABEL}</Button>
+            {/* Areas quick links */}
+            <div className="mt-8 flex flex-wrap gap-2" style={{ animationDelay: `${(NAV_ITEMS.length + 1) * 60}ms` }}>
+              {AREAS.slice(0, 8).map((area) => (
+                <Link
+                  key={area.slug}
+                  to={`/areas/${area.slug}`}
+                  className="flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition-fluid hover:border-primary/30 hover:text-primary"
+                >
+                  <MapPin className="size-3" aria-hidden="true" />
+                  {area.name}
                 </Link>
-                <a href={PRIMARY_PHONE.phoneHref} className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-border py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted">
-                  <Phone className="size-4 text-cta" aria-hidden="true" />
-                  Call {PRIMARY_PHONE.phone}
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="mt-10 flex flex-col gap-3" style={{ animationDelay: `${(NAV_ITEMS.length + 2) * 60}ms` }}>
+              <Link to="/contact#quote-form">
+                <Button variant="cta" className="w-full rounded-full py-3 text-base font-semibold">
+                  {CTA_LABEL}
+                </Button>
+              </Link>
+              <a
+                href={PRIMARY_PHONE.phoneHref}
+                className="flex items-center justify-center gap-2 rounded-full border border-border py-3 text-base font-semibold text-foreground transition-fluid hover:bg-muted"
+              >
+                <Phone className="size-4 text-cta" aria-hidden="true" />
+                Call {PRIMARY_PHONE.phone}
                 </a>
-              </nav>
-            </SheetContent>
-          </Sheet>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+      )}
+    </>
   );
 }
