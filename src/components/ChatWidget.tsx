@@ -127,7 +127,7 @@ export function ChatWidget() {
   if (!isOpen && isDismissed) return null;
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-20 right-5 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6 lg:bottom-6">
       {/* Chat panel */}
       {isOpen && (
         <div className="chat-panel-enter flex h-[28rem] w-[calc(100vw-2.5rem)] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
@@ -142,7 +142,7 @@ export function ChatWidget() {
                   {BUSINESS_NAME}
                 </span>
                 <span className="flex items-center gap-1 text-xs text-primary-foreground/80">
-                  <span className="size-1.5 rounded-full bg-green-400" />
+                  <span className="size-1.5 rounded-full bg-cta" />
                   Online now
                 </span>
               </div>
@@ -235,16 +235,16 @@ export function ChatWidget() {
           type="button"
           onClick={handleOpen}
           aria-label={`Chat with ${BUSINESS_NAME}`}
-          className="group relative flex size-14 items-center justify-center rounded-full bg-green-600 text-white shadow-lg shadow-green-600/30 transition-all hover:bg-green-700 hover:shadow-xl hover:shadow-green-600/40 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
+          className="group relative flex size-14 items-center justify-center rounded-full bg-cta text-cta-foreground shadow-lg shadow-cta/30 transition-all hover:bg-cta-hover hover:shadow-xl hover:shadow-cta/40 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta focus-visible:ring-offset-2"
         >
           {/* Pulse ring */}
-          <span className="chat-pulse-ring absolute inset-0 rounded-full bg-green-500" aria-hidden="true" />
+          <span className="chat-pulse-ring absolute inset-0 rounded-full bg-cta/80" aria-hidden="true" />
           {/* Bouncing icon */}
           <MessageCircle className="chat-bounce relative size-6" aria-hidden="true" />
           {/* Notification dot */}
           <span className="absolute -right-0.5 -top-0.5 flex size-4">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex size-4 rounded-full bg-green-500 border-2 border-white" />
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-cta/60 opacity-75" />
+            <span className="relative inline-flex size-4 rounded-full bg-cta border-2 border-white" />
           </span>
         </button>
       )}

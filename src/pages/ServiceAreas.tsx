@@ -39,51 +39,22 @@ export default function ServiceAreas() {
         areaServed: AREAS.map((a) => ({ name: a.name })),
       }}
     >
-      {/* Hero */}
-      <section className="relative min-h-[70vh] overflow-hidden">
-        <img
-          src="/images/gallery/backyard_concept.jpg"
-          alt="Landscaped backyard with a stone water fountain and lush garden by S&S Landscaping"
-          loading="eager"
-          className="absolute inset-0 size-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-espresso/80 via-espresso/50 to-transparent" />
-        <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-center px-4 pt-24 pb-16 sm:px-6 lg:px-8">
-          <div className="flex max-w-2xl flex-col gap-6">
-            <Reveal variant="fade">
-              <div className="flex size-14 items-center justify-center rounded-full bg-white/15 backdrop-blur-md ring-1 ring-white/20">
-                <MapPin className="size-7 text-white" aria-hidden="true" />
+      {/* Page header */}
+      <section className="bg-sand py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <div className="flex size-14 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/15 mx-auto">
+                <MapPin className="size-7 text-primary" aria-hidden="true" />
               </div>
-            </Reveal>
-            <Reveal delay={100}>
-              <h1 className="font-heading text-4xl font-medium tracking-tight text-white text-balance sm:text-5xl md:text-6xl">
+              <h1 className="mt-6 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl lg:text-6xl">
                 Serving Silicon Valley &amp; the Bay Area
               </h1>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="max-w-xl text-lg text-white/80 md:text-xl">
+              <p className="mt-4 text-lg text-muted-foreground">
                 We bring premium landscaping and outdoor living to {AREAS.length} communities across Silicon Valley and the surrounding Bay Area.
               </p>
-            </Reveal>
-            <Reveal delay={300}>
-              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                <Link to="/contact#quote-form" className="w-full sm:w-auto">
-                  <Button size="lg" variant="cta" className="group/button w-full rounded-full px-6 py-3.5 text-base font-semibold sm:w-auto">
-                    {CTA_LABEL}
-                    <span className="btn-icon-circle btn-icon-circle-light ml-2">
-                      <ArrowRight className="size-4" aria-hidden="true" />
-                    </span>
-                  </Button>
-                </Link>
-                <a href={PRIMARY_PHONE.phoneHref} className="w-full sm:w-auto">
-                  <Button size="lg" variant="outline" className="w-full rounded-full border-white/30 bg-white/10 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-fluid hover:bg-white/20 hover:text-white sm:w-auto">
-                    <PhoneCall data-icon="inline-start" />
-                    {PRIMARY_PHONE.phone}
-                  </Button>
-                </a>
-              </div>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

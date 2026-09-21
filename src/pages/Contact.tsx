@@ -13,10 +13,9 @@ import {
   PRIMARY_PHONE,
   EMAIL,
   CONTACTS,
-  SERVICE_AREAS,
   LICENSE,
 } from "@/lib/site";
-import { SERVICES } from "@/lib/sns-data";
+import { SERVICES, AREAS } from "@/lib/sns-data";
 import { supabase } from "@/lib/supabase";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -317,7 +316,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-foreground">Service Area</p>
-                        <p className="text-xs text-muted-foreground">{SERVICE_AREAS.length} Bay Area communities</p>
+                        <p className="text-xs text-muted-foreground">{AREAS.length} Bay Area communities</p>
                       </div>
                     </div>
                   </div>

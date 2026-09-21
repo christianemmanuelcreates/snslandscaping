@@ -4,9 +4,6 @@ import { HelmetProvider } from "react-helmet-async";
 
 import { ScrollToHash } from "@/components/ScrollToHash";
 import { ChatWidget } from "@/components/ChatWidget";
-import { PageTransition } from "@/components/PageTransition";
-
-import { Layout } from "@/components/Layout";
 
 const Home = lazy(() => import("./pages/Home"));
 const Services = lazy(() => import("./pages/Services"));
@@ -32,22 +29,20 @@ function PageLoader() {
 function AnimatedRoutes() {
   const location = useLocation();
   return (
-    <PageTransition>
-      <Routes location={location}>
-        <Route path="/" element={<Suspense fallback={<PageLoader />}><Home /></Suspense>} />
-        <Route path="/services" element={<Suspense fallback={<PageLoader />}><Services /></Suspense>} />
-        <Route path="/services/:slug" element={<Suspense fallback={<PageLoader />}><ServiceDetail /></Suspense>} />
-        <Route path="/areas" element={<Suspense fallback={<PageLoader />}><ServiceAreas /></Suspense>} />
-        <Route path="/areas/:slug" element={<Suspense fallback={<PageLoader />}><AreaDetail /></Suspense>} />
-        <Route path="/about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
-        <Route path="/gallery" element={<Suspense fallback={<PageLoader />}><Gallery /></Suspense>} />
-        <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><Reviews /></Suspense>} />
-        <Route path="/blog" element={<Suspense fallback={<PageLoader />}><Blog /></Suspense>} />
-        <Route path="/blog/category/:category" element={<Suspense fallback={<PageLoader />}><BlogCategory /></Suspense>} />
-        <Route path="/blog/:slug" element={<Suspense fallback={<PageLoader />}><BlogPost /></Suspense>} />
-        <Route path="/contact" element={<Suspense fallback={<PageLoader />}><Contact /></Suspense>} />
-      </Routes>
-    </PageTransition>
+    <Routes location={location}>
+      <Route path="/" element={<Suspense fallback={<PageLoader />}><Home /></Suspense>} />
+      <Route path="/services" element={<Suspense fallback={<PageLoader />}><Services /></Suspense>} />
+      <Route path="/services/:slug" element={<Suspense fallback={<PageLoader />}><ServiceDetail /></Suspense>} />
+      <Route path="/areas" element={<Suspense fallback={<PageLoader />}><ServiceAreas /></Suspense>} />
+      <Route path="/areas/:slug" element={<Suspense fallback={<PageLoader />}><AreaDetail /></Suspense>} />
+      <Route path="/about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
+      <Route path="/gallery" element={<Suspense fallback={<PageLoader />}><Gallery /></Suspense>} />
+      <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><Reviews /></Suspense>} />
+      <Route path="/blog" element={<Suspense fallback={<PageLoader />}><Blog /></Suspense>} />
+      <Route path="/blog/category/:category" element={<Suspense fallback={<PageLoader />}><BlogCategory /></Suspense>} />
+      <Route path="/blog/:slug" element={<Suspense fallback={<PageLoader />}><BlogPost /></Suspense>} />
+      <Route path="/contact" element={<Suspense fallback={<PageLoader />}><Contact /></Suspense>} />
+    </Routes>
   );
 }
 

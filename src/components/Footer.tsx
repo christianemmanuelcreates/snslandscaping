@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowRight, ShieldCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
 import {
   BUSINESS_NAME,
   BUSINESS_TAGLINE,
   EMAIL,
   LICENSE,
   CONTACTS,
-  CTA_LABEL,
 } from "@/lib/site";
 import { AREAS, SERVICES } from "@/lib/sns-data";
 
@@ -15,36 +13,6 @@ export function Footer() {
   return (
     <footer className="bg-espresso pb-20 pt-20 md:pb-24 md:pt-24 lg:pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top: CTA strip */}
-        <div className="mb-16">
-          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-            <div className="flex flex-col gap-3">
-              <h2 className="font-heading text-2xl font-medium text-white text-balance md:text-3xl">
-                Ready to transform your outdoor space?
-              </h2>
-              <p className="text-white/60">
-                Get a free quote today. We respond within 24 hours.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact#quote-form">
-                <Button size="lg" variant="cta" className="group/button rounded-full px-6 py-3.5 text-base font-semibold">
-                  {CTA_LABEL}
-                  <span className="btn-icon-circle btn-icon-circle-light ml-2">
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </span>
-                </Button>
-              </Link>
-              <a href={CONTACTS[0].phoneHref}>
-                <Button size="lg" variant="outline" className="rounded-full border-white/20 bg-white/10 px-6 py-3.5 text-base font-semibold text-white transition-fluid hover:bg-white/20 hover:text-white">
-                  <Phone className="size-4" aria-hidden="true" />
-                  Call Now
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
-
         {/* Main footer grid */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
           {/* Brand */}

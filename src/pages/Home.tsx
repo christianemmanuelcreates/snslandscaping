@@ -5,16 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TrustBar } from "@/components/TrustBar";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
 import { ArrowRight, PhoneCall, MapPin, ChevronLeft, ChevronRight, Star, ShieldCheck, Sparkles } from "lucide-react";
 import {
   BUSINESS_NAME,
-  BUSINESS_TAGLINE,
   CTA_LABEL,
   PRIMARY_PHONE,
   LICENSE,
@@ -374,7 +367,7 @@ export default function Home() {
       </section>
 
       {/* ===== Featured Work — Full-bleed banner ===== */}
-      <section className="py-24 md:py-32">
+      <section className="bg-sand py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading

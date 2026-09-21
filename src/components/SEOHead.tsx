@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { BUSINESS_NAME, SAME_AS, SERVICE_AREAS } from "@/lib/site";
+import { BUSINESS_NAME, SAME_AS } from "@/lib/site";
+import { AREAS } from "@/lib/sns-data";
 
 interface SEOHeadProps {
   title: string;
@@ -69,7 +70,7 @@ export function SEOHead({
 }: SEOHeadProps) {
   const orgName = business?.name || BUSINESS_NAME;
   const orgUrl = business?.url || canonical;
-  const defaultAreaServed = SERVICE_AREAS.map((name) => ({ name }));
+  const defaultAreaServed = AREAS.map((a) => ({ name: a.name }));
   const orgSameAs = business?.sameAs?.length ? business.sameAs : SAME_AS;
 
   const graph: Record<string, unknown>[] = [

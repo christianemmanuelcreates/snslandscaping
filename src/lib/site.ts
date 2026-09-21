@@ -50,21 +50,3 @@ export const PRIMARY_PHONE = CONTACTS[0];
 /** One primary CTA intent label across the whole site. */
 export const CTA_LABEL = "Get a Free Quote";
 
-export const SERVICE_AREAS = [
-  "Los Gatos",
-  "Monte Sereno",
-  "Atherton",
-  "Los Altos",
-  "Palo Alto",
-  "Los Altos Hills",
-  "Saratoga",
-  "Mountain View",
-  "Cupertino",
-  "San Jose",
-  "Santa Clara",
-  "Campbell",
-  "Milpitas",
-  "Alum Rock",
-  "Emerald Hills",
-  "Redwood City",
-] as const;

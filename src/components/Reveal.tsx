@@ -36,8 +36,9 @@ export function Reveal({ children, className, delay = 0, variant = "up" }: Revea
     <div
       ref={ref}
       className={cn(
-        variant === "up" ? "reveal-up" : "reveal-fade",
-        visible ? "opacity-100" : "opacity-0",
+        visible
+          ? variant === "up" ? "reveal-up" : "reveal-fade"
+          : "opacity-0",
         className,
       )}
       style={{ animationDelay: `${delay}ms` }}

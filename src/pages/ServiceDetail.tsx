@@ -41,7 +41,7 @@ export default function ServiceDetail() {
     );
   }
 
-  const siblings = SERVICES.filter((s) => s.slug !== service.slug);
+  const siblings = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 2);
 
   return (
     <Layout

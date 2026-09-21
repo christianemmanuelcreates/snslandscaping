@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MobileCTABar } from "@/components/MobileCTABar";
@@ -57,6 +59,13 @@ interface LayoutProps {
 }
 
 export function Layout({ children, seo, hasLocalBusiness, geo, business, service, faqs, persons }: LayoutProps) {
+  const { pathname } = useLocation();
+  const [animKey, setAnimKey] = useState(0);
+
+  useEffect(() => {
+    setAnimKey((k) => k + 1);
+  }, [pathname]);
+
   return (
     <>
       <SEOHead
@@ -78,7 +87,11 @@ export function Layout({ children, seo, hasLocalBusiness, geo, business, service
       />
       <div className="grain-overlay" aria-hidden="true" />
       <Navbar />
-      <main className="flex min-h-screen flex-col pt-20 pb-16 lg:pt-24 lg:pb-0">{children}</main>
+      <main className="flex min-h-screen flex-col pt-20 pb-16 lg:pt-24 lg:pb-0">
+        <div key={animKey} className="page-enter">
+          {children}
+        </div>
+      </main>
       <Footer />
       <MobileCTABar />
     </>
