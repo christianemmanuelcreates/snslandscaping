@@ -12,7 +12,6 @@ const ServiceAreas = lazy(() => import("./pages/ServiceAreas"));
 const AreaDetail = lazy(() => import("./pages/AreaDetail"));
 const About = lazy(() => import("./pages/About"));
 const Gallery = lazy(() => import("./pages/Gallery"));
-const Reviews = lazy(() => import("./pages/Reviews"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogCategory = lazy(() => import("./pages/BlogCategory"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -37,7 +36,6 @@ function AnimatedRoutes() {
       <Route path="/areas/:slug" element={<Suspense fallback={<PageLoader />}><AreaDetail /></Suspense>} />
       <Route path="/about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
       <Route path="/gallery" element={<Suspense fallback={<PageLoader />}><Gallery /></Suspense>} />
-      <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><Reviews /></Suspense>} />
       <Route path="/blog" element={<Suspense fallback={<PageLoader />}><Blog /></Suspense>} />
       <Route path="/blog/category/:category" element={<Suspense fallback={<PageLoader />}><BlogCategory /></Suspense>} />
       <Route path="/blog/:slug" element={<Suspense fallback={<PageLoader />}><BlogPost /></Suspense>} />

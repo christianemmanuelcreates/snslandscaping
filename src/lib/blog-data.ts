@@ -564,7 +564,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Evaluating an Irrigation Contractor" },
       {
         type: "paragraph",
-        text: "When evaluating an irrigation contractor, ask for relevant project examples and confirm the proposed scope in writing. Useful client feedback focuses on outcomes: even coverage, cleaner installation, fewer leaks, responsive communication, and plants that receive the right amount of water. Readers researching past projects can also review our [gallery](/gallery) and [client reviews](/reviews) before scheduling.",
+        text: "When evaluating an irrigation contractor, ask for relevant project examples and confirm the proposed scope in writing. Useful client feedback focuses on outcomes: even coverage, cleaner installation, fewer leaks, responsive communication, and plants that receive the right amount of water. Readers researching past projects can also review our [gallery](/gallery) before scheduling.",
       },
       { type: "heading", text: "Frequently Asked Questions" },
       {

@@ -6,6 +6,7 @@ import {
   EMAIL,
   LICENSE,
   CONTACTS,
+  SOCIAL_LINKS,
 } from "@/lib/site";
 import { AREAS, SERVICES } from "@/lib/sns-data";
 
@@ -31,6 +32,41 @@ export function Footer() {
             <div className="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10">
               <ShieldCheck className="size-4 text-clay" aria-hidden="true" />
               <span className="text-xs text-white/60">{LICENSE}</span>
+            </div>
+            <div className="flex items-center gap-2 pt-2">
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit S&S Landscaping on Instagram"
+                className="flex size-9 items-center justify-center rounded-full bg-white/5 text-white/60 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit S&S Landscaping on Facebook"
+                className="flex size-9 items-center justify-center rounded-full bg-white/5 text-white/60 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true" fill="currentColor">
+                  <path d="M13.5 21v-8h2.75l.4-3h-3.15V8.08c0-.87.24-1.46 1.5-1.46h1.77V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.49V10H7v3h2.79v8h3.71Z" />
+                </svg>
+              </a>
+              <a
+                href={SOCIAL_LINKS.google}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="View S&S Landscaping on Google Business Profile"
+                className="flex size-9 items-center justify-center rounded-full bg-white/5 text-sm font-semibold text-white/60 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <span aria-hidden="true">G</span>
+              </a>
             </div>
           </div>
 
@@ -73,7 +109,6 @@ export function Footer() {
             <ul className="flex flex-col gap-2">
               {[
                 ["About", "/about"],
-                ["Reviews", "/reviews"],
                 ["Gallery", "/gallery"],
                 ["Blog", "/blog"],
               ].map(([label, href]) => (
@@ -98,7 +133,7 @@ export function Footer() {
               ))}
               <li className="flex items-center gap-2.5">
                 <Mail className="size-4 shrink-0 text-clay" aria-hidden="true" />
-                <a href={`mailto:${EMAIL}`} className="text-white/60 transition-fluid hover:text-white">{EMAIL}</a>
+                <a href={`mailto:${EMAIL}`} className="min-w-0 break-all text-white/60 transition-fluid hover:text-white">{EMAIL}</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin className="size-4 shrink-0 text-clay" aria-hidden="true" />

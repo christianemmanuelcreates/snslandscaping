@@ -24,11 +24,17 @@ export const BUSINESS_ADDRESS = {
 };
 
 /** Social and directory profiles for Organization sameAs schema. */
+export const SOCIAL_LINKS = {
+  google: "https://share.google/LwQSgxND7ceAISeLi",
+  instagram: "https://www.instagram.com/sns.landscaping.s/",
+  facebook: "https://www.facebook.com/profile.php?id=61593895947387",
+} as const;
+
 export const SAME_AS: string[] = [
-  "https://www.google.com/maps/place/S%26S+Landscaping",
+  SOCIAL_LINKS.google,
   "https://www.yelp.com/biz/s-and-s-landscaping-los-gatos",
-  "https://www.facebook.com/snslandscaping",
-  "https://www.instagram.com/snslandscaping",
+  SOCIAL_LINKS.facebook,
+  SOCIAL_LINKS.instagram,
 ];
 
 export const CONTACTS = [
