@@ -79,7 +79,7 @@ export function SEOHead({
       "@id": `${orgUrl}#organization`,
       name: orgName,
       url: orgUrl,
-      logo: `${orgUrl}images/gallery/backyard_concept.jpg`,
+      logo: `${orgUrl.replace(/\/$/, "")}/images/SNS_V1-removebg-preview.png`,
       sameAs: orgSameAs,
       areaServed: business?.areaServed?.length ? business.areaServed : defaultAreaServed,
       ...(business?.phone

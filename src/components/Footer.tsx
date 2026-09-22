@@ -20,9 +20,9 @@ export function Footer() {
           <div className="flex min-w-0 flex-col gap-4 md:col-span-3">
             <Link to="/" className="flex items-center gap-3">
               <img
-                src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
+                src="/images/SNS_V1-removebg-preview.png"
                 alt={`${BUSINESS_NAME} logo`}
-                className="block h-14 w-14 shrink-0 object-contain"
+                className="block h-16 w-16 shrink-0 object-contain"
               />
               <span className="font-heading text-lg font-medium text-white">{BUSINESS_NAME}</span>
             </Link>

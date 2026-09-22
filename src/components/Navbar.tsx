@@ -51,10 +51,10 @@ export function Navbar() {
             aria-label={`${BUSINESS_NAME} home`}
           >
             <img
-              src="/images/Gemini_Generated_Image_qt6fzsqt6fzsqt6f-removebg-preview.png"
+              src="/images/SNS_V1-removebg-preview.png"
               alt={`${BUSINESS_NAME} logo`}
-              width={56}
-              height={56}
+              width={64}
+              height={64}
               className="block object-contain"
             />
           </Link>

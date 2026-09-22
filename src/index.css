@@ -228,9 +228,9 @@
 }
 
 .navbar-logo {
-  width: 44px;
-  height: 44px;
-  flex: 0 0 44px;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
 }
 
 .navbar-logo img {
@@ -246,9 +246,9 @@
   }
 
   .navbar-logo {
-    width: 56px;
-    height: 56px;
-    flex-basis: 56px;
+    width: 64px;
+    height: 64px;
+    flex-basis: 64px;
   }
 }
 
