@@ -68,15 +68,14 @@ export default function Services() {
       {/* Services — Bento grid */}
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-5">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service, i) => {
-              const span = i === 0 ? "md:col-span-3 md:row-span-2" : i === 1 ? "md:col-span-3" : i === 2 ? "md:col-span-2" : i === 3 ? "md:col-span-2" : "md:col-span-2";
               return (
-                <Reveal key={service.slug} delay={i * 80} className={span}>
+                <Reveal key={service.slug} delay={i * 80}>
                   <Link to={`/services/${service.slug}`} className="group block h-full">
                     <div className="bezel h-full">
                       <div className="bezel-inner relative flex h-full flex-col">
-                        <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-auto md:flex-1">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden">
                           <img
                             src={service.image}
                             alt={service.imageAlt}
