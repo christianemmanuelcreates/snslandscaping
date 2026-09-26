@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eyebrow } from "@/components/Eyebrow";
-import { Phone, Mail, MapPin, CircleCheck, ShieldCheck, Star, Clock, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, CircleCheck, ShieldCheck, Star, Clock, ArrowRight, ImagePlus, X } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import {
   BUSINESS_NAME,
@@ -20,6 +20,15 @@ import { supabase } from "@/lib/supabase";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
+type UploadedImage = {
+  file: File;
+  previewUrl: string;
+};
+
+const MAX_IMAGES = 5;
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/heic"];
+
 const STEPS = [
   { num: "01", title: "Submit Your Request", desc: "Fill out the form with your project details." },
   { num: "02", title: "We Call You Back", desc: "We review your request and reach out within 24 hours." },
@@ -32,7 +41,10 @@ export default function Contact() {
   const [phone, setPhone] = useState("");
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [message, setMessage] = useState("");
+  const [images, setImages] = useState<UploadedImage[]>([]);
+  const [imageError, setImageError] = useState<string | null>(null);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const toggleService = (slug: string) => {
     setSelectedServices((prev) =>
@@ -40,6 +52,67 @@ export default function Contact() {
         ? prev.filter((s) => s !== slug)
         : [...prev, slug],
     );
+  };
+
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setImageError(null);
+    const files = Array.from(e.target.files ?? []);
+    if (files.length === 0) return;
+
+    const remaining = MAX_IMAGES - images.length;
+    if (files.length > remaining) {
+      setImageError(`You can upload up to ${MAX_IMAGES} photos total.`);
+      return;
+    }
+
+    const valid: UploadedImage[] = [];
+    for (const file of files) {
+      if (!ACCEPTED_TYPES.includes(file.type)) {
+        setImageError("Please upload only image files (JPG, PNG, WebP, HEIC).");
+        continue;
+      }
+      if (file.size > MAX_FILE_SIZE) {
+        setImageError("Each photo must be 10 MB or smaller.");
+        continue;
+      }
+      valid.push({ file, previewUrl: URL.createObjectURL(file) });
+    }
+
+    if (valid.length > 0) {
+      setImages((prev) => [...prev, ...valid]);
+    }
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const removeImage = (index: number) => {
+    setImages((prev) => {
+      const next = [...prev];
+      const removed = next.splice(index, 1)[0];
+      if (removed) URL.revokeObjectURL(removed.previewUrl);
+      return next;
+    });
+  };
+
+  const uploadImages = async (): Promise<string[]> => {
+    if (images.length === 0) return [];
+
+    const urls: string[] = [];
+    for (const img of images) {
+      const ext = img.file.name.split(".").pop() ?? "jpg";
+      const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+      const { error } = await supabase.storage
+        .from("quote-attachments")
+        .upload(fileName, img.file, { contentType: img.file.type });
+
+      if (error) throw error;
+
+      const { data } = supabase.storage
+        .from("quote-attachments")
+        .getPublicUrl(fileName);
+
+      urls.push(data.publicUrl);
+    }
+    return urls;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -52,12 +125,15 @@ export default function Contact() {
     setSubmitState("submitting");
 
     try {
+      const imageUrls = await uploadImages();
+
       const { error } = await supabase.from("quote_requests").insert({
         name: name.trim(),
         email: email.trim(),
         phone: phone.trim(),
         services: selectedServices,
         message: message.trim() || null,
+        image_urls: imageUrls.length > 0 ? imageUrls : null,
       });
 
       if (error) throw error;
@@ -68,6 +144,8 @@ export default function Contact() {
       setPhone("");
       setSelectedServices([]);
       setMessage("");
+      setImages([]);
+      setImageError(null);
     } catch {
       console.error("Quote submission failed");
       setSubmitState("error");
@@ -212,6 +290,59 @@ export default function Contact() {
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                           />
+                        </div>
+
+                        {/* Image upload */}
+                        <div className="flex flex-col gap-2">
+                          <Label htmlFor="images">
+                            Project photos <span className="text-muted-foreground font-normal">(optional, up to {MAX_IMAGES})</span>
+                          </Label>
+                          <p className="text-xs text-muted-foreground">
+                            Please share clear, high-quality photos of the area you'd like work done. Well-lit images showing the full space help us provide a more accurate quote.
+                          </p>
+                          <input
+                            ref={fileInputRef}
+                            id="images"
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp,image/heic"
+                            multiple
+                            onChange={handleImageSelect}
+                            className="hidden"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => fileInputRef.current?.click()}
+                            disabled={images.length >= MAX_IMAGES}
+                            className="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-input p-6 text-center transition-fluid hover:bg-muted disabled:opacity-50"
+                          >
+                            <ImagePlus className="size-6 text-muted-foreground" aria-hidden="true" />
+                            <span className="text-sm font-medium text-foreground">
+                              {images.length >= MAX_IMAGES ? "Max photos reached" : "Click to add photos"}
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              JPG, PNG, WebP · up to 10 MB each
+                            </span>
+                          </button>
+                          {imageError && (
+                            <p className="text-sm text-destructive">{imageError}</p>
+                          )}
+                          {images.length > 0 && (
+                            <div className="flex flex-wrap gap-3">
+                              {images.map((img, i) => (
+                                <div key={i} className="group relative size-20 overflow-hidden rounded-lg border border-border">
+                                  <img src={img.previewUrl} alt={`Project photo ${i + 1}`} className="size-full object-cover" />
+                                  <button
+                                    type="button"
+                                    onClick={() => removeImage(i)}
+                                    className="absolute right-1 top-1 flex size-5 items-center justify-center rounded-full bg-espresso/80 text-white opacity-0 transition-opacity group-hover:opacity-100"
+                                    aria-label={`Remove photo ${i + 1}`}
+                                  >
+                                    <X className="size-3" aria-hidden="true" />
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
 
                         {submitState === "error" && (

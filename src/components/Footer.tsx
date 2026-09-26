@@ -33,39 +33,33 @@ export function Footer() {
               <ShieldCheck className="size-4 text-clay" aria-hidden="true" />
               <span className="text-xs text-white/60">{LICENSE}</span>
             </div>
-            <div className="flex items-center gap-2 pt-2">
+            <div className="flex items-center gap-3 pt-2">
               <a
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Visit S&S Landscaping on Instagram"
-                className="flex size-9 items-center justify-center rounded-full bg-white/5 text-white/60 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white"
+                className="flex size-9 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition-colors hover:bg-white/10"
               >
-                <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                </svg>
+                <img src="/images/icons/Instagram_Logo-removebg-preview.png" alt="Instagram" className="size-5 object-contain" />
               </a>
               <a
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Visit S&S Landscaping on Facebook"
-                className="flex size-9 items-center justify-center rounded-full bg-white/5 text-white/60 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white"
+                className="flex size-9 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition-colors hover:bg-white/10"
               >
-                <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true" fill="currentColor">
-                  <path d="M13.5 21v-8h2.75l.4-3h-3.15V8.08c0-.87.24-1.46 1.5-1.46h1.77V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.49V10H7v3h2.79v8h3.71Z" />
-                </svg>
+                <img src="/images/icons/Facebook_f_logo__2021_.svg-removebg-preview.png" alt="Facebook" className="size-5 object-contain" />
               </a>
               <a
                 href={SOCIAL_LINKS.google}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="View S&S Landscaping on Google Business Profile"
-                className="flex size-9 items-center justify-center rounded-full bg-white/5 text-sm font-semibold text-white/60 ring-1 ring-white/10 transition-colors hover:bg-white/10 hover:text-white"
+                className="flex size-9 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition-colors hover:bg-white/10"
               >
-                <span aria-hidden="true">G</span>
+                <img src="/images/icons/G_Logo-removebg-preview.png" alt="Google" className="size-5 object-contain" />
               </a>
             </div>
           </div>
@@ -84,15 +78,13 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Service Areas */}
-          <div className="flex flex-col gap-3 md:col-span-3">
+          {/* Service Areas — two columns */}
+          <div className="flex flex-col gap-3 md:col-span-4">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/40">Service Areas</h3>
-            <ul className="flex flex-col gap-1.5">
-              <li>
-                <Link to="/areas" className="text-sm font-medium text-white transition-fluid hover:text-clay">
-                  View All Areas
-                </Link>
-              </li>
+            <Link to="/areas" className="text-sm font-medium text-white transition-fluid hover:text-clay">
+              View All Areas
+            </Link>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
               {AREAS.map((area) => (
                 <li key={area.slug}>
                   <Link to={`/areas/${area.slug}`} className="text-sm text-white/60 transition-fluid hover:text-white">

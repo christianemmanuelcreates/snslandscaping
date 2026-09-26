@@ -94,7 +94,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: [
       {
         type: "paragraph",
-        text: "Bay Area summers are long and dry, and water conservation is a fact of life for homeowners across Silicon Valley. Drought-tolerant landscaping lets you reduce water use while keeping your yard beautiful, functional, and inviting year-round.",
+        text: "Bay Area summers are long and dry, and water conservation is a fact of life for homeowners across Silicon Valley. The Santa Clara Valley Water District and Bay Area water utilities enforce seasonal watering restrictions, and California's Model Water Efficient Landscape Ordinance (MWELO) sets water-budget requirements for new and renovated landscapes over 500 square feet. Drought-tolerant landscaping lets you reduce water use while keeping your yard beautiful, functional, and inviting year-round.",
       },
       { type: "heading", text: "Choose the Right Plants" },
       {
@@ -114,12 +114,12 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Use Efficient Irrigation" },
       {
         type: "paragraph",
-        text: "Drip irrigation delivers water directly to root zones, reducing evaporation and runoff. Pair it with a smart controller that adjusts watering based on weather and soil moisture, and your landscape stays healthy with a fraction of the water. Learn more about our [irrigation and drainage](/services/irrigation-drainage) services, or read our [Palo Alto irrigation installation guide](/blog/palo-alto-irrigation-installation-guide) for cost benchmarks and smart controller details.",
+        text: "Drip irrigation delivers water directly to root zones, reducing evaporation and runoff. Pair it with a smart controller that adjusts watering based on weather and soil moisture, and your landscape stays healthy with a fraction of the water. Many Bay Area water districts, including the Santa Clara Valley Water District and the San Francisco Public Utilities Commission, offer rebates for upgrading to WaterSense-labeled smart controllers and converting spray irrigation to drip. Learn more about our [irrigation and drainage](/services/irrigation-drainage) services, or read our [Palo Alto irrigation installation guide](/blog/palo-alto-irrigation-installation-guide) for cost benchmarks and smart controller details.",
       },
       { type: "heading", text: "Incorporate Hardscape Elements" },
       {
         type: "paragraph",
-        text: "Patios, walkways, gravel paths, and decorative stone reduce the planted area that needs water while adding structure and usability to your yard. A well-planned hardscape also creates visual interest that looks great in every season. Explore our [hardscaping](/services/hardscaping) services for patios, walkways, and retaining walls, or read our [paver patio design guide](/blog/paver-patio-design-guide) for material and layout ideas.",
+        text: "Patios, walkways, gravel paths, and decorative stone reduce the planted area that needs water while adding structure and usability to your yard. A well-planned hardscape also creates visual interest that looks great in every season. In Bay Area cities like San Jose and Palo Alto, permeable hardscape surfaces can help meet stormwater management requirements set by the Regional Water Quality Control Board for San Francisco Bay. Explore our [hardscaping](/services/hardscaping) services for patios, walkways, and retaining walls, or read our [paver patio design guide](/blog/paver-patio-design-guide) for material and layout ideas.",
       },
       { type: "heading", text: "Mulch Everything" },
       {
@@ -172,7 +172,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: [
       {
         type: "paragraph",
-        text: "A well-built paver patio extends your living space outdoors, adds value to your home, and provides a durable surface that lasts for decades. Here's what to consider when planning yours.",
+        text: "A well-built paver patio extends your living space outdoors, adds value to your home, and provides a durable surface that lasts for decades. In the Bay Area, hardscape projects must also account for seismic activity, clay-heavy soils common in Santa Clara Valley, and local stormwater regulations that require proper drainage to prevent runoff into San Francisco Bay. Here's what to consider when planning yours.",
       },
       { type: "heading", text: "Choosing Paver Materials" },
       {
@@ -195,7 +195,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "heading", text: "Don't Forget Drainage" },
       {
         type: "paragraph",
-        text: "Proper base preparation and slope are critical. A patio should slope about 1 inch per 8 feet away from your home to prevent water pooling and foundation issues. We handle grading and drainage as part of every patio install. Learn more about our [hardscaping](/services/hardscaping) and [site preparation](/services/site-preparation) services. If you're planning lighting alongside your patio, see our guide to [low-voltage landscape lighting](/blog/low-voltage-landscape-lighting-benefits) for placement tips.",
+        text: "Proper base preparation and slope are critical. A patio should slope about 1 inch per 8 feet away from your home to prevent water pooling and foundation issues. In Bay Area communities like Los Gatos and Saratoga, hillside lots may require additional drainage planning to handle winter storm runoff. The San Francisco Bay Regional Water Quality Control Board requires that hardscape surfaces manage stormwater to prevent pollution from entering the bay. We handle grading and drainage as part of every patio install. Learn more about our [hardscaping](/services/hardscaping) and [site preparation](/services/site-preparation) services. If you're planning lighting alongside your patio, see our guide to [low-voltage landscape lighting](/blog/low-voltage-landscape-lighting-benefits) for placement tips.",
       },
       { type: "heading", text: "Budgeting Your Patio" },
       {
@@ -243,7 +243,7 @@ export const BLOG_POSTS: BlogPost[] = [
     body: [
       {
         type: "paragraph",
-        text: "Landscape lighting is one of the highest-impact upgrades you can make to your outdoor space. It extends usability into the evening, highlights architectural and landscape features, and improves safety along paths and steps. Explore our [outdoor amenities](/services/outdoor-amenities) services for professional installation. If you're planning a new patio or walkway, read our [paver patio design guide](/blog/paver-patio-design-guide) to coordinate lighting and hardscape in one project.",
+        text: "Landscape lighting is one of the highest-impact upgrades you can make to your outdoor space. It extends usability into the evening, highlights architectural and landscape features, and improves safety along paths and steps. In Bay Area communities like Atherton and Los Altos Hills, where evening fog can reduce visibility, well-placed path lighting is especially valuable. Many Bay Area cities have dark-sky guidelines that encourage shielded, downward-directed fixtures to minimize light pollution — something we incorporate into every lighting plan. Explore our [outdoor amenities](/services/outdoor-amenities) services for professional installation. If you're planning a new patio or walkway, read our [paver patio design guide](/blog/paver-patio-design-guide) to coordinate lighting and hardscape in one project.",
       },
       { type: "heading", text: "Why Low-Voltage?" },
       {

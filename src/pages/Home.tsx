@@ -1,11 +1,10 @@
-import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TrustBar } from "@/components/TrustBar";
-import { ArrowRight, PhoneCall, MapPin, ChevronLeft, ChevronRight, Star, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, PhoneCall, MapPin, Star, ShieldCheck, Sparkles } from "lucide-react";
 import {
   BUSINESS_NAME,
   CTA_LABEL,
@@ -24,6 +23,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { BayAreaMap } from "@/components/BayAreaMap";
 
 const HOME_FAQS = [
   {
@@ -47,47 +47,6 @@ const HOME_FAQS = [
     answer: `We offer landscaping and planting, hardscaping (patios, walkways, retaining walls), site preparation and grading, irrigation and drainage systems, and outdoor amenities including water features and low-voltage landscape lighting.`,
   },
 ];
-
-function HScroll({ children }: { children: React.ReactNode }) {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const el = wrapRef.current?.querySelector(".h-scroll") as HTMLElement | null;
-    if (!el) return;
-    const onScroll = () => setScrolled(el.scrollLeft > 10);
-    el.addEventListener("scroll", onScroll);
-    onScroll();
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const scrollBy = (dir: number) => {
-    const el = wrapRef.current?.querySelector(".h-scroll") as HTMLElement | null;
-    if (el) el.scrollBy({ left: dir * 340, behavior: "smooth" });
-  };
-
-  return (
-    <div ref={wrapRef} className={`h-scroll-wrap ${scrolled ? "is-scrolled" : ""}`}>
-      <div className="relative">
-        {children}
-        <button
-          onClick={() => scrollBy(-1)}
-          className="absolute -left-3 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 shadow-ambient transition-fluid hover:bg-muted md:flex"
-          aria-label="Scroll left"
-        >
-          <ChevronLeft className="size-5" aria-hidden="true" />
-        </button>
-        <button
-          onClick={() => scrollBy(1)}
-          className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 shadow-ambient transition-fluid hover:bg-muted md:flex"
-          aria-label="Scroll right"
-        >
-          <ChevronRight className="size-5" aria-hidden="true" />
-        </button>
-      </div>
-    </div>
-  );
-}
 
 export default function Home() {
   return (
@@ -231,50 +190,47 @@ export default function Home() {
             />
           </Reveal>
 
-          {/* Bento grid */}
-          <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-5">
-            {SERVICES.map((service, i) => {
-              const span = i === 0 ? "md:col-span-3 md:row-span-2" : i === 1 ? "md:col-span-3" : i === 2 ? "md:col-span-2" : i === 3 ? "md:col-span-2" : "md:col-span-2";
-              return (
-                <Reveal key={service.slug} delay={i * 80} className={span}>
-                  <Link to={`/services/${service.slug}`} className="group block h-full">
-                    <div className="bezel h-full">
-                      <div className="bezel-inner relative flex h-full flex-col">
-                        <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-auto md:flex-1">
-                          <img
-                            src={service.image}
-                            alt={service.imageAlt}
-                            loading="lazy"
-                            className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 to-transparent" />
-                          <div className="absolute left-4 top-4">
-                            <div className="flex size-10 items-center justify-center rounded-full bg-white/15 backdrop-blur-md ring-1 ring-white/20">
-                              <service.icon className="size-5 text-white" aria-hidden="true" />
-                            </div>
+          {/* Equal-size services grid */}
+          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((service, i) => (
+              <Reveal key={service.slug} delay={i * 80}>
+                <Link to={`/services/${service.slug}`} className="group block h-full">
+                  <div className="bezel h-full">
+                    <div className="bezel-inner relative flex h-full flex-col">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden">
+                        <img
+                          src={service.image}
+                          alt={service.imageAlt}
+                          loading="lazy"
+                          className="size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 to-transparent" />
+                        <div className="absolute left-4 top-4">
+                          <div className="flex size-10 items-center justify-center rounded-full bg-white/15 backdrop-blur-md ring-1 ring-white/20">
+                            <service.icon className="size-5 text-white" aria-hidden="true" />
                           </div>
                         </div>
-                        <div className="flex flex-col gap-2 p-5 md:p-6">
-                          <h3 className="font-heading text-xl font-medium text-foreground md:text-2xl">
-                            {service.name}
-                          </h3>
-                          <p className="text-sm text-muted-foreground leading-relaxed">{service.tagline}</p>
-                          <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
-                            Learn more
-                            <ArrowRight className="size-4" aria-hidden="true" />
-                          </span>
-                        </div>
+                      </div>
+                      <div className="flex flex-col gap-2 p-5 md:p-6">
+                        <h3 className="font-heading text-xl font-medium text-foreground md:text-2xl">
+                          {service.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{service.tagline}</p>
+                        <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
+                          Learn more
+                          <ArrowRight className="size-4" aria-hidden="true" />
+                        </span>
                       </div>
                     </div>
-                  </Link>
-                </Reveal>
-              );
-            })}
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===== Featured Areas — horizontal scroll ===== */}
+      {/* ===== Service Areas — Interactive Map ===== */}
       <section className="bg-sage-tint py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
@@ -285,30 +241,7 @@ export default function Home() {
             />
           </Reveal>
           <Reveal delay={100} className="mt-16">
-            <HScroll>
-              <div className="h-scroll">
-                {AREAS.map((area) => (
-                  <div key={area.slug} className="h-scroll-item">
-                    <Link to={`/areas/${area.slug}`} className="group block h-full">
-                      <div className="bezel h-full">
-                        <div className="bezel-inner flex h-full flex-col p-6">
-                          <div className="flex size-12 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/15">
-                            <MapPin className="size-5 text-primary" aria-hidden="true" />
-                          </div>
-                          <h3 className="mt-4 font-heading text-xl font-medium text-foreground">{area.name}</h3>
-                          <p className="mt-1 text-sm text-muted-foreground">{area.county} County</p>
-                          <p className="mt-1 text-xs text-muted-foreground/70">{area.metro} area</p>
-                          <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-fluid group-hover:gap-2.5">
-                            View services
-                            <ArrowRight className="size-4" aria-hidden="true" />
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </HScroll>
+            <BayAreaMap areas={AREAS} />
           </Reveal>
         </div>
       </section>
@@ -376,13 +309,9 @@ export default function Home() {
               title="Outdoor Spaces We've Designed & Built"
             />
           </Reveal>
-          <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+          <div className="mt-16 grid grid-cols-2 gap-5 md:grid-cols-3">
             {GALLERY_ITEMS.slice(0, 6).map((project, i) => (
-              <Reveal
-                key={project.title}
-                delay={i * 60}
-                className={i === 0 ? "col-span-2 md:col-span-2 md:row-span-2" : ""}
-              >
+              <Reveal key={project.title} delay={i * 60}>
                 <Link to="/gallery" className="group block">
                   <div className="bezel">
                     <div className="bezel-inner relative overflow-hidden">
@@ -390,16 +319,14 @@ export default function Home() {
                         src={project.image}
                         alt={project.title}
                         loading="lazy"
-                        className={`w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105 ${
-                          i === 0 ? "aspect-[4/3] md:aspect-[16/10]" : "aspect-[4/3]"
-                        }`}
+                        className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-transparent to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                        <h3 className={`font-heading font-medium text-white ${i === 0 ? "text-xl md:text-2xl" : "text-base"}`}>
+                        <h3 className="font-heading text-base font-medium text-white">
                           {project.title}
                         </h3>
-                        <p className={`mt-1 text-white/70 ${i === 0 ? "text-sm" : "text-xs line-clamp-1"}`}>
+                        <p className="mt-1 text-xs text-white/70 line-clamp-1">
                           {project.description}
                         </p>
                       </div>
