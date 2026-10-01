@@ -43,6 +43,7 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [images, setImages] = useState<UploadedImage[]>([]);
   const [imageError, setImageError] = useState<string | null>(null);
+  const [smsConsent, setSmsConsent] = useState(false);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -134,6 +135,7 @@ export default function Contact() {
         services: selectedServices,
         message: message.trim() || null,
         image_urls: imageUrls.length > 0 ? imageUrls : null,
+        sms_consent: smsConsent,
       });
 
       if (error) throw error;
@@ -146,6 +148,7 @@ export default function Contact() {
       setMessage("");
       setImages([]);
       setImageError(null);
+      setSmsConsent(false);
     } catch {
       console.error("Quote submission failed");
       setSubmitState("error");
@@ -343,6 +346,24 @@ export default function Contact() {
                               ))}
                             </div>
                           )}
+                        </div>
+
+                        {/* SMS consent */}
+                        <div className="flex flex-col gap-2">
+                          <label
+                            htmlFor="sms-consent"
+                            className="flex cursor-pointer items-start gap-3 rounded-xl border border-input p-3 transition-fluid hover:bg-muted has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+                          >
+                            <Checkbox
+                              id="sms-consent"
+                              checked={smsConsent}
+                              onCheckedChange={(checked) => setSmsConsent(checked === true)}
+                              className="mt-0.5"
+                            />
+                            <span className="text-xs text-muted-foreground leading-relaxed">
+                              I agree to receive SMS text messages about my quote request at the phone number provided. Standard messaging rates may apply. Reply STOP to opt out at any time. We never share your information.
+                            </span>
+                          </label>
                         </div>
 
                         {submitState === "error" && (
