@@ -254,6 +254,8 @@ export const AREAS: Area[] = [
   { slug: "alum-rock", name: "Alum Rock", county: "Santa Clara", metro: "Silicon Valley", lat: 37.3697, lng: -121.8236 },
   { slug: "emerald-hills", name: "Emerald Hills", county: "San Mateo", metro: "Silicon Valley", lat: 37.4651, lng: -122.2675 },
   { slug: "redwood-city", name: "Redwood City", county: "San Mateo", metro: "Silicon Valley", lat: 37.4852, lng: -122.2364 },
+  { slug: "hillsborough", name: "Hillsborough", county: "San Mateo", metro: "Silicon Valley", lat: 37.5646, lng: -122.3623 },
+  { slug: "belvedere", name: "Belvedere", county: "Marin", metro: "Bay Area", lat: 37.8682, lng: -122.4658 },
 ];
 
 

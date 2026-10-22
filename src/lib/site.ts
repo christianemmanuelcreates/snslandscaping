@@ -16,10 +16,10 @@ export const LICENSE = "LIC 100-7487";
 
 /** Business address used in LocalBusiness schema and footer. */
 export const BUSINESS_ADDRESS = {
-  streetAddress: "12345 Los Gatos Blvd, Suite 200",
-  addressLocality: "Los Gatos",
+  streetAddress: "225 Sunol St",
+  addressLocality: "San Jose",
   addressRegion: "CA",
-  postalCode: "95032",
+  postalCode: "95126",
   addressCountry: "US",
 };
 
@@ -40,8 +40,8 @@ export const SAME_AS: string[] = [
 export const CONTACTS = [
   {
     name: "Samuel Delgado",
-    phone: "209-979-6677",
-    phoneHref: "tel:+12099796677",
+    phone: "650-706-9496",
+    phoneHref: "tel:+16507069496",
   },
   {
     name: "Santos Gomez",

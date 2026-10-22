@@ -127,6 +127,8 @@ export default function About() {
           src="/images/gallery/illuminated_steps.jpg"
           alt="Illuminated entry steps with paver walkway and retaining walls"
           loading="lazy"
+          width={1920}
+          height={1280}
           className="absolute inset-0 size-full object-cover"
         />
         <div className="absolute inset-0 bg-espresso/80" />

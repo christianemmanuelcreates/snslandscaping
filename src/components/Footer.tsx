@@ -88,7 +88,7 @@ export function Footer() {
               {AREAS.map((area) => (
                 <li key={area.slug}>
                   <Link to={`/areas/${area.slug}`} className="text-sm text-white/60 transition-fluid hover:text-white">
-                    {area.name}
+                    Landscaping in {area.name}
                   </Link>
                 </li>
               ))}

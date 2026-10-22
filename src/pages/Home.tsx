@@ -28,7 +28,7 @@ import { BayAreaMap } from "@/components/BayAreaMap";
 const HOME_FAQS = [
   {
     question: "What areas do you serve?",
-    answer: `S&S Landscaping serves 16 communities across Silicon Valley and the San Francisco Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, Saratoga, and more. We serve both residential and commercial properties throughout Santa Clara and San Mateo counties.`,
+    answer: `S&S Landscaping serves 18 communities across Silicon Valley and the San Francisco Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, Saratoga, Hillsborough, Belvedere, and more. We serve both residential and commercial properties throughout Santa Clara, San Mateo, and Marin counties.`,
   },
   {
     question: "Are you licensed and insured?",
@@ -94,6 +94,8 @@ export default function Home() {
           alt="Landscaped backyard with a stone water fountain, lush lawn, and garden plantings by S&S Landscaping"
           className="absolute inset-0 size-full object-cover"
           loading="eager"
+          width={1920}
+          height={1280}
         />
         <div
           className="absolute inset-0 bg-gradient-to-b from-espresso/85 via-espresso/45 to-espresso/20"

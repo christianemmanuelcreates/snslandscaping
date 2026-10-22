@@ -12,6 +12,7 @@ import { ArrowRight, PhoneCall, MapPin } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { BUSINESS_NAME, CTA_LABEL, PRIMARY_PHONE, BUSINESS_ADDRESS, SAME_AS } from "@/lib/site";
 import { getArea, SERVICES, AREAS } from "@/lib/sns-data";
+import { getAreaContent } from "@/lib/area-content";
 
 export default function AreaDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -42,15 +43,21 @@ export default function AreaDetail() {
   }
 
   const otherAreas = AREAS.filter((a) => a.slug !== area.slug);
+  const content = getAreaContent(area.slug);
 
-  const areaSpecificFaqs = [
+  const heroImage = content?.heroImage ?? "/images/gallery/backyard_concept.jpg";
+  const heroAlt = content?.heroAlt ?? `Landscaping in ${area.name} by S&S Landscaping`;
+  const intro = content?.intro ?? `${area.name} is in ${area.county} County, in the heart of ${area.metro}. We bring premium landscaping and outdoor living to your community.`;
+  const neighborhoods = content?.neighborhoods;
+
+  const areaFaqs = content?.faqs ?? [
     {
       question: `What landscaping services do you offer in ${area.name}?`,
       answer: `We offer the full range of S&S Landscaping services in ${area.name}, including landscaping and planting, hardscaping (patios, walkways, retaining walls), site preparation and grading, irrigation and drainage, and outdoor amenities like water features and landscape lighting.`,
     },
     {
       question: `How long has S&S Landscaping been serving ${area.name}?`,
-      answer: `We serve ${area.name} and all ${area.county} County communities as part of our 16-city service area across Silicon Valley and the Bay Area. We're locally owned, licensed (LIC 100-7487), and insured.`,
+      answer: `We serve ${area.name} and all ${area.county} County communities as part of our ${AREAS.length}-city service area across Silicon Valley and the Bay Area. We're locally owned, licensed (LIC 100-7487), and insured.`,
     },
     {
       question: `Do you offer free quotes in ${area.name}?`,
@@ -59,7 +66,7 @@ export default function AreaDetail() {
   ];
 
   const serviceFaqs = SERVICES.flatMap((s) => s.faqs).slice(0, 5);
-  const allFaqs = [...areaSpecificFaqs, ...serviceFaqs];
+  const allFaqs = [...areaFaqs, ...serviceFaqs];
 
   return (
     <Layout
@@ -67,7 +74,7 @@ export default function AreaDetail() {
         title: `Landscaping in ${area.name}, CA | ${BUSINESS_NAME}`,
         description: `Professional landscaping, hardscaping, irrigation, and outdoor living services in ${area.name}, ${area.county} County. Serving ${area.metro} and the Bay Area. Get a free quote from ${BUSINESS_NAME}.`,
         canonical: `https://snslandscaping.org/areas/${area.slug}`,
-        ogImage: "https://snslandscaping.org/images/gallery/backyard_concept.jpg",
+        ogImage: `https://snslandscaping.org${heroImage}`,
         schemaTypes: ["LocalBusiness"],
       }}
       hasLocalBusiness
@@ -96,8 +103,10 @@ export default function AreaDetail() {
       {/* Hero */}
       <section className="relative min-h-[70vh] overflow-hidden">
         <img
-          src="/images/gallery/backyard_concept.jpg"
-          alt="Landscaped backyard with a stone water fountain and lush garden by S&S Landscaping"
+          src={heroImage}
+          alt={heroAlt}
+          width={1920}
+          height={1280}
           loading="eager"
           className="absolute inset-0 size-full object-cover"
         />
@@ -116,7 +125,7 @@ export default function AreaDetail() {
             </Reveal>
             <Reveal delay={200}>
               <p className="max-w-xl text-lg text-white/80 md:text-xl">
-                {area.name} is in {area.county} County, in the heart of {area.metro}. We bring premium landscaping and outdoor living to your community.
+                {intro}
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -153,6 +162,11 @@ export default function AreaDetail() {
               <p className="mt-4 text-muted-foreground">
                 From lawn installation and garden design to hardscaping, irrigation, and landscape lighting, we handle every aspect of your outdoor project with the same attention to detail.
               </p>
+              {neighborhoods && (
+                <p className="mt-3 text-sm text-muted-foreground/80">
+                  Serving: {neighborhoods}
+                </p>
+              )}
             </div>
           </Reveal>
           <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
