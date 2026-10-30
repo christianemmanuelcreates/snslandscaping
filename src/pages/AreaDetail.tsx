@@ -46,7 +46,7 @@ export default function AreaDetail() {
   const content = getAreaContent(area.slug);
 
   const heroImage = content?.heroImage ?? "/images/gallery/backyard_concept.jpg";
-  const heroAlt = content?.heroAlt ?? `Landscaping in ${area.name} by S&S Landscaping`;
+  const heroAlt = content?.heroAlt ?? `Landscaping in ${area.name} by S&S Landscaping Services`;
   const intro = content?.intro ?? `${area.name} is in ${area.county} County, in the heart of ${area.metro}. We bring premium landscaping and outdoor living to your community.`;
   const neighborhoods = content?.neighborhoods;
 
@@ -56,7 +56,7 @@ export default function AreaDetail() {
       answer: `We offer the full range of S&S Landscaping services in ${area.name}, including landscaping and planting, hardscaping (patios, walkways, retaining walls), site preparation and grading, irrigation and drainage, and outdoor amenities like water features and landscape lighting.`,
     },
     {
-      question: `How long has S&S Landscaping been serving ${area.name}?`,
+      question: `How long has S&S Landscaping Services been serving ${area.name}?`,
       answer: `We serve ${area.name} and all ${area.county} County communities as part of our ${AREAS.length}-city service area across Silicon Valley and the Bay Area. We're locally owned, licensed (LIC 100-7487), and insured.`,
     },
     {
@@ -72,7 +72,7 @@ export default function AreaDetail() {
     <Layout
       seo={{
         title: `Landscaping in ${area.name}, CA | ${BUSINESS_NAME}`,
-        description: `Professional landscaping, hardscaping, irrigation, and outdoor living services in ${area.name}, ${area.county} County. Serving ${area.metro} and the Bay Area. Get a free quote from ${BUSINESS_NAME}.`,
+        description: content?.metaDescription ?? `Professional landscaping, hardscaping, irrigation, and outdoor living services in ${area.name}, ${area.county} County. Serving ${area.metro} and the Bay Area. Get a free quote from ${BUSINESS_NAME}.`,
         canonical: `https://snslandscaping.org/areas/${area.slug}`,
         ogImage: `https://snslandscaping.org${heroImage}`,
         schemaTypes: ["LocalBusiness"],

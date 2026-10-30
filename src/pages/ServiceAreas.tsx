@@ -13,7 +13,7 @@ export default function ServiceAreas() {
       seo={{
         title: `Service Areas in Silicon Valley | ${BUSINESS_NAME}`,
         description:
-          "S&S Landscaping serves 16 communities across Silicon Valley and the Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, and Saratoga. Get a free quote today.",
+          "S&S Landscaping Services serves 16 communities across Silicon Valley and the Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, and Saratoga. Get a free quote today.",
         canonical: "https://snslandscaping.org/areas",
         schemaTypes: ["LocalBusiness"],
       }}

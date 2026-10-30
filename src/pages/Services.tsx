@@ -17,7 +17,7 @@ import {
 const SERVICES_PAGE_FAQS = [
   {
     question: "What landscaping services do you offer in the Bay Area?",
-    answer: `S&S Landscaping offers landscaping and planting, hardscaping (patios, walkways, retaining walls), site preparation and grading, irrigation and drainage systems, and outdoor amenities including water features and low-voltage landscape lighting across Silicon Valley and the Bay Area.`,
+    answer: `S&S Landscaping Services offers landscaping and planting, hardscaping (patios, walkways, retaining walls), site preparation and grading, irrigation and drainage systems, and outdoor amenities including water features and low-voltage landscape lighting across Silicon Valley and the Bay Area.`,
   },
   {
     question: "Do you serve both residential and commercial properties?",

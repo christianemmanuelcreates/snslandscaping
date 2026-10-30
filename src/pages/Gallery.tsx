@@ -43,7 +43,7 @@ export default function Gallery() {
       seo={{
         title: `Gallery | ${BUSINESS_NAME} Projects`,
         description:
-          "Browse patios, retaining walls, paver walkways, landscape lighting, water features, and turf installations by S&S Landscaping across Silicon Valley & the Bay Area.",
+          "Browse patios, retaining walls, paver walkways, landscape lighting, water features, and turf installations by S&S Landscaping Services across Silicon Valley & the Bay Area.",
         canonical: "https://snslandscaping.org/gallery",
         ogImage: "https://snslandscaping.org/images/gallery/stone_feature_2.jpg",
       }}

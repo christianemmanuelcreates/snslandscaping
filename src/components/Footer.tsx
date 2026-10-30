@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
 import {
   BUSINESS_NAME,
   BUSINESS_TAGLINE,
+  BUSINESS_ADDRESS,
   EMAIL,
   LICENSE,
   CONTACTS,
@@ -38,7 +39,7 @@ export function Footer() {
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Visit S&S Landscaping on Instagram"
+                aria-label="Visit S&S Landscaping Services on Instagram"
                 className="flex size-9 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition-colors hover:bg-white/10"
               >
                 <img src="/images/icons/Instagram_Logo-removebg-preview.png" alt="Instagram" className="size-5 object-contain" />
@@ -47,7 +48,7 @@ export function Footer() {
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Visit S&S Landscaping on Facebook"
+                aria-label="Visit S&S Landscaping Services on Facebook"
                 className="flex size-9 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition-colors hover:bg-white/10"
               >
                 <img src="/images/icons/Facebook_f_logo__2021_.svg-removebg-preview.png" alt="Facebook" className="size-5 object-contain" />
@@ -56,7 +57,7 @@ export function Footer() {
                 href={SOCIAL_LINKS.google}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="View S&S Landscaping on Google Business Profile"
+                aria-label="View S&S Landscaping Services on Google Business Profile"
                 className="flex size-9 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 transition-colors hover:bg-white/10"
               >
                 <img src="/images/icons/G_Logo-removebg-preview.png" alt="Google" className="size-5 object-contain" />
@@ -127,9 +128,11 @@ export function Footer() {
                 <Mail className="mt-0.5 size-4 shrink-0 text-clay" aria-hidden="true" />
                 <a href={`mailto:${EMAIL}`} className="min-w-0 break-all text-sm text-white/60 transition-fluid hover:text-white">{EMAIL}</a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <MapPin className="size-4 shrink-0 text-clay" aria-hidden="true" />
-                <span className="text-white/60">{AREAS.length} Bay Area communities</span>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-clay" aria-hidden="true" />
+                <span className="text-sm text-white/60">
+                  {BUSINESS_ADDRESS.streetAddress}, {BUSINESS_ADDRESS.addressLocality}, {BUSINESS_ADDRESS.addressRegion} {BUSINESS_ADDRESS.postalCode}
+                </span>
               </li>
             </ul>
           </div>

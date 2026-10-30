@@ -28,11 +28,11 @@ import { BayAreaMap } from "@/components/BayAreaMap";
 const HOME_FAQS = [
   {
     question: "What areas do you serve?",
-    answer: `S&S Landscaping serves 18 communities across Silicon Valley and the San Francisco Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, Saratoga, Hillsborough, Belvedere, and more. We serve both residential and commercial properties throughout Santa Clara, San Mateo, and Marin counties.`,
+    answer: `S&S Landscaping Services serves 18 communities across Silicon Valley and the San Francisco Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, Saratoga, Hillsborough, Belvedere, and more. We serve both residential and commercial properties throughout Santa Clara, San Mateo, and Marin counties.`,
   },
   {
     question: "Are you licensed and insured?",
-    answer: `Yes. S&S Landscaping is fully licensed (LIC 100-7487) and insured for every project we take on, from small front yard refreshes to full backyard transformations and commercial landscaping.`,
+    answer: `Yes. S&S Landscaping Services is fully licensed (LIC 100-7487) and insured for every project we take on, from small front yard refreshes to full backyard transformations and commercial landscaping.`,
   },
   {
     question: "Do you offer free quotes?",
@@ -91,7 +91,7 @@ export default function Home() {
       <section className="relative min-h-[100dvh] overflow-hidden">
         <img
           src="/images/gallery/backyard_concept.jpg"
-          alt="Landscaped backyard with a stone water fountain, lush lawn, and garden plantings by S&S Landscaping"
+          alt="Landscaped backyard with a stone water fountain, lush lawn, and garden plantings by S&S Landscaping Services"
           className="absolute inset-0 size-full object-cover"
           loading="eager"
           width={1920}
@@ -238,11 +238,31 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Where We Work"
-              title="Local Expertise Across Silicon Valley"
-              description="We know the soils, climates, and permitting requirements of every community we serve."
+              title="Proudly Serving San Jose & the Bay Area"
+              description="Based in San Jose, we bring premium landscaping to 18 communities across Silicon Valley. We know the soils, climates, and permitting requirements of every neighborhood we serve."
             />
           </Reveal>
-          <Reveal delay={100} className="mt-16">
+          <Reveal delay={80} className="mt-10">
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                { name: "San Jose", slug: "san-jose" },
+                { name: "Santa Clara", slug: "santa-clara" },
+                { name: "Atherton", slug: "atherton" },
+                { name: "Palo Alto", slug: "palo-alto" },
+                { name: "Saratoga", slug: "saratoga" },
+                { name: "Los Gatos", slug: "los-gatos" },
+                { name: "Mountain View", slug: "mountain-view" },
+                { name: "Cupertino", slug: "cupertino" },
+              ].map((city) => (
+                <Link key={city.slug} to={`/areas/${city.slug}`}>
+                  <span className="cursor-pointer rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-fluid hover:bg-primary hover:text-primary-foreground">
+                    {city.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={160} className="mt-16">
             <BayAreaMap areas={AREAS} />
           </Reveal>
         </div>

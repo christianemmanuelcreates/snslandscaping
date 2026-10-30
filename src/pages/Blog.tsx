@@ -16,7 +16,7 @@ export default function Blog() {
       seo={{
         title: `Landscaping Blog | ${BUSINESS_NAME}`,
         description:
-          "Expert tips on drought-tolerant landscaping, paver patio design, landscape lighting, garden maintenance, and outdoor living ideas for Bay Area homeowners from S&S Landscaping.",
+          "Expert tips on drought-tolerant landscaping, paver patio design, landscape lighting, garden maintenance, and outdoor living ideas for Bay Area homeowners from S&S Landscaping Services.",
         canonical: "https://snslandscaping.org/blog",
         ogImage: "https://snslandscaping.org/images/gallery/illuminated_steps.jpg",
       }}
@@ -29,7 +29,7 @@ export default function Blog() {
             <SectionHeading
               eyebrow="Tips & Ideas"
               title="Landscaping Tips & Project Guides"
-              description="Expert advice on landscaping, hardscaping, irrigation, and outdoor living from the team at S&S Landscaping."
+              description="Expert advice on landscaping, hardscaping, irrigation, and outdoor living from the team at S&S Landscaping Services."
             />
           </Reveal>
         </div>

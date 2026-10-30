@@ -43,7 +43,7 @@ export default function About() {
       seo={{
         title: `About ${BUSINESS_NAME} | Licensed Landscaping by Samuel Delgado`,
         description:
-          "Meet Samuel Delgado and Santos Gomez of S&S Landscaping — licensed (LIC 100-7487), insured, and serving Silicon Valley & the Bay Area with premium outdoor living. Get a free quote today.",
+          "Meet Samuel Delgado and Santos Gomez of S&S Landscaping Services — licensed (LIC 100-7487), insured, and serving Silicon Valley & the Bay Area with premium outdoor living. Get a free quote today.",
         canonical: "https://snslandscaping.org/about",
         ogImage: "https://snslandscaping.org/images/gallery/tori_bench.jpg",
       }}
@@ -70,7 +70,7 @@ export default function About() {
                 {BUSINESS_TAGLINE}.
               </p>
               <p className="text-base leading-relaxed text-muted-foreground">
-                I'm Samuel Delgado, and I started S&S Landscaping with one goal: to bring honest, dependable, and beautiful outdoor living to homeowners and businesses across Silicon Valley and the Bay Area. My partner Santos Gomez and I have spent years working with our hands in this exact soil — we know what thrives here, what drains properly, and what holds up over time.
+                I'm Samuel Delgado, and I started S&S Landscaping Services with one goal: to bring honest, dependable, and beautiful outdoor living to homeowners and businesses across Silicon Valley and the Bay Area. My partner Santos Gomez and I have spent years working with our hands in this exact soil — we know what thrives here, what drains properly, and what holds up over time.
               </p>
               <p className="text-base leading-relaxed text-muted-foreground">
                 We're a locally owned company, fully licensed ({LICENSE}) and insured, and we take pride in every project whether it's a small front yard refresh or a full backyard transformation. When you call us, you talk to us directly — no subcontractors, no call centers, no surprises.
@@ -143,7 +143,7 @@ export default function About() {
                 I grew up watching landscapes come together — the grading, the stonework, the planting — and I learned early that the difference between an average yard and an exceptional one comes down to the details most people never notice. The slope of a patio that sheds water the right way. The compacted base under a walkway that keeps it level for decades. The irrigation zone that waters each plant type correctly.
               </p>
               <p>
-                Santos and I founded S&S Landscaping because we wanted to do things the right way — no shortcuts, no cutting corners, just quality workmanship from the ground up. We serve 16 communities across Silicon Valley and the Bay Area, from Los Gatos to Palo Alto to San Jose, and we treat every property like it's our own.
+                Santos and I founded S&S Landscaping Services because we wanted to do things the right way — no shortcuts, no cutting corners, just quality workmanship from the ground up. We serve 16 communities across Silicon Valley and the Bay Area, from Los Gatos to Palo Alto to San Jose, and we treat every property like it's our own.
               </p>
               <p>
                 Whether you need a new patio, a retaining wall, irrigation repair, a full landscape design, or just a reliable team to transform your outdoor space, we're here to help. Call us directly and we'll get you a free quote.

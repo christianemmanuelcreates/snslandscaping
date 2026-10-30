@@ -129,12 +129,12 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: "quote",
         text: "A well-designed drought-tolerant yard uses a fraction of the water of a traditional lawn, looks beautiful in every season, and almost takes care of itself.",
-        attribution: "Samuel Delgado, S&S Landscaping",
+        attribution: "Samuel Delgado, S&S Landscaping Services",
       },
       { type: "heading", text: "Ready to Go Drought-Tolerant?" },
       {
         type: "paragraph",
-        text: "Whether you want a full redesign or just want to swap out a thirsty lawn for something more sustainable, we can help. Contact S&S Landscaping for a [free consultation and quote](/contact#quote-form).",
+        text: "Whether you want a full redesign or just want to swap out a thirsty lawn for something more sustainable, we can help. Contact S&S Landscaping Services for a [free consultation and quote](/contact#quote-form).",
       },
     ],
     faqs: [
@@ -205,7 +205,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: "quote",
         text: "A great patio starts below ground. The base work is what makes a patio last 20+ years without settling or shifting.",
-        attribution: "Samuel Delgado, S&S Landscaping",
+        attribution: "Samuel Delgado, S&S Landscaping Services",
       },
     ],
     faqs: [
@@ -269,7 +269,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: "quote",
         text: "The best landscape lighting you don't notice during the day but completely transforms the yard at night.",
-        attribution: "Samuel Delgado, S&S Landscaping",
+        attribution: "Samuel Delgado, S&S Landscaping Services",
       },
     ],
     faqs: [
@@ -296,7 +296,7 @@ export const BLOG_POSTS: BlogPost[] = [
     updatedAt: "2026-09-02",
     image: "/images/gallery/front_yard_2.jpg",
     imageAlt:
-      "Finished Los Gatos landscape with lawn, paver border, and layered planting by S&S Landscaping",
+      "Finished Los Gatos landscape with lawn, paver border, and layered planting by S&S Landscaping Services",
     excerpt:
       "A site-specific plan for planting, irrigation, drainage, lighting, and hardscape turns outdoor space into a landscape that performs for years in Los Gatos.",
     body: [
@@ -420,14 +420,14 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "saratoga-garden-maintenance-services-guide",
     title: "Saratoga Garden Maintenance Services Guide",
     description:
-      "Expert Saratoga garden maintenance, mowing, pruning, irrigation, cleanup, fertilization, aeration, and weed control from S&S Landscaping.",
+      "Expert Saratoga garden maintenance, mowing, pruning, irrigation, cleanup, fertilization, aeration, and weed control from S&S Landscaping Services.",
     category: "maintenance",
     tags: ["saratoga", "garden maintenance", "lawn mowing", "irrigation", "weed control"],
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     image: "/images/gallery/yard_work.jpg",
     imageAlt:
-      "Maintained Saratoga yard with clean lawn edges, pruned shrubs, and tidy planting beds by S&S Landscaping",
+      "Maintained Saratoga yard with clean lawn edges, pruned shrubs, and tidy planting beds by S&S Landscaping Services",
     excerpt:
       "Scheduled mowing, pruning, weeding, feeding, cleanup, and water management keep Saratoga lawns, shrubs, and planting beds healthy through every season.",
     body: [
@@ -441,7 +441,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "S&S Landscaping handles landscaping, hardscaping, irrigation, drainage, and outdoor living projects across the San Francisco Bay Area. Garden maintenance protects that investment by correcting small issues before they become dead turf, overgrown shrubs, or water-damaged surfaces.",
+        text: "S&S Landscaping Services handles landscaping, hardscaping, irrigation, drainage, and outdoor living projects across the San Francisco Bay Area. Garden maintenance protects that investment by correcting small issues before they become dead turf, overgrown shrubs, or water-damaged surfaces.",
       },
       {
         type: "paragraph",
@@ -604,7 +604,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         type: "quote",
         text: "Water savings begin with distribution uniformity, not shorter run times. Poor coverage forces owners to overwater an entire zone just to reach one dry area.",
-        attribution: "Samuel Delgado, S&S Landscaping",
+        attribution: "Samuel Delgado, S&S Landscaping Services",
       },
       { type: "heading", text: "Ready to Schedule?" },
       {
@@ -707,7 +707,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "Top-rated contractors like S&S Landscaping ensure transparent communication throughout the consultation process. We explain technical specifications, warranty details, and maintenance requirements while addressing specific concerns about energy efficiency and long-term performance.",
+        text: "Top-rated contractors like S&S Landscaping Services ensure transparent communication throughout the consultation process. We explain technical specifications, warranty details, and maintenance requirements while addressing specific concerns about energy efficiency and long-term performance.",
       },
       {
         type: "paragraph",
@@ -825,6 +825,182 @@ export const BLOG_POSTS: BlogPost[] = [
         question: "Are smart lighting controls worth it?",
         answer:
           "Smart controls are included in about 85% of new professional installations. They allow remote scheduling, dimming, and color adjustment via smartphone, and can integrate with home automation systems for added convenience and energy savings.",
+      },
+    ],
+  },
+  {
+    slug: "san-jose-landscaping-services",
+    title: "San Jose Landscaping Services",
+    description:
+      "Professional landscaping services in San Jose, CA. Drought-tolerant gardens, paver patios, irrigation upgrades, and retaining walls for Willow Glen, Rose Garden, Almaden Valley, and more. Free quotes.",
+    category: "landscaping",
+    tags: ["san jose", "landscaping services", "drought-tolerant", "paver patio", "irrigation"],
+    publishedAt: "2026-10-30",
+    updatedAt: "2026-10-30",
+    image: "/images/gallery/General_site_photo_1.jpg",
+    imageAlt:
+      "Completed San Jose landscape project with hardscape installation and planting by S&S Landscaping Services",
+    excerpt:
+      "From drought-tolerant front yards in Willow Glen to paver patios in Almaden Valley, here are the landscaping services we provide across San Jose neighborhoods.",
+    body: [
+      {
+        type: "paragraph",
+        text: "San Jose is the largest city in Silicon Valley, and its neighborhoods span from the flat urban core to the foothills of the Diablo Range. Each area has its own soil conditions, micro-climate, and design preferences, which is why we tailor every San Jose landscaping project to the specific neighborhood and property. Explore our [San Jose area page](/areas/san-jose) for neighborhood-specific details and project examples.",
+      },
+      { type: "heading", text: "Drought-Tolerant Landscaping in San Jose" },
+      {
+        type: "paragraph",
+        text: "San Jose follows Santa Clara Valley Water District watering restrictions and California MWELO standards. We replace thirsty lawns with drought-tolerant natives like ceanothus, manzanita, salvia, and ornamental grasses that thrive in San Jose's dry summers. Many San Jose homeowners qualify for landscape conversion rebates through San Jose Water Company, and we design landscapes that meet rebate requirements. See our guide to [drought-tolerant landscaping for Bay Area yards](/blog/drought-tolerant-landscaping-ideas-bay-area) for plant recommendations.",
+      },
+      { type: "heading", text: "Paver Patio Installation in San Jose" },
+      {
+        type: "paragraph",
+        text: "A paver patio extends your living space outdoors and adds real value to your San Jose home. We build patios with proper base preparation and drainage engineering for San Jose's clay-heavy soils, so they stay level for decades. Whether you're in Willow Glen, Rose Garden, or Almaden Valley, we handle everything from design to installation. Learn more about our [hardscaping services](/services/hardscaping) or read our [paver patio design guide](/blog/paver-patio-design-guide).",
+      },
+      { type: "heading", text: "Irrigation Upgrades for San Jose Homes" },
+      {
+        type: "paragraph",
+        text: "Upgrade to a weather-aware irrigation controller and drip zones to cut water bills and qualify for Santa Clara Valley Water District rebates. We install smart irrigation systems designed for San Jose's clay-heavy soils and watering restrictions. Our [irrigation and drainage services](/services/irrigation-drainage) include sprinkler installation, drip irrigation, and smart controller upgrades.",
+      },
+      { type: "heading", text: "Retaining Walls for San Jose Foothill Properties" },
+      {
+        type: "paragraph",
+        text: "Hillside properties in San Jose's foothill neighborhoods need engineered retaining walls with proper drainage to prevent erosion and settling. We build terraced walls, French drains, and slope stabilization systems. Walls over 4 feet require engineering and permits, which we handle. Learn more about our [site preparation services](/services/site-preparation).",
+      },
+      {
+        type: "paragraph",
+        text: "Ready to start your San Jose landscaping project? [Get a free quote](/contact#quote-form) or call us at 650-706-9496. Licensed and insured (LIC 100-7487).",
+      },
+    ],
+    faqs: [
+      {
+        question: "What landscaping services do you offer in San Jose?",
+        answer:
+          "We offer the full range of landscaping services in San Jose, including drought-tolerant landscaping, paver patio installation, irrigation system installation and upgrades, retaining walls, site preparation and grading, and landscape lighting. We serve neighborhoods across San Jose including Willow Glen, Rose Garden, Almaden Valley, Cambrian, and Naglee Park.",
+      },
+      {
+        question: "Do you offer free quotes in San Jose?",
+        answer:
+          "Yes, we provide free quotes for all landscaping and hardscaping projects in San Jose. Call us at 650-706-9496 or fill out our online quote form and we will respond within 24 hours.",
+      },
+      {
+        question: "Are you licensed and insured for San Jose projects?",
+        answer:
+          "Yes. S&S Landscaping Services is fully licensed (LIC 100-7487) and insured for every project we take on in San Jose, from small front yard refreshes to full backyard transformations and commercial landscaping.",
+      },
+    ],
+  },
+  {
+    slug: "santa-clara-landscaping-services",
+    title: "Santa Clara Landscaping Services",
+    description:
+      "Landscaping services in Santa Clara, CA for compact lots. Front yard makeovers, drought-tolerant design, hardscaping, drip irrigation, and retaining walls. Licensed & insured. Free quotes.",
+    category: "landscaping",
+    tags: ["santa clara", "landscaping services", "hardscaping", "drought-tolerant", "compact lot"],
+    publishedAt: "2026-10-30",
+    updatedAt: "2026-10-30",
+    image: "/images/gallery/General_site_photo_3.jpg",
+    imageAlt:
+      "Santa Clara residential landscape with hardscape installation and planting beds by S&S Landscaping Services",
+    excerpt:
+      "Space-saving landscaping design for Santa Clara's compact lots. Front yard makeovers, drought-tolerant plantings, hardscaping, and irrigation upgrades for Old Quad, Rivermark, and beyond.",
+    body: [
+      {
+        type: "paragraph",
+        text: "Santa Clara's compact, urban-suburban character and mix of older ranch homes and newer developments creates demand for efficient, space-conscious landscaping. We design landscapes that maximize outdoor living in Santa Clara's typically smaller lots, with drought-tolerant plantings and hardscape solutions that meet the city's water conservation goals. Explore our [Santa Clara area page](/areas/santa-clara) for neighborhood-specific details.",
+      },
+      { type: "heading", text: "Front Yard Makeovers in Santa Clara" },
+      {
+        type: "paragraph",
+        text: "Santa Clara's older neighborhoods like Old Quad and Franklin Square benefit from front yard makeovers that replace tired lawns with drought-tolerant plantings, clean landscape borders, and space-efficient layouts. We transform small front yards into curb-appeal showcases that look expansive and inviting. See our [landscaping and planting services](/services/landscaping-planting) for the full range of options.",
+      },
+      { type: "heading", text: "Hardscaping for Santa Clara's Compact Lots" },
+      {
+        type: "paragraph",
+        text: "Santa Clara's lot sizes often require creative space planning. We use vertical gardens, multi-functional patios, built-in seating, and strategic plant selections to create outdoor living space that feels larger than the footprint suggests. Our [hardscaping services](/services/hardscaping) include paver patios, walkways, and retaining walls designed for compact lots.",
+      },
+      { type: "heading", text: "Drought-Tolerant Landscaping in Santa Clara" },
+      {
+        type: "paragraph",
+        text: "Santa Clara follows Santa Clara Valley Water District conservation requirements and California MWELO standards. We design landscapes with drip irrigation, climate-appropriate plants, and smart controllers that meet these requirements while keeping your yard looking full and healthy. For water-smart planting ideas, see our guide to [drought-tolerant landscaping for Bay Area yards](/blog/drought-tolerant-landscaping-ideas-bay-area).",
+      },
+      {
+        type: "paragraph",
+        text: "Ready to transform your Santa Clara property? [Get a free quote](/contact#quote-form) or call us at 650-706-9496. Licensed and insured (LIC 100-7487).",
+      },
+    ],
+    faqs: [
+      {
+        question: "What landscaping services do you offer in Santa Clara?",
+        answer:
+          "We provide full landscaping and hardscaping services in Santa Clara, including front yard makeovers, backyard patio installation, drought-tolerant plantings, retaining walls, and irrigation system upgrades tailored to the city's compact lot sizes.",
+      },
+      {
+        question: "Can you design landscapes for small Santa Clara lots?",
+        answer:
+          "Yes. Santa Clara's lot sizes often require creative space planning. We use vertical gardens, multi-functional patios, built-in seating, and strategic plant selections to create outdoor living space that feels larger and more open than the footprint suggests.",
+      },
+      {
+        question: "Do you install hardscaping in Santa Clara?",
+        answer:
+          "Yes. We install paver patios, walkways, retaining walls, and decorative stonework for Santa Clara properties. Our hardscape installations include proper base preparation and drainage engineering for long-lasting results on compact lots.",
+      },
+    ],
+  },
+  {
+    slug: "atherton-landscaping-services",
+    title: "Atherton Landscaping Services",
+    description:
+      "Estate-scale landscaping in Atherton, CA. Custom stonework, formal gardens, retaining walls, and permit handling. Licensed & insured (LIC 100-7487). Free quotes — call 650-706-9496.",
+    category: "landscaping",
+    tags: ["atherton", "landscaping services", "estate-scale", "hardscaping", "paver installer"],
+    publishedAt: "2026-10-30",
+    updatedAt: "2026-10-30",
+    image: "/images/gallery/stone_fountain.jpg",
+    imageAlt:
+      "Estate-scale stone fountain garden with ornamental grasses and river rock in Atherton by S&S Landscaping Services",
+    excerpt:
+      "Estate-scale stonework, formal gardens, and custom retaining walls for Atherton properties. We handle Atherton's strict zoning and permit requirements. Serving Lindenwood, West Atherton, and Menlo Oaks.",
+    body: [
+      {
+        type: "paragraph",
+        text: "Atherton's flat, expansive lots and estate-scale properties call for a different caliber of landscaping — structured formal gardens, grand allée plantings, and precision hardscaping that frames large homes without overwhelming them. We specialize in estate-scale stonework, custom retaining walls, and mature tree installation that Atherton properties demand. Explore our [Atherton area page](/areas/atherton) for neighborhood-specific details and FAQ.",
+      },
+      { type: "heading", text: "Estate-Scale Stonework in Atherton" },
+      {
+        type: "paragraph",
+        text: "We build large-format patios, motor court stone pavers, estate retaining walls, and formal garden stonework suited to Atherton's expansive lots. Our base preparation and drainage engineering ensure hardscape stays level on Atherton's mostly flat terrain while managing stormwater runoff per San Mateo County requirements. Learn more about our [hardscaping services](/services/hardscaping).",
+      },
+      { type: "heading", text: "Custom Retaining Walls for Atherton Properties" },
+      {
+        type: "paragraph",
+        text: "We engineer retaining walls for Atherton's flat, expansive lots with proper drainage and base preparation that prevents settling and manages stormwater per San Mateo County requirements. Large-format walls, formal garden edging, and estate hardscape done right. Walls over 4 feet require engineering and permits, which we handle. See our [site preparation services](/services/site-preparation) for grading and drainage expertise.",
+      },
+      { type: "heading", text: "Atherton Zoning and Permit Handling" },
+      {
+        type: "paragraph",
+        text: "Atherton has strict zoning regulations under its municipal code, including tree protection ordinances for heritage trees and requirements for grading permits on slopes over 10%. We handle all necessary permits and work within the town's design review process for visible front-yard hardscape changes. We design plantings that complement estate architecture while remaining drought-conscious per California MWELO standards.",
+      },
+      {
+        type: "paragraph",
+        text: "Ready to enhance your Atherton property? [Get a free quote](/contact#quote-form) or call us at 650-706-9496. Licensed and insured (LIC 100-7487).",
+      },
+    ],
+    faqs: [
+      {
+        question: "What landscaping services do you offer in Atherton?",
+        answer:
+          "We provide estate-scale landscaping services in Atherton, including custom stonework, formal garden design, motor court pavers, retaining walls, mature tree installation, and full landscape design-build. We work within Atherton's strict zoning and design review requirements.",
+      },
+      {
+        question: "Can you handle Atherton's zoning and permit requirements?",
+        answer:
+          "Yes. Atherton has strict zoning regulations including tree protection ordinances for heritage trees and grading permit requirements for slopes over 10%. We handle all necessary permits and work within the town's design review process for visible front-yard hardscape changes.",
+      },
+      {
+        question: "Do you install estate-scale hardscaping in Atherton?",
+        answer:
+          "Yes. We build large-format patios, motor court stone pavers, estate retaining walls, and formal garden stonework suited to Atherton's expansive lots. Our base preparation and drainage engineering ensure hardscape stays level on Atherton's mostly flat terrain while managing stormwater runoff per San Mateo County requirements.",
       },
     ],
   },

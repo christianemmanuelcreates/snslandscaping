@@ -11,6 +11,7 @@ export type AreaContent = {
   heroImage: string;
   heroAlt: string;
   faqs: { question: string; answer: string }[];
+  metaDescription?: string;
 };
 
 export const AREA_CONTENT: Record<string, AreaContent> = {
@@ -23,6 +24,7 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
     neighborhoods: "94027 — Lindenwood, West Atherton, Menlo Oaks",
     heroImage: "/images/gallery/stone_fountain.jpg",
     heroAlt: "Estate-scale stone fountain garden with ornamental grasses and river rock in Atherton",
+    metaDescription: "Estate-scale landscaping in Atherton, CA. Custom stonework, formal gardens, retaining walls, and permit handling. Licensed & insured (LIC 100-7487). Free quotes — call 650-706-9496.",
     faqs: [
       {
         question: "Does Atherton require permits for landscaping and hardscaping?",
@@ -38,6 +40,16 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
         question: "What plant varieties work best in Atherton's micro-climate?",
         answer:
           "Atherton sits in a warmer, more sheltered inland pocket of San Mateo County with less marine fog than coastal cities. This allows for a broader plant palette including Mediterranean species, Japanese maples, camellias, and citrus. We design plantings that complement estate architecture while remaining drought-conscious per California MWELO standards.",
+      },
+      {
+        question: "Are you a paver installer for Atherton properties?",
+        answer:
+          "Yes. We install motor court stone pavers, large-format patio pavers, formal walkways, and estate driveways suited to Atherton's expansive lots. We use premium natural stone and concrete pavers rated for heavy vehicle traffic, with proper base preparation and drainage engineering that prevents settling and manages stormwater per San Mateo County requirements.",
+      },
+      {
+        question: "Do you serve as a landscaper for Atherton estate properties?",
+        answer:
+          "Yes. We are a full-service landscaper for Atherton estate properties, offering landscape design-build, estate-scale stonework, formal garden installation, retaining walls, mature tree planting, irrigation systems, and landscape lighting. We work within Atherton's strict zoning code and design review process, handling all necessary permits.",
       },
     ],
   },
@@ -180,7 +192,7 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
       "Los Gatos blends historic downtown charm with hillside residential neighborhoods, creating landscaping opportunities that range from cottage gardens near downtown to terraced hillside estates in the mountains. We build landscapes that complement Los Gatos's architectural heritage while handling the drainage and slope challenges of its hillside terrain.",
     neighborhoods: "95030 — Downtown, Almond Grove; 95032 — Blossom Manor, Rinconada Hills",
     heroImage: "/images/gallery/backyard_concept.jpg",
-    heroAlt: "Los Gatos backyard with stone fountain, lawn, and garden plantings by S&S Landscaping",
+    heroAlt: "Los Gatos backyard with stone fountain, lawn, and garden plantings by S&S Landscaping Services",
     faqs: [
       {
         question: "What landscaping services do you offer in Los Gatos?",
@@ -311,6 +323,7 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
     neighborhoods: "95126 — Willow Glen, Rose Garden; 95120 — Almaden Valley; 95125 — Naglee Park, Shasta Hanchett",
     heroImage: "/images/gallery/General_site_photo_1.jpg",
     heroAlt: "San Jose landscape project with completed hardscape and planting installation",
+    metaDescription: "Professional landscaping in San Jose, CA. Drought-tolerant gardens, paver patios, irrigation, and retaining walls. Licensed & insured. Free quotes — call 650-706-9496.",
     faqs: [
       {
         question: "What areas of San Jose do you serve?",
@@ -327,6 +340,21 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
         answer:
           "Yes. We handle both residential and commercial landscaping projects in San Jose, from single-family front yard renovations to commercial property landscape installation and maintenance. Our team is equipped for projects of any scale across the city.",
       },
+      {
+        question: "Can you build paver patios for San Jose homes?",
+        answer:
+          "Yes. We build custom paver patios for San Jose homeowners with proper base preparation and drainage engineering for the area's clay-heavy soils. Whether you're in Willow Glen, Rose Garden, or Almaden Valley, our patios are designed to stay level for decades. We handle everything from design to installation.",
+      },
+      {
+        question: "Do you install smart irrigation systems in San Jose?",
+        answer:
+          "Yes. We install weather-aware irrigation controllers and drip zones designed for San Jose's clay-heavy soils and Santa Clara Valley Water District watering restrictions. Upgrading to a smart system can cut water bills and qualify you for available rebates.",
+      },
+      {
+        question: "Do you build retaining walls for San Jose foothill properties?",
+        answer:
+          "Yes. We build engineered retaining walls with proper drainage and base preparation for San Jose's foothill neighborhoods, including Almaden Valley and Naglee Park. Walls over 4 feet require engineering and permits, which we handle. We also install French drains and slope stabilization systems.",
+      },
     ],
   },
 
@@ -337,6 +365,7 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
     neighborhoods: "95050 — Old Quad, Franklin Square; 95051 — Rivermark, Mission Gardens; 95054 — Tech corridor",
     heroImage: "/images/gallery/General_site_photo_3.jpg",
     heroAlt: "Santa Clara residential landscape with hardscape installation and planting beds",
+    metaDescription: "Landscaping services in Santa Clara, CA for compact lots. Front yard makeovers, hardscaping, drip irrigation, and drought-tolerant design. Licensed & insured. Free quotes.",
     faqs: [
       {
         question: "What landscaping services do you offer in Santa Clara?",
@@ -352,6 +381,16 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
         question: "Does Santa Clara require water-efficient landscaping?",
         answer:
           "Santa Clara follows Santa Clara Valley Water District conservation requirements and California MWELO standards. We design landscapes with drip irrigation, climate-appropriate plants, and smart controllers that meet these requirements while keeping your yard looking full and healthy.",
+      },
+      {
+        question: "Do you install hardscaping in Santa Clara?",
+        answer:
+          "Yes. We install paver patios, walkways, retaining walls, and decorative stonework for Santa Clara properties. Our hardscape installations include proper base preparation and drainage engineering for long-lasting results on compact lots, tailored to neighborhoods like Old Quad, Rivermark, and the tech corridor.",
+      },
+      {
+        question: "Do you offer landscape maintenance in Santa Clara?",
+        answer:
+          "Yes. We provide ongoing landscape maintenance for Santa Clara properties, including seasonal cleanup, pruning, irrigation system checks, mulch refresh, and weed management. Our maintenance plans are tailored to your property's plants, soil, and sun exposure.",
       },
     ],
   },

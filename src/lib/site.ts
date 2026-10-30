@@ -5,7 +5,7 @@
 
 export const SITE_URL = "https://snslandscaping.org/";
 
-export const BUSINESS_NAME = "S&S Landscaping";
+export const BUSINESS_NAME = "S&S Landscaping Services";
 
 export const BUSINESS_TAGLINE =
   "Premier landscaping & outdoor living in Silicon Valley & the Bay Area";
@@ -25,7 +25,7 @@ export const BUSINESS_ADDRESS = {
 
 /** Social and directory profiles for Organization sameAs schema. */
 export const SOCIAL_LINKS = {
-  google: "https://share.google/LwQSgxND7ceAISeLi",
+  google: "https://share.google/6vSPvbQMmSRJ4AE9u",
   instagram: "https://www.instagram.com/sns.landscaping.s/",
   facebook: "https://www.facebook.com/profile.php?id=61593895947387",
 } as const;
