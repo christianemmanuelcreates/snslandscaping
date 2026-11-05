@@ -41,9 +41,9 @@ export default function About() {
   return (
     <Layout
       seo={{
-        title: `About ${BUSINESS_NAME} | Licensed Landscaping by Samuel Delgado`,
+        title: `About ${BUSINESS_NAME} | Landscape Contractor in San Jose, CA`,
         description:
-          "Meet Samuel Delgado and Santos Gomez of S&S Landscaping Services — licensed (LIC 100-7487), insured, and serving Silicon Valley & the Bay Area with premium outdoor living. Get a free quote today.",
+          "Meet the team behind S&S Landscaping Services — licensed landscape contractor (LIC 100-7487) serving San Jose, Silicon Valley & the Bay Area. Free quotes — call 650-706-9496.",
         canonical: "https://snslandscaping.org/about",
         ogImage: "https://snslandscaping.org/images/gallery/tori_bench.jpg",
       }}
@@ -136,7 +136,7 @@ export default function About() {
           <Reveal>
             <Eyebrow light>Our Journey</Eyebrow>
             <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-white text-balance md:text-4xl">
-              From the Ground Up
+              From the Ground Up — Your Local Landscape Contractor in Silicon Valley
             </h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-white/70 md:text-lg">
               <p>

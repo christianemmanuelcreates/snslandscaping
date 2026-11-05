@@ -52,9 +52,9 @@ export default function Home() {
   return (
     <Layout
       seo={{
-        title: `${BUSINESS_NAME} | Landscaping & Outdoor Living in Silicon Valley`,
+        title: `${BUSINESS_NAME} | Landscaping & Hardscaping in San Jose, CA`,
         description:
-          "Premium landscaping, hardscaping, irrigation, and outdoor living across Silicon Valley and the Bay Area. Licensed & insured. Get a free quote today.",
+          "Licensed & insured landscaping company in San Jose serving Silicon Valley & the Bay Area. Lawn care, hardscaping, irrigation, patios & retaining walls. Free quotes — call 650-706-9496.",
         canonical: "https://snslandscaping.org/",
         ogType: "website",
         schemaTypes: ["WebSite", "LocalBusiness"],
@@ -110,12 +110,12 @@ export default function Home() {
             </Reveal>
             <Reveal delay={100}>
               <h1 className="font-heading text-5xl font-medium leading-[1.05] tracking-tight text-white text-balance sm:text-6xl md:text-7xl">
-                Premium Landscaping &amp; Outdoor Living
+                S&S Landscaping Services — Premium Landscaping in San Jose & the Bay Area
               </h1>
             </Reveal>
             <Reveal delay={200}>
               <p className="max-w-xl text-lg text-white/80 md:text-xl">
-                Reliable landscaping, hardscaping, and outdoor property services for residential &amp; commercial properties throughout the Bay Area.
+                Reliable landscaping, hardscaping, lawn care, and outdoor property services for residential &amp; commercial properties throughout Silicon Valley & the Bay Area.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -187,7 +187,7 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="What We Do"
-              title="Complete Outdoor Living, From the Ground Up"
+              title="Landscaping & Hardscaping Services in Silicon Valley"
               description="From lawns and gardens to patios, retaining walls, irrigation, and landscape lighting — we handle every aspect of your outdoor project."
             />
           </Reveal>
@@ -275,7 +275,7 @@ export default function Home() {
             <Reveal className="flex flex-col gap-6 lg:justify-center">
               <Eyebrow>Why S&amp;S</Eyebrow>
               <h2 className="font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl lg:text-5xl">
-                Dependable service. Clear communication. Quality that shows.
+                Your Trusted Landscaping Company in Silicon Valley
               </h2>
               <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                 At {BUSINESS_NAME}, we believe dependable service and clear communication should come standard. We're licensed and experienced, with years of hands-on knowledge you can rely on. We take pride in the quality and appearance of every project, focusing on the small details that make a big difference.
@@ -438,7 +438,7 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Questions"
-              title="Frequently Asked Questions"
+              title="Landscaping FAQ — Silicon Valley & Bay Area"
               description="Common questions about our landscaping services in Silicon Valley & the Bay Area."
             />
           </Reveal>

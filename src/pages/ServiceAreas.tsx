@@ -11,9 +11,9 @@ export default function ServiceAreas() {
   return (
     <Layout
       seo={{
-        title: `Service Areas in Silicon Valley | ${BUSINESS_NAME}`,
+        title: `Landscaping Service Areas in Silicon Valley & the Bay Area | ${BUSINESS_NAME}`,
         description:
-          "S&S Landscaping Services serves 16 communities across Silicon Valley and the Bay Area, including Los Gatos, Palo Alto, San Jose, Mountain View, Cupertino, and Saratoga. Get a free quote today.",
+          "S&S Landscaping serves 18 Bay Area communities — San Jose, Saratoga, Palo Alto, Los Gatos, Mountain View, Cupertino, Atherton & more. Licensed & insured. Free quotes.",
         canonical: "https://snslandscaping.org/areas",
         schemaTypes: ["LocalBusiness"],
       }}
@@ -48,7 +48,7 @@ export default function ServiceAreas() {
                 <MapPin className="size-7 text-primary" aria-hidden="true" />
               </div>
               <h1 className="mt-6 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl lg:text-6xl">
-                Serving Silicon Valley &amp; the Bay Area
+                Landscaping Service Areas in Silicon Valley &amp; the Bay Area
               </h1>
               <p className="mt-4 text-lg text-muted-foreground">
                 We bring premium landscaping and outdoor living to {AREAS.length} communities across Silicon Valley and the surrounding Bay Area.
@@ -65,7 +65,7 @@ export default function ServiceAreas() {
             <div className="mx-auto max-w-2xl text-center">
               <Eyebrow>Communities</Eyebrow>
               <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
-                Communities We Serve
+                Bay Area Communities We Serve
               </h2>
               <p className="mt-4 text-muted-foreground">
                 Select your city to see the landscaping services we provide in your area.

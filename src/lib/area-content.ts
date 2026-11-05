@@ -24,7 +24,7 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
     neighborhoods: "94027 — Lindenwood, West Atherton, Menlo Oaks",
     heroImage: "/images/gallery/stone_fountain.jpg",
     heroAlt: "Estate-scale stone fountain garden with ornamental grasses and river rock in Atherton",
-    metaDescription: "Estate-scale landscaping in Atherton, CA. Custom stonework, formal gardens, retaining walls, and permit handling. Licensed & insured (LIC 100-7487). Free quotes — call 650-706-9496.",
+    metaDescription: "Estate-scale landscaping & hardscaping in Atherton, CA. Custom stonework, paver installation, formal gardens, retaining walls & lawn care. Licensed & insured (LIC 100-7487). Free quotes — call 650-706-9496.",
     faqs: [
       {
         question: "Does Atherton require permits for landscaping and hardscaping?",
@@ -323,7 +323,7 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
     neighborhoods: "95126 — Willow Glen, Rose Garden; 95120 — Almaden Valley; 95125 — Naglee Park, Shasta Hanchett",
     heroImage: "/images/gallery/General_site_photo_1.jpg",
     heroAlt: "San Jose landscape project with completed hardscape and planting installation",
-    metaDescription: "Professional landscaping in San Jose, CA. Drought-tolerant gardens, paver patios, irrigation, and retaining walls. Licensed & insured. Free quotes — call 650-706-9496.",
+    metaDescription: "Professional landscaping, hardscaping & lawn care in San Jose, CA. Drought-tolerant gardens, paver patios, irrigation, retaining walls & landscape lighting. Licensed & insured. Free quotes — call 650-706-9496.",
     faqs: [
       {
         question: "What areas of San Jose do you serve?",
@@ -365,7 +365,7 @@ export const AREA_CONTENT: Record<string, AreaContent> = {
     neighborhoods: "95050 — Old Quad, Franklin Square; 95051 — Rivermark, Mission Gardens; 95054 — Tech corridor",
     heroImage: "/images/gallery/General_site_photo_3.jpg",
     heroAlt: "Santa Clara residential landscape with hardscape installation and planting beds",
-    metaDescription: "Landscaping services in Santa Clara, CA for compact lots. Front yard makeovers, hardscaping, drip irrigation, and drought-tolerant design. Licensed & insured. Free quotes.",
+    metaDescription: "Landscaping & hardscaping services in Santa Clara, CA for compact lots. Front yard makeovers, paver patios, drip irrigation, lawn care & drought-tolerant design. Licensed & insured. Free quotes — call 650-706-9496.",
     faqs: [
       {
         question: "What landscaping services do you offer in Santa Clara?",

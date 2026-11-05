@@ -40,9 +40,9 @@ export default function Services() {
   return (
     <Layout
       seo={{
-        title: `Landscaping Services | ${BUSINESS_NAME}`,
+        title: `Landscaping Services in San Jose & Silicon Valley | ${BUSINESS_NAME}`,
         description:
-          "Landscaping & planting, hardscaping, site preparation, irrigation & drainage, and outdoor amenities across Silicon Valley & the Bay Area. Licensed & insured. Free quotes.",
+          "Landscaping, hardscaping, lawn care, irrigation, drainage & outdoor amenities across Silicon Valley & the Bay Area. Licensed & insured (LIC 100-7487). Free quotes — call 650-706-9496.",
         canonical: "https://snslandscaping.org/services",
         ogImage: "https://snslandscaping.org/images/gallery/front_yard_2.jpg",
       }}
@@ -58,7 +58,7 @@ export default function Services() {
           <Reveal>
             <SectionHeading
               eyebrow="What We Do"
-              title="Our Services"
+              title="Landscaping Services in Silicon Valley & the Bay Area"
               description="Complete outdoor living, from the ground up. Every service backed by proper base preparation, drainage, and quality materials."
             />
           </Reveal>

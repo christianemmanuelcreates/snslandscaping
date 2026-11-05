@@ -158,9 +158,9 @@ export default function Contact() {
   return (
     <Layout
       seo={{
-        title: `Contact ${BUSINESS_NAME} | Get a Free Quote`,
+        title: `Free Landscaping Quote in San Jose & Silicon Valley | ${BUSINESS_NAME}`,
         description:
-          "Call 650-706-9496 or request a free quote online. S&S Landscaping Services serves Los Gatos, Palo Alto, San Jose, and 15 more Silicon Valley & Bay Area communities.",
+          "Get a free landscaping quote in San Jose, Palo Alto, Saratoga & 15 more Bay Area communities. Call 650-706-9496 or request a quote online. Licensed & insured.",
         canonical: "https://snslandscaping.org/contact",
         ogImage: "https://snslandscaping.org/images/gallery/stone_fountain.jpg",
       }}
@@ -177,7 +177,7 @@ export default function Contact() {
             <div className="mx-auto max-w-2xl text-center">
               <Eyebrow>Get in Touch</Eyebrow>
               <h1 className="mt-4 font-heading text-4xl font-medium tracking-tight text-balance md:text-5xl lg:text-6xl">
-                Get a Free Quote
+                Get a Free Landscaping Quote in Silicon Valley
               </h1>
               <p className="mt-4 text-lg text-muted-foreground">
                 Reach out today for a free quote on your landscaping project. We respond within 24 hours.
@@ -219,7 +219,7 @@ export default function Contact() {
                   ) : (
                     <>
                       <h2 className="font-heading text-2xl font-medium text-foreground md:text-3xl">
-                        Request Your Free Quote
+                        Request Your Free Landscaping Quote
                       </h2>
                       <p className="mt-2 text-sm text-muted-foreground">
                         Tell us about your project and we'll respond as soon as possible.

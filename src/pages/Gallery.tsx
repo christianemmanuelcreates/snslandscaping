@@ -41,9 +41,9 @@ export default function Gallery() {
   return (
     <Layout
       seo={{
-        title: `Gallery | ${BUSINESS_NAME} Projects`,
+        title: `Landscaping Project Gallery | Patios, Walkways & Hardscaping | ${BUSINESS_NAME}`,
         description:
-          "Browse patios, retaining walls, paver walkways, landscape lighting, water features, and turf installations by S&S Landscaping Services across Silicon Valley & the Bay Area.",
+          "Browse patios, retaining walls, paver walkways, landscape lighting, water features & turf installations by S&S Landscaping across San Jose & the Bay Area.",
         canonical: "https://snslandscaping.org/gallery",
         ogImage: "https://snslandscaping.org/images/gallery/stone_feature_2.jpg",
       }}
@@ -58,7 +58,7 @@ export default function Gallery() {
           <Reveal>
             <SectionHeading
               eyebrow="Our Work"
-              title="Outdoor Spaces We've Built"
+              title="Landscaping Project Gallery — Patios, Walkways & Hardscaping"
               description="A look at the patios, walkways, stone features, and landscapes we design and build across Silicon Valley & the Bay Area."
             />
           </Reveal>

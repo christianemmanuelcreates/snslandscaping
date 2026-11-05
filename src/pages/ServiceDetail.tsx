@@ -46,8 +46,8 @@ export default function ServiceDetail() {
   return (
     <Layout
       seo={{
-        title: `${service.name} in Silicon Valley | ${BUSINESS_NAME}`,
-        description: `${service.description} Get a free quote from ${BUSINESS_NAME} in Silicon Valley & the Bay Area.`,
+        title: `${service.seoTitle}`,
+        description: `${service.seoDescription}`,
         canonical: `https://snslandscaping.org/services/${service.slug}`,
         ogImage: `https://snslandscaping.org${service.image}`,
         schemaTypes: ["Service"],
@@ -85,7 +85,7 @@ export default function ServiceDetail() {
             </Reveal>
             <Reveal delay={100}>
               <h1 className="font-heading text-4xl font-medium tracking-tight text-white text-balance sm:text-5xl md:text-6xl">
-                {service.name}
+                {service.h1}
               </h1>
             </Reveal>
             <Reveal delay={200}>
@@ -122,7 +122,7 @@ export default function ServiceDetail() {
             <Reveal className="flex flex-col gap-6">
               <Eyebrow>Overview</Eyebrow>
               <h2 className="font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
-                About {service.name}
+                {service.aboutH2}
               </h2>
               <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                 {service.description}
@@ -156,7 +156,7 @@ export default function ServiceDetail() {
             <div className="mx-auto max-w-2xl text-center">
               <Eyebrow>Questions</Eyebrow>
               <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
-                Frequently Asked Questions
+                {service.name} FAQ
               </h2>
             </div>
           </Reveal>
@@ -180,7 +180,7 @@ export default function ServiceDetail() {
             <div className="mx-auto max-w-2xl text-center">
               <Eyebrow>Explore More</Eyebrow>
               <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
-                Related Services
+                Related Landscaping Services
               </h2>
             </div>
           </Reveal>

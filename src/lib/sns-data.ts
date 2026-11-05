@@ -23,6 +23,10 @@ export type Service = {
   features: string[];
   isCore: boolean;
   faqs: { question: string; answer: string }[];
+  seoTitle: string;
+  seoDescription: string;
+  h1: string;
+  aboutH2: string;
 };
 
 export type GalleryItem = {
@@ -57,6 +61,10 @@ export const SERVICES: Service[] = [
       "Seasonal planting",
     ],
     isCore: true,
+    seoTitle: "Landscaping & Planting Services in San Jose | S&S Landscaping",
+    seoDescription: "Lawn installation, garden design, tree & shrub planting in San Jose & Silicon Valley. Licensed & insured landscaping company. Free quotes — call 650-706-9496.",
+    h1: "Landscaping & Planting in San Jose & the Bay Area",
+    aboutH2: "Landscaping & Planting Services — Lawns, Gardens & Tree Installation",
     faqs: [
       {
         question: "Do you install new lawns?",
@@ -96,6 +104,10 @@ export const SERVICES: Service[] = [
       "Decorative masonry",
     ],
     isCore: true,
+    seoTitle: "Hardscaping in San Jose — Patios, Walkways & Retaining Walls | S&S",
+    seoDescription: "Paver patios, walkways, retaining walls & masonry in San Jose & the Bay Area. Licensed hardscaping contractor (LIC 100-7487). Free quotes — call 650-706-9496.",
+    h1: "Hardscaping in San Jose & the Bay Area",
+    aboutH2: "Hardscaping Services — Patios, Walkways & Retaining Walls",
     faqs: [
       {
         question: "What materials do you use for patios?",
@@ -135,6 +147,10 @@ export const SERVICES: Service[] = [
       "Erosion control",
     ],
     isCore: false,
+    seoTitle: "Site Preparation & Land Grading in San Jose | S&S Landscaping",
+    seoDescription: "Land grading, excavation, soil prep & erosion control in San Jose & Silicon Valley. Licensed & insured. Free quotes — call 650-706-9496.",
+    h1: "Site Preparation & Land Grading in the Bay Area",
+    aboutH2: "Site Preparation Services — Grading, Excavation & Soil Prep",
     faqs: [
       {
         question: "Do you handle land grading?",
@@ -174,6 +190,10 @@ export const SERVICES: Service[] = [
       "Landscape drainage",
     ],
     isCore: true,
+    seoTitle: "Irrigation & Drainage in San Jose — Sprinklers & Drainage | S&S",
+    seoDescription: "Sprinkler installation & repair, smart irrigation, drip systems & landscape drainage in San Jose & the Bay Area. Licensed & insured. Free quotes — call 650-706-9496.",
+    h1: "Irrigation & Drainage in San Jose & the Bay Area",
+    aboutH2: "Irrigation & Drainage Services — Sprinklers, Smart Irrigation & Drainage",
     faqs: [
       {
         question: "Do you install sprinkler systems?",
@@ -212,6 +232,10 @@ export const SERVICES: Service[] = [
       "Decorative treatments",
     ],
     isCore: false,
+    seoTitle: "Landscape Lighting & Water Features in San Jose | S&S Landscaping",
+    seoDescription: "Water features, fountains, low-voltage landscape lighting & decorative treatments in San Jose & the Bay Area. Licensed & insured. Free quotes — call 650-706-9496.",
+    h1: "Outdoor Amenities in San Jose & the Bay Area",
+    aboutH2: "Outdoor Amenities — Water Features & Landscape Lighting",
     faqs: [
       {
         question: "Do you install water features?",

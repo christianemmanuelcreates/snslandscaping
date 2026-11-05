@@ -14,9 +14,9 @@ export default function Blog() {
   return (
     <Layout
       seo={{
-        title: `Landscaping Blog | ${BUSINESS_NAME}`,
+        title: `Bay Area Landscaping Blog — Tips & Project Guides | ${BUSINESS_NAME}`,
         description:
-          "Expert tips on drought-tolerant landscaping, paver patio design, landscape lighting, garden maintenance, and outdoor living ideas for Bay Area homeowners from S&S Landscaping Services.",
+          "Expert landscaping tips for Bay Area homeowners — drought-tolerant gardens, paver patio design, landscape lighting, irrigation & outdoor living from S&S Landscaping Services in San Jose.",
         canonical: "https://snslandscaping.org/blog",
         ogImage: "https://snslandscaping.org/images/gallery/illuminated_steps.jpg",
       }}
@@ -28,7 +28,7 @@ export default function Blog() {
           <Reveal>
             <SectionHeading
               eyebrow="Tips & Ideas"
-              title="Landscaping Tips & Project Guides"
+              title="Landscaping Tips & Bay Area Project Guides"
               description="Expert advice on landscaping, hardscaping, irrigation, and outdoor living from the team at S&S Landscaping Services."
             />
           </Reveal>

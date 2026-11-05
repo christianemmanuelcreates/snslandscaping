@@ -71,8 +71,8 @@ export default function AreaDetail() {
   return (
     <Layout
       seo={{
-        title: `Landscaping in ${area.name}, CA | ${BUSINESS_NAME}`,
-        description: content?.metaDescription ?? `Professional landscaping, hardscaping, irrigation, and outdoor living services in ${area.name}, ${area.county} County. Serving ${area.metro} and the Bay Area. Get a free quote from ${BUSINESS_NAME}.`,
+        title: `Landscaping in ${area.name}, CA | Lawn Care & Hardscaping | ${BUSINESS_NAME}`,
+        description: content?.metaDescription ?? `Professional landscaping, hardscaping, lawn care & irrigation in ${area.name}, ${area.county} County. Licensed & insured (LIC 100-7487). Free quotes — call 650-706-9496.`,
         canonical: `https://snslandscaping.org/areas/${area.slug}`,
         ogImage: `https://snslandscaping.org${heroImage}`,
         schemaTypes: ["LocalBusiness"],
@@ -157,7 +157,7 @@ export default function AreaDetail() {
             <div className="mx-auto max-w-2xl text-center">
               <Eyebrow>{area.name}</Eyebrow>
               <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
-                Landscaping Services in {area.name}
+                Landscaping & Hardscaping Services in {area.name}
               </h2>
               <p className="mt-4 text-muted-foreground">
                 From lawn installation and garden design to hardscaping, irrigation, and landscape lighting, we handle every aspect of your outdoor project with the same attention to detail.
@@ -213,7 +213,7 @@ export default function AreaDetail() {
             <div className="mx-auto max-w-2xl text-center">
               <Eyebrow>Questions</Eyebrow>
               <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
-                Landscaping FAQ for {area.name}
+                Landscaping & Lawn Care FAQ for {area.name}
               </h2>
               <p className="mt-4 text-muted-foreground">
                 Common questions about our landscaping services in {area.name}.
@@ -240,7 +240,7 @@ export default function AreaDetail() {
             <div className="mx-auto max-w-2xl text-center">
               <Eyebrow>Explore</Eyebrow>
               <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-balance md:text-4xl">
-                Other Areas We Serve
+                More Bay Area Communities We Serve
               </h2>
             </div>
           </Reveal>
@@ -274,7 +274,7 @@ export default function AreaDetail() {
           <Reveal className="mx-auto max-w-2xl text-center">
             <Eyebrow light>Get Started</Eyebrow>
             <h2 className="mt-4 font-heading text-3xl font-medium tracking-tight text-white text-balance md:text-4xl lg:text-5xl">
-              Landscaping in {area.name}
+              Get a Free Landscaping Quote in {area.name}
             </h2>
             <p className="mt-4 text-lg text-white/70">
               Get a free quote for your {area.name} project today.
