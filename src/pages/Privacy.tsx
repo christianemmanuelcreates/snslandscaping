@@ -134,7 +134,6 @@ export default function Privacy() {
         description:
           "How S&S Landscaping Services collects, uses, and protects your data. Covers quote form submissions, SMS consent, Google Analytics, Meta Pixel retargeting, and your California privacy rights.",
         canonical: "https://snslandscaping.org/privacy",
-        noindex: true,
       }}
     >
       <section className="py-24 md:py-32">
