@@ -143,9 +143,14 @@ export function Footer() {
           <p className="text-center text-sm text-white/40">
             © {new Date().getFullYear()} {BUSINESS_NAME}. All rights reserved.
           </p>
-          <p className="text-xs text-white/30">
-            Licensed &amp; Insured · {LICENSE}
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="text-xs text-white/30">
+              Licensed &amp; Insured · {LICENSE}
+            </p>
+            <Link to="/privacy" className="text-xs text-white/40 transition-fluid hover:text-white/70">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
